@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Museo Sans Rounded 300";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Museo Sans Rounded 300"),
+    url("../../../assets/fonts/MuseoSansRounded300.woff") format("woff");
+}
+
+.mat-dialog-title {
+  color: #fff;
+  background: #4a4a4a 0% 0% no-repeat padding-box;
+  padding: 1rem;
+  text-align: center;
+  opacity: 1;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/deep/ .mat-dialog-container {
+  padding: 0;
+}
+
+.codes {
+  background: #efefef 0% 0% no-repeat padding-box;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  color: #4a4a4a;
+  font-family: "Museo Sans Rounded 300";
+}
+@media screen and (max-width: 320px) {
+  .codes {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.codes div {
+  font-family: "Museo Sans Rounded 300";
+}
+.used-codes {
+  color: #9a9a9a;
+  padding: 0.5rem 2rem;
+}
+
+.table td:first-child {
+  text-align: left;
+  word-break: break-all;
+  padding-right: 0;
+}
+
+.table td:nth-child(2) {
+  text-align: right;
+  width: 100px;
+  padding-left: 0;
+}
+
+.select-button {
+  border: 1px solid #707070;
+  font-family: "Museo Sans Rounded 300";
+  letter-spacing: 0;
+  color: #9a9a9a;
+  background: #fff;
+  border-radius: 3px;
+}
+.select-button.active {
+  border: 1px solid #00a388;
+  background: #00a388 0% 0% no-repeat padding-box;
+  color: #fff;
+}
+
+.fa-check-circle {
+  color: #00a388;
+}
+
+.selected {
+  height: 50px;
+  background: #d94d1a 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  border: 1px solid #d94d1a;
+  color: #fff;
+  padding: 0 1.5rem;
+}
+
+.table {
+  border: 1px solid #ccc;
+}
+.scrollInsideModal {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.codes .pointer:hover {
+  cursor: pointer;
+}
+.fa-question-circle-o {
+  position: absolute;
+  right: 9%;
+  top: 42%;
+}

@@ -1,0 +1,64 @@
+<div>
+    <table *ngIf="userDetails" class="table-fill">
+        <thead>
+            <tr>
+                <th colspan="2" class="text-left"><span>User Profile </span> 
+                    <button type="button" class="btn-primary pull-right"
+                        (click)="onLogout()">Logout</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>{{''}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{userDetails.email}}</td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td>{{userDetails.contact}}</td>
+            </tr>
+            <tr>
+                <td>@handle</td>
+                <td>{{userDetails['atsignName'] ? '@' + userDetails.atsignName : ''}}</td>
+            </tr>
+            <tr>
+                <td>Handle Type</td>
+                <td>{{userDetails.atsignType}}</td>
+            </tr>
+            <tr>
+                <td>Renew Before</td>
+                <td>{{userDetails.renewTime | date}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button class="btn-primary">Download App</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button class="btn-primary"><a [attr.href]="userDetails.inviteLink+'/true'" [attr.aria-controls]="userDetails.inviteLink+'/true'" style="color:#fff">Upgrade</a></button>
+                    <button class="btn-primary ml10" (click)="cancelSubscription()" *ngIf="userDetails['atsignName']">Cancel</button>
+                    <button class="btn-primary ml10" (click)="openDialog(invite)">Invite</button>
+                    <button class="btn-primary ml10">Add more atsign</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

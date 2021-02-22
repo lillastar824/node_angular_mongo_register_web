@@ -1,0 +1,68 @@
+<div class="header">
+  <button class="back-btn" (click)='onNoClick()'>
+    <mat-icon svgIcon="back"></mat-icon>
+  </button>
+  <h2>
+    Notifications
+    <!-- <span *ngIf="unreadNotifications.length > 0">{{unreadNotifications.length}}</span> -->
+  </h2>
+</div>
+<div class="body">
+  <div class="notifications unread" *ngIf="unreadNotifications.length > 0">
+    <div class="heading mb-4">{{unreadNotifications.length}} Unread</div>
+    <div class="notification d-flex align-items-center  p-4 mb-4" *ngFor="let notification of unreadNotifications">
+      <div class="pr-3 flex-grow-1 flex-shrink-1" *ngIf="notification.type === 'RENEWAL'">
+        <div class="notification-container">
+          <span class="notification">{{notification.createdAt|date}}</span>
+        </div>
+        <h2>The @ Company</h2>
+        <p>
+          <span *ngIf="notification.data.expired">Your @sign{{notification.data.atsigns.length > 1 ? 's': ''}}:
+            <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expired. </span>
+          <span *ngIf="notification.data.daysAfterExpire">Your @sign{{notification.data.atsigns.length > 1 ? 's': ''}}:
+            <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expired {{notification.data.daysAfterExpire}} days ago. </span>
+          <span *ngIf="notification.data.daysToExpire == 0">Your @sign{{notification.data.atsigns.length > 1 ? 's':
+            ''}}: <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expiring today.</span>
+          <span *ngIf="notification.data.daysToExpire">Your @sign{{notification.data.atsigns.length > 1 ? 's': ''}}:
+            <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expiring in {{notification.data.daysToExpire}} days.</span>
+          <span> Renew <a href="#" (click)="openMyAtsignsWindowForRenewal($event)">here.</a></span>
+        </p>
+      </div>
+      <!-- <button class="btn p-0 mark-as-read" type="button"><i aria-hidden="true" class="fa fa-check-circle"></i></button> -->
+    </div>
+  </div>
+  <div class="mb-4 alert alert-warning" *ngIf="unreadNotifications.length == 0">
+    <p class="text-center mb-0">No new notifications found!</p>
+  </div>
+  <div class="notifications older" *ngIf="readNotifications.length > 0">
+    <div class="heading mb-4">Older</div>
+    <div class="notification d-flex align-items-center  p-4 mb-4" *ngFor="let notification of readNotifications">
+      <div class="pr-3 flex-grow-1 flex-shrink-1" *ngIf="notification.type === 'RENEWAL'">
+        <div class="notification-container">
+          <span class="notification">{{notification.createdAt|date}}</span>
+        </div>
+        <h2>The @ Company</h2>
+        <p>
+          <span *ngIf="notification.data.expired">Your @sign{{notification.data.atsigns.length > 1 ? 's': ''}}:
+            <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expired. </span>
+          <span *ngIf="notification.data.daysAfterExpire">Your @sign{{notification.data.atsigns.length > 1 ? 's': ''}}:
+            <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expired {{notification.data.daysAfterExpire}} days ago. </span>
+          <span *ngIf="notification.data.daysToExpire == 0">Your @sign{{notification.data.atsigns.length > 1 ? 's':
+            ''}}: <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expiring today.</span>
+          <span *ngIf="notification.data.daysToExpire">Your @sign{{notification.data.atsigns.length > 1 ? 's': ''}}:
+            <b>{{formatAtsigns(notification.data.atsigns)}}</b> {{notification.data.atsigns.length>1?'are':'is'}}
+            expiring in {{notification.data.daysToExpire}} days.</span>
+          <span> Renew <a href="#" (click)="openMyAtsignsWindowForRenewal($event)">here.</a></span>
+        </p>
+      </div>
+      <!-- <button class="btn p-0 mark-as-read" type="button"><i aria-hidden="true" class="fa fa-check-circle"></i></button> -->
+    </div>
+  </div>
+</div>

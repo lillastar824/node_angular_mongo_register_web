@@ -1,0 +1,78 @@
+<div class="mt-5 mt-md-0">
+  <form #signInForm="ngForm">
+    <div class="success-message" *ngIf="serverErrorMessages">
+      <div>
+        {{serverErrorMessages}}
+      </div>
+      <i class="fa fa-times-circle close-icon mr-2" (click)="serverErrorMessages=''"></i>
+    </div>
+    <div class="container">
+      <div class="row">
+<div class="col">
+  <div class="get-invited-card">
+
+<img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+<div class="get-invited-card-inner">
+    <div class="form row pt-0 pb-0 px-0">
+      <div class="col-12 contained">
+        <h1 class="invite-head" *ngIf="!suffixMessage">Get Started!</h1>
+        <h1 class="invite-head mb-3" *ngIf="suffixMessage">Confirm your <span class="text-lowercase">{{suffixMessage}}</span></h1>
+      </div>
+
+      <div class="col-12 contained">
+        <div class="row">
+          <div class="col-12">
+            <div *ngIf="!passwordSignIn && !otpSignIn">
+              <button class="" (click)="passwordSignIn=true">Sign In using Password</button>
+              <div class="text-center"><label for="signInType">Or</label></div>
+              <button class="" (click)="otpSignIn=true">Sign In using OTP</button>
+            </div>
+          </div>
+          <div class="col-12 mb-4" *ngIf="passwordSignIn">
+            <mat-form-field appearance="outline" class="d-block w-100 mb-3">
+              <mat-label>Email</mat-label>
+              <input matInput type="text" name="email"  #email="ngModel" [(ngModel)]="model.email"
+                placeholder="Email" [pattern]="emailRegex" required
+                [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+            </mat-form-field>
+
+            <div *ngIf="signInForm.submitted && email.errors?.pattern">
+              <label class="validation-message">Invalid Email address.</label>
+            </div>
+            <mat-form-field appearance="outline" class="d-block w-100 mb-3">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" name="password" #password="ngModel"
+                [(ngModel)]="model.password" placeholder="Password" required
+                [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+            </mat-form-field>
+            <div *ngIf="signInForm.submitted && password.errors?.minlength">
+              <label class="validation-message">Minimum 4 characters.</label>
+            </div>
+            <div class="col-md-12 p-0">
+                    <button type="submit" *ngIf="passwordSignIn" (click)="onSubmit(signInForm)">Sign In</button>
+             </div>
+            <!-- <div class="standard-color pointer-cursor mt-2 text-right" (click)="otpSignIn=true;passwordSignIn=false">Sign-In using OTP</div> -->
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 p-0" *ngIf="otpSignIn">
+            <app-verification-code (verificationCodeSending)="verificationCodeChangedHandler($event)" [verificationCodeSend]=verificationCodeSent></app-verification-code>
+            <!-- <div class="standard-color pointer-cursor mt-2 text-right" (click)="otpSignIn=false;passwordSignIn=true">Sign-In using Password</div> -->
+            <div class="text-center">
+             Don't have <strong>@sign</strong> yet? Get one <a href="https://atsign.com/get-an-sign/" class="atsign-link">here</a>!</div>
+          </div>
+        </div>
+      </div>
+</div></div><img class="bubble-bg" src="../../../assets/img/Bubble.png">
+</div>
+</div>
+      </div>
+
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,114 @@
+<!-- showNavbar(is loggedin) -->
+<!-- !showNavbar(is loggedout) -->
+<mat-drawer-container >
+  <mat-drawer #drawer mode="over" hasBackdrop="true">
+    <div class="d-flex flex-column justify-content-between menu-drawer" *ngIf="userService.isLoggedIn()">
+      <ul class="nav-menu list-unstyled mb-0">
+        <li *ngIf="isUser"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/dashboard'" >
+          <!-- [ngClass]="{'active':currentRoute==='/dashboard'}" -->
+            <mat-icon svgIcon="guage"></mat-icon>Dashboard
+          </button></li>
+        <li *ngIf="isUser && !hideCreateNewAtsignLink"><button class="btn nav-menu-item" (click)="drawer.close();createAnotherSign()">
+            <!-- [ngClass]="{'active':currentRoute==='/dashboard'}"> -->
+            <mat-icon svgIcon="create"></mat-icon>Create an @sign
+          </button></li>
+
+          <!-- <li *ngIf="isUser"><button class="btn nav-menu-item"  [routerLink]="'/atsign-transfer-list'" (click)="drawer.close(); ">
+            <mat-icon svgIcon="guage"></mat-icon>@sign transfer list
+          </button></li> -->
+
+          <!-- <li *ngIf="isUser"><button class="btn nav-menu-item"  [routerLink]="'/user-commission-dashboard'" (click)="drawer.close(); ">
+            <mat-icon svgIcon="guage"></mat-icon> User Dashboard
+          </button></li> -->
+
+        <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/getallusers'"
+            [ngClass]="{'active':currentRoute==='/getallusers'}">
+            <mat-icon >supervised_user_circle</mat-icon>Show All Users
+          </button></li>
+        <li *ngIf="isAdmin || isAdminReport"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/reports'"
+            [ngClass]="{'active':currentRoute==='/reports'}">
+            <mat-icon >addchart</mat-icon>Reports
+          </button></li>
+
+          <li *ngIf="isAdmin || isAdminReport"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/commission-atsign'"
+            [ngClass]="{'active':currentRoute==='/commission-atsign'}">
+            <mat-icon >create</mat-icon>Commercial @sign
+          </button></li>
+
+          <li *ngIf="isAdmin || isAdminReport"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/commission-report'"
+            [ngClass]="{'active':currentRoute==='/commission-report'}">
+            <mat-icon >addchart</mat-icon>Commission Reports
+          </button></li>
+
+          <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()"
+            [routerLink]="'/enable-wait-list'" [ngClass]="{'active':currentRoute==='/enable-wait-list'}">
+            <mat-icon svgIcon="create"></mat-icon>Enable Wait List
+          </button></li>
+
+          <!-- <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()"
+            [routerLink]="'/all-transfer-atsign'" [ngClass]="{'active':currentRoute==='/all-transfer-atsign'}">
+            <mat-icon>addchart</mat-icon>All Transfer @sign
+          </button></li> -->
+
+        <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/reservedatsigns'"
+            [ngClass]="{'active':currentRoute==='/reservedatsigns'}">
+            <mat-icon svgIcon="create"></mat-icon>Reserved @signs
+          </button></li>
+        <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/userlog'"
+            [ngClass]="{'active':currentRoute==='/userlog'}">
+            <mat-icon>visibility</mat-icon>Logs
+          </button></li>
+        <li *ngIf="isAdmin || isAdminReport"><button class="btn nav-menu-item" (click)="drawer.close();changePassword()"
+            [ngClass]="{'active':currentRoute==='/reservedatsigns'}">
+            <mat-icon >settings</mat-icon>Change Password
+          </button></li>
+        <li><button class="btn nav-menu-item" (click)="drawer.close();onLogout()">
+            <mat-icon svgIcon="logout"></mat-icon>Logout
+          </button></li>
+          <li> <a style="color:#ffffff;"
+            href="mailto:support@atsign.com?subject=Please help"><button class="btn nav-menu-item" (click)="drawer.close()">
+              <mat-icon svgIcon="question"></mat-icon>
+             Help
+            </button></a></li>
+      </ul>
+      <div class="text-center">
+        <a class="d-inline-block mb-3" href="https://atsign.com" (click)="drawer.close()"><img src="../../assets/img/logo_white.png" alt="@sign"></a>
+        <p class="mb-2 font-muli text-copyright">&copy; 2019-2021 - All Rights Reserved</p>
+        <p class="font-muli text-copyright mb-0">Version 0.12</p>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="top-navbar d-flex justify-content-between" *ngIf="userService.showTimer && showNavbar && isUser">
+      <!-- <div class="logo d-none d-lg-flex align-items-center ml-auto"><a href="/"><img src="../../assets/img/brand-logo-colored.png" alt="@sign" style="height:29px"></a></div> -->
+      <div class="timer d-flex ml-auto">
+        <div class="info-text">We’re holding your @sign! Please finish registration.</div>
+        <div class="countdown d-flex align-items-center flex-grow-1 flex-column justify-content-center">
+
+          <span class="countdown-time">
+            <i class="fa fa-clock-o mr-2" aria-hidden="true"></i>
+            <countdown [config]="{ leftTime: userService.timeLeft || userService.defaultTimeLeft, format: 'mm:ss'}"
+              (event)="handleEvent($event)" class="timer"></countdown>
+          </span>
+          <span class="d-block">Remaining</span>
+        </div>
+      </div>
+
+  </div>
+    <mat-toolbar class="navbar inner-navbar" (scroll)="scrollMe($event)" *ngIf="showToolbar">
+      <mat-toolbar-row class="navbar-logo" style="height: auto;">
+        <div class="flex-grow-1">
+          <!--tbd && !userService.showTimer -->
+          <button *ngIf="showNavbar" class="btn px-0 three-dots" (click)="drawer.toggle()">
+            <mat-icon svgIcon="elipses"></mat-icon>
+          </button>
+        </div>
+        <div class="px-3"><a href="https://atsign.com"><img src="../../assets/img/brand-logo-colored.png" alt="@sign" style="height: auto;max-height: 30px;max-width: 100%;"></a></div>
+        <div class="flex-grow-1 d-flex justify-content-end">
+          <button *ngIf="showNavbar && isUser" class="cart-button btn p-0" matBadge="{{userService.cartLength}}" matBadgeOverlap="true" (click)="openShoppingDialog()">
+            <mat-icon svgIcon="shopping"></mat-icon>
+          </button></div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </mat-drawer-content>
+</mat-drawer-container>

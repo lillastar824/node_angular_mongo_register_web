@@ -1,0 +1,5564 @@
+[
+	{
+		"name": "amazon"
+	},
+	{
+		"name": "google"
+	},
+	{
+		"name": "apple"
+	},
+	{
+		"name": "microsoft"
+	},
+	{
+		"name": "samsunggroup"
+	},
+	{
+		"name": "icbc"
+	},
+	{
+		"name": "facebook"
+	},
+	{
+		"name": "walmart"
+	},
+	{
+		"name": "pingan"
+	},
+	{
+		"name": "huawei"
+	},
+	{
+		"name": "mercedesbenz"
+	},
+	{
+		"name": "verizon"
+	},
+	{
+		"name": "chinaconstructionbank"
+	},
+	{
+		"name": "att"
+	},
+	{
+		"name": "toyota"
+	},
+	{
+		"name": "stategrid"
+	},
+	{
+		"name": "disney"
+	},
+	{
+		"name": "agriculturalbankofchina"
+	},
+	{
+		"name": "wechat"
+	},
+	{
+		"name": "bankofchina"
+	},
+	{
+		"name": "homedepot"
+	},
+	{
+		"name": "chinamobile"
+	},
+	{
+		"name": "shell"
+	},
+	{
+		"name": "saudiaramco"
+	},
+	{
+		"name": "volkswagen"
+	},
+	{
+		"name": "youtube"
+	},
+	{
+		"name": "tencentqq"
+	},
+	{
+		"name": "starbucks"
+	},
+	{
+		"name": "wellsfargo"
+	},
+	{
+		"name": "bmw"
+	},
+	{
+		"name": "deutschetelekom"
+	},
+	{
+		"name": "moutai"
+	},
+	{
+		"name": "petrochina"
+	},
+	{
+		"name": "cocacola"
+	},
+	{
+		"name": "mitsubishigroup"
+	},
+	{
+		"name": "mcdonalds"
+	},
+	{
+		"name": "taobao"
+	},
+	{
+		"name": "nttgroup"
+	},
+	{
+		"name": "bankofamerica"
+	},
+	{
+		"name": "nike"
+	},
+	{
+		"name": "porsche"
+	},
+	{
+		"name": "sinopec"
+	},
+	{
+		"name": "ibm"
+	},
+	{
+		"name": "citi"
+	},
+	{
+		"name": "honda"
+	},
+	{
+		"name": "marlboro"
+	},
+	{
+		"name": "deloitte"
+	},
+	{
+		"name": "chase"
+	},
+	{
+		"name": "tmall"
+	},
+	{
+		"name": "ups"
+	},
+	{
+		"name": "americanexpress"
+	},
+	{
+		"name": "xfinity"
+	},
+	{
+		"name": "unitedhealthcare"
+	},
+	{
+		"name": "sumitomogroup"
+	},
+	{
+		"name": "intel"
+	},
+	{
+		"name": "visa"
+	},
+	{
+		"name": "instagram"
+	},
+	{
+		"name": "chinalife"
+	},
+	{
+		"name": "accenture"
+	},
+	{
+		"name": "allianz"
+	},
+	{
+		"name": "cscec"
+	},
+	{
+		"name": "pwc"
+	},
+	{
+		"name": "lowes"
+	},
+	{
+		"name": "mitsui"
+	},
+	{
+		"name": "generalelectric"
+	},
+	{
+		"name": "ey"
+	},
+	{
+		"name": "oracle"
+	},
+	{
+		"name": "cisco"
+	},
+	{
+		"name": "bp"
+	},
+	{
+		"name": "cvs"
+	},
+	{
+		"name": "total"
+	},
+	{
+		"name": "fedex"
+	},
+	{
+		"name": "netflix"
+	},
+	{
+		"name": "chinamerchantsbank"
+	},
+	{
+		"name": "jpmorgan"
+	},
+	{
+		"name": "boeing"
+	},
+	{
+		"name": "costco"
+	},
+	{
+		"name": "skgroup"
+	},
+	{
+		"name": "wuliangye"
+	},
+	{
+		"name": "evergrande"
+	},
+	{
+		"name": "nestle"
+	},
+	{
+		"name": "hyundaigroup"
+	},
+	{
+		"name": "chinatelecom"
+	},
+	{
+		"name": "siemens"
+	},
+	{
+		"name": "tatagroup"
+	},
+	{
+		"name": "mastercard"
+	},
+	{
+		"name": "bosch"
+	},
+	{
+		"name": "ikea"
+	},
+	{
+		"name": "hsbc"
+	},
+	{
+		"name": "spectrum"
+	},
+	{
+		"name": "vodafone"
+	},
+	{
+		"name": "pepsi"
+	},
+	{
+		"name": "alibabacom"
+	},
+	{
+		"name": "ford"
+	},
+	{
+		"name": "aia"
+	},
+	{
+		"name": "orange"
+	},
+	{
+		"name": "nissan"
+	},
+	{
+		"name": "chevron"
+	},
+	{
+		"name": "gucci"
+	},
+	{
+		"name": "delltechnologies"
+	},
+	{
+		"name": "santander"
+	},
+	{
+		"name": "lggroup"
+	},
+	{
+		"name": "countrygarden"
+	},
+	{
+		"name": "kfc"
+	},
+	{
+		"name": "audi"
+	},
+	{
+		"name": "volvo"
+	},
+	{
+		"name": "anthem"
+	},
+	{
+		"name": "sap"
+	},
+	{
+		"name": "adidas"
+	},
+	{
+		"name": "louisvuitton"
+	},
+	{
+		"name": "axa"
+	},
+	{
+		"name": "softbank"
+	},
+	{
+		"name": "td"
+	},
+	{
+		"name": "target"
+	},
+	{
+		"name": "paypal"
+	},
+	{
+		"name": "au"
+	},
+	{
+		"name": "rbc"
+	},
+	{
+		"name": "exxonmobil"
+	},
+	{
+		"name": "uber"
+	},
+	{
+		"name": "petronas"
+	},
+	{
+		"name": "bankofcommunications"
+	},
+	{
+		"name": "nbc"
+	},
+	{
+		"name": "cartier"
+	},
+	{
+		"name": "walgreens"
+	},
+	{
+		"name": "kpmg"
+	},
+	{
+		"name": "universal"
+	},
+	{
+		"name": "capitalone"
+	},
+	{
+		"name": "zara"
+	},
+	{
+		"name": "hitachi"
+	},
+	{
+		"name": "aldi"
+	},
+	{
+		"name": "airbus"
+	},
+	{
+		"name": "cpic"
+	},
+	{
+		"name": "chevrolet"
+	},
+	{
+		"name": "shanghaipudongdevelopmentbank"
+	},
+	{
+		"name": "hm"
+	},
+	{
+		"name": "chanel"
+	},
+	{
+		"name": "postalsavingsbank"
+	},
+	{
+		"name": "bnpparibas"
+	},
+	{
+		"name": "sberbank"
+	},
+	{
+		"name": "chinaciticbank"
+	},
+	{
+		"name": "netease"
+	},
+	{
+		"name": "jdcom"
+	},
+	{
+		"name": "uniqlo"
+	},
+	{
+		"name": "sony"
+	},
+	{
+		"name": "lockheedmartin"
+	},
+	{
+		"name": "humana"
+	},
+	{
+		"name": "tesla"
+	},
+	{
+		"name": "lidl"
+	},
+	{
+		"name": "midea"
+	},
+	{
+		"name": "vanke"
+	},
+	{
+		"name": "crcc"
+	},
+	{
+		"name": "jr"
+	},
+	{
+		"name": "optum"
+	},
+	{
+		"name": "hermã¨s"
+	},
+	{
+		"name": "edf"
+	},
+	{
+		"name": "enel"
+	},
+	{
+		"name": "lorã©al"
+	},
+	{
+		"name": "cbs"
+	},
+	{
+		"name": "panasonic"
+	},
+	{
+		"name": "greenland"
+	},
+	{
+		"name": "adnoc"
+	},
+	{
+		"name": "goldmansachs"
+	},
+	{
+		"name": "ing"
+	},
+	{
+		"name": "crecg"
+	},
+	{
+		"name": "warnerbros"
+	},
+	{
+		"name": "engie"
+	},
+	{
+		"name": "tesco"
+	},
+	{
+		"name": "picc"
+	},
+	{
+		"name": "renault"
+	},
+	{
+		"name": "sephora"
+	},
+	{
+		"name": "johnsonjohnson"
+	},
+	{
+		"name": "hiltonhotelsresorts"
+	},
+	{
+		"name": "barclays"
+	},
+	{
+		"name": "airbnb"
+	},
+	{
+		"name": "industrialbank"
+	},
+	{
+		"name": "geico"
+	},
+	{
+		"name": "salesforce"
+	},
+	{
+		"name": "bookingcom"
+	},
+	{
+		"name": "marubeni"
+	},
+	{
+		"name": "scotiabank"
+	},
+	{
+		"name": "dhl"
+	},
+	{
+		"name": "nokia"
+	},
+	{
+		"name": "samsclub"
+	},
+	{
+		"name": "chinaeverbrightbank"
+	},
+	{
+		"name": "chinaminshengbank"
+	},
+	{
+		"name": "movistar"
+	},
+	{
+		"name": "gree"
+	},
+	{
+		"name": "equinor"
+	},
+	{
+		"name": "tjmaxx"
+	},
+	{
+		"name": "bmo"
+	},
+	{
+		"name": "medtronic"
+	},
+	{
+		"name": "bbva"
+	},
+	{
+		"name": "mufg"
+	},
+	{
+		"name": "canon"
+	},
+	{
+		"name": "adobe"
+	},
+	{
+		"name": "chinaunicom"
+	},
+	{
+		"name": "eni"
+	},
+	{
+		"name": "sky"
+	},
+	{
+		"name": "longforproperties"
+	},
+	{
+		"name": "lexus"
+	},
+	{
+		"name": "delta"
+	},
+	{
+		"name": "ubs"
+	},
+	{
+		"name": "hp"
+	},
+	{
+		"name": "polyrealestate"
+	},
+	{
+		"name": "allstate"
+	},
+	{
+		"name": "ferrari"
+	},
+	{
+		"name": "baidu"
+	},
+	{
+		"name": "morganstanley"
+	},
+	{
+		"name": "americanairlines"
+	},
+	{
+		"name": "3m"
+	},
+	{
+		"name": "carrefour"
+	},
+	{
+		"name": "hca"
+	},
+	{
+		"name": "japanpostholdings"
+	},
+	{
+		"name": "unionpacific"
+	},
+	{
+		"name": "7eleven"
+	},
+	{
+		"name": "yili"
+	},
+	{
+		"name": "subaru"
+	},
+	{
+		"name": "tsmc"
+	},
+	{
+		"name": "cognizant"
+	},
+	{
+		"name": "yahoogroup"
+	},
+	{
+		"name": "usbank"
+	},
+	{
+		"name": "chinaresourcesland"
+	},
+	{
+		"name": "gillette"
+	},
+	{
+		"name": "dbs"
+	},
+	{
+		"name": "etisalat"
+	},
+	{
+		"name": "fox"
+	},
+	{
+		"name": "tyson"
+	},
+	{
+		"name": "aetna"
+	},
+	{
+		"name": "progressive"
+	},
+	{
+		"name": "johndeere"
+	},
+	{
+		"name": "zurich"
+	},
+	{
+		"name": "unitedairlines"
+	},
+	{
+		"name": "espn"
+	},
+	{
+		"name": "ebay"
+	},
+	{
+		"name": "woolworths"
+	},
+	{
+		"name": "generaligroup"
+	},
+	{
+		"name": "20thcenturystudios"
+	},
+	{
+		"name": "lic"
+	},
+	{
+		"name": "corona"
+	},
+	{
+		"name": "telstra"
+	},
+	{
+		"name": "purina"
+	},
+	{
+		"name": "stc"
+	},
+	{
+		"name": "subway"
+	},
+	{
+		"name": "reliance"
+	},
+	{
+		"name": "vinci"
+	},
+	{
+		"name": "cibc"
+	},
+	{
+		"name": "basf"
+	},
+	{
+		"name": "rolex"
+	},
+	{
+		"name": "linkedin"
+	},
+	{
+		"name": "danone"
+	},
+	{
+		"name": "canadalife"
+	},
+	{
+		"name": "powerchina"
+	},
+	{
+		"name": "rabobank"
+	},
+	{
+		"name": "metlife"
+	},
+	{
+		"name": "haier"
+	},
+	{
+		"name": "yanghe"
+	},
+	{
+		"name": "pnc"
+	},
+	{
+		"name": "cigna"
+	},
+	{
+		"name": "landrover"
+	},
+	{
+		"name": "roche"
+	},
+	{
+		"name": "gazprom"
+	},
+	{
+		"name": "dollargeneral"
+	},
+	{
+		"name": "sunac"
+	},
+	{
+		"name": "bnsf"
+	},
+	{
+		"name": "kepco"
+	},
+	{
+		"name": "northropgrumman"
+	},
+	{
+		"name": "nivea"
+	},
+	{
+		"name": "enterprise"
+	},
+	{
+		"name": "sociã©tã©gã©nã©rale"
+	},
+	{
+		"name": "honeywell"
+	},
+	{
+		"name": "tim"
+	},
+	{
+		"name": "aviva"
+	},
+	{
+		"name": "playstation"
+	},
+	{
+		"name": "brookfield"
+	},
+	{
+		"name": "crrc"
+	},
+	{
+		"name": "truist"
+	},
+	{
+		"name": "michelin"
+	},
+	{
+		"name": "qualcomm"
+	},
+	{
+		"name": "broadcom"
+	},
+	{
+		"name": "travelers"
+	},
+	{
+		"name": "infosys"
+	},
+	{
+		"name": "redbull"
+	},
+	{
+		"name": "bell"
+	},
+	{
+		"name": "commonwealthbank"
+	},
+	{
+		"name": "merrill"
+	},
+	{
+		"name": "philips"
+	},
+	{
+		"name": "bridgestone"
+	},
+	{
+		"name": "lloydsbank"
+	},
+	{
+		"name": "heineken"
+	},
+	{
+		"name": "swissre"
+	},
+	{
+		"name": "creditsuisse"
+	},
+	{
+		"name": "pemex"
+	},
+	{
+		"name": "nipponlifeinsurance"
+	},
+	{
+		"name": "hikvision"
+	},
+	{
+		"name": "dior"
+	},
+	{
+		"name": "suning"
+	},
+	{
+		"name": "emirates"
+	},
+	{
+		"name": "itaãº"
+	},
+	{
+		"name": "valero"
+	},
+	{
+		"name": "coach"
+	},
+	{
+		"name": "saintgobain"
+	},
+	{
+		"name": "publix"
+	},
+	{
+		"name": "kelloggs"
+	},
+	{
+		"name": "prudentialus"
+	},
+	{
+		"name": "mizuhofinancialgroup"
+	},
+	{
+		"name": "3"
+	},
+	{
+		"name": "posteitaliane"
+	},
+	{
+		"name": "bradesco"
+	},
+	{
+		"name": "capgemini"
+	},
+	{
+		"name": "youku"
+	},
+	{
+		"name": "chubb"
+	},
+	{
+		"name": "telus"
+	},
+	{
+		"name": "lego"
+	},
+	{
+		"name": "eleclerc"
+	},
+	{
+		"name": "discover"
+	},
+	{
+		"name": "xiaomi"
+	},
+	{
+		"name": "intesasanpaolo"
+	},
+	{
+		"name": "rossdressforless"
+	},
+	{
+		"name": "adp"
+	},
+	{
+		"name": "hpe"
+	},
+	{
+		"name": "budweiser"
+	},
+	{
+		"name": "statebankofindia"
+	},
+	{
+		"name": "cnooc"
+	},
+	{
+		"name": "sherwinwilliams"
+	},
+	{
+		"name": "safran"
+	},
+	{
+		"name": "pampers"
+	},
+	{
+		"name": "daiwahouse"
+	},
+	{
+		"name": "asda"
+	},
+	{
+		"name": "o2"
+	},
+	{
+		"name": "lm"
+	},
+	{
+		"name": "estã©elauder"
+	},
+	{
+		"name": "telenor"
+	},
+	{
+		"name": "fresenius"
+	},
+	{
+		"name": "clinique"
+	},
+	{
+		"name": "kroger"
+	},
+	{
+		"name": "nescafã©"
+	},
+	{
+		"name": "ptt"
+	},
+	{
+		"name": "claro"
+	},
+	{
+		"name": "sprint"
+	},
+	{
+		"name": "pallmall"
+	},
+	{
+		"name": "marriott"
+	},
+	{
+		"name": "qnb"
+	},
+	{
+		"name": "tiffanyco"
+	},
+	{
+		"name": "southwestairlines"
+	},
+	{
+		"name": "caterpillar"
+	},
+	{
+		"name": "bt"
+	},
+	{
+		"name": "natwest"
+	},
+	{
+		"name": "hdfcbank"
+	},
+	{
+		"name": "mclane"
+	},
+	{
+		"name": "abc"
+	},
+	{
+		"name": "lukoil"
+	},
+	{
+		"name": "dxctechnology"
+	},
+	{
+		"name": "cnbm"
+	},
+	{
+		"name": "autozone"
+	},
+	{
+		"name": "viettel"
+	},
+	{
+		"name": "bhp"
+	},
+	{
+		"name": "chowtaifook"
+	},
+	{
+		"name": "budlight"
+	},
+	{
+		"name": "cjgroup"
+	},
+	{
+		"name": "mcc"
+	},
+	{
+		"name": "mahindragroup"
+	},
+	{
+		"name": "mckinsey"
+	},
+	{
+		"name": "bouygues"
+	},
+	{
+		"name": "standardchartered"
+	},
+	{
+		"name": "sysco"
+	},
+	{
+		"name": "guerlain"
+	},
+	{
+		"name": "shiseido"
+	},
+	{
+		"name": "dominospizza"
+	},
+	{
+		"name": "ctripcom"
+	},
+	{
+		"name": "crã©ditagricole"
+	},
+	{
+		"name": "microntechnology"
+	},
+	{
+		"name": "carmax"
+	},
+	{
+		"name": "schlumberger"
+	},
+	{
+		"name": "rogers"
+	},
+	{
+		"name": "luzhoulaojiao"
+	},
+	{
+		"name": "sfr"
+	},
+	{
+		"name": "pantene"
+	},
+	{
+		"name": "fubonfinancial"
+	},
+	{
+		"name": "fis"
+	},
+	{
+		"name": "xbox"
+	},
+	{
+		"name": "generaldynamics"
+	},
+	{
+		"name": "centenecorporation"
+	},
+	{
+		"name": "suzuki"
+	},
+	{
+		"name": "sprite"
+	},
+	{
+		"name": "circlek"
+	},
+	{
+		"name": "pizzahut"
+	},
+	{
+		"name": "tacobell"
+	},
+	{
+		"name": "nintendo"
+	},
+	{
+		"name": "prudentialuk"
+	},
+	{
+		"name": "lenovo"
+	},
+	{
+		"name": "vmware"
+	},
+	{
+		"name": "lays"
+	},
+	{
+		"name": "esso"
+	},
+	{
+		"name": "mengniu"
+	},
+	{
+		"name": "victoriassecret"
+	},
+	{
+		"name": "activisionblizzard"
+	},
+	{
+		"name": "raytheon"
+	},
+	{
+		"name": "dunkin"
+	},
+	{
+		"name": "rakuten"
+	},
+	{
+		"name": "coles"
+	},
+	{
+		"name": "elcorteinglã©s"
+	},
+	{
+		"name": "cccc"
+	},
+	{
+		"name": "bayer"
+	},
+	{
+		"name": "swisscom"
+	},
+	{
+		"name": "bestbuy"
+	},
+	{
+		"name": "mobil"
+	},
+	{
+		"name": "marshalls"
+	},
+	{
+		"name": "thermofisherscientific"
+	},
+	{
+		"name": "tokiomarine"
+	},
+	{
+		"name": "abb"
+	},
+	{
+		"name": "siriusxm"
+	},
+	{
+		"name": "royalcaribbeaninternational"
+	},
+	{
+		"name": "dove"
+	},
+	{
+		"name": "bloomberg"
+	},
+	{
+		"name": "indianoil"
+	},
+	{
+		"name": "aflac"
+	},
+	{
+		"name": "wrigley"
+	},
+	{
+		"name": "cfld"
+	},
+	{
+		"name": "expressscripts"
+	},
+	{
+		"name": "cnrl"
+	},
+	{
+		"name": "burberry"
+	},
+	{
+		"name": "westerndigital"
+	},
+	{
+		"name": "hcl"
+	},
+	{
+		"name": "canadiannationalrailway"
+	},
+	{
+		"name": "crã©ditmutuel"
+	},
+	{
+		"name": "dow"
+	},
+	{
+		"name": "ocbcbank"
+	},
+	{
+		"name": "caixa"
+	},
+	{
+		"name": "unicharm"
+	},
+	{
+		"name": "geely"
+	},
+	{
+		"name": "wholefoods"
+	},
+	{
+		"name": "iberdrola"
+	},
+	{
+		"name": "conocophillips"
+	},
+	{
+		"name": "telkomindonesia"
+	},
+	{
+		"name": "nab"
+	},
+	{
+		"name": "macys"
+	},
+	{
+		"name": "baesystems"
+	},
+	{
+		"name": "dalianwandacommercialproperties"
+	},
+	{
+		"name": "uob"
+	},
+	{
+		"name": "nordea"
+	},
+	{
+		"name": "haidilao"
+	},
+	{
+		"name": "enbridge"
+	},
+	{
+		"name": "mckesson"
+	},
+	{
+		"name": "phillips66"
+	},
+	{
+		"name": "shinhanfinancialgroup"
+	},
+	{
+		"name": "anta"
+	},
+	{
+		"name": "carrier"
+	},
+	{
+		"name": "anz"
+	},
+	{
+		"name": "munichre"
+	},
+	{
+		"name": "garnier"
+	},
+	{
+		"name": "collinsaerospace"
+	},
+	{
+		"name": "nvidia"
+	},
+	{
+		"name": "leroymerlin"
+	},
+	{
+		"name": "daikin"
+	},
+	{
+		"name": "buick"
+	},
+	{
+		"name": "victoria"
+	},
+	{
+		"name": "csx"
+	},
+	{
+		"name": "abbott"
+	},
+	{
+		"name": "texasinstruments"
+	},
+	{
+		"name": "sfexpress"
+	},
+	{
+		"name": "bancodobrasil"
+	},
+	{
+		"name": "aig"
+	},
+	{
+		"name": "monster"
+	},
+	{
+		"name": "mercadona"
+	},
+	{
+		"name": "hyatt"
+	},
+	{
+		"name": "kohls"
+	},
+	{
+		"name": "mccain"
+	},
+	{
+		"name": "teliacompany"
+	},
+	{
+		"name": "holidayinn"
+	},
+	{
+		"name": "emersonelectric"
+	},
+	{
+		"name": "airtel"
+	},
+	{
+		"name": "innogy"
+	},
+	{
+		"name": "deutschepost"
+	},
+	{
+		"name": "kirin"
+	},
+	{
+		"name": "timhortons"
+	},
+	{
+		"name": "manulife"
+	},
+	{
+		"name": "centurylink"
+	},
+	{
+		"name": "lasvegassands"
+	},
+	{
+		"name": "ralphlauren"
+	},
+	{
+		"name": "gatorade"
+	},
+	{
+		"name": "mac"
+	},
+	{
+		"name": "sompojapannipponkoa"
+	},
+	{
+		"name": "healthnet"
+	},
+	{
+		"name": "sodexo"
+	},
+	{
+		"name": "airchina"
+	},
+	{
+		"name": "zte"
+	},
+	{
+		"name": "bd"
+	},
+	{
+		"name": "nordstrom"
+	},
+	{
+		"name": "fiserv"
+	},
+	{
+		"name": "sabic"
+	},
+	{
+		"name": "wipro"
+	},
+	{
+		"name": "huggies"
+	},
+	{
+		"name": "kbc"
+	},
+	{
+		"name": "burgerking"
+	},
+	{
+		"name": "headshoulders"
+	},
+	{
+		"name": "merckco"
+	},
+	{
+		"name": "sunhungkaiproperties"
+	},
+	{
+		"name": "drhorton"
+	},
+	{
+		"name": "cummins"
+	},
+	{
+		"name": "maybelline"
+	},
+	{
+		"name": "whatsapp"
+	},
+	{
+		"name": "qq"
+	},
+	{
+		"name": "qzone"
+	},
+	{
+		"name": "tumblr"
+	},
+	{
+		"name": "twitter"
+	},
+	{
+		"name": "google+"
+	},
+	{
+		"name": "baidutieba"
+	},
+	{
+		"name": "skype"
+	},
+	{
+		"name": "viber"
+	},
+	{
+		"name": "shinaweibo"
+	},
+	{
+		"name": "line"
+	},
+	{
+		"name": "snapchat"
+	},
+	{
+		"name": "yy"
+	},
+	{
+		"name": "vkontakte"
+	},
+	{
+		"name": "pinterest"
+	},
+	{
+		"name": "telegram"
+	},
+	{
+		"name": "reddit"
+	},
+	{
+		"name": "taringa"
+	},
+	{
+		"name": "foursuare"
+	},
+	{
+		"name": "renren"
+	},
+	{
+		"name": "tagged"
+	},
+	{
+		"name": "badoo"
+	},
+	{
+		"name": "myspace"
+	},
+	{
+		"name": "stumbleupon"
+	},
+	{
+		"name": "thedots"
+	},
+	{
+		"name": "kiwibox"
+	},
+	{
+		"name": "skyrock"
+	},
+	{
+		"name": "delicious"
+	},
+	{
+		"name": "snapfish"
+	},
+	{
+		"name": "reverbnation"
+	},
+	{
+		"name": "flixster"
+	},
+	{
+		"name": "care2"
+	},
+	{
+		"name": "cafemom"
+	},
+	{
+		"name": "ravelry"
+	},
+	{
+		"name": "nextdoor"
+	},
+	{
+		"name": "wayn"
+	},
+	{
+		"name": "cellufun"
+	},
+	{
+		"name": "vine"
+	},
+	{
+		"name": "classmates"
+	},
+	{
+		"name": "myheritage"
+	},
+	{
+		"name": "viadeo"
+	},
+	{
+		"name": "xing"
+	},
+	{
+		"name": "xanga"
+	},
+	{
+		"name": "livejournal"
+	},
+	{
+		"name": "friendster"
+	},
+	{
+		"name": "funnyordie"
+	},
+	{
+		"name": "gaionline"
+	},
+	{
+		"name": "weheartit"
+	},
+	{
+		"name": "buzznet"
+	},
+	{
+		"name": "deviantart"
+	},
+	{
+		"name": "flickr"
+	},
+	{
+		"name": "meetme"
+	},
+	{
+		"name": "meetup"
+	},
+	{
+		"name": "tout"
+	},
+	{
+		"name": "mixi"
+	},
+	{
+		"name": "douban"
+	},
+	{
+		"name": "vero"
+	},
+	{
+		"name": "quora"
+	},
+	{
+		"name": "spreely"
+	},
+	{
+		"name": "discord"
+	},
+	{
+		"name": "tiktok"
+	},
+	{
+		"name": "walmartinc"
+	},
+	{
+		"name": "exxonmobilcorp"
+	},
+	{
+		"name": "exxonmobilcorporation"
+	},
+	{
+		"name": "exxon"
+	},
+	{
+		"name": "appleinc"
+	},
+	{
+		"name": "berkshirehathaway"
+	},
+	{
+		"name": "berkshirehathawayinc"
+	},
+	{
+		"name": "berkshire"
+	},
+	{
+		"name": "hathaway"
+	},
+	{
+		"name": "aws"
+	},
+	{
+		"name": "unitedhealthgroup"
+	},
+	{
+		"name": "uhg"
+	},
+	{
+		"name": "unitedhealthgroupinc"
+	},
+	{
+		"name": "mckessoncorporation"
+	},
+	{
+		"name": "mckessoncorp"
+	},
+	{
+		"name": "cvshealth"
+	},
+	{
+		"name": "amerisourcebergen"
+	},
+	{
+		"name": "amerisourcebergencorp"
+	},
+	{
+		"name": "amerisourcebergencorporation"
+	},
+	{
+		"name": "chevroncorp"
+	},
+	{
+		"name": "chevroncorporation"
+	},
+	{
+		"name": "fordmotors"
+	},
+	{
+		"name": "fordmotorcompany"
+	},
+	{
+		"name": "generalmotors"
+	},
+	{
+		"name": "gm"
+	},
+	{
+		"name": "generalmotorscompany"
+	},
+	{
+		"name": "costcowholesale"
+	},
+	{
+		"name": "costcowholesalecorp"
+	},
+	{
+		"name": "costcowholesalecorporation"
+	},
+	{
+		"name": "alphabet"
+	},
+	{
+		"name": "cardinal"
+	},
+	{
+		"name": "cardinalhealth"
+	},
+	{
+		"name": "walgreensbootsalliance"
+	},
+	{
+		"name": "jpmorganchase"
+	},
+	{
+		"name": "jmpc"
+	},
+	{
+		"name": "verizoncommunications"
+	},
+	{
+		"name": "ge"
+	},
+	{
+		"name": "fanniemae"
+	},
+	{
+		"name": "valeroenergy"
+	},
+	{
+		"name": "boa"
+	},
+	{
+		"name": "microsoftcorp"
+	},
+	{
+		"name": "msft"
+	},
+	{
+		"name": "wf"
+	},
+	{
+		"name": "citigroup"
+	},
+	{
+		"name": "marathonpetroleum"
+	},
+	{
+		"name": "marathonoil"
+	},
+	{
+		"name": "marathon"
+	},
+	{
+		"name": "comcast"
+	},
+	{
+		"name": "xfinitymobile"
+	},
+	{
+		"name": "dell"
+	},
+	{
+		"name": "dupontdenemours"
+	},
+	{
+		"name": "dupont"
+	},
+	{
+		"name": "statefarminsurance"
+	},
+	{
+		"name": "statefarm"
+	},
+	{
+		"name": "johnsonandjohnson"
+	},
+	{
+		"name": "johnsonnjohnson"
+	},
+	{
+		"name": "jnj"
+	},
+	{
+		"name": "freddiemac"
+	},
+	{
+		"name": "unitedparcelservice"
+	},
+	{
+		"name": "lowescompanies"
+	},
+	{
+		"name": "intelcorporation"
+	},
+	{
+		"name": "proctergamble"
+	},
+	{
+		"name": "pg"
+	},
+	{
+		"name": "png"
+	},
+	{
+		"name": "unitedtechnologies"
+	},
+	{
+		"name": "fedexcorp"
+	},
+	{
+		"name": "pepsico"
+	},
+	{
+		"name": "archerdanielsmidland"
+	},
+	{
+		"name": "adm"
+	},
+	{
+		"name": "prudentialfinancial"
+	},
+	{
+		"name": "prudential"
+	},
+	{
+		"name": "centene"
+	},
+	{
+		"name": "centenecorp"
+	},
+	{
+		"name": "albertsons"
+	},
+	{
+		"name": "albertsonscompanies"
+	},
+	{
+		"name": "waltdisney"
+	},
+	{
+		"name": "syscocorp"
+	},
+	{
+		"name": "humanainc"
+	},
+	{
+		"name": "facebookinc"
+	},
+	{
+		"name": "caterpillarinc"
+	},
+	{
+		"name": "energytransfer"
+	},
+	{
+		"name": "energytransferequity"
+	},
+	{
+		"name": "lockheedmartincorp"
+	},
+	{
+		"name": "pfizerinc"
+	},
+	{
+		"name": "pfizer"
+	},
+	{
+		"name": "goldmansachsgroup"
+	},
+	{
+		"name": "ciscosystems"
+	},
+	{
+		"name": "americaninternationalgroup"
+	},
+	{
+		"name": "hcahealthcare"
+	},
+	{
+		"name": "americanairlinesgroup"
+	},
+	{
+		"name": "aa"
+	},
+	{
+		"name": "ameicanairlines"
+	},
+	{
+		"name": "deltaairlines"
+	},
+	{
+		"name": "chartercommunications"
+	},
+	{
+		"name": "newyorklifeinsurance"
+	},
+	{
+		"name": "nylifeinsurance"
+	},
+	{
+		"name": "newyorklife"
+	},
+	{
+		"name": "amex"
+	},
+	{
+		"name": "nationwide"
+	},
+	{
+		"name": "nationwidemutualinsurancecompany"
+	},
+	{
+		"name": "libertymutualinsurancegroup"
+	},
+	{
+		"name": "libertymutualgroup"
+	},
+	{
+		"name": "libertymutual"
+	},
+	{
+		"name": "merck"
+	},
+	{
+		"name": "merckandco"
+	},
+	{
+		"name": "mercknco"
+	},
+	{
+		"name": "honeywellinternational"
+	},
+	{
+		"name": "unitedcontinentalholdings"
+	},
+	{
+		"name": "united"
+	},
+	{
+		"name": "tiaa"
+	},
+	{
+		"name": "tysonfoods"
+	},
+	{
+		"name": "oraclecorporation"
+	},
+	{
+		"name": "worldfuelservices"
+	},
+	{
+		"name": "wfscorp"
+	},
+	{
+		"name": "massachusettsmutuallifeinsurance"
+	},
+	{
+		"name": "massmutual"
+	},
+	{
+		"name": "tjxcompanies"
+	},
+	{
+		"name": "tjx"
+	},
+	{
+		"name": "deere"
+	},
+	{
+		"name": "techdata"
+	},
+	{
+		"name": "techdatacorporation"
+	},
+	{
+		"name": "enterpriseproductspartners"
+	},
+	{
+		"name": "enterpriseproducts"
+	},
+	{
+		"name": "nikeinc"
+	},
+	{
+		"name": "nikesports"
+	},
+	{
+		"name": "publixsupermarkets"
+	},
+	{
+		"name": "gd"
+	},
+	{
+		"name": "exelon"
+	},
+	{
+		"name": "exeloncorp"
+	},
+	{
+		"name": "exeloncorporation"
+	},
+	{
+		"name": "plainsgpholdings"
+	},
+	{
+		"name": "plainsallamerican"
+	},
+	{
+		"name": "abbvie"
+	},
+	{
+		"name": "chs"
+	},
+	{
+		"name": "chsinc"
+	},
+	{
+		"name": "capitalonefinancial"
+	},
+	{
+		"name": "theprogressivecorporation"
+	},
+	{
+		"name": "cocacolacompany"
+	},
+	{
+		"name": "thecocacolacompany"
+	},
+	{
+		"name": "usaa"
+	},
+	{
+		"name": "hewlettpackardenterprise"
+	},
+	{
+		"name": "hewlettpackard"
+	},
+	{
+		"name": "abbottlaboratories"
+	},
+	{
+		"name": "abbottlabs"
+	},
+	{
+		"name": "twentyfirstcenturyfox"
+	},
+	{
+		"name": "21stcenturyfox"
+	},
+	{
+		"name": "21stcentury"
+	},
+	{
+		"name": "twentyfirstcentury"
+	},
+	{
+		"name": "micron"
+	},
+	{
+		"name": "travelersinsurance"
+	},
+	{
+		"name": "riteaid"
+	},
+	{
+		"name": "riteaidcorp"
+	},
+	{
+		"name": "arrowelectronics"
+	},
+	{
+		"name": "arrow"
+	},
+	{
+		"name": "philipmorrisinternational"
+	},
+	{
+		"name": "pmi"
+	},
+	{
+		"name": "philipmorris"
+	},
+	{
+		"name": "northwesternmutual"
+	},
+	{
+		"name": "stonex"
+	},
+	{
+		"name": "stonexgroup"
+	},
+	{
+		"name": "stonexgroupinc"
+	},
+	{
+		"name": "intlfcstone"
+	},
+	{
+		"name": "pbf"
+	},
+	{
+		"name": "pbfenergy"
+	},
+	{
+		"name": "pbfenergyinc"
+	},
+	{
+		"name": "rtx"
+	},
+	{
+		"name": "kraft"
+	},
+	{
+		"name": "heinz"
+	},
+	{
+		"name": "kraftheinz"
+	},
+	{
+		"name": "kraftheinzcompany"
+	},
+	{
+		"name": "kratfheinzco"
+	},
+	{
+		"name": "mondelezinternational"
+	},
+	{
+		"name": "mondelez"
+	},
+	{
+		"name": "usbancorp"
+	},
+	{
+		"name": "dollargeneralcorp"
+	},
+	{
+		"name": "nucor"
+	},
+	{
+		"name": "nucorcorp"
+	},
+	{
+		"name": "starbuckscorp"
+	},
+	{
+		"name": "starbuckscoffee"
+	},
+	{
+		"name": "dxctech"
+	},
+	{
+		"name": "dxc"
+	},
+	{
+		"name": "elililly"
+	},
+	{
+		"name": "lilly"
+	},
+	{
+		"name": "thermofisher"
+	},
+	{
+		"name": "usfoodsholding"
+	},
+	{
+		"name": "usfoods"
+	},
+	{
+		"name": "dukeenergy"
+	},
+	{
+		"name": "dukeenergycorp"
+	},
+	{
+		"name": "halliburtoncompany"
+	},
+	{
+		"name": "halliburtonco"
+	},
+	{
+		"name": "halliburton"
+	},
+	{
+		"name": "amgeninc"
+	},
+	{
+		"name": "amgen"
+	},
+	{
+		"name": "paccarinc"
+	},
+	{
+		"name": "paccar"
+	},
+	{
+		"name": "southern"
+	},
+	{
+		"name": "lumentechnologies"
+	},
+	{
+		"name": "internationalpaper"
+	},
+	{
+		"name": "theinternationalpapercompany"
+	},
+	{
+		"name": "unionpacificrailroad"
+	},
+	{
+		"name": "up"
+	},
+	{
+		"name": "dollartree"
+	},
+	{
+		"name": "dollartreeinc"
+	},
+	{
+		"name": "penskeautomotivegroup"
+	},
+	{
+		"name": "penskeautomotive"
+	},
+	{
+		"name": "qualcomminc"
+	},
+	{
+		"name": "bristolmyerssquibb"
+	},
+	{
+		"name": "bms"
+	},
+	{
+		"name": "gileadsciences"
+	},
+	{
+		"name": "gileadsciencesinc"
+	},
+	{
+		"name": "jabilinc"
+	},
+	{
+		"name": "jabil"
+	},
+	{
+		"name": "manpowergroupglobal"
+	},
+	{
+		"name": "manpowergroup"
+	},
+	{
+		"name": "southwest"
+	},
+	{
+		"name": "southwestairlinesco"
+	},
+	{
+		"name": "aflacinc"
+	},
+	{
+		"name": "teslainc"
+	},
+	{
+		"name": "autonation"
+	},
+	{
+		"name": "cbre"
+	},
+	{
+		"name": "cbregroup"
+	},
+	{
+		"name": "cbregroupinc"
+	},
+	{
+		"name": "learcorporation"
+	},
+	{
+		"name": "lear"
+	},
+	{
+		"name": "whirlpool"
+	},
+	{
+		"name": "whirlpoolcorp"
+	},
+	{
+		"name": "whirlpoolcorporation"
+	},
+	{
+		"name": "mcdonaldscorp"
+	},
+	{
+		"name": "broadcominc"
+	},
+	{
+		"name": "marriottinternationalinc"
+	},
+	{
+		"name": "marriottinternational"
+	},
+	{
+		"name": "westerndigitalcorp"
+	},
+	{
+		"name": "weterndigitalcorporation"
+	},
+	{
+		"name": "visainc"
+	},
+	{
+		"name": "lennarcorporation"
+	},
+	{
+		"name": "lennarcorp"
+	},
+	{
+		"name": "lennar"
+	},
+	{
+		"name": "wellcarehealthplans"
+	},
+	{
+		"name": "wellcare"
+	},
+	{
+		"name": "aecom"
+	},
+	{
+		"name": "synnex"
+	},
+	{
+		"name": "synnexcorp"
+	},
+	{
+		"name": "synnexcorporation"
+	},
+	{
+		"name": "pncfinancialservicesgroup"
+	},
+	{
+		"name": "pncfinancialservices"
+	},
+	{
+		"name": "danahercorp"
+	},
+	{
+		"name": "danahercorporation"
+	},
+	{
+		"name": "danaher"
+	},
+	{
+		"name": "hartfordfinancialservices"
+	},
+	{
+		"name": "thehartford"
+	},
+	{
+		"name": "altriagroup"
+	},
+	{
+		"name": "altria"
+	},
+	{
+		"name": "altriagroupinc"
+	},
+	{
+		"name": "bankofnewyorkmellon"
+	},
+	{
+		"name": "bnymellon"
+	},
+	{
+		"name": "fluor"
+	},
+	{
+		"name": "fluorcorporation"
+	},
+	{
+		"name": "fluorcorp"
+	},
+	{
+		"name": "avnetinc"
+	},
+	{
+		"name": "avnet"
+	},
+	{
+		"name": "icahnenterpriseslp"
+	},
+	{
+		"name": "icahnenterprises"
+	},
+	{
+		"name": "ielp"
+	},
+	{
+		"name": "occidentalpetroleum"
+	},
+	{
+		"name": "oxy"
+	},
+	{
+		"name": "occidentalpetroleumcorp"
+	},
+	{
+		"name": "molinahealthcare"
+	},
+	{
+		"name": "genuinepartscompany"
+	},
+	{
+		"name": "genuinepartsco"
+	},
+	{
+		"name": "genuineparts"
+	},
+	{
+		"name": "fcx"
+	},
+	{
+		"name": "freeportmcmoran"
+	},
+	{
+		"name": "freeportmcmoraninc"
+	},
+	{
+		"name": "kimberlyclark"
+	},
+	{
+		"name": "kimberlyclarkcorp"
+	},
+	{
+		"name": "kimberlyclarkcorporation"
+	},
+	{
+		"name": "tenethealthcare"
+	},
+	{
+		"name": "tenethealth"
+	},
+	{
+		"name": "synchronyfinancial"
+	},
+	{
+		"name": "synchrony"
+	},
+	{
+		"name": "hollyfrontier"
+	},
+	{
+		"name": "thehollyfrontiercorporation"
+	},
+	{
+		"name": "hollyfrontiercorporation"
+	},
+	{
+		"name": "hollyfrontiercorp"
+	},
+	{
+		"name": "pfgc"
+	},
+	{
+		"name": "performancefoodgroupcompany"
+	},
+	{
+		"name": "performancefoodgroup"
+	},
+	{
+		"name": "sherwinwilliamscompany"
+	},
+	{
+		"name": "emerson"
+	},
+	{
+		"name": "ngl"
+	},
+	{
+		"name": "nglenergypartners"
+	},
+	{
+		"name": "xpologistics"
+	},
+	{
+		"name": "xpo"
+	},
+	{
+		"name": "eogresources"
+	},
+	{
+		"name": "eogresourcesinc"
+	},
+	{
+		"name": "appliedmaterials"
+	},
+	{
+		"name": "appliedmaterialsinc"
+	},
+	{
+		"name": "pge"
+	},
+	{
+		"name": "pgande"
+	},
+	{
+		"name": "pgne"
+	},
+	{
+		"name": "pacificgasandelectriccompany"
+	},
+	{
+		"name": "pacificgaselectric"
+	},
+	{
+		"name": "pacificgaselectriccompany"
+	},
+	{
+		"name": "pacificgasandelectric"
+	},
+	{
+		"name": "nexteraenergy"
+	},
+	{
+		"name": "nextraenergyinc"
+	},
+	{
+		"name": "chrobinsonworldwide"
+	},
+	{
+		"name": "chrobinson"
+	},
+	{
+		"name": "thegapinc"
+	},
+	{
+		"name": "gap"
+	},
+	{
+		"name": "lincolnnational"
+	},
+	{
+		"name": "lincolnfinancialgroup"
+	},
+	{
+		"name": "lincolnnationalcorp"
+	},
+	{
+		"name": "lfg"
+	},
+	{
+		"name": "davita"
+	},
+	{
+		"name": "jll"
+	},
+	{
+		"name": "joneslanglasalleinc"
+	},
+	{
+		"name": "joneslanglasalle"
+	},
+	{
+		"name": "westrock"
+	},
+	{
+		"name": "cdw"
+	},
+	{
+		"name": "americanelectricpower"
+	},
+	{
+		"name": "aep"
+	},
+	{
+		"name": "cognizanttechnologysolutions"
+	},
+	{
+		"name": "drhortoninc"
+	},
+	{
+		"name": "bectondickinson"
+	},
+	{
+		"name": "nordstorminc"
+	},
+	{
+		"name": "netflixinc"
+	},
+	{
+		"name": "aramark"
+	},
+	{
+		"name": "aramarkcorp"
+	},
+	{
+		"name": "texasinstrumentsinc"
+	},
+	{
+		"name": "ti"
+	},
+	{
+		"name": "generalmills"
+	},
+	{
+		"name": "generalmillsinc"
+	},
+	{
+		"name": "supervalu"
+	},
+	{
+		"name": "colgatepalmolive"
+	},
+	{
+		"name": "colgate"
+	},
+	{
+		"name": "palmolive"
+	},
+	{
+		"name": "goodyeartireandrubber"
+	},
+	{
+		"name": "goodyeartirerubber"
+	},
+	{
+		"name": "goodyear"
+	},
+	{
+		"name": "goodyeartires"
+	},
+	{
+		"name": "goodyeartirenrubber"
+	},
+	{
+		"name": "paypalholdings"
+	},
+	{
+		"name": "ppgindustries"
+	},
+	{
+		"name": "ppg"
+	},
+	{
+		"name": "omnicomgroupinc"
+	},
+	{
+		"name": "omnicomgroup"
+	},
+	{
+		"name": "celgene"
+	},
+	{
+		"name": "celgenecorporation"
+	},
+	{
+		"name": "jacobsengineeringgroup"
+	},
+	{
+		"name": "jacobs"
+	},
+	{
+		"name": "rossstores"
+	},
+	{
+		"name": "rossstoresinc"
+	},
+	{
+		"name": "marshnmclennancompanies"
+	},
+	{
+		"name": "marshandmclennancompanies"
+	},
+	{
+		"name": "marshmclennancompanies"
+	},
+	{
+		"name": "marshnmclennanco"
+	},
+	{
+		"name": "marshandmclennanco"
+	},
+	{
+		"name": "marshnmclennan"
+	},
+	{
+		"name": "marshandmclennan"
+	},
+	{
+		"name": "marshmclennan"
+	},
+	{
+		"name": "mmc"
+	},
+	{
+		"name": "mastercardinc"
+	},
+	{
+		"name": "landolakesinc"
+	},
+	{
+		"name": "landolakes"
+	},
+	{
+		"name": "wastemanagement"
+	},
+	{
+		"name": "wm"
+	},
+	{
+		"name": "illinoistoolworks"
+	},
+	{
+		"name": "itw"
+	},
+	{
+		"name": "ecolab"
+	},
+	{
+		"name": "ecolabinc"
+	},
+	{
+		"name": "bookingholdings"
+	},
+	{
+		"name": "bookingholdingsinc"
+	},
+	{
+		"name": "booking"
+	},
+	{
+		"name": "parker"
+	},
+	{
+		"name": "parkerhannifin"
+	},
+	{
+		"name": "principalfinancialgroup"
+	},
+	{
+		"name": "principal"
+	},
+	{
+		"name": "theprincipalfinancialgroup"
+	},
+	{
+		"name": "principalfinancial"
+	},
+	{
+		"name": "dteenergy"
+	},
+	{
+		"name": "dte"
+	},
+	{
+		"name": "blackrockinc"
+	},
+	{
+		"name": "blackrock"
+	},
+	{
+		"name": "ussteel"
+	},
+	{
+		"name": "unitedstatessteel"
+	},
+	{
+		"name": "unitedstatessteelcorporation"
+	},
+	{
+		"name": "unitedstatessteelcorp"
+	},
+	{
+		"name": "communityhealthsystems"
+	},
+	{
+		"name": "kindermorgan"
+	},
+	{
+		"name": "qurateretail"
+	},
+	{
+		"name": "qurateretailgroup"
+	},
+	{
+		"name": "loewshotels"
+	},
+	{
+		"name": "loews"
+	},
+	{
+		"name": "arconiccorporation"
+	},
+	{
+		"name": "arconiccorp"
+	},
+	{
+		"name": "arconic"
+	},
+	{
+		"name": "stanleyblackanddecker"
+	},
+	{
+		"name": "stanleyblackdecker"
+	},
+	{
+		"name": "stanleyblackndecker"
+	},
+	{
+		"name": "blackdecker"
+	},
+	{
+		"name": "blackanddecker"
+	},
+	{
+		"name": "blackndecker"
+	},
+	{
+		"name": "textroninc"
+	},
+	{
+		"name": "textron"
+	},
+	{
+		"name": "sands"
+	},
+	{
+		"name": "lasvegassandscorp"
+	},
+	{
+		"name": "lasvegassandscorporation"
+	},
+	{
+		"name": "esteelauder"
+	},
+	{
+		"name": "esteelaudercompanies"
+	},
+	{
+		"name": "dishnetworkcorporation"
+	},
+	{
+		"name": "dishnetworkcorp"
+	},
+	{
+		"name": "dishnetwork"
+	},
+	{
+		"name": "dish"
+	},
+	{
+		"name": "strykercorp"
+	},
+	{
+		"name": "strykercorporation"
+	},
+	{
+		"name": "stryker"
+	},
+	{
+		"name": "thekelloggcompany"
+	},
+	{
+		"name": "kellogg"
+	},
+	{
+		"name": "biogeninc"
+	},
+	{
+		"name": "biogen"
+	},
+	{
+		"name": "alcoa"
+	},
+	{
+		"name": "alcoacorp"
+	},
+	{
+		"name": "alcoacorporation"
+	},
+	{
+		"name": "anadarkopetroleumcorporation"
+	},
+	{
+		"name": "anadarkopetroleumcorp"
+	},
+	{
+		"name": "anadarkopetroleum"
+	},
+	{
+		"name": "anadarko"
+	},
+	{
+		"name": "dominionenergyinc"
+	},
+	{
+		"name": "dominionenergy"
+	},
+	{
+		"name": "automaticdataprocessing"
+	},
+	{
+		"name": "lbrands"
+	},
+	{
+		"name": "lb"
+	},
+	{
+		"name": "lbrandsinc"
+	},
+	{
+		"name": "henryschein"
+	},
+	{
+		"name": "henryscheininc"
+	},
+	{
+		"name": "newellbrands"
+	},
+	{
+		"name": "guardianlifeinscoofamerica"
+	},
+	{
+		"name": "guardianlife"
+	},
+	{
+		"name": "guardianlifeinsurance"
+	},
+	{
+		"name": "bjs"
+	},
+	{
+		"name": "bjswholesaleclub"
+	},
+	{
+		"name": "bbandtcorp"
+	},
+	{
+		"name": "bbtcorp"
+	},
+	{
+		"name": "bbt"
+	},
+	{
+		"name": "bbtbank"
+	},
+	{
+		"name": "bbntbank"
+	},
+	{
+		"name": "bbandtbank"
+	},
+	{
+		"name": "bbntcorp"
+	},
+	{
+		"name": "statestreetcorp"
+	},
+	{
+		"name": "statestreet"
+	},
+	{
+		"name": "viacomcbs"
+	},
+	{
+		"name": "viacominc"
+	},
+	{
+		"name": "viacom"
+	},
+	{
+		"name": "ameriprisefinancialinc"
+	},
+	{
+		"name": "ameriprisefinancial"
+	},
+	{
+		"name": "coremark"
+	},
+	{
+		"name": "coremarkholding"
+	},
+	{
+		"name": "reinsurancegroupofamerica"
+	},
+	{
+		"name": "rgare"
+	},
+	{
+		"name": "vfcorporation"
+	},
+	{
+		"name": "discoverfinancialservices"
+	},
+	{
+		"name": "globalpartners"
+	},
+	{
+		"name": "globalp"
+	},
+	{
+		"name": "edison"
+	},
+	{
+		"name": "edisoninternational"
+	},
+	{
+		"name": "oneokinc"
+	},
+	{
+		"name": "oneok"
+	},
+	{
+		"name": "murphyusa"
+	},
+	{
+		"name": "bedbathandbeyond"
+	},
+	{
+		"name": "bedbathbeyond"
+	},
+	{
+		"name": "bedbathnbeyond"
+	},
+	{
+		"name": "consolidatededison"
+	},
+	{
+		"name": "coned"
+	},
+	{
+		"name": "csxtransportation"
+	},
+	{
+		"name": "jcpenneyco"
+	},
+	{
+		"name": "jcpenney"
+	},
+	{
+		"name": "lkq"
+	},
+	{
+		"name": "lkqcorp"
+	},
+	{
+		"name": "lkqcorporation"
+	},
+	{
+		"name": "firstenergy"
+	},
+	{
+		"name": "firstenergycorp"
+	},
+	{
+		"name": "steeldynamics"
+	},
+	{
+		"name": "steeldynammicinc"
+	},
+	{
+		"name": "lithia"
+	},
+	{
+		"name": "lithiamotorsinc"
+	},
+	{
+		"name": "lithiamotors"
+	},
+	{
+		"name": "mgmresortsinternational"
+	},
+	{
+		"name": "mgmresorts"
+	},
+	{
+		"name": "tennecoinc"
+	},
+	{
+		"name": "tenneco"
+	},
+	{
+		"name": "nvidiacorporation"
+	},
+	{
+		"name": "nvidiacorp"
+	},
+	{
+		"name": "sempraenergy"
+	},
+	{
+		"name": "sempra"
+	},
+	{
+		"name": "farmersinsuranceexchange"
+	},
+	{
+		"name": "farmersinsurance"
+	},
+	{
+		"name": "farmers"
+	},
+	{
+		"name": "ball"
+	},
+	{
+		"name": "ballcorp"
+	},
+	{
+		"name": "ballcorporated"
+	},
+	{
+		"name": "group1automotiveinc"
+	},
+	{
+		"name": "group1automotive"
+	},
+	{
+		"name": "group1auto"
+	},
+	{
+		"name": "group1autoinc"
+	},
+	{
+		"name": "unumgroup"
+	},
+	{
+		"name": "unum"
+	},
+	{
+		"name": "xcelenergyinc"
+	},
+	{
+		"name": "xcelenegry"
+	},
+	{
+		"name": "reliancesteelandaluminum"
+	},
+	{
+		"name": "reliancesteelaluminum"
+	},
+	{
+		"name": "reliancesteelnaluminum"
+	},
+	{
+		"name": "rsac"
+	},
+	{
+		"name": "huntsman"
+	},
+	{
+		"name": "huntsmancorporation"
+	},
+	{
+		"name": "hun"
+	},
+	{
+		"name": "norfolksouthern"
+	},
+	{
+		"name": "norfolksouthernrailway"
+	},
+	{
+		"name": "nscorp"
+	},
+	{
+		"name": "laboratorycorpofamerica"
+	},
+	{
+		"name": "laboratorycorporation"
+	},
+	{
+		"name": "labcorp"
+	},
+	{
+		"name": "corning"
+	},
+	{
+		"name": "corningincorporated"
+	},
+	{
+		"name": "corninginc"
+	},
+	{
+		"name": "expediagroup"
+	},
+	{
+		"name": "expedia"
+	},
+	{
+		"name": "autozoneinc"
+	},
+	{
+		"name": "wwgraingerinc"
+	},
+	{
+		"name": "wwgrainger"
+	},
+	{
+		"name": "grainger"
+	},
+	{
+		"name": "quantaservices"
+	},
+	{
+		"name": "qanta"
+	},
+	{
+		"name": "crownholdings"
+	},
+	{
+		"name": "crownholdingsinc"
+	},
+	{
+		"name": "crowncork"
+	},
+	{
+		"name": "officedepot"
+	},
+	{
+		"name": "odp"
+	},
+	{
+		"name": "theodpcorporation"
+	},
+	{
+		"name": "baxterinternational"
+	},
+	{
+		"name": "baxterinternationalinc"
+	},
+	{
+		"name": "lamresearch"
+	},
+	{
+		"name": "lamresearchcorporation"
+	},
+	{
+		"name": "entergy"
+	},
+	{
+		"name": "entergycorporation"
+	},
+	{
+		"name": "charlesschwab"
+	},
+	{
+		"name": "thecharlesschwabcorporation"
+	},
+	{
+		"name": "schwab"
+	},
+	{
+		"name": "l3technologies"
+	},
+	{
+		"name": "l3harris"
+	},
+	{
+		"name": "nrgenergy"
+	},
+	{
+		"name": "nrg"
+	},
+	{
+		"name": "nrgenergyinc"
+	},
+	{
+		"name": "livenationentertainment"
+	},
+	{
+		"name": "livenation"
+	},
+	{
+		"name": "universalhealthservices"
+	},
+	{
+		"name": "uhsinc"
+	},
+	{
+		"name": "molsoncoors"
+	},
+	{
+		"name": "themolsoncoorsbeveragecompany"
+	},
+	{
+		"name": "molsoncoorsbrewing"
+	},
+	{
+		"name": "ebayinc"
+	},
+	{
+		"name": "aes"
+	},
+	{
+		"name": "devonenergy"
+	},
+	{
+		"name": "devonenergycorporation"
+	},
+	{
+		"name": "devonenergycorp"
+	},
+	{
+		"name": "pacificlife"
+	},
+	{
+		"name": "pacificlifeinsurancecompany"
+	},
+	{
+		"name": "centerpointenergy"
+	},
+	{
+		"name": "discovery"
+	},
+	{
+		"name": "borgwarner"
+	},
+	{
+		"name": "borgwarnerinc"
+	},
+	{
+		"name": "targaresources"
+	},
+	{
+		"name": "targa"
+	},
+	{
+		"name": "allyfinancial"
+	},
+	{
+		"name": "ally"
+	},
+	{
+		"name": "suntrustbanks"
+	},
+	{
+		"name": "suntrust"
+	},
+	{
+		"name": "iqviaholdings"
+	},
+	{
+		"name": "iqvia"
+	},
+	{
+		"name": "americanfamilyinsurancegroup"
+	},
+	{
+		"name": "americanfamilyinsurance"
+	},
+	{
+		"name": "amfam"
+	},
+	{
+		"name": "delekusholdings"
+	},
+	{
+		"name": "delekus"
+	},
+	{
+		"name": "navistarinternational"
+	},
+	{
+		"name": "navistartinternationalcorporation"
+	},
+	{
+		"name": "navistarinternationalcorp"
+	},
+	{
+		"name": "chesapeakeenergy"
+	},
+	{
+		"name": "chesapeakeenergycorporation"
+	},
+	{
+		"name": "chesapeakeenergycorp"
+	},
+	{
+		"name": "chk"
+	},
+	{
+		"name": "unitednaturalfoods"
+	},
+	{
+		"name": "unfi"
+	},
+	{
+		"name": "leidosholdings"
+	},
+	{
+		"name": "leidos"
+	},
+	{
+		"name": "pultegroupinc"
+	},
+	{
+		"name": "pultegroup"
+	},
+	{
+		"name": "eastmanchemical"
+	},
+	{
+		"name": "eastman"
+	},
+	{
+		"name": "eastmanchemicalcompany"
+	},
+	{
+		"name": "republicservices"
+	},
+	{
+		"name": "republicservicesinc"
+	},
+	{
+		"name": "mohawkindustries"
+	},
+	{
+		"name": "mohawkind"
+	},
+	{
+		"name": "sonicautomotive"
+	},
+	{
+		"name": "owensandminor"
+	},
+	{
+		"name": "owensminor"
+	},
+	{
+		"name": "owensnminor"
+	},
+	{
+		"name": "xeroxholdingscorporation"
+	},
+	{
+		"name": "xerox"
+	},
+	{
+		"name": "bostonscientific"
+	},
+	{
+		"name": "bostonscientificcorporation"
+	},
+	{
+		"name": "bostonscientificcorp"
+	},
+	{
+		"name": "dcpmidstream"
+	},
+	{
+		"name": "dcpmidstreampartners"
+	},
+	{
+		"name": "autolivinc"
+	},
+	{
+		"name": "autoliv"
+	},
+	{
+		"name": "interpublicgroup"
+	},
+	{
+		"name": "interpublic"
+	},
+	{
+		"name": "publicserviceenterprisegroup"
+	},
+	{
+		"name": "pseg"
+	},
+	{
+		"name": "pvh"
+	},
+	{
+		"name": "pvhcorp"
+	},
+	{
+		"name": "mosaicco"
+	},
+	{
+		"name": "themosaiccompany"
+	},
+	{
+		"name": "themosaicco"
+	},
+	{
+		"name": "advanceautoparts"
+	},
+	{
+		"name": "advanceautopartsinc"
+	},
+	{
+		"name": "alticeusainc"
+	},
+	{
+		"name": "alticeusa"
+	},
+	{
+		"name": "hormelfoods"
+	},
+	{
+		"name": "hormelfoodscorp"
+	},
+	{
+		"name": "hormelfoodscorporation"
+	},
+	{
+		"name": "hormel"
+	},
+	{
+		"name": "oreillyautomotive"
+	},
+	{
+		"name": "oreillyauto"
+	},
+	{
+		"name": "oreillyautoparts"
+	},
+	{
+		"name": "oreillyautomotiveparts"
+	},
+	{
+		"name": "calpine"
+	},
+	{
+		"name": "calpinecorporation"
+	},
+	{
+		"name": "hertzglobalholdings"
+	},
+	{
+		"name": "hertz"
+	},
+	{
+		"name": "theherztcorporation"
+	},
+	{
+		"name": "firstdata"
+	},
+	{
+		"name": "firstdatacorp"
+	},
+	{
+		"name": "firstdatacorporation"
+	},
+	{
+		"name": "pioneernaturalresources"
+	},
+	{
+		"name": "pioneernaturalresourcescompany"
+	},
+	{
+		"name": "pxd"
+	},
+	{
+		"name": "cotyinc"
+	},
+	{
+		"name": "coty"
+	},
+	{
+		"name": "agco"
+	},
+	{
+		"name": "agcocorp"
+	},
+	{
+		"name": "agcocorporation"
+	},
+	{
+		"name": "mutualofomahainsurance"
+	},
+	{
+		"name": "mutualofomaha"
+	},
+	{
+		"name": "vistracorp"
+	},
+	{
+		"name": "vistraenergycorp"
+	},
+	{
+		"name": "vistraenergy"
+	},
+	{
+		"name": "avisbudgetgroup"
+	},
+	{
+		"name": "avis"
+	},
+	{
+		"name": "adobeinc"
+	},
+	{
+		"name": "peterkiewitsons"
+	},
+	{
+		"name": "kiewit"
+	},
+	{
+		"name": "kiewitcorporation"
+	},
+	{
+		"name": "kiewitcorp"
+	},
+	{
+		"name": "newscorp"
+	},
+	{
+		"name": "newscorporation"
+	},
+	{
+		"name": "brighthouse"
+	},
+	{
+		"name": "brighthousefinancial"
+	},
+	{
+		"name": "voyafinancial"
+	},
+	{
+		"name": "voya"
+	},
+	{
+		"name": "airproductschemicals"
+	},
+	{
+		"name": "airproductsandchemicals"
+	},
+	{
+		"name": "airproductsnchemicals"
+	},
+	{
+		"name": "airproducts"
+	},
+	{
+		"name": "hiltonworldwideholdings"
+	},
+	{
+		"name": "hiltonworldwideholdingsinc"
+	},
+	{
+		"name": "hiltonhotel"
+	},
+	{
+		"name": "hilton"
+	},
+	{
+		"name": "gamestop"
+	},
+	{
+		"name": "veritivcorp"
+	},
+	{
+		"name": "veritiv"
+	},
+	{
+		"name": "williams"
+	},
+	{
+		"name": "williamsf1"
+	},
+	{
+		"name": "campbellsoup"
+	},
+	{
+		"name": "campbellsoupcompany"
+	},
+	{
+		"name": "rockwellcollins"
+	},
+	{
+		"name": "thriventfinancialforlutherans"
+	},
+	{
+		"name": "thirventfinancial"
+	},
+	{
+		"name": "thirvent"
+	},
+	{
+		"name": "westlakechemical"
+	},
+	{
+		"name": "westlake"
+	},
+	{
+		"name": "univar"
+	},
+	{
+		"name": "univarsolutions"
+	},
+	{
+		"name": "univarsolutionsinc"
+	},
+	{
+		"name": "jbhunttransportservices"
+	},
+	{
+		"name": "jbhunt"
+	},
+	{
+		"name": "jbhunttransportservicesinc"
+	},
+	{
+		"name": "frontiercommunications"
+	},
+	{
+		"name": "frontiercommunicationscorp"
+	},
+	{
+		"name": "frontier"
+	},
+	{
+		"name": "jonesfinancial"
+	},
+	{
+		"name": "edwardjonesfinancial"
+	},
+	{
+		"name": "edwardjones"
+	},
+	{
+		"name": "nationaloilwellvarco"
+	},
+	{
+		"name": "nov"
+	},
+	{
+		"name": "eversource"
+	},
+	{
+		"name": "eversourceenergy"
+	},
+	{
+		"name": "dickssportinggoods"
+	},
+	{
+		"name": "genworth"
+	},
+	{
+		"name": "genworthfinancial"
+	},
+	{
+		"name": "fidelitynationalinformationservices"
+	},
+	{
+		"name": "fisglobal"
+	},
+	{
+		"name": "fidelity"
+	},
+	{
+		"name": "yumchinaholdings"
+	},
+	{
+		"name": "yumchina"
+	},
+	{
+		"name": "yumchinaholdingsinc"
+	},
+	{
+		"name": "rydersystem"
+	},
+	{
+		"name": "ryder"
+	},
+	{
+		"name": "rydersysteminc"
+	},
+	{
+		"name": "anixterinternational"
+	},
+	{
+		"name": "anixter"
+	},
+	{
+		"name": "anixterinternationalinc"
+	},
+	{
+		"name": "caesarsentertainment"
+	},
+	{
+		"name": "harrahsentertainment"
+	},
+	{
+		"name": "masco"
+	},
+	{
+		"name": "mascocorporation"
+	},
+	{
+		"name": "mascocorp"
+	},
+	{
+		"name": "thorindustriesincorporated"
+	},
+	{
+		"name": "thorindustriesinc"
+	},
+	{
+		"name": "thorindustries"
+	},
+	{
+		"name": "alaskaair"
+	},
+	{
+		"name": "alaskaairlines"
+	},
+	{
+		"name": "alaskaairgroup"
+	},
+	{
+		"name": "amphenolcorp"
+	},
+	{
+		"name": "amphenolcorporation"
+	},
+	{
+		"name": "amphenol"
+	},
+	{
+		"name": "wesco"
+	},
+	{
+		"name": "wescointernational"
+	},
+	{
+		"name": "wescointernationalincorporated"
+	},
+	{
+		"name": "wescointernationalinc"
+	},
+	{
+		"name": "huntingtoningalls"
+	},
+	{
+		"name": "huntington"
+	},
+	{
+		"name": "huntingtonbank"
+	},
+	{
+		"name": "huntingtoningallsindustries"
+	},
+	{
+		"name": "jefferies"
+	},
+	{
+		"name": "jefferiesgroupllc"
+	},
+	{
+		"name": "jefferiesfinancialgroup"
+	},
+	{
+		"name": "danaincorporated"
+	},
+	{
+		"name": "danainc"
+	},
+	{
+		"name": "dana"
+	},
+	{
+		"name": "expeditorsintlofwashington"
+	},
+	{
+		"name": "expeditors"
+	},
+	{
+		"name": "emcorgroupincorporated"
+	},
+	{
+		"name": "emcorgroupinc"
+	},
+	{
+		"name": "emcor"
+	},
+	{
+		"name": "emcorgroup"
+	},
+	{
+		"name": "dardenrestaurants"
+	},
+	{
+		"name": "dardenrestaurantsinc"
+	},
+	{
+		"name": "darden"
+	},
+	{
+		"name": "spartannash"
+	},
+	{
+		"name": "assurantinc"
+	},
+	{
+		"name": "assurant"
+	},
+	{
+		"name": "unitedrentals"
+	},
+	{
+		"name": "unitedrentalsinc"
+	},
+	{
+		"name": "libertymedia"
+	},
+	{
+		"name": "libertymediacorp"
+	},
+	{
+		"name": "libertymediacorporation"
+	},
+	{
+		"name": "erieinsurancegroup"
+	},
+	{
+		"name": "erieinsurance"
+	},
+	{
+		"name": "autoownersinsurance"
+	},
+	{
+		"name": "cheniereenergy"
+	},
+	{
+		"name": "cheniereenergyinc"
+	},
+	{
+		"name": "cheniere"
+	},
+	{
+		"name": "53"
+	},
+	{
+		"name": "fifththirdbank"
+	},
+	{
+		"name": "firththird"
+	},
+	{
+		"name": "fifththirdbancorp"
+	},
+	{
+		"name": "footlocker"
+	},
+	{
+		"name": "footlockerretail"
+	},
+	{
+		"name": "footlockerretailinc"
+	},
+	{
+		"name": "conagrabrands"
+	},
+	{
+		"name": "conagrabrandsinc"
+	},
+	{
+		"name": "zimmerbiometholdings"
+	},
+	{
+		"name": "zimmerbiomet"
+	},
+	{
+		"name": "zimmerandbiomet"
+	},
+	{
+		"name": "zimmernbiomet"
+	},
+	{
+		"name": "tractorsupply"
+	},
+	{
+		"name": "tractorsupplycompany"
+	},
+	{
+		"name": "berryglobalgroup"
+	},
+	{
+		"name": "berryglobal"
+	},
+	{
+		"name": "berryglobalinc"
+	},
+	{
+		"name": "alliancedatasystems"
+	},
+	{
+		"name": "alliancedatasystemscorporation"
+	},
+	{
+		"name": "alliancedatasystemscorp"
+	},
+	{
+		"name": "alliancedata"
+	},
+	{
+		"name": "hershey"
+	},
+	{
+		"name": "thehersheycompany"
+	},
+	{
+		"name": "hersheys"
+	},
+	{
+		"name": "ppl"
+	},
+	{
+		"name": "deanfoods"
+	},
+	{
+		"name": "buildersfirstsource"
+	},
+	{
+		"name": "bldr"
+	},
+	{
+		"name": "buildersfirstsourceinc"
+	},
+	{
+		"name": "oshkosh"
+	},
+	{
+		"name": "oshkoshbgosh"
+	},
+	{
+		"name": "enlinkmidstream"
+	},
+	{
+		"name": "enlink"
+	},
+	{
+		"name": "wrberkley"
+	},
+	{
+		"name": "wrberkleycorporation"
+	},
+	{
+		"name": "wrberkleycorp"
+	},
+	{
+		"name": "berkley"
+	},
+	{
+		"name": "wecenergygroup"
+	},
+	{
+		"name": "wecenergy"
+	},
+	{
+		"name": "wecenergygroupinc"
+	},
+	{
+		"name": "jetblueairways"
+	},
+	{
+		"name": "jetblue"
+	},
+	{
+		"name": "ugi"
+	},
+	{
+		"name": "ugiutilities"
+	},
+	{
+		"name": "ugicorporation"
+	},
+	{
+		"name": "ugicorp"
+	},
+	{
+		"name": "amarkpreciousmetals"
+	},
+	{
+		"name": "amark"
+	},
+	{
+		"name": "fidelitynationalfinancial"
+	},
+	{
+		"name": "fnf"
+	},
+	{
+		"name": "constellationbrands"
+	},
+	{
+		"name": "constellationbrandsinc"
+	},
+	{
+		"name": "cbrands"
+	},
+	{
+		"name": "questdiagnostics"
+	},
+	{
+		"name": "activison"
+	},
+	{
+		"name": "activisionblizzardinc"
+	},
+	{
+		"name": "weyerhaeuser"
+	},
+	{
+		"name": "weyerhaeusercompany"
+	},
+	{
+		"name": "weyerhaeuserco"
+	},
+	{
+		"name": "raymondjamesfinancial"
+	},
+	{
+		"name": "raymondjames"
+	},
+	{
+		"name": "rjf"
+	},
+	{
+		"name": "caseysgeneralstore"
+	},
+	{
+		"name": "caseysgeneralstores"
+	},
+	{
+		"name": "caseys"
+	},
+	{
+		"name": "keurigdrpepper"
+	},
+	{
+		"name": "keurig"
+	},
+	{
+		"name": "drpepper"
+	},
+	{
+		"name": "drpeppersnapplegroup"
+	},
+	{
+		"name": "americantower"
+	},
+	{
+		"name": "americatowercorporation"
+	},
+	{
+		"name": "americantowercorp"
+	},
+	{
+		"name": "americantowerglobalwirelesssolutions"
+	},
+	{
+		"name": "apachehttpserver"
+	},
+	{
+		"name": "theapachesoftwarefoundation"
+	},
+	{
+		"name": "apachesoftwarefoundation"
+	},
+	{
+		"name": "apache"
+	},
+	{
+		"name": "dovercorporation"
+	},
+	{
+		"name": "dovercorp"
+	},
+	{
+		"name": "dover"
+	},
+	{
+		"name": "keycorp"
+	},
+	{
+		"name": "keybank"
+	},
+	{
+		"name": "key"
+	},
+	{
+		"name": "jmsmucker"
+	},
+	{
+		"name": "thejmsmuckercompany"
+	},
+	{
+		"name": "citizensfinancialgroup"
+	},
+	{
+		"name": "cfg"
+	},
+	{
+		"name": "citizensfinancial"
+	},
+	{
+		"name": "citizensbank"
+	},
+	{
+		"name": "citizensfinancialgroupinc"
+	},
+	{
+		"name": "motorolasolutions"
+	},
+	{
+		"name": "motorola"
+	},
+	{
+		"name": "motorolasolutionsinc"
+	},
+	{
+		"name": "magellanhealth"
+	},
+	{
+		"name": "magellanhealthinc"
+	},
+	{
+		"name": "magellan"
+	},
+	{
+		"name": "americanaxleandmanufacturing"
+	},
+	{
+		"name": "americanaxlemanufacturing"
+	},
+	{
+		"name": "americanaxlenmanufacturing"
+	},
+	{
+		"name": "americanaxelmanufacturing"
+	},
+	{
+		"name": "newmontcorporation"
+	},
+	{
+		"name": "newmontcorp"
+	},
+	{
+		"name": "newmont"
+	},
+	{
+		"name": "newmontgoldcorp"
+	},
+	{
+		"name": "spiritaerosystemsholdings"
+	},
+	{
+		"name": "spiritaerosystems"
+	},
+	{
+		"name": "spiritaero"
+	},
+	{
+		"name": "westernnsouthernfinancialgroup"
+	},
+	{
+		"name": "westernandsouthernfinancialgroup"
+	},
+	{
+		"name": "westernsouthernfinancialgroup"
+	},
+	{
+		"name": "westernsouthern"
+	},
+	{
+		"name": "fortive"
+	},
+	{
+		"name": "graybarelectric"
+	},
+	{
+		"name": "graybar"
+	},
+	{
+		"name": "nvr"
+	},
+	{
+		"name": "nvrinc"
+	},
+	{
+		"name": "averydennison"
+	},
+	{
+		"name": "averydennisoncorp"
+	},
+	{
+		"name": "averydennisoncorporation"
+	},
+	{
+		"name": "celanese"
+	},
+	{
+		"name": "celanesecorporation"
+	},
+	{
+		"name": "celanesecorp"
+	},
+	{
+		"name": "americanfinancialgroup"
+	},
+	{
+		"name": "afg"
+	},
+	{
+		"name": "afginc"
+	},
+	{
+		"name": "americanfinancialgroupinc"
+	},
+	{
+		"name": "tollbrothers"
+	},
+	{
+		"name": "sanmina"
+	},
+	{
+		"name": "sanminacorporation"
+	},
+	{
+		"name": "sanminacorp"
+	},
+	{
+		"name": "insightenterprises"
+	},
+	{
+		"name": "insightenterprisesinc"
+	},
+	{
+		"name": "insight"
+	},
+	{
+		"name": "owenscorning"
+	},
+	{
+		"name": "packagingcorpofamerica"
+	},
+	{
+		"name": "packagingcorporationofamerica"
+	},
+	{
+		"name": "packagingcorp"
+	},
+	{
+		"name": "pca"
+	},
+	{
+		"name": "travelcentersofamerica"
+	},
+	{
+		"name": "travelcentersofamericallc"
+	},
+	{
+		"name": "tapetro"
+	},
+	{
+		"name": "olin"
+	},
+	{
+		"name": "olincorp"
+	},
+	{
+		"name": "olincorporation"
+	},
+	{
+		"name": "arthurjgallagerco"
+	},
+	{
+		"name": "arthurjgallagernco"
+	},
+	{
+		"name": "arthurjgallagherandco"
+	},
+	{
+		"name": "arthurjgallagher"
+	},
+	{
+		"name": "ajg"
+	},
+	{
+		"name": "gallagherinsurance"
+	},
+	{
+		"name": "gallagher"
+	},
+	{
+		"name": "rps"
+	},
+	{
+		"name": "artex"
+	},
+	{
+		"name": "gallagherbasset"
+	},
+	{
+		"name": "gallagherre"
+	},
+	{
+		"name": "penunderwriting"
+	},
+	{
+		"name": "alesco"
+	},
+	{
+		"name": "crombielockwood"
+	},
+	{
+		"name": "alleghany"
+	},
+	{
+		"name": "alleghanycorp"
+	},
+	{
+		"name": "alleghanycorporation"
+	},
+	{
+		"name": "owensillinois"
+	},
+	{
+		"name": "owensillinoisinc"
+	},
+	{
+		"name": "oiglass"
+	},
+	{
+		"name": "asburyautomotivegroup"
+	},
+	{
+		"name": "asburyauto"
+	},
+	{
+		"name": "asburyautomotive"
+	},
+	{
+		"name": "asbury"
+	},
+	{
+		"name": "cmsenergy"
+	},
+	{
+		"name": "cms"
+	},
+	{
+		"name": "cmsenergycorp"
+	},
+	{
+		"name": "cmsenergycorporation"
+	},
+	{
+		"name": "markelcorp"
+	},
+	{
+		"name": "markelcorporation"
+	},
+	{
+		"name": "markelinsurancecompany"
+	},
+	{
+		"name": "markelinsurance"
+	},
+	{
+		"name": "markel"
+	},
+	{
+		"name": "blackstonegroup"
+	},
+	{
+		"name": "blackstonegroupinc"
+	},
+	{
+		"name": "blackstone"
+	},
+	{
+		"name": "aksteel"
+	},
+	{
+		"name": "aksteelholding"
+	},
+	{
+		"name": "aksteelholdingcorp"
+	},
+	{
+		"name": "aksteelholdingcorporation"
+	},
+	{
+		"name": "hanesbrandsinc"
+	},
+	{
+		"name": "hanes"
+	},
+	{
+		"name": "hanesbrands"
+	},
+	{
+		"name": "rrdonnelleyandsons"
+	},
+	{
+		"name": "rrdonnelleysons"
+	},
+	{
+		"name": "rrdonnelleynsons"
+	},
+	{
+		"name": "rrdonnelley"
+	},
+	{
+		"name": "rrd"
+	},
+	{
+		"name": "wayfair"
+	},
+	{
+		"name": "wayfairinc"
+	},
+	{
+		"name": "regionsfinancial"
+	},
+	{
+		"name": "regions"
+	},
+	{
+		"name": "regionsfinancialcorp"
+	},
+	{
+		"name": "regionsfinancialcorporation"
+	},
+	{
+		"name": "wynnresorts"
+	},
+	{
+		"name": "wynnresortslimited"
+	},
+	{
+		"name": "wynnlasvegas"
+	},
+	{
+		"name": "wynn"
+	},
+	{
+		"name": "ultabeauty"
+	},
+	{
+		"name": "ultabeautyinc"
+	},
+	{
+		"name": "ulta"
+	},
+	{
+		"name": "regeneronpharmaceuticalsinc"
+	},
+	{
+		"name": "regeneronpharmaceuticals"
+	},
+	{
+		"name": "regenreon"
+	},
+	{
+		"name": "burlingtoncoatfactory"
+	},
+	{
+		"name": "burlingtonstores"
+	},
+	{
+		"name": "burlington"
+	},
+	{
+		"name": "rockwellautomation"
+	},
+	{
+		"name": "rockwellautomationinc"
+	},
+	{
+		"name": "northerntrust"
+	},
+	{
+		"name": "northertrustcorp"
+	},
+	{
+		"name": "northerntrustcorporation"
+	},
+	{
+		"name": "chemours"
+	},
+	{
+		"name": "thechemourscompany"
+	},
+	{
+		"name": "seaboard"
+	},
+	{
+		"name": "seaboardcorp"
+	},
+	{
+		"name": "seaboardcorporation"
+	},
+	{
+		"name": "marathonoilcorp"
+	},
+	{
+		"name": "marathonoilcorporation"
+	},
+	{
+		"name": "ascenaretailgroupinc"
+	},
+	{
+		"name": "ascenaretailgroup"
+	},
+	{
+		"name": "ascenaretail"
+	},
+	{
+		"name": "dillards"
+	},
+	{
+		"name": "dillardsinc"
+	},
+	{
+		"name": "cintascorporation"
+	},
+	{
+		"name": "cintascorp"
+	},
+	{
+		"name": "cintas"
+	},
+	{
+		"name": "advancedmicrodevices"
+	},
+	{
+		"name": "advancedmicrodevicesinc"
+	},
+	{
+		"name": "amd"
+	},
+	{
+		"name": "hess"
+	},
+	{
+		"name": "hesscorporation"
+	},
+	{
+		"name": "hesscorp"
+	},
+	{
+		"name": "mtb"
+	},
+	{
+		"name": "mtbankcorp"
+	},
+	{
+		"name": "mtbankcorporation"
+	},
+	{
+		"name": "mtbank"
+	},
+	{
+		"name": "mntbankcorp"
+	},
+	{
+		"name": "mntbankcorporation"
+	},
+	{
+		"name": "mntbank"
+	},
+	{
+		"name": "mandtbankcorp"
+	},
+	{
+		"name": "mandtbankcorporation"
+	},
+	{
+		"name": "mandtbank"
+	},
+	{
+		"name": "abmindustries"
+	},
+	{
+		"name": "abmindustriesinc"
+	},
+	{
+		"name": "abm"
+	},
+	{
+		"name": "beaconroofingsupply"
+	},
+	{
+		"name": "beaconroofingsupplyinc"
+	},
+	{
+		"name": "beacon"
+	},
+	{
+		"name": "becn"
+	},
+	{
+		"name": "ncrglobal"
+	},
+	{
+		"name": "ncrinc"
+	},
+	{
+		"name": "ncr"
+	},
+	{
+		"name": "iheartmediainc"
+	},
+	{
+		"name": "iheartmedia"
+	},
+	{
+		"name": "franklinresources"
+	},
+	{
+		"name": "franklinresourcesinc"
+	},
+	{
+		"name": "franklintempleton"
+	},
+	{
+		"name": "franklintempletoninvestments"
+	},
+	{
+		"name": "ameren"
+	},
+	{
+		"name": "amerencorporation"
+	},
+	{
+		"name": "amerencorp"
+	},
+	{
+		"name": "theintercontinetalexchange"
+	},
+	{
+		"name": "intercontinentalexchange"
+	},
+	{
+		"name": "spglobal"
+	},
+	{
+		"name": "spglobalinc"
+	},
+	{
+		"name": "snpglobal"
+	},
+	{
+		"name": "snpglobalinc"
+	},
+	{
+		"name": "sandpglobal"
+	},
+	{
+		"name": "sandpglobalinc"
+	},
+	{
+		"name": "sp"
+	},
+	{
+		"name": "postholdingsinc"
+	},
+	{
+		"name": "postholdings"
+	},
+	{
+		"name": "analogdevices"
+	},
+	{
+		"name": "analogdevicesinc"
+	},
+	{
+		"name": "ralphlaurencorporation"
+	},
+	{
+		"name": "ralphlaurencorp"
+	},
+	{
+		"name": "l3harristechnologies"
+	},
+	{
+		"name": "l3harristech"
+	},
+	{
+		"name": "l3harristechnology"
+	},
+	{
+		"name": "boozallenhamilton"
+	},
+	{
+		"name": "boozallenhamiltoninc"
+	},
+	{
+		"name": "boozallen"
+	},
+	{
+		"name": "polarisindustries"
+	},
+	{
+		"name": "polarisinc"
+	},
+	{
+		"name": "polaris"
+	},
+	{
+		"name": "clorox"
+	},
+	{
+		"name": "thecloroxcompany"
+	},
+	{
+		"name": "realogyholdings"
+	},
+	{
+		"name": "realogy"
+	},
+	{
+		"name": "realogyholdingscorp"
+	},
+	{
+		"name": "realogyholdingscorporation"
+	},
+	{
+		"name": "hdsupplyholdings"
+	},
+	{
+		"name": "hdsupply"
+	},
+	{
+		"name": "graphicpkg"
+	},
+	{
+		"name": "graphicpackaginginternational"
+	},
+	{
+		"name": "graphicpackagingholding"
+	},
+	{
+		"name": "oldreplublicinternationalcorporation"
+	},
+	{
+		"name": "oldrepublicinternationalcorp"
+	},
+	{
+		"name": "oldrepublicinternational"
+	},
+	{
+		"name": "ori"
+	},
+	{
+		"name": "intuitinc"
+	},
+	{
+		"name": "intuit"
+	},
+	{
+		"name": "netappinc"
+	},
+	{
+		"name": "netapp"
+	},
+	{
+		"name": "tapestryinc"
+	},
+	{
+		"name": "tapestry"
+	},
+	{
+		"name": "on"
+	},
+	{
+		"name": "onsemiconductor"
+	},
+	{
+		"name": "ingredionincorporated"
+	},
+	{
+		"name": "ingredioninc"
+	},
+	{
+		"name": "ingredion"
+	},
+	{
+		"name": "zoetis"
+	},
+	{
+		"name": "zoetisus"
+	},
+	{
+		"name": "zoetisinc"
+	},
+	{
+		"name": "fiservinc"
+	},
+	{
+		"name": "treehousefoods"
+	},
+	{
+		"name": "treehousefoodsinc"
+	},
+	{
+		"name": "treehouse"
+	},
+	{
+		"name": "roberthalfinternational"
+	},
+	{
+		"name": "roberthalf"
+	},
+	{
+		"name": "firstamericanfinancial"
+	},
+	{
+		"name": "firstamericanfinancialcorporation"
+	},
+	{
+		"name": "firstamericanfinancialcorp"
+	},
+	{
+		"name": "firstamericancorporation"
+	},
+	{
+		"name": "firstamericancorp"
+	},
+	{
+		"name": "firstamerican"
+	},
+	{
+		"name": "fac"
+	},
+	{
+		"name": "harleydavidson"
+	},
+	{
+		"name": "harleydavidsonmotor"
+	},
+	{
+		"name": "harley"
+	},
+	{
+		"name": "windstreamholdingsinc"
+	},
+	{
+		"name": "windstreamholdings"
+	},
+	{
+		"name": "yumbrands"
+	},
+	{
+		"name": "yumbrandsinc"
+	},
+	{
+		"name": "yum"
+	},
+	{
+		"name": "williamssonoma"
+	},
+	{
+		"name": "wsi"
+	},
+	{
+		"name": "williamssonomainc"
+	},
+	{
+		"name": "simonpropertygroup"
+	},
+	{
+		"name": "simonproperty"
+	},
+	{
+		"name": "spg"
+	},
+	{
+		"name": "navientcorporation"
+	},
+	{
+		"name": "navientcorp"
+	},
+	{
+		"name": "navient"
+	},
+	{
+		"name": "westernunion"
+	},
+	{
+		"name": "peabody"
+	},
+	{
+		"name": "peabodyenergy"
+	},
+	{
+		"name": "levistrauss"
+	},
+	{
+		"name": "levi"
+	},
+	{
+		"name": "spotify"
+	},
+	{
+		"name": "yahoo"
+	},
+	{
+		"name": "3i"
+	},
+	{
+		"name": "3igroup"
+	},
+	{
+		"name": "admiralgroup"
+	},
+	{
+		"name": "angloamericanplc"
+	},
+	{
+		"name": "angloamerican"
+	},
+	{
+		"name": "antofagasta"
+	},
+	{
+		"name": "ashteadgroup"
+	},
+	{
+		"name": "associatedbritishfoods"
+	},
+	{
+		"name": "abf"
+	},
+	{
+		"name": "astrazeneca"
+	},
+	{
+		"name": "autotradergroup"
+	},
+	{
+		"name": "autotrader"
+	},
+	{
+		"name": "avast"
+	},
+	{
+		"name": "avastsoftware"
+	},
+	{
+		"name": "aveva"
+	},
+	{
+		"name": "avevagroup"
+	},
+	{
+		"name": "bm"
+	},
+	{
+		"name": "bnm"
+	},
+	{
+		"name": "bandm"
+	},
+	{
+		"name": "barrattdevelopments"
+	},
+	{
+		"name": "barratthomes"
+	},
+	{
+		"name": "berkeleygroupholdings"
+	},
+	{
+		"name": "berkeleygroup"
+	},
+	{
+		"name": "britishpetroleum"
+	},
+	{
+		"name": "britishamericantobacco"
+	},
+	{
+		"name": "bat"
+	},
+	{
+		"name": "britishland"
+	},
+	{
+		"name": "btgroup"
+	},
+	{
+		"name": "bunzl"
+	},
+	{
+		"name": "compassgroup"
+	},
+	{
+		"name": "crhplc"
+	},
+	{
+		"name": "crh"
+	},
+	{
+		"name": "crodainternational"
+	},
+	{
+		"name": "croda"
+	},
+	{
+		"name": "dccplc"
+	},
+	{
+		"name": "dcc"
+	},
+	{
+		"name": "diageo"
+	},
+	{
+		"name": "dssmith"
+	},
+	{
+		"name": "evraz"
+	},
+	{
+		"name": "experian"
+	},
+	{
+		"name": "ferguson"
+	},
+	{
+		"name": "flutter"
+	},
+	{
+		"name": "flutterentertainment"
+	},
+	{
+		"name": "fresnillo"
+	},
+	{
+		"name": "glaxosmithkline"
+	},
+	{
+		"name": "gsk"
+	},
+	{
+		"name": "glencore"
+	},
+	{
+		"name": "gvcholdings"
+	},
+	{
+		"name": "gvc"
+	},
+	{
+		"name": "gvcplc"
+	},
+	{
+		"name": "halma"
+	},
+	{
+		"name": "hargreaveslansdown"
+	},
+	{
+		"name": "hl"
+	},
+	{
+		"name": "hikmapharmaceuticals"
+	},
+	{
+		"name": "hikma"
+	},
+	{
+		"name": "homeserve"
+	},
+	{
+		"name": "imperialbrands"
+	},
+	{
+		"name": "imperialbrandsplc"
+	},
+	{
+		"name": "informa"
+	},
+	{
+		"name": "intercontinentalhotelsgroup"
+	},
+	{
+		"name": "ihg"
+	},
+	{
+		"name": "intercontinentalhotels"
+	},
+	{
+		"name": "intermediatecapitalgroup"
+	},
+	{
+		"name": "icgam"
+	},
+	{
+		"name": "internationalairlinesgroup"
+	},
+	{
+		"name": "iairgroup"
+	},
+	{
+		"name": "intertek"
+	},
+	{
+		"name": "intertekgroup"
+	},
+	{
+		"name": "jdsports"
+	},
+	{
+		"name": "johnsonmatthey"
+	},
+	{
+		"name": "matthey"
+	},
+	{
+		"name": "justeattakeaway"
+	},
+	{
+		"name": "justeat"
+	},
+	{
+		"name": "kingfisher"
+	},
+	{
+		"name": "landsecurities"
+	},
+	{
+		"name": "landsec"
+	},
+	{
+		"name": "legalgeneral"
+	},
+	{
+		"name": "legalandgeneral"
+	},
+	{
+		"name": "lloydsbankinggroup"
+	},
+	{
+		"name": "lloyds"
+	},
+	{
+		"name": "londonstockexchangegroup"
+	},
+	{
+		"name": "lse"
+	},
+	{
+		"name": "londonstocexchange"
+	},
+	{
+		"name": "mg"
+	},
+	{
+		"name": "mandg"
+	},
+	{
+		"name": "melroseindustries"
+	},
+	{
+		"name": "melroseplc"
+	},
+	{
+		"name": "mondi"
+	},
+	{
+		"name": "mondigroup"
+	},
+	{
+		"name": "morrisons"
+	},
+	{
+		"name": "wmmorrisonssupermarkets"
+	},
+	{
+		"name": "morrisonssupermarkets"
+	},
+	{
+		"name": "nationalgridplc"
+	},
+	{
+		"name": "nationalgrid"
+	},
+	{
+		"name": "natioalgridus"
+	},
+	{
+		"name": "natwestgroup"
+	},
+	{
+		"name": "nextplc"
+	},
+	{
+		"name": "next"
+	},
+	{
+		"name": "ocado"
+	},
+	{
+		"name": "pearsonplc"
+	},
+	{
+		"name": "pearson"
+	},
+	{
+		"name": "pearsoneducation"
+	},
+	{
+		"name": "pennongroup"
+	},
+	{
+		"name": "pennon"
+	},
+	{
+		"name": "persimmonplc"
+	},
+	{
+		"name": "persimmonhomes"
+	},
+	{
+		"name": "phoenixgroup"
+	},
+	{
+		"name": "thephoenixgroup"
+	},
+	{
+		"name": "polymetalinternational"
+	},
+	{
+		"name": "polymetal"
+	},
+	{
+		"name": "prudentialplc"
+	},
+	{
+		"name": "reckittbenckiser"
+	},
+	{
+		"name": "rb"
+	},
+	{
+		"name": "relxnow"
+	},
+	{
+		"name": "relx"
+	},
+	{
+		"name": "rentokilinitial"
+	},
+	{
+		"name": "rightmove"
+	},
+	{
+		"name": "riotinto"
+	},
+	{
+		"name": "rollsroyceholdings"
+	},
+	{
+		"name": "rollsroyce"
+	},
+	{
+		"name": "royaldutchshell"
+	},
+	{
+		"name": "rsainsurancegroup"
+	},
+	{
+		"name": "rsagroup"
+	},
+	{
+		"name": "sagegroup"
+	},
+	{
+		"name": "sage"
+	},
+	{
+		"name": "sainsburys"
+	},
+	{
+		"name": "jsainsburys"
+	},
+	{
+		"name": "schroders"
+	},
+	{
+		"name": "scottishmortgageinvestmenttrust"
+	},
+	{
+		"name": "scottishmortgage"
+	},
+	{
+		"name": "segro"
+	},
+	{
+		"name": "severntrent"
+	},
+	{
+		"name": "severntrentwater"
+	},
+	{
+		"name": "stwater"
+	},
+	{
+		"name": "smithnephew"
+	},
+	{
+		"name": "smithandnephew"
+	},
+	{
+		"name": "smithnnephew"
+	},
+	{
+		"name": "smithsgroup"
+	},
+	{
+		"name": "smith"
+	},
+	{
+		"name": "smurfitkappa"
+	},
+	{
+		"name": "spiraxsarcoengineering"
+	},
+	{
+		"name": "spiraxsarco"
+	},
+	{
+		"name": "sseplc"
+	},
+	{
+		"name": "sse"
+	},
+	{
+		"name": "stjamessplaceplc"
+	},
+	{
+		"name": "stjamesplaceplc"
+	},
+	{
+		"name": "stjamessplace"
+	},
+	{
+		"name": "stjamesplace"
+	},
+	{
+		"name": "sjp"
+	},
+	{
+		"name": "sc"
+	},
+	{
+		"name": "standardlifeaberdeen"
+	},
+	{
+		"name": "taylorwimpey"
+	},
+	{
+		"name": "unilever"
+	},
+	{
+		"name": "unitedutilities"
+	},
+	{
+		"name": "vodafonegroup"
+	},
+	{
+		"name": "whitbread"
+	},
+	{
+		"name": "wpp"
+	},
+	{
+		"name": "ernstandyoung"
+	},
+	{
+		"name": "ernsrtyoung"
+	},
+	{
+		"name": "ernstnyoung"
+	},
+	{
+		"name": "cadbury"
+	}
+]

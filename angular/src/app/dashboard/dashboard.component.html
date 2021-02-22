@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="get-invited-card">
+    <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+    <div class="get-invited-card-inner">
+      <form class="row" #dashboardForm="ngForm">
+        <div class="col-12 success-message" *ngIf="showSucessMessage">
+          <div>
+            <i class="fa fa-envelope mr-2"></i>
+            <span class="highlight-msg">CONGRATS! </span>Your @sign is registered
+          </div>
+          <i class="fa fa-times-circle close-icon mr-2"></i>
+        </div>
+        <div class="col-12">
+          <h1 class="page-title">Dashboard</h1>
+          <p class="sub-title">Account: <strong>{{userDetails.email ? userDetails.email : userDetails.contact}}</strong>
+          </p>
+        </div>
+        <div class="col-12">
+          <ul class="nav-pills mb-5">
+            <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openDialog('purchased-signs')">
+                <mat-icon svgIcon="briefcase"></mat-icon><span>My @signs</span>
+                <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
+              </button></li>
+
+            <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openNotificationsDialog()">
+                <mat-icon svgIcon="notifications"></mat-icon><span>Notifications <span class="nav-item-count" *ngIf="unreadNotifications.length > 0">{{unreadNotifications.length}} Unread</span></span>
+                <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
+              </button></li>
+            <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openPurchaseHistoryDialog()">
+                <mat-icon svgIcon="purchase-history"></mat-icon><span>Purchase History</span>
+                <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
+              </button></li>
+
+            <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openVerificationMethodsDialog()">
+                <mat-icon svgIcon="verification-methods"></mat-icon><span>Verification Methods</span>
+                <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
+              </button></li>
+              <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openDialog('invite')">
+                <mat-icon svgIcon="invite"></mat-icon><span>Invite your Friends
+                  ({{totalFriendCount}}) 
+                  <!-- <span class="nav-item-count">2 Remaining</span> -->
+                </span>
+                <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
+              </button></li>
+
+          </ul>
+          <div class="d-flex flex-wrap bottom-buttons">
+            <div *ngIf="showLists"><button class="create-atsign-btn" (click)="createAnotherSign()">
+              <mat-icon class="rotate-right">add_circle_outline</mat-icon> <span class="pl-2 text-nowrap">{{userDetails.atsignDetails.length !== 0 ? 'Create @sign' : 'Create @sign'}}</span>
+
+            </button></div>
+
+            <div *ngIf="userDetails.atsignDetails.length !== 0"><button class="send-gift-card-btn" (click)="openSendGiftCardDialog()">
+              <i class="fa fa-gift" aria-hidden="true" ></i><span class="pl-2 text-nowrap">Send Gift Card</span>
+
+           </button></div>
+          </div>
+          <div class="product-announcements">
+            <div class="product-announcements-heading">Product Announcements</div>
+            <div>
+              <mat-checkbox class="product-announcement-checkbox"  [checked]="userDetails.productNotificationEmail"
+                  (change)="saveProductNotification('productNotificationEmail', $event)">Email me when new apps are
+                  available.
+            </mat-checkbox>
+            <mat-checkbox *ngIf='userDetails.contact' class="product-announcement-checkbox" [checked]="userDetails.productNotificationMobile"
+                 (change)="saveProductNotification('productNotificationMobile', $event)">Text me when new apps are
+                  available.
+                 </mat-checkbox>
+           </div>
+           <div>
+
+             </div>
+          </div>
+
+        </div>
+      </form>
+    </div><img class="bubble-bg" src="../../../assets/img/Bubble.png">
+  </div>
+</div>
+<div class="text-center mb-4 directory-link-wrap">
+  <a href="https://atsign.directory/" class="directory-link" target="_blank">
+    <span class="fa fa-stack"><i class="fas fa fa-circle fa-stack-2x"></i><i class="fas fa fa-search fa-stack-1x fa-inverse"></i></span> Look up an @sign</a></div>
+  <div class="product-info mb-4">
+
+    <div class="product-info-heading">Dashboard and Management App</div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <a href="https://play.google.com/store/apps/details?id=com.atsign.at_settings" target="_blank"><img src="../../../assets/img/google-play-badge.png" alt="Google play badge" height='40' class="mr-3" /></a>
+      <a href="https://apps.apple.com/us/app/persona/id1527182357" target="_blank"><img src="../../../assets/img/apple-play-badge.png" alt="Apple play badge" width="137" height='40'
+        class="mt10" /></a>
+
+    </div>
+
+  </div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

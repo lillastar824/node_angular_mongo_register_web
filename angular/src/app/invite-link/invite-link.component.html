@@ -1,0 +1,206 @@
+<div class="header">
+  <button class="back-btn" (click)="onNoClick()">
+    <mat-icon svgIcon="back"></mat-icon>
+  </button>
+  <h2><span *ngIf="!showInviteSentScreen"><b>Invite {{showInviteScreen ? 'your Friends' : 'Preview'}}</b></span>
+    <span *ngIf="showInviteSentScreen">Invitation Sent</span></h2>
+</div>
+<div class="body">
+  <div class="mb-5" *ngIf="showInviteScreen">
+    <div class="d-flex justify-content-space button-row">
+      <button class="btn p-0" *ngIf="showInviteScreen" (click)="openShareableLinkDialog()">
+        <mat-icon class="size-regular mr-2" svgIcon="copy"></mat-icon>Copy your shareable link
+      </button>
+      <button class="btn p-0" *ngIf="showInviteScreen" [ngClass]="{'active' :selectedTab === 'history'}"
+        (click)="openInviteHistoryDialog()">
+        <mat-icon class="size-regular mr-1" svgIcon="history"></mat-icon>History
+      </button>
+    </div>
+    <p class="lead mb-4">
+      This is the next big thing — people actually owning
+      their online data!
+    </p>
+    <p class="regular">Invite your friends and family to be part of the human internet.</p>
+
+
+    <form #inviteForm="ngForm" class="mb-0">
+      <div class="alert alert-danger text-center" *ngIf="formValidation">
+        All fields required
+      </div>
+      <div class="alert alert-danger text-center" *ngIf="showServerError">
+        {{showServerError}}
+      </div>
+      <div>
+
+
+        <div class="mb-4">
+          <mat-form-field appearance="outline" class="w-100 invite-form-field">
+            <mat-label>From Name</mat-label>
+            <input matInput type="text" placeholder="Name" #from="ngModel" [(ngModel)]="model.from" name="from"
+              [ngModelOptions]="{updateOn: 'change'}" maxlength="100" (change)="updatePersonalNote()" required>
+          </mat-form-field>
+          <div class="text-danger text-right py-2 text-sm" *ngIf="invalidName">
+            Please enter a valid name
+          </div>
+        </div>
+        <div class="mb-4">
+          <mat-form-field appearance="outline" class="w-100 invite-form-field">
+            <mat-label>Friend's Email</mat-label>
+            <input matInput type="text" placeholder="friends@email.com" #email="ngModel" [(ngModel)]="model.email"
+              name="email" [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidEmail(model.email)" required>
+          </mat-form-field>
+          <div class="text-danger text-right py-2 text-sm" *ngIf="invalidEmail">
+            Please enter a valid email address
+          </div>
+        </div>
+        <div class="mb-4">
+          <mat-form-field appearance="outline" class="w-100 invite-form-field">
+            <mat-label>Personal Note</mat-label>
+            <textarea style="height:150px" matInput #personalNote="ngModel" [(ngModel)]="model.personalNote"
+              name="personalNote"
+              placeholder=""></textarea>
+              <!-- Hey, check out these @signs. I just got mine, you should consider getting one before the good ones are gone. Here is my personal link. I think it’s going to blow up! -->
+            <!-- <input matInput placeholder="" #contact="ngModel" [(ngModel)]="model.contact" name="contact" aria-label=""> -->
+          </mat-form-field>
+        </div>
+        <div class="mb-4 d-flex justify-content-space">
+          <mat-checkbox [checked]="model.sendCopy" #sendCopy="ngModel" [(ngModel)]="model.sendCopy" name="sendCopy"
+            class="send-copy-checkbox">
+            Send me a copy
+          </mat-checkbox>
+          <button class="btn p-0 preview-btn" (click)="showPreview()">
+            <mat-icon class="size-regular mr-1" svgIcon="preview"></mat-icon>Preview
+          </button>
+        </div>
+
+        <button class="btn send-invite-button mt-2" (click)="sendInvite(inviteForm)">
+          Send Invitation
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="mb-5" *ngIf="showPreviewScreen">
+    <div class="row">
+      <div class="col-md-2 text-right col-3">From:</div>
+      <div class="col-md-10 col-9 font-museo word-break">{{model.from}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 text-right col-3">To:</div>
+      <div class="col-md-10 col-9 font-museo word-break">{{model.email}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 text-right col-3">Subject:</div>
+      <div class="col-md-10 col-9 font-museo word-break">{{model.from}} invited you to get your very own @sign!</div>
+    </div>
+    <div class="col-md-12 alert alert-danger text-center mt-1" *ngIf="showServerError">
+      {{showServerError}}
+    </div>
+    <hr class="p-0">
+    <div class="invite-scroll">
+
+      <div class="col-md-12 text-center">
+        <div></div>
+        <div class="invite-preview mt-3 p-3">
+          <img class="mt-2" src="../../assets/img/logo.png" alt="@sign" height="50px">
+          <div class="col-md-12 mt-2 mb-4" style="font-size:32px">
+            The next big thing is coming...
+          </div>
+          <div class="col-md-12 mt-2 mb-4">
+            And it will profoundly change the way you share, control and protect your personal online data.
+          </div>
+        </div>
+        <div class="col-md-12 font-museo text-left word-break preview-text text-center">
+          <b>I just got my @sign.</b> <br><br>
+
+          <div class="col-md-12">
+            <div [innerHTML]="personalNotePreview" class="col-md-12 font-museo word-break">
+            </div>
+          </div>
+        </div>
+        <br>
+        <div style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;"><a href="/"
+            style="background-color:#F2623E; border:0px solid #333333; border-color:#333333; border-radius:6px; border-width:0px; color:#ffffff; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid;"
+            target="_blank">Get started here &#x2192;</a></div>
+        <br>
+        <div class="align-items-center font-museo">Create a custom @sign or generate a free one using our super fun
+          @sign-o-matic! The @sign Registrar is still in private beta, so grab your Free or Premium @sign before we
+          open it to the public!</div>
+      </div>
+    </div>
+    <hr>
+    <div class="mb-4 d-flex justify-content-space">
+      <mat-checkbox [checked]="model.sendCopy" #sendCopy="ngModel" [(ngModel)]="model.sendCopy" name="sendCopy"
+        class="send-copy-checkbox">
+        Send me a copy
+      </mat-checkbox>
+      <button class="btn p-0 edit-btn" *ngIf="showPreviewScreen"
+        (click)="showInviteScreen=true;showPreviewScreen=false;showInviteSentScreen=false;">
+        Edit
+      </button>
+    </div>
+
+    <button class="btn send-invite-button mt-2" (click)="sendInvite(inviteForm)">
+      Send Invitation
+    </button>
+  </div>
+  <div class="mb-3" *ngIf="showInviteSentScreen">
+    <div class="col-md-12 text-right">
+      <!-- <span class="pointer-cursor font-museo">
+        ({{data.inviteLeft}}) Invite(s)
+        Remaining</span> -->
+    </div>
+    <div class="row text-center mt-4">
+      <div class="col-md-12 mb-5">
+        Your message was sent!
+      </div>
+      <div class="col-md-12 mb-5">
+        <div class="col-md-12 justify-content-space">
+          <button class="send-invite-button dashboard-button" (click)="onNoClick()">
+            Back to Dashboard
+          </button>
+          <button class="send-invite-button ml-2" (click)="sendAnotherInvite()">
+            Send Another
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="p-3" *ngIf="showInviteScreen && selectedTab === 'history'">
+    <div class="invite-scroll" style="height: 380px !important;max-height: 380px !important;">
+      <div class="col-md-12 mb-2" *ngIf="inviteData.length>0">
+        Invite Activity
+      </div>
+      <div class="col-md-12 mt-2" *ngFor="let data of inviteData">
+        <hr>
+        <div class="row">
+          <div class="col-md-4 col-4 text-left">Sent Date:</div>
+          <div class="col-md-8 col-8 font-museo p-0">{{data.sentOn | date}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-4 text-left">@sign registered:</div>
+          <div class="col-md-8 col-8 font-museo p-0"
+            [ngClass]="{'green-color' :data.atsignName, 'standard-color': !data.atsignName}">
+            {{data.atsignName ? '@' + data.atsignName : 'Pending'}}</div>
+        </div>
+        <div class="row" *ngIf="data.email">
+          <div class="col-md-4 col-4 text-left">Email:</div>
+          <div class="col-md-8 col-8 font-museo p-0">{{data.email}}</div>
+        </div>
+        <div class="row" *ngIf="data.contact">
+          <div class="col-md-4 col-4 text-left">Contact:</div>
+          <div class="col-md-8 col-8 font-museo p-0">{{data.contact}}</div>
+        </div>
+        <div class="row" *ngIf="data.inviteLink && !data.atsignName && !data.email">
+          <div class="col-md-4 col-4 text-left">Invite Link:</div>
+          <div class="col-md-8 col-8 font-museo p-0"><span class="pointer-cursor standard-color"
+              (click)="copyInputMessage(data.inviteLink)"><i class="fa fa-copy mr-2"></i>Copy Invite Link</span></div>
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="inviteData.length === 0">
+        No history available
+      </div>
+    </div>
+  </div> -->
+</div>

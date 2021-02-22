@@ -1,0 +1,27 @@
+<div class="col-12 p-0">
+    <i class="fa fa-times pointer-cursor cross-icon" (click)="onNoClick()"></i>
+    <div class="col-12 main-wrapper">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 p-0">
+                <div class="wrapper-img">
+                    <img alt="{{data.data.name}} profile picture" class="image"
+                    src="{{'../../assets/img/lg_'+data.data.image}}" (error)="updateUrl($event,'../../assets/img/'+data.data.image)"/></div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 p-4">
+                <div class="MuliBold standard-color" *ngIf="data.data.atsign" style="font-size: 16px;">
+                    {{'@'+data.data.atsign}}</div>
+                <div class="MuliBold" style="font-size: 16px;">{{data.data.name}}</div>
+                <div class="MuliRegular mt-1" *ngIf="data.data.description">{{data.data.description}}</div>
+                <div class="MuliRegular mt-1" *ngIf="data.data.description1">{{data.data.description1}}</div>
+                <br *ngIf="data.data.email">
+                <div class="MuliRegular"><a class="standard-color"
+                        href="mailto:{{data.data.email}}">{{data.data.email}}</a></div>
+                <br *ngIf="data.data.linkedin">
+                <div class="MuliRegular" *ngIf="data.data.linkedin">
+                    <a target="_blank" href="https://www.linkedin.com/in/{{data.data.linkedin}}/"><i
+                            class="fa fa-linkedin-square standard-color"></i></a>
+                    <!-- <i class="fa fa-linkedin mr-3 standard-color"></i>{{data.data.linkedin}}</div> -->
+                </div>
+            </div>
+        </div>
+    </div>

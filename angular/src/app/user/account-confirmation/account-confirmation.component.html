@@ -1,0 +1,22 @@
+<div class="confirmation-wrap mb-5">
+  <div class="get-invited-card">
+    <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+    <div class="get-invited-card-inner">
+  <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && navigateToDashboard()">
+    <div class="congrats-wrap">
+      <mat-icon class="congrats-icon mb-4" svgIcon="congrats"></mat-icon>
+      <div class="congrats-message mb-5">
+        Congrats! Your @sign{{cartData.length>1?'s are':' is'}} now registered.
+      </div>
+    </div>
+    <div class="purchased-atsigns text-center mb-5">
+      <div class="purchased-atsign mb-2" *ngFor="let data of cartData">@{{data.atsignName}}</div>
+    </div>
+    <div class="congrats-wrap">
+      <button type="button" class="back-to-dashboard-btn" (click)="navigateToDashboard()">Go to dashboard</button>
+      <button type="button" class="back-to-dashboard-btn mt-3" (click)="navigateToCreateAtsign()">Create another @sign</button>
+    </div>
+  </form></div><img class="bubble-bg" src="../../../assets/img/Bubble.png">
+</div>
+</div>
+<!-- <canvas id="my-canvas" class="confetti"></canvas> -->

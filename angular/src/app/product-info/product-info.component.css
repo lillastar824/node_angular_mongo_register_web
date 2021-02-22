@@ -1,0 +1,89 @@
+.product-info {
+  text-align: center;
+  letter-spacing: 0;
+  color: #4a4a4a;
+}
+
+.back-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #4a4a4a;
+}
+.back-btn .mat-icon {
+  width: 1em;
+  height: 1em;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header h2 {
+  text-align: center;
+  font: normal normal normal 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  opacity: 1;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+.body {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.notifications .heading {
+  text-align: right;
+  font: normal normal 900 14px/1 Roboto;
+  letter-spacing: 0px;
+  color: #2d2a26;
+  text-transform: uppercase;
+}
+.notifications.unread .heading {
+  color: #f05e3e;
+}
+.notification {
+  background: #efefef;
+  border-radius: 6px;
+}
+.notification h2 {
+  font: normal normal bold 20px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #808080;
+  margin-bottom: 0;
+}
+.notifications.unread .notification h2 {
+  color: #f05e3e;
+}
+.notification p {
+  font: normal normal normal 16px/24px Muli;
+  margin-bottom: 0;
+}
+
+.mark-as-read {
+  color: #c3c3c3;
+  font-size: 28px;
+  box-shadow: none;
+}
+.notifications.unread .mark-as-read {
+  color: #f05e3e;
+}
+.notification a {
+  color: #f05e3e;
+}
+.notification-container{
+  position: relative;
+}
+
+.notification-container .notification{
+  right: 0;
+  position: absolute;
+  font-size: 12px;
+  color: grey;
+}

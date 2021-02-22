@@ -1,0 +1,392 @@
+@font-face {
+  font-family: "MuliBold";
+  src: url("../../assets/fonts/muli-bold.ttf");
+}
+
+@font-face {
+  font-family: "MuliRegular";
+  src: url("../../assets/fonts/muli-regular.ttf");
+}
+
+@font-face {
+  font-family: "Playfair Display Bold";
+  src: url("../../assets/fonts/PlayfairDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Playfair Display Black";
+  src: url("../../assets/fonts/PlayfairDisplay-Black.ttf");
+}
+@font-face {
+  font-family: "Playfair Display Regular";
+  src: url("../../assets/fonts/PlayfairDisplay-Regular.ttf");
+}
+
+.mainBody {
+  padding-top: 50px;
+  background: #fff;
+}
+.mainBody .intropart {
+  font-family: Times New Roman;
+  background: transparent linear-gradient(180deg, #fffad5 0%, #fff1c3 100%) 0%
+    0% no-repeat padding-box;
+  color: #e0732f;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 9rem;
+  border-radius: 20px;
+}
+
+input[type="checkbox"] {
+  border: 1px solid #cccccc;
+  background: #fff;
+  padding: 3px;
+}
+
+.mobile-view-internet {
+  font-family: "Times New Roman", Times, serif;
+  position: relative;
+}
+
+.image1 {
+  position: absolute;
+  right: -20px;
+  bottom: -5rem;
+  height: 400px;
+}
+
+.image2 {
+  position: absolute;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  right: 100px;
+  bottom: -60px;
+}
+
+.para1 {
+  padding: 5rem 11rem;
+  text-align: center;
+}
+
+.laptop-lady img {
+  height: 350px;
+  padding-top: 30px;
+}
+
+.laptop-lady {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.permission-head,
+.internet-people {
+  font-size: 50px;
+  text-align: left;
+}
+
+.hand-mobile img {
+  height: 400px;
+  padding-top: 30px;
+}
+
+.permissions {
+  font-family: "Times New Roman", Times, serif;
+  position: relative;
+}
+
+.only-mobile {
+  display: none;
+}
+
+.lets-go {
+  padding: 2rem 2em;
+  background: #fff7dd;
+}
+
+.lets-go .content {
+  padding: 3rem 10rem;
+}
+
+.lets-go form {
+  padding: 0 10rem;
+}
+
+footer label {
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  display: block;
+}
+
+.final-go {
+  padding: 10px 40px;
+}
+
+footer form {
+  display: flex;
+  align-items: center;
+}
+
+#look-up {
+  height: 60px;
+}
+
+.copyright .col-md-11 {
+  font-family: "MuliRegular";
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#email {
+  width: 80%;
+}
+
+.mainTitle {
+  font-size: 70px;
+  line-height: 1.2;
+  width: 100%;
+  text-align: left;
+  font-family: "Playfair Display Black";
+}
+.personas {
+  font-size: 50px;
+}
+.policy-link,
+.policy-link:hover {
+  color: white;
+  font-family: "MuliRegular";
+}
+
+label {
+  width: 90%;
+}
+
+@media screen and (max-width: 992px) {
+  .personas {
+    font-size: 34px;
+  }
+  .mainTitle {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .only-mobile {
+    display: block;
+  }
+
+  .lets-go .content {
+    padding: 0rem;
+  }
+
+  .mainBody .intropart {
+    padding: 2rem;
+    padding-bottom: 15rem;
+  }
+
+  .lets-go form {
+    padding: 0;
+  }
+
+  .permissions {
+    margin-bottom: 20px;
+  }
+
+  .mobile-view-internet {
+    margin-bottom: 0px;
+  }
+
+  .image1 {
+    left: 24%;
+    bottom: -5rem;
+    height: 300px;
+  }
+
+  .image2 {
+    left: 1.4rem;
+    bottom: -80px;
+  }
+
+  .para1 {
+    padding: 0;
+    text-align: center;
+    padding-top: 5rem;
+  }
+
+  .laptop-lady {
+    position: relative;
+    background: #fff;
+    padding: 15px;
+  }
+
+  .permission-head {
+    font-size: 36px;
+  }
+
+  .textcenter {
+    text-align: center;
+  }
+
+  .mobile-view-internet {
+    background: #dae6e5;
+  }
+
+  .mobile-view-internet h2 {
+    font-size: 30px;
+  }
+
+  .hand-mobile {
+    position: relative;
+    background: transparent;
+    margin-bottom: 30px;
+    left: 0;
+  }
+
+  .hand-mobile img {
+    width: 100%;
+    bottom: unset;
+    position: relative;
+  }
+
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .col-9,
+  .col-3 {
+    padding: 0 5px;
+  }
+
+  .signInButton {
+    font-size: 15px;
+  }
+
+  label {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 1rem;
+    width: 85%;
+  }
+
+  footer label {
+    font-size: 36px;
+  }
+
+  .final-go {
+    padding: 10px 25px;
+    height: 60px;
+  }
+
+  #email {
+    width: 70%;
+  }
+}
+
+.playfairBold {
+  font-family: "Playfair Display Bold";
+}
+
+.skip {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+  z-index: 999999;
+  background-color: #fff;
+}
+
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+.exampleBox {
+  border: 1px solid #e0732f;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  background: #fff7dd;
+}
+.recentAtsign {
+  padding: 0.5rem 20px !important;
+  margin-right: 30px;
+  margin-left: 8px;
+}
+
+.recentPicks {
+  background-color: #e0732f;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  height: 200px;
+    align-items: center;
+    display: flex;
+}
+.exampleBox div.atSign{
+    padding: 10px 10px;
+    display: block;
+    /* background: #efefef; */
+    color: #333;
+    /* border-bottom: 1px solid #ddd; */
+    text-overflow: unset;
+    word-break: break-all;
+}
+.mediaExampleBox {
+  overflow-x: auto;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 30px; */
+  /* position: relative; */
+}
+
+.buttonScroll {
+  position: absolute;
+  right: 0;
+  align-self: center;
+  color: #ccc;
+  border: none;
+  background: white;
+  height: 100%;
+  outline: none;
+}
+.buttonScroll.left {
+  right: auto;
+}
+.mediaExampleBox::-webkit-scrollbar {
+  height: 3px;
+}
+
+/* Track */
+.mediaExampleBox::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(216, 211, 211);
+  border-radius: 10px;
+}
+
+/* Handle */
+.mediaExampleBox::-webkit-scrollbar-thumb {
+  background: #bdbcbc;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.mediaExampleBox::-webkit-scrollbar-thumb:hover {
+  background: #bdbcbc;
+}

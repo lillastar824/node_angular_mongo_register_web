@@ -1,0 +1,88 @@
+<!-- <div>
+  <div mat-dialog-title>
+      <h4 style="margin: auto" class="text-ellipsis">Activate your @sign</h4>
+      <span> <i class="fa fa-times-circle mr-2" (click)="onNoClick()"></i>
+      </span>
+  </div>
+  <div class="text-center p-3">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="standard-color atsign-long" style="font-size: 23px;" title="{{'@'+data['atsignData']}}">{{'@'+data['atsignData']}}</div>
+
+        <img src="{{data['imgData']}}">
+        <div class="mt-4">
+          On mobile?
+          <a [attr.href]="data['imgData']" class="standard-color text-underline" download="qrcode">
+            Save to library.
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div style="font-size: 23px;">
+          Scan QR code using the <span class="standard-color">@me</span> app to activate.
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <img src="../../assets/img/@me logo.png" class="atMe">
+        </div>
+        <div class="mt-3">
+          <div class="text-center mb-3">Download for Free:</div>
+          <div class="col-sm-12 d-flex justify-content-center align-items-center">
+            <img src="../../../assets/img/google-play-badge.png" alt="Google play badge" height='40' class="mr-3">
+            <img src="../../../assets/img/apple-play-badge.png" alt="Apple play badge" width="137" height='40' class="mt10">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!--  new modal  -->
+
+<div>
+  <div mat-dialog-title [ngClass]="{'progress-complete': qrCode }">
+    <div class="header">
+      <button type="button" class="close-btn"> <i class="fa fa-times-circle" (click)="onNoClick()"></i>
+      </button>
+      <div class="atsign-name-status text-uppercase mb-2">{{qrCode?'Ready to activate':'Pending...'}}</div>
+
+      <div class="atsign-name-heading mb-2"><span class="nameColor">@</span>{{''+data['atsignData']}}</div>
+
+    </div>
+
+  </div>
+  <div class="text-center px-3 py-4">
+    <div class="row">
+      <div class="col-12 col-md-5  border-right">
+        <div class="d-flex flex-column justify-content-center mb-3" style="height: 100%;" *ngIf="!qrCode">
+          <span class="mb-3"><img src="../../assets/img/loader.png" alt="" class="loader fa-spin"></span>
+           <p class="m-0 text-center building-code-text">Building QR <br>code...</p>
+        </div>
+        <div class="d-flex flex-column mb-3"  style="height: 100%;" *ngIf="qrCode">
+          <img class="qr-img" src="{{data['imgData']}}">
+          <div>
+            <a [attr.href]="data['imgData']" class="button save-btn px-3 py-2" download="qrcode">
+              Save Code
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-7">
+        <div class="d-flex align-items-center mt-1">
+          <img src="assets/img/@persona-app-logo.svg" alt="ersona-app-logo.svg" class="img persona-logo">
+          <span class="downloadText text-left px-2" *ngIf="!qrCode">Download the <span class="standard-color">@</span>persona app <br> while you're waiting</span>
+          <span class="downloadText text-left px-2" *ngIf="qrCode">Scan QR code using the <span class="standard-color">@</span>persona app to activate</span>
+        </div>
+
+
+        <div class="mt-4">
+          <div class="justify-content-center align-items-center mb-1 download-free">Download free</div>
+          <div class="col-sm-12 justify-content-center align-items-center">
+            <a href="https://play.google.com/store/apps/details?id=com.atsign.at_settings" target="_blank">  <img src="../../../assets/img/google-play-badge.png" alt="Google play badge" height='40'></a> <br>
+            <a href="https://apps.apple.com/us/app/persona/id1527182357" target="_blank"> <img class="mt-2" src="../../../assets/img/apple-play-badge.png" alt="Apple play badge" width="137" height='40'  ></a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

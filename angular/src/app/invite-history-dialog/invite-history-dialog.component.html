@@ -1,0 +1,25 @@
+<div class="invite-scroll">
+  <div class="heading" *ngIf="data.inviteData.length>0">
+    Invite history
+  </div>
+  <p class="text-activity mb-0">Activity</p>
+
+  <mat-accordion  class="invite-history-accordion">
+    <mat-expansion-panel *ngFor="let data of data.inviteData">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{data.email ? data.email : (data.contact ? data.contact : 'Pending')}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="d-block">{{data.sentOn | date}}</div>
+      <div class="d-block green-color" *ngIf="!data.atsignName">{{data.atsignName ? '@' + data.atsignName : 'Pending'}}</div>
+      <div class="d-block" *ngIf="data.atsignName"><a class="standard-color" href="{{atmeURL+data.atsignName}}" target="_blank">{{'@' + data.atsignName }}</a></div>
+      <div class="d-block" *ngIf="data.inviteLink && !data.atsignName && !data.email"><span class="pointer-cursor standard-color"
+        (click)="copyInputMessage(data.inviteLink)"><i class="fa fa-copy mr-2"></i>Copy Invite Link</span></div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="alert alert-danger my-3" *ngIf="data.inviteData.length === 0">
+    No history available
+  </div>
+</div>

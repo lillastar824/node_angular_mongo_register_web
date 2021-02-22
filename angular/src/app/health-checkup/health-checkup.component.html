@@ -1,0 +1,29 @@
+<div>
+    <h1 class="invite-head">
+        <span>Health Check-Up</span>
+    </h1>
+    <!-- <a href="javascript: void(0);" aria-label="back" [routerLink]="'/getallusers/'" class=" back-arrow">
+         <i class="fa fa-arrow-left"></i> Back
+    </a> -->
+    <div *ngIf="mongoStatus === 'error'">
+
+        <table class="table table-bordered error">
+            <tbody>
+                <tr>
+                    <th>MongoDB Connection Status</th>
+                    <td>{{mongoStatus}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="mongoStatus === 'success'">
+        <table class="table table-bordered success">
+            <tbody>
+                <tr>
+                    <th>MongoDB Connection Status</th>
+                    <td>{{mongoStatus}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

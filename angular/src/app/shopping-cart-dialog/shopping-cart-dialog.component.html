@@ -1,0 +1,45 @@
+<div class="header">
+
+  <h2>Checkout</h2>
+  <button class="btn p-0 close-btn" mat-dialog-close>
+    <img src="../../assets/img/icon-close.png" alt="" style="width:50%">
+  </button>
+</div>
+<div class="body">
+  <h3 class="cart-title">Your bag</h3>
+  <div class="cart-items">
+    <div class="cart-item" *ngFor="let data of userService.cartData; index as i;">
+      <div class="cart-item-name">{{data.atsignName}}</div>
+      <div class="cart-item-price">{{'$' + data.payAmount + '.00'}}</div>
+      <div><button class="btn p-0"><i class="fa fa-minus-circle" aria-hidden="true"
+            (click)="confirmDelete(data)"></i></button></div>
+    </div>
+    <div class="cart-item" *ngIf="userService.cartData.length !== 0 && userService.commercialAtsignDiscountPercentage && userService.commercialAtsignDiscountPercentage > 0">
+      <div class="cart-item-name">Discount</div>
+      <div class="cart-item-price pr-3">{{'-$' + ((userService.selectHandle.subTotal * userService.commercialAtsignDiscountPercentage)/100).toFixed() + '.00'}}</div>
+    </div>
+    <div *ngIf="userService.cartData.length === 0">
+      <span *ngIf="emptyCartMessage">{{emptyCartMessage}} , click <strong class="pointer-cursor" (click) = "tryAgain()">here</strong> to try again!</span>
+      <span *ngIf="!emptyCartMessage">Oops, your bag is expired, click <strong class="pointer-cursor" (click) = "tryAgain()">here</strong> to try again!</span>
+    </div>
+  </div>
+  <div class="cart-items-total py-3 mb-3">
+    <div class="cart-total" *ngIf="userService.cartData.length !== 0">
+      <span class="d-inline-block mr-3">Total:</span> {{'$' + (userService.selectHandle.subTotal - ((userService.selectHandle.subTotal * userService.commercialAtsignDiscountPercentage)/100)).toFixed()+ '.00'}}
+    </div>
+    <div></div>
+<div class="col-sm text-left extra-hide">
+  <button type="button" (click)="dialog1()" class="btn btn-secondary">Apply Referral Code</button>
+</div>
+  </div>
+  <div *ngIf="serverErrorMessages" class="alert alert-danger">
+    {{serverErrorMessages}}
+  </div>
+  <div class="annual-fee-disclaimer">
+    <app-annual-fee-disclaimer></app-annual-fee-disclaimer>
+  </div>
+  <div>
+    <button type="button" class="checkout-btn" (click)="register()" *ngIf="userService.cartData.length > 0">Checkout
+    </button>
+  </div>
+</div>

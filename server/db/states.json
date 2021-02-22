@@ -1,0 +1,7234 @@
+[
+	{
+		"short": "al",
+		"name": "alabama",
+		"country": "us"
+	},
+	{
+		"short": "ak",
+		"name": "alaska",
+		"country": "us"
+	},
+	{
+		"short": "az",
+		"name": "arizona",
+		"country": "us"
+	},
+	{
+		"short": "ar",
+		"name": "arkansas",
+		"country": "us"
+	},
+	{
+		"short": "ca",
+		"name": "california",
+		"country": "us"
+	},
+	{
+		"short": "co",
+		"name": "colorado",
+		"country": "us"
+	},
+	{
+		"short": "ct",
+		"name": "connecticut",
+		"country": "us"
+	},
+	{
+		"short": "dc",
+		"name": "districtofcolumbia",
+		"alt": [
+			"washingtondc",
+			"washingtond.c."
+		],
+		"country": "us"
+	},
+	{
+		"short": "dc",
+		"name": "washingtondc",
+		"country": "us"
+	},
+	{
+		"short": "de",
+		"name": "delaware",
+		"country": "us"
+	},
+	{
+		"short": "fl",
+		"name": "florida",
+		"country": "us"
+	},
+	{
+		"short": "ga",
+		"name": "georgia",
+		"country": "us"
+	},
+	{
+		"short": "hi",
+		"name": "hawaii",
+		"country": "us"
+	},
+	{
+		"short": "id",
+		"name": "idaho",
+		"country": "us"
+	},
+	{
+		"short": "il",
+		"name": "illinois",
+		"country": "us"
+	},
+	{
+		"short": "in",
+		"name": "indiana",
+		"country": "us"
+	},
+	{
+		"short": "ia",
+		"name": "iowa",
+		"country": "us"
+	},
+	{
+		"short": "ks",
+		"name": "kansas",
+		"country": "us"
+	},
+	{
+		"short": "ky",
+		"name": "kentucky",
+		"country": "us"
+	},
+	{
+		"short": "la",
+		"name": "louisiana",
+		"country": "us"
+	},
+	{
+		"short": "me",
+		"name": "maine",
+		"country": "us"
+	},
+	{
+		"short": "md",
+		"name": "maryland",
+		"country": "us"
+	},
+	{
+		"short": "ma",
+		"name": "massachusetts",
+		"country": "us"
+	},
+	{
+		"short": "mi",
+		"name": "michigan",
+		"country": "us"
+	},
+	{
+		"short": "mn",
+		"name": "minnesota",
+		"country": "us"
+	},
+	{
+		"short": "ms",
+		"name": "mississippi",
+		"country": "us"
+	},
+	{
+		"short": "mo",
+		"name": "missouri",
+		"country": "us"
+	},
+	{
+		"short": "mt",
+		"name": "montana",
+		"country": "us"
+	},
+	{
+		"short": "ne",
+		"name": "nebraska",
+		"country": "us"
+	},
+	{
+		"short": "nv",
+		"name": "nevada",
+		"country": "us"
+	},
+	{
+		"short": "nh",
+		"name": "newhampshire",
+		"country": "us"
+	},
+	{
+		"short": "nj",
+		"name": "newjersey",
+		"country": "us"
+	},
+	{
+		"short": "nm",
+		"name": "newmexico",
+		"country": "us"
+	},
+	{
+		"short": "ny",
+		"name": "newyork",
+		"country": "us"
+	},
+	{
+		"short": "nc",
+		"name": "northcarolina",
+		"country": "us"
+	},
+	{
+		"short": "nd",
+		"name": "northdakota",
+		"country": "us"
+	},
+	{
+		"short": "oh",
+		"name": "ohio",
+		"country": "us"
+	},
+	{
+		"short": "ok",
+		"name": "oklahoma",
+		"country": "us"
+	},
+	{
+		"short": "or",
+		"name": "oregon",
+		"country": "us"
+	},
+	{
+		"short": "pa",
+		"name": "pennsylvania",
+		"country": "us"
+	},
+	{
+		"short": "ri",
+		"name": "rhodeisland",
+		"country": "us"
+	},
+	{
+		"short": "sc",
+		"name": "southcarolina",
+		"country": "us"
+	},
+	{
+		"short": "sd",
+		"name": "southdakota",
+		"country": "us"
+	},
+	{
+		"short": "tn",
+		"name": "tennessee",
+		"country": "us"
+	},
+	{
+		"short": "tx",
+		"name": "texas",
+		"country": "us"
+	},
+	{
+		"short": "ut",
+		"name": "utah",
+		"country": "us"
+	},
+	{
+		"short": "vt",
+		"name": "vermont",
+		"country": "us"
+	},
+	{
+		"short": "va",
+		"name": "virginia",
+		"country": "us"
+	},
+	{
+		"short": "wa",
+		"name": "washington",
+		"country": "us"
+	},
+	{
+		"short": "wv",
+		"name": "westvirginia",
+		"country": "us"
+	},
+	{
+		"short": "wi",
+		"name": "wisconsin",
+		"country": "us"
+	},
+	{
+		"short": "wy",
+		"name": "wyoming",
+		"country": "us"
+	},
+	{
+		"short": "as",
+		"name": "americansamoa",
+		"country": "us"
+	},
+	{
+		"short": "gu",
+		"name": "guam",
+		"country": "us"
+	},
+	{
+		"short": "mp",
+		"name": "northernmarianaislands",
+		"country": "us"
+	},
+	{
+		"short": "pr",
+		"name": "puertorico",
+		"country": "us"
+	},
+	{
+		"short": "um",
+		"name": "unitedstatesminoroutlyingislands",
+		"country": "us"
+	},
+	{
+		"short": "vi",
+		"name": "virginislands",
+		"country": "us"
+	},
+	{
+		"short": "ab",
+		"name": "alberta",
+		"country": "ca"
+	},
+	{
+		"short": "bc",
+		"name": "britishcolumbia",
+		"country": "ca"
+	},
+	{
+		"short": "mb",
+		"name": "manitoba",
+		"country": "ca"
+	},
+	{
+		"short": "nb",
+		"name": "newbrunswick",
+		"country": "ca"
+	},
+	{
+		"short": "nl",
+		"name": "newfoundlandandlabrador",
+		"country": "ca",
+		"alt": [
+			"newfoundland",
+			"labrador"
+		]
+	},
+	{
+		"short": "ns",
+		"name": "novascotia",
+		"country": "ca"
+	},
+	{
+		"short": "nu",
+		"name": "nunavut",
+		"country": "ca"
+	},
+	{
+		"short": "nt",
+		"name": "northwestterritories",
+		"country": "ca"
+	},
+	{
+		"short": "on",
+		"name": "ontario",
+		"country": "ca"
+	},
+	{
+		"short": "pe",
+		"name": "princeedwardisland",
+		"country": "ca"
+	},
+	{
+		"short": "qc",
+		"name": "quebec",
+		"country": "ca"
+	},
+	{
+		"short": "sk",
+		"name": "saskatchewan",
+		"country": "ca"
+	},
+	{
+		"short": "yt",
+		"name": "yukon",
+		"country": "ca"
+	},
+	{
+		"name": "ashmoreandcartierislands",
+		"country": "au"
+	},
+	{
+		"name": "australianantarcticterritory",
+		"country": "au"
+	},
+	{
+		"short": "act",
+		"name": "australiancapitalterritory",
+		"country": "au"
+	},
+	{
+		"short": "cx",
+		"name": "christmasisland",
+		"country": "au"
+	},
+	{
+		"short": "cc",
+		"name": "cocosislands",
+		"alt": [
+			"keelingislands"
+		],
+		"country": "au"
+	},
+	{
+		"name": "coralseaislands",
+		"country": "au"
+	},
+	{
+		"short": "hm",
+		"name": "heardislandandmcdonaldislands",
+		"country": "au"
+	},
+	{
+		"short": "jbt",
+		"name": "jervisbayterritory",
+		"country": "au"
+	},
+	{
+		"short": "nsw",
+		"name": "newsouthwales",
+		"country": "au"
+	},
+	{
+		"short": "nf",
+		"name": "norfolkisland",
+		"country": "au"
+	},
+	{
+		"short": "nt",
+		"name": "northernterritory",
+		"country": "au"
+	},
+	{
+		"short": "qld",
+		"name": "queensland",
+		"country": "au"
+	},
+	{
+		"short": "sa",
+		"name": "southaustralia",
+		"country": "au"
+	},
+	{
+		"short": "tas",
+		"name": "tasmania",
+		"country": "au"
+	},
+	{
+		"short": "vic",
+		"name": "victoria",
+		"country": "au"
+	},
+	{
+		"short": "wa",
+		"name": "westernaustralia",
+		"country": "au"
+	},
+	{
+		"name": "aguascalientes",
+		"short": "ag",
+		"alt": [
+			"ags"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "bajacalifornia",
+		"short": "bc",
+		"alt": [
+			"bcn"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "bajacaliforniasur",
+		"short": "bs",
+		"alt": [
+			"bcs"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "campeche",
+		"short": "cm",
+		"alt": [
+			"camp",
+			"cam"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "chiapas",
+		"short": "cs",
+		"alt": [
+			"chis",
+			"chp"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "chihuahua",
+		"short": "ch",
+		"alt": [
+			"chih",
+			"chh"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "coahuila",
+		"short": "mx",
+		"alt": [
+			"coah",
+			"coa"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "colima",
+		"short": "cl",
+		"alt": [
+			"col"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "federaldistrict",
+		"short": "df",
+		"alt": [
+			"dif"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "durango",
+		"short": "dg",
+		"alt": [
+			"dgo",
+			"dur"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "guanajuato",
+		"short": "gt",
+		"alt": [
+			"gto",
+			"gua"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "guerrero",
+		"short": "gr",
+		"alt": [
+			"gro",
+			"gro"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "hidalgo",
+		"short": "hg",
+		"alt": [
+			"hgo",
+			"hid"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "jalisco",
+		"short": "ja",
+		"alt": [
+			"jal",
+			"jal"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "mexico",
+		"short": "me",
+		"alt": [
+			"edomex",
+			"mex"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "michoacan",
+		"short": "mi",
+		"alt": [
+			"mich",
+			"mic"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "morelos",
+		"short": "mo",
+		"alt": [
+			"mor",
+			"mor"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "nayarit",
+		"short": "na",
+		"alt": [
+			"nay",
+			"nay"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "nuevoleón",
+		"short": "nl",
+		"alt": [
+			"nle"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "oaxaca",
+		"short": "oa",
+		"alt": [
+			"oax",
+			"oax"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "puebla",
+		"short": "pu",
+		"alt": [
+			"pue",
+			"pue"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "querétaro",
+		"short": "qe",
+		"alt": [
+			"qro",
+			"que"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "quintanaroo",
+		"short": "qr",
+		"alt": [
+			"qroo",
+			"roo"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "sanluispotosí",
+		"short": "sl",
+		"alt": [
+			"slp"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "sinaloa",
+		"short": "si",
+		"alt": [
+			"sin"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "sonora",
+		"short": "so",
+		"alt": [
+			"son"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "tabasco",
+		"short": "tb",
+		"alt": [
+			"tab"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "tamaulipas",
+		"short": "tm",
+		"alt": [
+			"tamps",
+			"tam"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "tlaxcala",
+		"short": "tl",
+		"alt": [
+			"tlax",
+			"tla"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "veracruz",
+		"short": "ve",
+		"alt": [
+			"ver"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "yucatan",
+		"short": "yu",
+		"alt": [
+			"yuc"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "zacatecas",
+		"short": "za",
+		"alt": [
+			"zac"
+		],
+		"country": "mx"
+	},
+	{
+		"name": "重庆",
+		"short": "渝",
+		"english": "chongqing",
+		"country": "cn"
+	},
+	{
+		"name": "黑龙江",
+		"short": "黑",
+		"english": "heilongjiang",
+		"country": "cn"
+	},
+	{
+		"name": "吉林",
+		"short": "吉",
+		"english": "jilin",
+		"country": "cn"
+	},
+	{
+		"name": "海南",
+		"short": "琼",
+		"english": "hainan",
+		"country": "cn"
+	},
+	{
+		"name": "北京",
+		"short": "京",
+		"english": "beijing",
+		"country": "cn"
+	},
+	{
+		"name": "辽宁",
+		"short": "辽",
+		"english": "liaoning",
+		"country": "cn"
+	},
+	{
+		"name": "内蒙古",
+		"short": "蒙",
+		"english": "innermongolia",
+		"alt": [
+			"neimenggu"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "西藏",
+		"short": "藏",
+		"english": "xizang",
+		"alt": [
+			"tibet"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "青海",
+		"short": "青",
+		"english": "qinghai",
+		"country": "cn"
+	},
+	{
+		"name": "宁夏",
+		"short": "宁",
+		"english": "ningxia",
+		"country": "cn"
+	},
+	{
+		"name": "新疆",
+		"short": "新",
+		"english": "xinjiang",
+		"alt": [
+			"uygur"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "甘肃",
+		"short": "甘",
+		"english": "gansu",
+		"country": "cn"
+	},
+	{
+		"name": "河北",
+		"short": "冀",
+		"english": "hebei",
+		"country": "cn"
+	},
+	{
+		"name": "河南",
+		"short": "豫",
+		"english": "henan",
+		"country": "cn"
+	},
+	{
+		"name": "湖北",
+		"short": "鄂",
+		"english": "hubei",
+		"country": "cn"
+	},
+	{
+		"name": "湖南",
+		"short": "湘",
+		"english": "hunan",
+		"country": "cn"
+	},
+	{
+		"name": "山东",
+		"short": "鲁",
+		"english": "shandong",
+		"country": "cn"
+	},
+	{
+		"name": "江苏",
+		"short": "苏",
+		"english": "jiangsu",
+		"country": "cn"
+	},
+	{
+		"name": "安徽",
+		"short": "皖",
+		"english": "anhui",
+		"country": "cn"
+	},
+	{
+		"name": "山西",
+		"short": "晋",
+		"english": "shanxi",
+		"country": "cn"
+	},
+	{
+		"name": "陕西",
+		"short": "陕",
+		"english": "shaanxi",
+		"country": "cn"
+	},
+	{
+		"name": "四川",
+		"short": "川",
+		"english": "sichuan",
+		"country": "cn"
+	},
+	{
+		"name": "云南",
+		"short": "滇",
+		"english": "yunnan",
+		"country": "cn"
+	},
+	{
+		"name": "贵州",
+		"short": "黔",
+		"english": "guizhou",
+		"country": "cn"
+	},
+	{
+		"name": "浙江",
+		"short": "浙",
+		"english": "zhejiang",
+		"country": "cn"
+	},
+	{
+		"name": "福建",
+		"short": "闽",
+		"english": "fujian",
+		"country": "cn"
+	},
+	{
+		"name": "广西",
+		"short": "桂",
+		"english": "guangxi",
+		"country": "cn"
+	},
+	{
+		"name": "上海",
+		"short": "沪",
+		"english": "shanghai",
+		"country": "cn"
+	},
+	{
+		"name": "天津",
+		"short": "津",
+		"english": "tianjin",
+		"country": "cn"
+	},
+	{
+		"name": "香港",
+		"short": "港",
+		"english": "hongkong",
+		"alt": [
+			"hongkong"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "澳门",
+		"short": "澳",
+		"english": "macau",
+		"alt": [
+			"macao"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "台湾",
+		"short": "台",
+		"english": "taiwan",
+		"country": "cn"
+	},
+	{
+		"name": "江西",
+		"short": "赣",
+		"english": "jiangxi",
+		"country": "cn"
+	},
+	{
+		"name": "广东",
+		"short": "粤",
+		"english": "guangdong",
+		"country": "cn"
+	},
+	{
+		"name": "chongqing",
+		"country": "cn"
+	},
+	{
+		"name": "heilongjiang",
+		"country": "cn"
+	},
+	{
+		"name": "jilin",
+		"country": "cn"
+	},
+	{
+		"name": "hainan",
+		"country": "cn"
+	},
+	{
+		"name": "beijing",
+		"country": "cn"
+	},
+	{
+		"name": "liaoning",
+		"country": "cn"
+	},
+	{
+		"name": "innermongolia",
+		"alt": [
+			"neimenggu"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "xizang",
+		"alt": [
+			"tibet"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "qinghai",
+		"country": "cn"
+	},
+	{
+		"name": "ningxia",
+		"country": "cn"
+	},
+	{
+		"name": "xinjiang",
+		"alt": [
+			"uygur"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "gansu",
+		"country": "cn"
+	},
+	{
+		"name": "hebei",
+		"country": "cn"
+	},
+	{
+		"name": "henan",
+		"country": "cn"
+	},
+	{
+		"name": "hubei",
+		"country": "cn"
+	},
+	{
+		"name": "hunan",
+		"country": "cn"
+	},
+	{
+		"name": "shandong",
+		"country": "cn"
+	},
+	{
+		"name": "jiangsu",
+		"country": "cn"
+	},
+	{
+		"name": "anhui",
+		"country": "cn"
+	},
+	{
+		"name": "shanxi",
+		"country": "cn"
+	},
+	{
+		"name": "shaanxi",
+		"country": "cn"
+	},
+	{
+		"name": "sichuan",
+		"country": "cn"
+	},
+	{
+		"name": "yunnan",
+		"country": "cn"
+	},
+	{
+		"name": "guizhou",
+		"country": "cn"
+	},
+	{
+		"name": "zhejiang",
+		"country": "cn"
+	},
+	{
+		"name": "fujian",
+		"country": "cn"
+	},
+	{
+		"name": "guangxi",
+		"country": "cn"
+	},
+	{
+		"name": "shanghai",
+		"country": "cn"
+	},
+	{
+		"name": "tianjin",
+		"country": "cn"
+	},
+	{
+		"name": "hongkong",
+		"alt": [
+			"hongkong"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "macau",
+		"alt": [
+			"macao"
+		],
+		"country": "cn"
+	},
+	{
+		"name": "taiwan",
+		"country": "cn"
+	},
+	{
+		"name": "jiangxi",
+		"country": "cn"
+	},
+	{
+		"name": "guangdong",
+		"country": "cn"
+	},
+	{
+		"name": "avon",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "bedfordshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "berkshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "borders",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "bristol",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "buckinghamshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "cambridgeshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "channelislands",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "cheshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "cleveland",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "cornwall",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "cumbria",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "derbyshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "devon",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "dorset",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "durham",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "eastridingofyorkshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "eastsussex",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "essex",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "gloucestershire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "greatermanchester",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "hampshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "herefordshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "hertfordshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "humberside",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "isleofman",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "isleofwight",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "islesofscilly",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "kent",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "lancashire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "leicestershire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "lincolnshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "london",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "merseyside",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "middlesex",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "norfolk",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "northyorkshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "northamptonshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "northumberland",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "nottinghamshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "oxfordshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "rutland",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "shropshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "somerset",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "southyorkshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "staffordshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "suffolk",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "surrey",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "tyneandwear",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "warwickshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "westmidlands",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "westsussex",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "westyorkshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "wiltshire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "worcestershire",
+		"country": "gb",
+		"region": "england"
+	},
+	{
+		"name": "antrim",
+		"country": "gb",
+		"region": "northernireland"
+	},
+	{
+		"name": "down",
+		"country": "gb",
+		"region": "northernireland"
+	},
+	{
+		"name": "fermanagh",
+		"country": "gb",
+		"region": "northernireland"
+	},
+	{
+		"name": "londonderry",
+		"country": "gb",
+		"region": "northernireland"
+	},
+	{
+		"name": "tyrone",
+		"country": "gb",
+		"region": "northernireland"
+	},
+	{
+		"name": "aberdeencity",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "aberdeenshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "angus",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "argyllandbute",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "armagh",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "carmarthenshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "clackmannan",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "dumfriesandgalloway",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "eastayrshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "eastdunbartonshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "eastlothian",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "eastrenfrewshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "edinburghcity",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "falkirk",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "fife",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "glasgow",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "highland",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "inverclyde",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "midlothian",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "moray",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "northayrshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "northlanarkshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "orkney",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "perthshireandkinross",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "renfrewshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "roxburghshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "shetland",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "southayrshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "southlanarkshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "stirling",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "westdunbartonshire",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "westlothian",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "westernisles",
+		"country": "gb",
+		"region": "scotland"
+	},
+	{
+		"name": "blaenaugwent",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "bridgend",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "caerphilly",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "cardiff",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "ceredigion",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "conwy",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "denbighshire",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "flintshire",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "gwynedd",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "isleofanglesey",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "merthyrtydfil",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "monmouthshire",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "neathporttalbot",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "newport",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "pembrokeshire",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "powys",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "rhonddacynontaff",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "swansea",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "thevaleofglamorgan",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "torfaen",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"name": "wrexham",
+		"country": "gb",
+		"region": "wales"
+	},
+	{
+		"short": "bw",
+		"name": "baden-württemberg",
+		"country": "de"
+	},
+	{
+		"short": "by",
+		"name": "bayern",
+		"country": "de"
+	},
+	{
+		"short": "be",
+		"name": "berlin",
+		"country": "de"
+	},
+	{
+		"short": "bb",
+		"name": "brandenburg",
+		"country": "de"
+	},
+	{
+		"short": "hb",
+		"name": "bremen",
+		"country": "de"
+	},
+	{
+		"short": "hh",
+		"name": "hamburg",
+		"country": "de"
+	},
+	{
+		"short": "he",
+		"name": "hessen",
+		"country": "de"
+	},
+	{
+		"short": "mv",
+		"name": "mecklenburg-vorpommern",
+		"country": "de"
+	},
+	{
+		"short": "ni",
+		"name": "niedersachsen",
+		"country": "de"
+	},
+	{
+		"short": "nw",
+		"name": "nordrhein-westfalen",
+		"country": "de"
+	},
+	{
+		"short": "rp",
+		"name": "rheinland-pfalz",
+		"country": "de"
+	},
+	{
+		"short": "sl",
+		"name": "saarland",
+		"country": "de"
+	},
+	{
+		"short": "sn",
+		"name": "sachsen",
+		"country": "de"
+	},
+	{
+		"short": "st",
+		"name": "sachsen-anhalt",
+		"country": "de"
+	},
+	{
+		"short": "sh",
+		"name": "schleswig-holstein",
+		"country": "de"
+	},
+	{
+		"short": "th",
+		"name": "thüringen",
+		"country": "de"
+	},
+	{
+		"short": "dr",
+		"name": "drenthe",
+		"country": "nl"
+	},
+	{
+		"short": "fl",
+		"name": "flevoland",
+		"country": "nl"
+	},
+	{
+		"short": "fr",
+		"name": "friesland",
+		"country": "nl",
+		"alt": [
+			"fryslân"
+		]
+	},
+	{
+		"short": "gd",
+		"name": "gelderland",
+		"country": "nl"
+	},
+	{
+		"short": "gr",
+		"name": "groningen",
+		"country": "nl"
+	},
+	{
+		"short": "lb",
+		"name": "limburg",
+		"country": "nl"
+	},
+	{
+		"short": "nb",
+		"name": "noord-brabant",
+		"country": "nl"
+	},
+	{
+		"short": "nh",
+		"name": "noord-holland",
+		"country": "nl"
+	},
+	{
+		"short": "ov",
+		"name": "overijssel",
+		"country": "nl"
+	},
+	{
+		"short": "ut",
+		"name": "utrecht",
+		"country": "nl"
+	},
+	{
+		"short": "zh",
+		"name": "zuid-holland",
+		"country": "nl"
+	},
+	{
+		"short": "zl",
+		"name": "zeeland",
+		"country": "nl"
+	},
+	{
+		"short": "ant",
+		"name": "antwerpen",
+		"country": "be"
+	},
+	{
+		"short": "hai",
+		"name": "henegouwen",
+		"country": "be",
+		"alt": [
+			"hainaut"
+		]
+	},
+	{
+		"short": "lie",
+		"name": "luik",
+		"country": "be",
+		"alt": [
+			"liège"
+		]
+	},
+	{
+		"short": "lim",
+		"name": "limburg",
+		"country": "be"
+	},
+	{
+		"short": "lux",
+		"name": "luxemburg",
+		"country": "be"
+	},
+	{
+		"short": "nam",
+		"name": "namen",
+		"country": "be"
+	},
+	{
+		"short": "ovl",
+		"name": "oost-vlaanderen",
+		"country": "be"
+	},
+	{
+		"short": "vbr",
+		"name": "vlaams-brabant",
+		"country": "be"
+	},
+	{
+		"short": "wbr",
+		"name": "waals-brabant",
+		"country": "be"
+	},
+	{
+		"short": "wvl",
+		"name": "west-vlaanderen",
+		"country": "be"
+	},
+	{
+		"name": "hovedstaden",
+		"country": "dk"
+	},
+	{
+		"name": "midtjylland",
+		"country": "dk"
+	},
+	{
+		"name": "nordjylland",
+		"country": "dk"
+	},
+	{
+		"name": "sjælland",
+		"country": "dk"
+	},
+	{
+		"name": "syddanmark",
+		"country": "dk"
+	},
+	{
+		"name": "adana",
+		"country": "tr"
+	},
+	{
+		"name": "adıyaman",
+		"country": "tr"
+	},
+	{
+		"name": "afyonkarahisar",
+		"country": "tr"
+	},
+	{
+		"name": "ağrı",
+		"country": "tr"
+	},
+	{
+		"name": "amasya",
+		"country": "tr"
+	},
+	{
+		"name": "ankara",
+		"country": "tr"
+	},
+	{
+		"name": "antalya",
+		"country": "tr"
+	},
+	{
+		"name": "artvin",
+		"country": "tr"
+	},
+	{
+		"name": "aydın",
+		"country": "tr"
+	},
+	{
+		"name": "balıkesir",
+		"country": "tr"
+	},
+	{
+		"name": "bilecik",
+		"country": "tr"
+	},
+	{
+		"name": "bingöl",
+		"country": "tr"
+	},
+	{
+		"name": "bitlis",
+		"country": "tr"
+	},
+	{
+		"name": "bolu",
+		"country": "tr"
+	},
+	{
+		"name": "burdur",
+		"country": "tr"
+	},
+	{
+		"name": "bursa",
+		"country": "tr"
+	},
+	{
+		"name": "çanakkale",
+		"country": "tr"
+	},
+	{
+		"name": "çankırı",
+		"country": "tr"
+	},
+	{
+		"name": "çorum",
+		"country": "tr"
+	},
+	{
+		"name": "denizli",
+		"country": "tr"
+	},
+	{
+		"name": "diyarbakır",
+		"country": "tr"
+	},
+	{
+		"name": "edirne",
+		"country": "tr"
+	},
+	{
+		"name": "elazığ",
+		"country": "tr"
+	},
+	{
+		"name": "erzincan",
+		"country": "tr"
+	},
+	{
+		"name": "erzurum",
+		"country": "tr"
+	},
+	{
+		"name": "eskişehir",
+		"country": "tr"
+	},
+	{
+		"name": "gaziantep",
+		"country": "tr"
+	},
+	{
+		"name": "giresun",
+		"country": "tr"
+	},
+	{
+		"name": "gümüşhane",
+		"country": "tr"
+	},
+	{
+		"name": "hakkâri",
+		"country": "tr"
+	},
+	{
+		"name": "hatay",
+		"country": "tr"
+	},
+	{
+		"name": "isparta",
+		"country": "tr"
+	},
+	{
+		"name": "mersin",
+		"country": "tr"
+	},
+	{
+		"name": "istanbul",
+		"country": "tr"
+	},
+	{
+		"name": "İzmir",
+		"country": "tr"
+	},
+	{
+		"name": "kars",
+		"country": "tr"
+	},
+	{
+		"name": "kastamonu",
+		"country": "tr"
+	},
+	{
+		"name": "kayseri",
+		"country": "tr"
+	},
+	{
+		"name": "kırklareli",
+		"country": "tr"
+	},
+	{
+		"name": "kırşehir",
+		"country": "tr"
+	},
+	{
+		"name": "kocaeli",
+		"country": "tr"
+	},
+	{
+		"name": "konya",
+		"country": "tr"
+	},
+	{
+		"name": "kütahya",
+		"country": "tr"
+	},
+	{
+		"name": "malatya",
+		"country": "tr"
+	},
+	{
+		"name": "manisa",
+		"country": "tr"
+	},
+	{
+		"name": "kahramanmaraş",
+		"country": "tr"
+	},
+	{
+		"name": "mardin",
+		"country": "tr"
+	},
+	{
+		"name": "muğla",
+		"country": "tr"
+	},
+	{
+		"name": "muş",
+		"country": "tr"
+	},
+	{
+		"name": "nevşehir",
+		"country": "tr"
+	},
+	{
+		"name": "niğde",
+		"country": "tr"
+	},
+	{
+		"name": "ordu",
+		"country": "tr"
+	},
+	{
+		"name": "rize",
+		"country": "tr"
+	},
+	{
+		"name": "sakarya",
+		"country": "tr"
+	},
+	{
+		"name": "samsun",
+		"country": "tr"
+	},
+	{
+		"name": "siirt",
+		"country": "tr"
+	},
+	{
+		"name": "sinop",
+		"country": "tr"
+	},
+	{
+		"name": "sivas",
+		"country": "tr"
+	},
+	{
+		"name": "tekirdağ",
+		"country": "tr"
+	},
+	{
+		"name": "tokat",
+		"country": "tr"
+	},
+	{
+		"name": "trabzon",
+		"country": "tr"
+	},
+	{
+		"name": "tunceli",
+		"country": "tr"
+	},
+	{
+		"name": "şanlıurfa",
+		"country": "tr"
+	},
+	{
+		"name": "uşak",
+		"country": "tr"
+	},
+	{
+		"name": "van",
+		"country": "tr"
+	},
+	{
+		"name": "yozgat",
+		"country": "tr"
+	},
+	{
+		"name": "zonguldak",
+		"country": "tr"
+	},
+	{
+		"name": "aksaray",
+		"country": "tr"
+	},
+	{
+		"name": "bayburt",
+		"country": "tr"
+	},
+	{
+		"name": "karaman",
+		"country": "tr"
+	},
+	{
+		"name": "kırıkkale",
+		"country": "tr"
+	},
+	{
+		"name": "batman",
+		"country": "tr"
+	},
+	{
+		"name": "şırnak",
+		"country": "tr"
+	},
+	{
+		"name": "bartın",
+		"country": "tr"
+	},
+	{
+		"name": "ardahan",
+		"country": "tr"
+	},
+	{
+		"name": "iğdır",
+		"country": "tr"
+	},
+	{
+		"name": "yalova",
+		"country": "tr"
+	},
+	{
+		"name": "karabük",
+		"country": "tr"
+	},
+	{
+		"name": "kilis",
+		"country": "tr"
+	},
+	{
+		"name": "osmaniye",
+		"country": "tr"
+	},
+	{
+		"name": "düzce",
+		"country": "tr"
+	},
+	{
+		"short": "id-ac",
+		"name": "specialregionofaceh",
+		"country": "id"
+	},
+	{
+		"short": "id-ba",
+		"name": "bali",
+		"country": "id"
+	},
+	{
+		"short": "id-bb",
+		"name": "bangka–belitungislands",
+		"country": "id"
+	},
+	{
+		"short": "id-bt",
+		"name": "banten",
+		"country": "id"
+	},
+	{
+		"short": "id-be",
+		"name": "bengkulu",
+		"country": "id"
+	},
+	{
+		"short": "id-jt",
+		"name": "centraljava",
+		"country": "id"
+	},
+	{
+		"short": "id-kt",
+		"name": "centralkalimantan",
+		"country": "id"
+	},
+	{
+		"short": "id-st",
+		"name": "centralsulawesi",
+		"country": "id"
+	},
+	{
+		"short": "id-ji",
+		"name": "eastjava",
+		"country": "id"
+	},
+	{
+		"short": "id-ki",
+		"name": "eastkalimantan",
+		"country": "id"
+	},
+	{
+		"short": "id-nt",
+		"name": "eastnusatenggara",
+		"country": "id"
+	},
+	{
+		"short": "id-go",
+		"name": "gorontalo",
+		"country": "id"
+	},
+	{
+		"short": "id-jk",
+		"name": "jakartaspecialcapitalregion",
+		"country": "id"
+	},
+	{
+		"short": "id-ja",
+		"name": "jambi",
+		"country": "id"
+	},
+	{
+		"short": "id-la",
+		"name": "lampung",
+		"country": "id"
+	},
+	{
+		"short": "id-ma",
+		"name": "maluku",
+		"country": "id"
+	},
+	{
+		"short": "id-ku",
+		"name": "northkalimantan",
+		"country": "id"
+	},
+	{
+		"short": "id-mu",
+		"name": "northmaluku",
+		"country": "id"
+	},
+	{
+		"short": "id-sa",
+		"name": "northsulawesi",
+		"country": "id"
+	},
+	{
+		"short": "id-su",
+		"name": "northsumatra",
+		"country": "id"
+	},
+	{
+		"short": "id-pa",
+		"name": "specialregionofpapua",
+		"country": "id"
+	},
+	{
+		"short": "id-ri",
+		"name": "riau",
+		"country": "id"
+	},
+	{
+		"short": "id-kr",
+		"name": "riauislands",
+		"country": "id"
+	},
+	{
+		"short": "id-sg",
+		"name": "southeastsulawesi",
+		"country": "id"
+	},
+	{
+		"short": "id-ks",
+		"name": "southkalimantan",
+		"country": "id"
+	},
+	{
+		"short": "id-sn",
+		"name": "southsulawesi",
+		"country": "id"
+	},
+	{
+		"short": "id-ss",
+		"name": "southsumatra",
+		"country": "id"
+	},
+	{
+		"short": "id-jb",
+		"name": "westjava",
+		"country": "id"
+	},
+	{
+		"short": "id-kb",
+		"name": "westkalimantan",
+		"country": "id"
+	},
+	{
+		"short": "id-nb",
+		"name": "westnusatenggara",
+		"country": "id"
+	},
+	{
+		"short": "id-pb",
+		"name": "specialregionofwestpapua",
+		"country": "id"
+	},
+	{
+		"short": "id-sr",
+		"name": "westsulawesi",
+		"country": "id"
+	},
+	{
+		"short": "id-sb",
+		"name": "westsumatra",
+		"country": "id"
+	},
+	{
+		"short": "id-yo",
+		"name": "specialregionofyogyakarta",
+		"country": "id"
+	},
+	{
+		"name": "irbid",
+		"country": "jo"
+	},
+	{
+		"name": "ajloun",
+		"country": "jo"
+	},
+	{
+		"name": "jerash",
+		"country": "jo"
+	},
+	{
+		"name": "mafraq",
+		"country": "jo"
+	},
+	{
+		"name": "balqa",
+		"country": "jo"
+	},
+	{
+		"name": "amman",
+		"country": "jo"
+	},
+	{
+		"name": "zarqa",
+		"country": "jo"
+	},
+	{
+		"name": "madaba",
+		"country": "jo"
+	},
+	{
+		"name": "karak",
+		"country": "jo"
+	},
+	{
+		"name": "tafilah",
+		"country": "jo"
+	},
+	{
+		"name": "maan",
+		"country": "jo"
+	},
+	{
+		"name": "aqaba",
+		"country": "jo"
+	},
+	{
+		"short": "ap",
+		"name": "andhrapradesh",
+		"country": "in"
+	},
+	{
+		"short": "ar",
+		"name": "arunachalpradesh",
+		"country": "in"
+	},
+	{
+		"short": "as",
+		"name": "assam",
+		"country": "in"
+	},
+	{
+		"short": "br",
+		"name": "bihar",
+		"country": "in"
+	},
+	{
+		"short": "ct",
+		"name": "chhattisgarh",
+		"country": "in"
+	},
+	{
+		"short": "ga",
+		"name": "goa",
+		"country": "in"
+	},
+	{
+		"short": "gj",
+		"name": "gujarat",
+		"country": "in"
+	},
+	{
+		"short": "hr",
+		"name": "haryana",
+		"country": "in"
+	},
+	{
+		"short": "hp",
+		"name": "himachalpradesh",
+		"country": "in"
+	},
+	{
+		"short": "jk",
+		"name": "jammuandkashmir",
+		"country": "in"
+	},
+	{
+		"short": "jh",
+		"name": "jharkhand",
+		"country": "in"
+	},
+	{
+		"short": "ka",
+		"name": "karnataka",
+		"country": "in"
+	},
+	{
+		"short": "kl",
+		"name": "kerala",
+		"country": "in"
+	},
+	{
+		"short": "mp",
+		"name": "madhyapradesh",
+		"country": "in"
+	},
+	{
+		"short": "mh",
+		"name": "maharashtra",
+		"country": "in"
+	},
+	{
+		"short": "mn",
+		"name": "manipur",
+		"country": "in"
+	},
+	{
+		"short": "ml",
+		"name": "meghalaya",
+		"country": "in"
+	},
+	{
+		"short": "mz",
+		"name": "mizoram",
+		"country": "in"
+	},
+	{
+		"short": "nl",
+		"name": "nagaland",
+		"country": "in"
+	},
+	{
+		"short": "or",
+		"name": "odisha",
+		"country": "in"
+	},
+	{
+		"short": "pb",
+		"name": "punjab",
+		"country": "in"
+	},
+	{
+		"short": "rj",
+		"name": "rajasthan",
+		"country": "in"
+	},
+	{
+		"short": "sk",
+		"name": "sikkim",
+		"country": "in"
+	},
+	{
+		"short": "tn",
+		"name": "tamilnadu",
+		"country": "in"
+	},
+	{
+		"short": "tg",
+		"name": "telangana",
+		"country": "in"
+	},
+	{
+		"short": "tr",
+		"name": "tripura",
+		"country": "in"
+	},
+	{
+		"short": "up",
+		"name": "uttarpradesh",
+		"country": "in"
+	},
+	{
+		"short": "ut",
+		"name": "uttarakhand",
+		"country": "in"
+	},
+	{
+		"short": "wb",
+		"name": "westbengal",
+		"country": "in"
+	},
+	{
+		"short": "an",
+		"name": "andamanandnicobarislands",
+		"country": "in"
+	},
+	{
+		"short": "ch",
+		"name": "chandigarh",
+		"country": "in"
+	},
+	{
+		"short": "dn",
+		"name": "dadraandnagarhaveli",
+		"country": "in"
+	},
+	{
+		"short": "dd",
+		"name": "damananddiu",
+		"country": "in"
+	},
+	{
+		"short": "ld",
+		"name": "lakshadweep",
+		"country": "in"
+	},
+	{
+		"short": "dl",
+		"name": "nationalcapitalterritoryofdelhi",
+		"country": "in"
+	},
+	{
+		"short": "py",
+		"name": "puducherry",
+		"country": "in"
+	},
+	{
+		"name": "ភ្នំពេញ",
+		"english": "phnompenhmunicipality",
+		"country": "kh"
+	},
+	{
+		"name": "បន្ទាយមានជ័យ",
+		"english": "banteaymeanchey",
+		"country": "kh"
+	},
+	{
+		"name": "បាត់ដំបង",
+		"english": "battambang",
+		"country": "kh"
+	},
+	{
+		"name": "កំពង់ចាម",
+		"english": "kampongcham",
+		"country": "kh"
+	},
+	{
+		"name": "កំពង់ឆ្នាំង",
+		"english": "kampongchhnang",
+		"country": "kh"
+	},
+	{
+		"name": "កំពង់ស្ពឺ",
+		"english": "kampongspeu",
+		"country": "kh"
+	},
+	{
+		"name": "កំពង់ធំ",
+		"english": "kampongthom",
+		"country": "kh"
+	},
+	{
+		"name": "កំពត",
+		"english": "kampot",
+		"country": "kh"
+	},
+	{
+		"name": "កណ្តាល",
+		"english": "kandal",
+		"country": "kh"
+	},
+	{
+		"name": "កោះកុង",
+		"english": "kohkong",
+		"country": "kh"
+	},
+	{
+		"name": "កែប",
+		"english": "kep",
+		"country": "kh"
+	},
+	{
+		"name": "ក្រចេះ",
+		"english": "kratié",
+		"country": "kh"
+	},
+	{
+		"name": "មណ្ឌលគីរី",
+		"english": "mondulkiri",
+		"country": "kh"
+	},
+	{
+		"name": "ឧត្តរមានជ័យ",
+		"english": "oddarmeanchey",
+		"country": "kh"
+	},
+	{
+		"name": "បៃលិន",
+		"english": "pailin",
+		"country": "kh"
+	},
+	{
+		"name": "ព្រះសីហនុ",
+		"english": "preahsihanouk",
+		"country": "kh"
+	},
+	{
+		"name": "ព្រះវិហារ",
+		"english": "preahvihear",
+		"country": "kh"
+	},
+	{
+		"name": "ពោធិ៍សាត់",
+		"english": "pursat",
+		"country": "kh"
+	},
+	{
+		"name": "ព្រៃវែង",
+		"english": "preyveng",
+		"country": "kh"
+	},
+	{
+		"name": "រតនគីរី",
+		"english": "ratanakiri",
+		"country": "kh"
+	},
+	{
+		"name": "សៀមរាប",
+		"english": "siemreap",
+		"country": "kh"
+	},
+	{
+		"name": "ស្ទឹងត្រែង",
+		"english": "stungtreng",
+		"country": "kh"
+	},
+	{
+		"name": "ស្វាយរៀង",
+		"english": "svayrieng",
+		"country": "kh"
+	},
+	{
+		"name": "តាកែវ",
+		"english": "takéo",
+		"country": "kh"
+	},
+	{
+		"name": "ត្បូងឃ្មុំ",
+		"english": "tbongkhmum",
+		"country": "kh"
+	},
+	{
+		"name": "addisababa",
+		"country": "et"
+	},
+	{
+		"name": "afarregion",
+		"country": "et"
+	},
+	{
+		"name": "amhararegion",
+		"country": "et"
+	},
+	{
+		"name": "benishangul-gumuz",
+		"country": "et"
+	},
+	{
+		"name": "diredawa",
+		"country": "et"
+	},
+	{
+		"name": "gambela",
+		"country": "et"
+	},
+	{
+		"name": "harari",
+		"country": "et"
+	},
+	{
+		"name": "oromia",
+		"country": "et"
+	},
+	{
+		"name": "somali",
+		"country": "et"
+	},
+	{
+		"name": "southernnations,nationalities,andpeoplesregion",
+		"country": "et"
+	},
+	{
+		"name": "tigrayregion",
+		"country": "et"
+	},
+	{
+		"name": "chachapoyas",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "bagua",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "bongara",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "condorcanqui",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "luya",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "rodríguezdemendoza",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "utcubamba",
+		"region": "amazonas",
+		"country": "pe"
+	},
+	{
+		"name": "huaraz",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "aija",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "antonioraymondi",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "asunción",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "bolognesi",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "carhuaz",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "carlosfermínfitzcarrald",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "casma",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "corongo",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "huari",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "huarmey",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "huaylas",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "mariscalluzuriaga",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "ocros",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "pallasca",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "pomabamba",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "recuay",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "santa",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "sihuas",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "yungay",
+		"region": "ancash",
+		"country": "pe"
+	},
+	{
+		"name": "abancay",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "andahuaylas",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "antabamba",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "aymaraes",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "cotabambas",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "chincheros",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "grau",
+		"region": "apurímac",
+		"country": "pe"
+	},
+	{
+		"name": "arequipa",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "camana",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "caravelí",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "castilla",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "caylloma",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "condesuyos",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "islay",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "launión",
+		"region": "arequipa",
+		"country": "pe"
+	},
+	{
+		"name": "huamanga",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "cangallo",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "huancasancos",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "huanta",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "lamar",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "lucanas",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "parinacochas",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "paucardelsarasara",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "sucre",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "víctorfajardo",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "vilcashuaman",
+		"region": "ayacucho",
+		"country": "pe"
+	},
+	{
+		"name": "cajamarca",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "cajabamba",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "celendín",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "chota",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "contumaza",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "cutervo",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "hualgayoc",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "jaén",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "sanignacio",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "sanmarcos",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "sanmiguel",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "sanpablo",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "santacruz",
+		"region": "cajamarca",
+		"country": "pe"
+	},
+	{
+		"name": "callao",
+		"region": "callao",
+		"country": "pe"
+	},
+	{
+		"name": "cusco",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "acomayo",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "anta",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "calca",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "canas",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "canchis",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "chumbivilcas",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "espinar",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "laconvención",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "paruro",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "paucartambo",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "quispicanchi",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "urubamba",
+		"region": "cusco",
+		"country": "pe"
+	},
+	{
+		"name": "huancavelica",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "acobamba",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "angaraes",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "castrovirreyna",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "churcampa",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "huaytara",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "tayacaja",
+		"region": "huancavelica",
+		"country": "pe"
+	},
+	{
+		"name": "huanuco",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "ambo",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "dosdemayo",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "huacaybamba",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "huamalíes",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "leoncioprado",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "marañón",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "pachitea",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "puertoinca",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "lauricocha",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "yarowilca",
+		"region": "huanuco",
+		"country": "pe"
+	},
+	{
+		"name": "ica",
+		"region": "ica",
+		"country": "pe"
+	},
+	{
+		"name": "chincha",
+		"region": "ica",
+		"country": "pe"
+	},
+	{
+		"name": "nazca",
+		"region": "ica",
+		"country": "pe"
+	},
+	{
+		"name": "palpa",
+		"region": "ica",
+		"country": "pe"
+	},
+	{
+		"name": "pisco",
+		"region": "ica",
+		"country": "pe"
+	},
+	{
+		"name": "huancayo",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "concepción",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "chanchamayo",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "jauja",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "junín",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "satipo",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "tarma",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "yauli",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "chupaca",
+		"region": "junín",
+		"country": "pe"
+	},
+	{
+		"name": "trujillo",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "ascope",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "bolívar",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "chepén",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "julcan",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "otuzco",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "pacasmayo",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "pataz",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "sanchezcarrión",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "santiagodechuco",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "granchimú",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "virú",
+		"region": "lalibertad",
+		"country": "pe"
+	},
+	{
+		"name": "chiclayo",
+		"region": "lambayeque",
+		"country": "pe"
+	},
+	{
+		"name": "ferreñafe",
+		"region": "lambayeque",
+		"country": "pe"
+	},
+	{
+		"name": "lambayeque",
+		"region": "lambayeque",
+		"country": "pe"
+	},
+	{
+		"name": "lima",
+		"region": "autonomous",
+		"country": "pe"
+	},
+	{
+		"name": "huaura",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "barranca",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "cajatambo",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "canta",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "cañete",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "huaral",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "huarochirí",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "oyón",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "yauyos",
+		"region": "lima",
+		"country": "pe"
+	},
+	{
+		"name": "maynas",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "altoamazonas",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "loreto",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "mariscalramóncastilla",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "putumayo",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "requena",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "ucayali",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "datemdelmarañón",
+		"region": "loreto",
+		"country": "pe"
+	},
+	{
+		"name": "tambopata",
+		"region": "madrededios",
+		"country": "pe"
+	},
+	{
+		"name": "manú",
+		"region": "madrededios",
+		"country": "pe"
+	},
+	{
+		"name": "tahuamanu",
+		"region": "madrededios",
+		"country": "pe"
+	},
+	{
+		"name": "mariscalnieto",
+		"region": "moquegua",
+		"country": "pe"
+	},
+	{
+		"name": "generalsanchezcerro",
+		"region": "moquegua",
+		"country": "pe"
+	},
+	{
+		"name": "ilo",
+		"region": "moquegua",
+		"country": "pe"
+	},
+	{
+		"name": "pasco",
+		"region": "pasco",
+		"country": "pe"
+	},
+	{
+		"name": "danielalcídescarrión",
+		"region": "pasco",
+		"country": "pe"
+	},
+	{
+		"name": "oxapampa",
+		"region": "pasco",
+		"country": "pe"
+	},
+	{
+		"name": "piura",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "ayabaca",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "huancabamba",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "morropón",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "paita",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "sullana",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "talara",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "sechura",
+		"region": "piura",
+		"country": "pe"
+	},
+	{
+		"name": "puno",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "azangaro",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "carabaya",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "chucuito",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "elcollao",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "huancané",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "lampa",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "melgar",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "moho",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "sanantoniodeputina",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "sanroman",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "sandia",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "yunguyo",
+		"region": "puno",
+		"country": "pe"
+	},
+	{
+		"name": "moyobamba",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "bellavista",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "eldorado",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "huallaga",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "lamas",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "mariscalcaceres",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "picota",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "rioja",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "sanmartín",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "tocache",
+		"region": "sanmartín",
+		"country": "pe"
+	},
+	{
+		"name": "tacna",
+		"region": "tacna",
+		"country": "pe"
+	},
+	{
+		"name": "candarave",
+		"region": "tacna",
+		"country": "pe"
+	},
+	{
+		"name": "jorgebasadre",
+		"region": "tacna",
+		"country": "pe"
+	},
+	{
+		"name": "tarata",
+		"region": "tacna",
+		"country": "pe"
+	},
+	{
+		"name": "tumbes",
+		"region": "tumbes",
+		"country": "pe"
+	},
+	{
+		"name": "contralmirantevillar",
+		"region": "tumbes",
+		"country": "pe"
+	},
+	{
+		"name": "zarumilla",
+		"region": "tumbes",
+		"country": "pe"
+	},
+	{
+		"name": "coronelportillo",
+		"region": "ucayali",
+		"country": "pe"
+	},
+	{
+		"name": "atalaya",
+		"region": "ucayali",
+		"country": "pe"
+	},
+	{
+		"name": "padreabad",
+		"region": "ucayali",
+		"country": "pe"
+	},
+	{
+		"name": "purús",
+		"region": "ucayali",
+		"country": "pe"
+	},
+	{
+		"name": "camagüey",
+		"country": "cu"
+	},
+	{
+		"name": "ciegodeavila",
+		"country": "cu"
+	},
+	{
+		"name": "cienfuegos",
+		"country": "cu"
+	},
+	{
+		"name": "havana",
+		"country": "cu"
+	},
+	{
+		"name": "bayamo",
+		"country": "cu"
+	},
+	{
+		"name": "guantanamo",
+		"country": "cu"
+	},
+	{
+		"name": "holguín",
+		"country": "cu"
+	},
+	{
+		"name": "nuevagerona",
+		"country": "cu"
+	},
+	{
+		"name": "artemisa",
+		"country": "cu"
+	},
+	{
+		"name": "lastunas",
+		"country": "cu"
+	},
+	{
+		"name": "matanzas",
+		"country": "cu"
+	},
+	{
+		"name": "sanjosédelaslajas",
+		"country": "cu"
+	},
+	{
+		"name": "pinardelrío",
+		"country": "cu"
+	},
+	{
+		"name": "sanctispíritus",
+		"country": "cu"
+	},
+	{
+		"name": "santiagodecuba",
+		"country": "cu"
+	},
+	{
+		"name": "santaclara",
+		"country": "cu"
+	},
+	{
+		"name": "ciudadautónomadebuenosaires",
+		"country": "ar"
+	},
+	{
+		"name": "buenosaires",
+		"country": "ar"
+	},
+	{
+		"name": "catamarca",
+		"country": "ar"
+	},
+	{
+		"name": "chaco",
+		"country": "ar"
+	},
+	{
+		"name": "chubut",
+		"country": "ar"
+	},
+	{
+		"name": "córdoba",
+		"country": "ar"
+	},
+	{
+		"name": "corrientes",
+		"country": "ar"
+	},
+	{
+		"name": "entreríos",
+		"country": "ar"
+	},
+	{
+		"name": "formosa",
+		"country": "ar"
+	},
+	{
+		"name": "jujuy",
+		"country": "ar"
+	},
+	{
+		"name": "lapampa",
+		"country": "ar"
+	},
+	{
+		"name": "larioja",
+		"country": "ar"
+	},
+	{
+		"name": "mendoza",
+		"country": "ar"
+	},
+	{
+		"name": "misiones",
+		"country": "ar"
+	},
+	{
+		"name": "neuquén",
+		"country": "ar"
+	},
+	{
+		"name": "ríonegro",
+		"country": "ar"
+	},
+	{
+		"name": "salta",
+		"country": "ar"
+	},
+	{
+		"name": "sanjuan",
+		"country": "ar"
+	},
+	{
+		"name": "sanluis",
+		"country": "ar"
+	},
+	{
+		"name": "santacruz",
+		"country": "ar"
+	},
+	{
+		"name": "santafe",
+		"country": "ar"
+	},
+	{
+		"name": "santiagodelestero",
+		"country": "ar"
+	},
+	{
+		"name": "tierradelfuego,antartidaeislasdelatlanticosur",
+		"country": "ar"
+	},
+	{
+		"name": "tucuman",
+		"country": "ar"
+	},
+	{
+		"name": "arica",
+		"region": "xvaricaandparinacota",
+		"country": "cl"
+	},
+	{
+		"name": "parinacota",
+		"region": "xvaricaandparinacota",
+		"country": "cl"
+	},
+	{
+		"name": "iquique",
+		"region": "itarapaca",
+		"country": "cl"
+	},
+	{
+		"name": "tamarugal",
+		"region": "itarapaca",
+		"country": "cl"
+	},
+	{
+		"name": "antofagasta",
+		"region": "iiantofagasta",
+		"country": "cl"
+	},
+	{
+		"name": "elloa",
+		"region": "iiantofagasta",
+		"country": "cl"
+	},
+	{
+		"name": "tocopilla",
+		"region": "iiantofagasta",
+		"country": "cl"
+	},
+	{
+		"name": "copiapó",
+		"region": "iiiatacama",
+		"country": "cl"
+	},
+	{
+		"name": "huasco",
+		"region": "iiiatacama",
+		"country": "cl"
+	},
+	{
+		"name": "chañaral",
+		"region": "iiiatacama",
+		"country": "cl"
+	},
+	{
+		"name": "elqui",
+		"region": "ivcoquimbo",
+		"country": "cl"
+	},
+	{
+		"name": "limarí",
+		"region": "ivcoquimbo",
+		"country": "cl"
+	},
+	{
+		"name": "choapa",
+		"region": "ivcoquimbo",
+		"country": "cl"
+	},
+	{
+		"name": "isladepascua",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "losandes",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "margamarga",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "petorca",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "quillota",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "sanantonio",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "sanfelipedeaconcagua",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "valparaíso",
+		"region": "vvalparaíso",
+		"country": "cl"
+	},
+	{
+		"name": "cachapoal",
+		"region": "viohiggins",
+		"country": "cl"
+	},
+	{
+		"name": "colchagua",
+		"region": "viohiggins",
+		"country": "cl"
+	},
+	{
+		"name": "cardenalcaro",
+		"region": "viohiggins",
+		"country": "cl"
+	},
+	{
+		"name": "talca",
+		"region": "viimaule",
+		"country": "cl"
+	},
+	{
+		"name": "linares",
+		"region": "viimaule",
+		"country": "cl"
+	},
+	{
+		"name": "curicó",
+		"region": "viimaule",
+		"country": "cl"
+	},
+	{
+		"name": "cauquenes",
+		"region": "viimaule",
+		"country": "cl"
+	},
+	{
+		"name": "concepción",
+		"region": "viiibiobío",
+		"country": "cl"
+	},
+	{
+		"name": "ñuble",
+		"region": "viiibiobío",
+		"country": "cl"
+	},
+	{
+		"name": "biobío",
+		"region": "viiibiobío",
+		"country": "cl"
+	},
+	{
+		"name": "arauco",
+		"region": "viiibiobío",
+		"country": "cl"
+	},
+	{
+		"name": "cautin",
+		"region": "ixaraucanía",
+		"country": "cl"
+	},
+	{
+		"name": "malleco",
+		"region": "ixaraucanía",
+		"country": "cl"
+	},
+	{
+		"name": "valdivia",
+		"region": "xivlosríos",
+		"country": "cl"
+	},
+	{
+		"name": "ranco",
+		"region": "xivlosríos",
+		"country": "cl"
+	},
+	{
+		"name": "llanquihue",
+		"region": "xloslagos",
+		"country": "cl"
+	},
+	{
+		"name": "osorno",
+		"region": "xloslagos",
+		"country": "cl"
+	},
+	{
+		"name": "chiloe",
+		"region": "xloslagos",
+		"country": "cl"
+	},
+	{
+		"name": "palena",
+		"region": "xloslagos",
+		"country": "cl"
+	},
+	{
+		"name": "coihaique",
+		"region": "xiaisén",
+		"country": "cl"
+	},
+	{
+		"name": "aisén",
+		"region": "xiaisén",
+		"country": "cl"
+	},
+	{
+		"name": "generalcarrera",
+		"region": "xiaisén",
+		"country": "cl"
+	},
+	{
+		"name": "capitanprat",
+		"region": "xiaisén",
+		"country": "cl"
+	},
+	{
+		"name": "magallanes",
+		"region": "xiimagallanes",
+		"country": "cl"
+	},
+	{
+		"name": "ultimaesperanza",
+		"region": "xiimagallanes",
+		"country": "cl"
+	},
+	{
+		"name": "tierradelfuego",
+		"region": "xiimagallanes",
+		"country": "cl"
+	},
+	{
+		"name": "antarticachilena",
+		"region": "xiimagallanes",
+		"country": "cl"
+	},
+	{
+		"name": "santiago",
+		"region": "rmsantiagometropolitan",
+		"country": "cl"
+	},
+	{
+		"name": "cordillera",
+		"region": "rmsantiagometropolitan",
+		"country": "cl"
+	},
+	{
+		"name": "maipo",
+		"region": "rmsantiagometropolitan",
+		"country": "cl"
+	},
+	{
+		"name": "talagante",
+		"region": "rmsantiagometropolitan",
+		"country": "cl"
+	},
+	{
+		"name": "melipilla",
+		"region": "rmsantiagometropolitan",
+		"country": "cl"
+	},
+	{
+		"name": "chacabuco",
+		"region": "rmsantiagometropolitan",
+		"country": "cl"
+	},
+	{
+		"name": "cercado",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "iténez",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "joséballivian",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "mamoré",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "marban",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "moxos",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "vacadíez",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "yacuma",
+		"region": "beni",
+		"country": "bo"
+	},
+	{
+		"name": "azurduy",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "belisarioboeto",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "hernandosiles",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "jaimezudañez",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "luiscalvo",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "norcinti",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "oropeza",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "sudcinti",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "tomina",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "yamparaez",
+		"region": "chuquisaca",
+		"country": "bo"
+	},
+	{
+		"name": "arani",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "arque",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "ayopaya",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "capinota",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "carrasco",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "cercado",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "chapare",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "estebanarce",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "germanjordan",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "mizque",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "campero",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "punata",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "quillacollo",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "bolívar",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "tapacarí",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "tiraque",
+		"region": "cochabamba",
+		"country": "bo"
+	},
+	{
+		"name": "abeliturralde",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "aroma",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "bautistasaavedra",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "caranavi",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "eliodorocamacho",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "franztamayo",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "gualbertovillarroel",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "ingavi",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "inquisivi",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "josémanuelpando",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "larecaja",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "loayza",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "losandes",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "mancokapac",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "muñecas",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "noryungas",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "omasuyos",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "pacajes",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "murillo",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "sudyungas",
+		"region": "lapaz",
+		"country": "bo"
+	},
+	{
+		"name": "atahuallpa",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "carangas",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "cercado",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "eduardoavaroa",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "ladislaocabrera",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "litoral",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "norcarangas",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "pantaléondalence",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "poopó",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "puertodemejillones",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "sajama",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "sanpedrodetotora",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "saucarí",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "sebastianpagador",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "sudcarangas",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "tomasbarrón",
+		"region": "oruro",
+		"country": "bo"
+	},
+	{
+		"name": "abuna",
+		"region": "pando",
+		"country": "bo"
+	},
+	{
+		"name": "federicoroman",
+		"region": "pando",
+		"country": "bo"
+	},
+	{
+		"name": "madrededios",
+		"region": "pando",
+		"country": "bo"
+	},
+	{
+		"name": "manuripi",
+		"region": "pando",
+		"country": "bo"
+	},
+	{
+		"name": "nicolassuarez",
+		"region": "pando",
+		"country": "bo"
+	},
+	{
+		"name": "alonsodeibañez",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "antonioquijarro",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "bernardinobilbao",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "charcas",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "chayanta",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "corneliosaavedra",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "danielcampos",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "enriquebaldivieso",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "josémaríalinares",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "modestoomiste",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "norchichas",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "norlípez",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "rafaelbustillo",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "surchichas",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "surlípez",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "tomasfrías",
+		"region": "potosí",
+		"country": "bo"
+	},
+	{
+		"name": "andrésibañez",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "angelsandoval",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "chiquitos",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "cordillera",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "florida",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "germanbusch",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "guarayos",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "ichilo",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "ignaciowarnes",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "josémigueldevelasco",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "manuelmaríacaballero",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "ñuflodechavez",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "obisposantistevan",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "sara",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "vallegrande",
+		"region": "santacruz",
+		"country": "bo"
+	},
+	{
+		"name": "anicetoarce",
+		"region": "tarija",
+		"country": "bo"
+	},
+	{
+		"name": "burnetoconnor",
+		"region": "tarija",
+		"country": "bo"
+	},
+	{
+		"name": "cercado",
+		"region": "tarija",
+		"country": "bo"
+	},
+	{
+		"name": "eustaquioméndez",
+		"region": "tarija",
+		"country": "bo"
+	},
+	{
+		"name": "granchaco",
+		"region": "tarija",
+		"country": "bo"
+	},
+	{
+		"name": "josémaríaavilés",
+		"region": "tarija",
+		"country": "bo"
+	},
+	{
+		"name": "lacoruña",
+		"short": "c",
+		"country": "es"
+	},
+	{
+		"name": "lugo",
+		"short": "lu",
+		"country": "es"
+	},
+	{
+		"name": "vizcaya",
+		"short": "bi",
+		"country": "es"
+	},
+	{
+		"name": "guipúzcoa",
+		"short": "ss",
+		"country": "es"
+	},
+	{
+		"name": "huesca",
+		"short": "hu",
+		"country": "es"
+	},
+	{
+		"name": "lérida",
+		"short": "l",
+		"country": "es"
+	},
+	{
+		"name": "gerona",
+		"short": "gi",
+		"country": "es"
+	},
+	{
+		"name": "barcelona",
+		"short": "b",
+		"country": "es"
+	},
+	{
+		"name": "tarragona",
+		"short": "t",
+		"country": "es"
+	},
+	{
+		"name": "castellón",
+		"short": "cs",
+		"country": "es"
+	},
+	{
+		"name": "valencia",
+		"short": "v",
+		"country": "es"
+	},
+	{
+		"name": "alicante",
+		"short": "a",
+		"country": "es"
+	},
+	{
+		"name": "murcia",
+		"short": "mu",
+		"country": "es"
+	},
+	{
+		"name": "zaragoza",
+		"short": "z",
+		"country": "es"
+	},
+	{
+		"name": "teruel",
+		"short": "te",
+		"country": "es"
+	},
+	{
+		"name": "cuenca",
+		"short": "cu",
+		"country": "es"
+	},
+	{
+		"name": "albacete",
+		"short": "ab",
+		"country": "es"
+	},
+	{
+		"name": "almeria",
+		"short": "al",
+		"country": "es"
+	},
+	{
+		"name": "granada",
+		"short": "gr",
+		"country": "es"
+	},
+	{
+		"name": "malaga",
+		"short": "ma",
+		"country": "es"
+	},
+	{
+		"name": "tenerife",
+		"short": "tf",
+		"country": "es"
+	},
+	{
+		"name": "cadiz",
+		"short": "ca",
+		"country": "es"
+	},
+	{
+		"name": "sevilla",
+		"short": "se",
+		"country": "es"
+	},
+	{
+		"name": "huelva",
+		"short": "h",
+		"country": "es"
+	},
+	{
+		"name": "laspalmas",
+		"short": "gc",
+		"country": "es"
+	},
+	{
+		"name": "madrid",
+		"short": "m",
+		"country": "es"
+	},
+	{
+		"name": "badajoz",
+		"short": "ba",
+		"country": "es"
+	},
+	{
+		"name": "caceres",
+		"short": "cc",
+		"country": "es"
+	},
+	{
+		"name": "toledo",
+		"short": "to",
+		"country": "es"
+	},
+	{
+		"name": "ciudadreal",
+		"short": "cr",
+		"country": "es"
+	},
+	{
+		"name": "salamanca",
+		"short": "sa",
+		"country": "es"
+	},
+	{
+		"name": "córdoba",
+		"short": "co",
+		"country": "es"
+	},
+	{
+		"name": "jaén",
+		"short": "j",
+		"country": "es"
+	},
+	{
+		"name": "avila",
+		"short": "av",
+		"country": "es"
+	},
+	{
+		"name": "valladolid",
+		"short": "va",
+		"country": "es"
+	},
+	{
+		"name": "zamora",
+		"short": "za",
+		"country": "es"
+	},
+	{
+		"name": "alava",
+		"short": "vi",
+		"country": "es"
+	},
+	{
+		"name": "segovia",
+		"short": "sg",
+		"country": "es"
+	},
+	{
+		"name": "burgos",
+		"short": "bu",
+		"country": "es"
+	},
+	{
+		"name": "pontevedra",
+		"short": "po",
+		"country": "es"
+	},
+	{
+		"name": "león",
+		"short": "le",
+		"country": "es"
+	},
+	{
+		"name": "orense",
+		"short": "ou",
+		"country": "es"
+	},
+	{
+		"name": "palencia",
+		"short": "p",
+		"country": "es"
+	},
+	{
+		"name": "larioja",
+		"short": "lo",
+		"country": "es"
+	},
+	{
+		"name": "soria",
+		"short": "so",
+		"country": "es"
+	},
+	{
+		"name": "guadalajara",
+		"short": "gu",
+		"country": "es"
+	},
+	{
+		"name": "বরগুনা",
+		"english": "barguna",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "বরিশাল",
+		"english": "barisal",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "ভোলা",
+		"english": "bhola",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "ঝালকাঠি",
+		"english": "jhalokati",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "পটুয়াখালী",
+		"english": "patuakhali",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "পিরোজপুর",
+		"english": "pirojpur",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "বান্দরবান",
+		"english": "bandarban",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "ব্রাহ্মণবাড়ীয়া",
+		"english": "brahmanbaria",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "চাঁদপুর",
+		"english": "chandpur",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "চট্টগ্রাম",
+		"english": "chittagong",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "কুমিল্লা",
+		"english": "comilla",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "কক্সবাজার",
+		"english": "coxsbazar",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "ফেনী",
+		"english": "feni",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "খাগড়াছড়ি",
+		"english": "khagrachhari",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "লক্ষীপুর",
+		"english": "lakshmipur",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "নোয়াখালী",
+		"english": "noakhali",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "রাঙ্গামাটি",
+		"english": "rangamati",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "ঢাকা",
+		"english": "dhaka",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "ফরিদপুর",
+		"english": "faridpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "গাজীপুর",
+		"english": "gazipur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "গোপালগঞ্জ",
+		"english": "gopalganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "জামালপুর",
+		"english": "jamalpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "কিশোরগঞ্জ",
+		"english": "kishoreganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "মাদারীপুর",
+		"english": "madaripur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "মানিকগঞ্জ",
+		"english": "manikganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "মুন্সীগঞ্জ",
+		"english": "munshiganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "ময়মনসিংহ",
+		"english": "mymensingh",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "নারায়ণগঞ্জ",
+		"english": "narayanganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "নরসিংদী",
+		"english": "narsingdi",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "নেত্রকোনা",
+		"english": "netrakona",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "রাজবাড়ী",
+		"english": "rajbari",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "শরীয়তপুর",
+		"english": "shariatpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "শেরপুর",
+		"english": "sherpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "টাঙ্গাইল",
+		"english": "tangail",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "বাগেরহাট",
+		"english": "bagerhat",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "চুয়াডাঙ্গা",
+		"english": "chuadanga",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "যশোর",
+		"english": "jessore",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "ঝিনাইদহ",
+		"english": "jhenaidah",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "খুলনা",
+		"english": "khulna",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "কুষ্টিয়া",
+		"english": "kushtia",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "মাগুরা",
+		"english": "magura",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "মেহেরপুর",
+		"english": "meherpur",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "নড়াইল",
+		"english": "narail",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "সাতক্ষিরা",
+		"english": "satkhira",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "বগুড়া",
+		"english": "bogra",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "জয়পুরহাট",
+		"english": "joypurhat",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "নওগাঁ",
+		"english": "naogaon",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "নাটোর",
+		"english": "natore",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "নওয়াবগঞ্জ",
+		"english": "chapainawabganj",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "পাবনা",
+		"english": "pabna",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "রাজশাহী",
+		"english": "rajshahi",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "সিরাজগঞ্জ",
+		"english": "sirajganj",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "দিনাজপুর",
+		"english": "dinajpur",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "গাইবান্ধা",
+		"english": "gaibandha",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "কুড়িগ্রাম",
+		"english": "kurigram",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "লালমনিরহাট",
+		"english": "lalmonirhat",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "নীলফামারী",
+		"english": "nilphamari",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "পঞ্চগড়",
+		"english": "panchagarh",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "রংপুর",
+		"english": "rangpur",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "ঠাকুরগাঁ",
+		"english": "thakurgaon",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "হবিগঞ্জ",
+		"english": "habiganj",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "মৌলভীবাজার",
+		"english": "moulvibazar",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "সুনামগঞ্জ",
+		"english": "sunamganj",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "সিলেট",
+		"english": "sylhet",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "barguna",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "barisal",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "bhola",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "jhalokati",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "patuakhali",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "pirojpur",
+		"region": "barisal",
+		"country": "bd"
+	},
+	{
+		"name": "bandarban",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "brahmanbaria",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "chandpur",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "chittagong",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "comilla",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "coxsbazar",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "feni",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "khagrachhari",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "lakshmipur",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "noakhali",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "rangamati",
+		"region": "chittagong",
+		"country": "bd"
+	},
+	{
+		"name": "dhaka",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "faridpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "gazipur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "gopalganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "jamalpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "kishoreganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "madaripur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "manikganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "munshiganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "mymensingh",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "narayanganj",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "narsingdi",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "netrakona",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "rajbari",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "shariatpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "sherpur",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "tangail",
+		"region": "dhaka",
+		"country": "bd"
+	},
+	{
+		"name": "bagerhat",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "chuadanga",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "jessore",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "jhenaidah",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "khulna",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "kushtia",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "magura",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "meherpur",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "narail",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "satkhira",
+		"region": "khulna",
+		"country": "bd"
+	},
+	{
+		"name": "bogra",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "joypurhat",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "naogaon",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "natore",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "chapainawabganj",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "pabna",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "rajshahi",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "sirajganj",
+		"region": "rajshahi",
+		"country": "bd"
+	},
+	{
+		"name": "dinajpur",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "gaibandha",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "kurigram",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "lalmonirhat",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "nilphamari",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "panchagarh",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "rangpur",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "thakurgaon",
+		"region": "rangpur",
+		"country": "bd"
+	},
+	{
+		"name": "habiganj",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "moulvibazar",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "sunamganj",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "sylhet",
+		"region": "sylhet",
+		"country": "bd"
+	},
+	{
+		"name": "azadkashmir",
+		"country": "pk"
+	},
+	{
+		"name": "bahawalpur",
+		"country": "pk"
+	},
+	{
+		"name": "bannu",
+		"country": "pk"
+	},
+	{
+		"name": "deraghazikhan",
+		"country": "pk"
+	},
+	{
+		"name": "deraismailkhan",
+		"country": "pk"
+	},
+	{
+		"name": "faisalabad",
+		"country": "pk"
+	},
+	{
+		"name": "f.a.t.a.",
+		"country": "pk"
+	},
+	{
+		"name": "gujranwala",
+		"country": "pk"
+	},
+	{
+		"name": "hazara",
+		"country": "pk"
+	},
+	{
+		"name": "hyderabad",
+		"country": "pk"
+	},
+	{
+		"name": "islamabad",
+		"country": "pk"
+	},
+	{
+		"name": "kalat",
+		"country": "pk"
+	},
+	{
+		"name": "karachi",
+		"country": "pk"
+	},
+	{
+		"name": "kohat",
+		"country": "pk"
+	},
+	{
+		"name": "lahore",
+		"country": "pk"
+	},
+	{
+		"name": "larkana",
+		"country": "pk"
+	},
+	{
+		"name": "makran",
+		"country": "pk"
+	},
+	{
+		"name": "malakand",
+		"country": "pk"
+	},
+	{
+		"name": "mardan",
+		"country": "pk"
+	},
+	{
+		"name": "mirpurkhas",
+		"country": "pk"
+	},
+	{
+		"name": "multan",
+		"country": "pk"
+	},
+	{
+		"name": "nasirabad",
+		"country": "pk"
+	},
+	{
+		"name": "northernareas",
+		"country": "pk"
+	},
+	{
+		"name": "peshawar",
+		"country": "pk"
+	},
+	{
+		"name": "quetta",
+		"country": "pk"
+	},
+	{
+		"name": "rawalpindi",
+		"country": "pk"
+	},
+	{
+		"name": "sargodha",
+		"country": "pk"
+	},
+	{
+		"name": "sahiwal",
+		"country": "pk"
+	},
+	{
+		"name": "sibi",
+		"country": "pk"
+	},
+	{
+		"name": "sukkur",
+		"country": "pk"
+	},
+	{
+		"name": "zhob",
+		"country": "pk"
+	},
+	{
+		"short": "ab",
+		"name": "abia",
+		"country": "ng"
+	},
+	{
+		"short": "fc",
+		"name": "abuja",
+		"country": "ng"
+	},
+	{
+		"short": "ad",
+		"name": "adamawa",
+		"country": "ng"
+	},
+	{
+		"short": "ak",
+		"name": "akwaibom",
+		"country": "ng"
+	},
+	{
+		"short": "an",
+		"name": "anambra",
+		"country": "ng"
+	},
+	{
+		"short": "ba",
+		"name": "bauchi",
+		"country": "ng"
+	},
+	{
+		"short": "by",
+		"name": "bayelsa",
+		"country": "ng"
+	},
+	{
+		"short": "be",
+		"name": "benue",
+		"country": "ng"
+	},
+	{
+		"short": "bo",
+		"name": "borno",
+		"country": "ng"
+	},
+	{
+		"short": "cr",
+		"name": "crossriver",
+		"country": "ng"
+	},
+	{
+		"short": "de",
+		"name": "delta",
+		"country": "ng"
+	},
+	{
+		"short": "eb",
+		"name": "ebonyi",
+		"country": "ng"
+	},
+	{
+		"short": "ed",
+		"name": "edo",
+		"country": "ng"
+	},
+	{
+		"short": "ek",
+		"name": "ekiti",
+		"country": "ng"
+	},
+	{
+		"short": "en",
+		"name": "enugu",
+		"country": "ng"
+	},
+	{
+		"short": "go",
+		"name": "gombe",
+		"country": "ng"
+	},
+	{
+		"short": "im",
+		"name": "imo",
+		"country": "ng"
+	},
+	{
+		"short": "ji",
+		"name": "jigawa",
+		"country": "ng"
+	},
+	{
+		"short": "kd",
+		"name": "kaduna",
+		"country": "ng"
+	},
+	{
+		"short": "kn",
+		"name": "kano",
+		"country": "ng"
+	},
+	{
+		"short": "kt",
+		"name": "katsina",
+		"country": "ng"
+	},
+	{
+		"short": "ke",
+		"name": "kebbi",
+		"country": "ng"
+	},
+	{
+		"short": "ko",
+		"name": "kogi",
+		"country": "ng"
+	},
+	{
+		"short": "kw",
+		"name": "kwara",
+		"country": "ng"
+	},
+	{
+		"short": "la",
+		"name": "lagos",
+		"country": "ng"
+	},
+	{
+		"short": "na",
+		"name": "nasarawa",
+		"country": "ng"
+	},
+	{
+		"short": "ni",
+		"name": "niger",
+		"country": "ng"
+	},
+	{
+		"short": "og",
+		"name": "ogun",
+		"country": "ng"
+	},
+	{
+		"short": "on",
+		"name": "ondo",
+		"country": "ng"
+	},
+	{
+		"short": "os",
+		"name": "osun",
+		"country": "ng"
+	},
+	{
+		"short": "oy",
+		"name": "oyo",
+		"country": "ng"
+	},
+	{
+		"short": "pl",
+		"name": "plateau",
+		"country": "ng"
+	},
+	{
+		"short": "ri",
+		"name": "rivers",
+		"country": "ng"
+	},
+	{
+		"short": "so",
+		"name": "sokoto",
+		"country": "ng"
+	},
+	{
+		"short": "ta",
+		"name": "taraba",
+		"country": "ng"
+	},
+	{
+		"short": "yo",
+		"name": "yobe",
+		"country": "ng"
+	},
+	{
+		"short": "za",
+		"name": "zamfara",
+		"country": "ng"
+	},
+	{
+		"name": "愛知県",
+		"english": "aichi",
+		"country": "jp"
+	},
+	{
+		"name": "秋田県",
+		"english": "akita",
+		"country": "jp"
+	},
+	{
+		"name": "青森県",
+		"english": "aomori",
+		"country": "jp"
+	},
+	{
+		"name": "千葉県",
+		"english": "chiba",
+		"country": "jp"
+	},
+	{
+		"name": "愛媛県",
+		"english": "ehime",
+		"country": "jp"
+	},
+	{
+		"name": "福井県",
+		"english": "fukui",
+		"country": "jp"
+	},
+	{
+		"name": "福岡県",
+		"english": "fukuoka",
+		"country": "jp"
+	},
+	{
+		"name": "福島県",
+		"english": "fukushima",
+		"country": "jp"
+	},
+	{
+		"name": "岐阜県",
+		"english": "gifu",
+		"country": "jp"
+	},
+	{
+		"name": "群馬県",
+		"english": "gunma",
+		"country": "jp"
+	},
+	{
+		"name": "広島県",
+		"english": "hiroshima",
+		"country": "jp"
+	},
+	{
+		"name": "北海道",
+		"english": "hokkaido",
+		"country": "jp"
+	},
+	{
+		"name": "兵庫県",
+		"english": "hyogo",
+		"country": "jp"
+	},
+	{
+		"name": "茨城県",
+		"english": "ibaraki",
+		"country": "jp"
+	},
+	{
+		"name": "石川県",
+		"english": "ishikawa",
+		"country": "jp"
+	},
+	{
+		"name": "岩手県",
+		"english": "iwate",
+		"country": "jp"
+	},
+	{
+		"name": "香川県",
+		"english": "kagawa",
+		"country": "jp"
+	},
+	{
+		"name": "鹿児島県",
+		"english": "kagoshima",
+		"country": "jp"
+	},
+	{
+		"name": "神奈川県",
+		"english": "kanagawa",
+		"country": "jp"
+	},
+	{
+		"name": "高知県",
+		"english": "kochi",
+		"country": "jp"
+	},
+	{
+		"name": "熊本県",
+		"english": "kumamoto",
+		"country": "jp"
+	},
+	{
+		"name": "京都府",
+		"english": "kyoto",
+		"country": "jp"
+	},
+	{
+		"name": "三重県",
+		"english": "mie",
+		"country": "jp"
+	},
+	{
+		"name": "宮城県",
+		"english": "miyagi",
+		"country": "jp"
+	},
+	{
+		"name": "宮崎県",
+		"english": "miyazaki",
+		"country": "jp"
+	},
+	{
+		"name": "長野県",
+		"english": "nagano",
+		"country": "jp"
+	},
+	{
+		"name": "長崎県",
+		"english": "nagasaki",
+		"country": "jp"
+	},
+	{
+		"name": "奈良県",
+		"english": "nara",
+		"country": "jp"
+	},
+	{
+		"name": "新潟県",
+		"english": "niigata",
+		"country": "jp"
+	},
+	{
+		"name": "大分県",
+		"english": "oita",
+		"country": "jp"
+	},
+	{
+		"name": "岡山県",
+		"english": "okayama",
+		"country": "jp"
+	},
+	{
+		"name": "沖縄県",
+		"english": "okinawa",
+		"country": "jp"
+	},
+	{
+		"name": "大阪府",
+		"english": "osaka",
+		"country": "jp"
+	},
+	{
+		"name": "佐賀県",
+		"english": "saga",
+		"country": "jp"
+	},
+	{
+		"name": "埼玉県",
+		"english": "saitama",
+		"country": "jp"
+	},
+	{
+		"name": "滋賀県",
+		"english": "shiga",
+		"country": "jp"
+	},
+	{
+		"name": "島根県",
+		"english": "shimane",
+		"country": "jp"
+	},
+	{
+		"name": "静岡県",
+		"english": "shizuoka",
+		"country": "jp"
+	},
+	{
+		"name": "栃木県",
+		"english": "tochigi",
+		"country": "jp"
+	},
+	{
+		"name": "徳島県",
+		"english": "tokushima",
+		"country": "jp"
+	},
+	{
+		"name": "東京都",
+		"english": "tokyo",
+		"country": "jp"
+	},
+	{
+		"name": "鳥取県",
+		"english": "tottori",
+		"country": "jp"
+	},
+	{
+		"name": "富山県",
+		"english": "toyama",
+		"country": "jp"
+	},
+	{
+		"name": "和歌山県",
+		"english": "wakayama",
+		"country": "jp"
+	},
+	{
+		"name": "山形県",
+		"english": "yamagata",
+		"country": "jp"
+	},
+	{
+		"name": "山口県",
+		"english": "yamaguchi",
+		"country": "jp"
+	},
+	{
+		"name": "山梨県",
+		"english": "yamanashi",
+		"country": "jp"
+	},
+	{
+		"name": "aichi",
+		"country": "jp"
+	},
+	{
+		"name": "akita",
+		"country": "jp"
+	},
+	{
+		"name": "aomori",
+		"country": "jp"
+	},
+	{
+		"name": "chiba",
+		"country": "jp"
+	},
+	{
+		"name": "ehime",
+		"country": "jp"
+	},
+	{
+		"name": "fukui",
+		"country": "jp"
+	},
+	{
+		"name": "fukuoka",
+		"country": "jp"
+	},
+	{
+		"name": "fukushima",
+		"country": "jp"
+	},
+	{
+		"name": "gifu",
+		"country": "jp"
+	},
+	{
+		"name": "gunma",
+		"country": "jp"
+	},
+	{
+		"name": "hiroshima",
+		"country": "jp"
+	},
+	{
+		"name": "hokkaido",
+		"country": "jp"
+	},
+	{
+		"name": "hyogo",
+		"country": "jp"
+	},
+	{
+		"name": "ibaraki",
+		"country": "jp"
+	},
+	{
+		"name": "ishikawa",
+		"country": "jp"
+	},
+	{
+		"name": "iwate",
+		"country": "jp"
+	},
+	{
+		"name": "kagawa",
+		"country": "jp"
+	},
+	{
+		"name": "kagoshima",
+		"country": "jp"
+	},
+	{
+		"name": "kanagawa",
+		"country": "jp"
+	},
+	{
+		"name": "kochi",
+		"country": "jp"
+	},
+	{
+		"name": "kumamoto",
+		"country": "jp"
+	},
+	{
+		"name": "kyoto",
+		"country": "jp"
+	},
+	{
+		"name": "mie",
+		"country": "jp"
+	},
+	{
+		"name": "miyagi",
+		"country": "jp"
+	},
+	{
+		"name": "miyazaki",
+		"country": "jp"
+	},
+	{
+		"name": "nagano",
+		"country": "jp"
+	},
+	{
+		"name": "nagasaki",
+		"country": "jp"
+	},
+	{
+		"name": "nara",
+		"country": "jp"
+	},
+	{
+		"name": "niigata",
+		"country": "jp"
+	},
+	{
+		"name": "oita",
+		"country": "jp"
+	},
+	{
+		"name": "okayama",
+		"country": "jp"
+	},
+	{
+		"name": "okinawa",
+		"country": "jp"
+	},
+	{
+		"name": "osaka",
+		"country": "jp"
+	},
+	{
+		"name": "saga",
+		"country": "jp"
+	},
+	{
+		"name": "saitama",
+		"country": "jp"
+	},
+	{
+		"name": "shiga",
+		"country": "jp"
+	},
+	{
+		"name": "shimane",
+		"country": "jp"
+	},
+	{
+		"name": "shizuoka",
+		"country": "jp"
+	},
+	{
+		"name": "tochigi",
+		"country": "jp"
+	},
+	{
+		"name": "tokushima",
+		"country": "jp"
+	},
+	{
+		"name": "tokyo",
+		"country": "jp"
+	},
+	{
+		"name": "tottori",
+		"country": "jp"
+	},
+	{
+		"name": "toyama",
+		"country": "jp"
+	},
+	{
+		"name": "wakayama",
+		"country": "jp"
+	},
+	{
+		"name": "yamagata",
+		"country": "jp"
+	},
+	{
+		"name": "yamaguchi",
+		"country": "jp"
+	},
+	{
+		"name": "yamanashi",
+		"country": "jp"
+	},
+	{
+		"short": "b",
+		"name": "burgenland",
+		"country": "at"
+	},
+	{
+		"short": "k",
+		"name": "kärnten",
+		"country": "at"
+	},
+	{
+		"short": "nö",
+		"name": "niederösterreich",
+		"country": "at"
+	},
+	{
+		"short": "oö",
+		"name": "oberösterreich",
+		"country": "at"
+	},
+	{
+		"short": "s",
+		"name": "salzburg",
+		"country": "at"
+	},
+	{
+		"short": "st",
+		"name": "steiermark",
+		"country": "at"
+	},
+	{
+		"short": "t",
+		"name": "tirol",
+		"country": "at"
+	},
+	{
+		"short": "v",
+		"name": "vorarlberg",
+		"country": "at"
+	},
+	{
+		"short": "w",
+		"name": "wien",
+		"country": "at"
+	},
+	{
+		"short": "ac",
+		"name": "acre",
+		"country": "br"
+	},
+	{
+		"short": "al",
+		"name": "alagoas",
+		"country": "br"
+	},
+	{
+		"short": "ap",
+		"name": "amapa",
+		"country": "br"
+	},
+	{
+		"short": "am",
+		"name": "amazonas",
+		"country": "br"
+	},
+	{
+		"short": "ba",
+		"name": "bahia",
+		"country": "br"
+	},
+	{
+		"short": "ce",
+		"name": "ceara",
+		"country": "br"
+	},
+	{
+		"short": "df",
+		"name": "distritofederal",
+		"country": "br"
+	},
+	{
+		"short": "es",
+		"name": "espíritosanto",
+		"country": "br"
+	},
+	{
+		"short": "go",
+		"name": "goias",
+		"country": "br"
+	},
+	{
+		"short": "ma",
+		"name": "maranhão",
+		"country": "br"
+	},
+	{
+		"short": "mt",
+		"name": "matogrosso",
+		"country": "br"
+	},
+	{
+		"short": "ms",
+		"name": "matogrossodosul",
+		"country": "br"
+	},
+	{
+		"short": "mg",
+		"name": "minasgerais",
+		"country": "br"
+	},
+	{
+		"short": "pa",
+		"name": "para",
+		"country": "br"
+	},
+	{
+		"short": "pb",
+		"name": "paraíba",
+		"country": "br"
+	},
+	{
+		"short": "pr",
+		"name": "parana",
+		"country": "br"
+	},
+	{
+		"short": "pe",
+		"name": "pernambuco",
+		"country": "br"
+	},
+	{
+		"short": "pi",
+		"name": "piauí",
+		"country": "br"
+	},
+	{
+		"short": "rj",
+		"name": "riodejaneiro",
+		"country": "br"
+	},
+	{
+		"short": "rn",
+		"name": "riograndedonorte",
+		"country": "br"
+	},
+	{
+		"short": "rs",
+		"name": "riograndedosul",
+		"country": "br"
+	},
+	{
+		"short": "ro",
+		"name": "rondônia",
+		"country": "br"
+	},
+	{
+		"short": "rr",
+		"name": "roraima",
+		"country": "br"
+	},
+	{
+		"short": "sc",
+		"name": "santacatarina",
+		"country": "br"
+	},
+	{
+		"short": "sp",
+		"name": "sãopaulo",
+		"country": "br"
+	},
+	{
+		"short": "se",
+		"name": "sergipe",
+		"country": "br"
+	},
+	{
+		"short": "to",
+		"name": "tocantins",
+		"country": "br"
+	},
+	{
+		"name": "abra",
+		"country": "ph"
+	},
+	{
+		"name": "agusandelnorte",
+		"country": "ph"
+	},
+	{
+		"name": "agusandelsur",
+		"country": "ph"
+	},
+	{
+		"name": "aklan",
+		"country": "ph"
+	},
+	{
+		"name": "albay",
+		"country": "ph"
+	},
+	{
+		"name": "antique",
+		"country": "ph"
+	},
+	{
+		"name": "apayao",
+		"country": "ph"
+	},
+	{
+		"name": "aurora",
+		"country": "ph"
+	},
+	{
+		"name": "basilan",
+		"country": "ph"
+	},
+	{
+		"name": "bataan",
+		"country": "ph"
+	},
+	{
+		"name": "batanes",
+		"country": "ph"
+	},
+	{
+		"name": "batangas",
+		"country": "ph"
+	},
+	{
+		"name": "benguet",
+		"country": "ph"
+	},
+	{
+		"name": "biliran",
+		"country": "ph"
+	},
+	{
+		"name": "bohol",
+		"country": "ph"
+	},
+	{
+		"name": "bukidnon",
+		"country": "ph"
+	},
+	{
+		"name": "bulacan",
+		"country": "ph"
+	},
+	{
+		"name": "cagayan",
+		"country": "ph"
+	},
+	{
+		"name": "camarinesnorte",
+		"country": "ph"
+	},
+	{
+		"name": "camarinessur",
+		"country": "ph"
+	},
+	{
+		"name": "camiguin",
+		"country": "ph"
+	},
+	{
+		"name": "capiz",
+		"country": "ph"
+	},
+	{
+		"name": "catanduanes",
+		"country": "ph"
+	},
+	{
+		"name": "cavite",
+		"country": "ph"
+	},
+	{
+		"name": "cebu",
+		"country": "ph"
+	},
+	{
+		"name": "compostelavalley",
+		"country": "ph"
+	},
+	{
+		"name": "cotabato",
+		"country": "ph"
+	},
+	{
+		"name": "davaodelnorte",
+		"country": "ph"
+	},
+	{
+		"name": "davaodelsur",
+		"country": "ph"
+	},
+	{
+		"name": "davaooccidental",
+		"country": "ph"
+	},
+	{
+		"name": "davaooriental",
+		"country": "ph"
+	},
+	{
+		"name": "dinagatislands",
+		"country": "ph"
+	},
+	{
+		"name": "easternsamar",
+		"country": "ph"
+	},
+	{
+		"name": "guimaras",
+		"country": "ph"
+	},
+	{
+		"name": "ifugao",
+		"country": "ph"
+	},
+	{
+		"name": "ilocosnorte",
+		"country": "ph"
+	},
+	{
+		"name": "ilocossur",
+		"country": "ph"
+	},
+	{
+		"name": "iloilo",
+		"country": "ph"
+	},
+	{
+		"name": "isabela",
+		"country": "ph"
+	},
+	{
+		"name": "kalinga",
+		"country": "ph"
+	},
+	{
+		"name": "launion",
+		"country": "ph"
+	},
+	{
+		"name": "laguna",
+		"country": "ph"
+	},
+	{
+		"name": "lanaodelnorte",
+		"country": "ph"
+	},
+	{
+		"name": "lanaodelsur",
+		"country": "ph"
+	},
+	{
+		"name": "leyte",
+		"country": "ph"
+	},
+	{
+		"name": "maguindanao",
+		"country": "ph"
+	},
+	{
+		"name": "marinduque",
+		"country": "ph"
+	},
+	{
+		"name": "masbate",
+		"country": "ph"
+	},
+	{
+		"name": "misamisoccidental",
+		"country": "ph"
+	},
+	{
+		"name": "misamisoriental",
+		"country": "ph"
+	},
+	{
+		"name": "mountainprovince",
+		"country": "ph"
+	},
+	{
+		"name": "negrosoccidental",
+		"country": "ph"
+	},
+	{
+		"name": "negrosoriental",
+		"country": "ph"
+	},
+	{
+		"name": "northernsamar",
+		"country": "ph"
+	},
+	{
+		"name": "nuevaecija",
+		"country": "ph"
+	},
+	{
+		"name": "nuevavizcaya",
+		"country": "ph"
+	},
+	{
+		"name": "occidentalmindoro",
+		"country": "ph"
+	},
+	{
+		"name": "orientalmindoro",
+		"country": "ph"
+	},
+	{
+		"name": "palawan",
+		"country": "ph"
+	},
+	{
+		"name": "pampanga",
+		"country": "ph"
+	},
+	{
+		"name": "pangasinan",
+		"country": "ph"
+	},
+	{
+		"name": "quezon",
+		"country": "ph"
+	},
+	{
+		"name": "quirino",
+		"country": "ph"
+	},
+	{
+		"name": "rizal",
+		"country": "ph"
+	},
+	{
+		"name": "romblon",
+		"country": "ph"
+	},
+	{
+		"name": "samar",
+		"country": "ph"
+	},
+	{
+		"name": "sarangani",
+		"country": "ph"
+	},
+	{
+		"name": "siquijor",
+		"country": "ph"
+	},
+	{
+		"name": "sorsogon",
+		"country": "ph"
+	},
+	{
+		"name": "southcotabato",
+		"country": "ph"
+	},
+	{
+		"name": "southernleyte",
+		"country": "ph"
+	},
+	{
+		"name": "sultankudarat",
+		"country": "ph"
+	},
+	{
+		"name": "sulu",
+		"country": "ph"
+	},
+	{
+		"name": "surigaodelnorte",
+		"country": "ph"
+	},
+	{
+		"name": "surigaodelsur",
+		"country": "ph"
+	},
+	{
+		"name": "tarlac",
+		"country": "ph"
+	},
+	{
+		"name": "tawi-tawi",
+		"country": "ph"
+	},
+	{
+		"name": "zambales",
+		"country": "ph"
+	},
+	{
+		"name": "zamboangadelnorte",
+		"country": "ph"
+	},
+	{
+		"name": "zamboangadelsur",
+		"country": "ph"
+	},
+	{
+		"name": "zamboangasibugay",
+		"country": "ph"
+	},
+	{
+		"name": "metromanila",
+		"country": "ph"
+	},
+	{
+		"name": "hànội",
+		"country": "vn"
+	},
+	{
+		"name": "hàgiang",
+		"country": "vn"
+	},
+	{
+		"name": "caobằng",
+		"country": "vn"
+	},
+	{
+		"name": "bắckạn",
+		"country": "vn"
+	},
+	{
+		"name": "tuyênquang",
+		"country": "vn"
+	},
+	{
+		"name": "làocai",
+		"country": "vn"
+	},
+	{
+		"name": "điệnbiên",
+		"country": "vn"
+	},
+	{
+		"name": "laichâu",
+		"country": "vn"
+	},
+	{
+		"name": "sơnla",
+		"country": "vn"
+	},
+	{
+		"name": "yênbai",
+		"country": "vn"
+	},
+	{
+		"name": "hòabình",
+		"country": "vn"
+	},
+	{
+		"name": "thainguyên",
+		"country": "vn"
+	},
+	{
+		"name": "lạngsơn",
+		"country": "vn"
+	},
+	{
+		"name": "quảngninh",
+		"country": "vn"
+	},
+	{
+		"name": "bắcgiang",
+		"country": "vn"
+	},
+	{
+		"name": "phúthọ",
+		"country": "vn"
+	},
+	{
+		"name": "vĩnhphúc",
+		"country": "vn"
+	},
+	{
+		"name": "bắcninh",
+		"country": "vn"
+	},
+	{
+		"name": "hảidương",
+		"country": "vn"
+	},
+	{
+		"name": "hảiphòng",
+		"country": "vn"
+	},
+	{
+		"name": "hưngyên",
+		"country": "vn"
+	},
+	{
+		"name": "thaibình",
+		"country": "vn"
+	},
+	{
+		"name": "hànam",
+		"country": "vn"
+	},
+	{
+		"name": "namđịnh",
+		"country": "vn"
+	},
+	{
+		"name": "ninhbình",
+		"country": "vn"
+	},
+	{
+		"name": "thanhhóa",
+		"country": "vn"
+	},
+	{
+		"name": "nghệan",
+		"country": "vn"
+	},
+	{
+		"name": "hàtĩnh",
+		"country": "vn"
+	},
+	{
+		"name": "quảngbình",
+		"country": "vn"
+	},
+	{
+		"name": "quảngtrị",
+		"country": "vn"
+	},
+	{
+		"name": "thừathiên–huế",
+		"country": "vn"
+	},
+	{
+		"name": "đànẵng",
+		"country": "vn"
+	},
+	{
+		"name": "quảngnam",
+		"country": "vn"
+	},
+	{
+		"name": "quảngngãi",
+		"country": "vn"
+	},
+	{
+		"name": "bìnhđịnh",
+		"country": "vn"
+	},
+	{
+		"name": "phúyên",
+		"country": "vn"
+	},
+	{
+		"name": "khanhhòa",
+		"country": "vn"
+	},
+	{
+		"name": "ninhthuận",
+		"country": "vn"
+	},
+	{
+		"name": "bìnhthuận",
+		"country": "vn"
+	},
+	{
+		"name": "kontum",
+		"country": "vn"
+	},
+	{
+		"name": "gialai",
+		"country": "vn"
+	},
+	{
+		"name": "đắklắk",
+		"country": "vn"
+	},
+	{
+		"name": "đắknông",
+		"country": "vn"
+	},
+	{
+		"name": "lâmđồng",
+		"country": "vn"
+	},
+	{
+		"name": "bìnhphước",
+		"country": "vn"
+	},
+	{
+		"name": "tâyninh",
+		"country": "vn"
+	},
+	{
+		"name": "bìnhdương",
+		"country": "vn"
+	},
+	{
+		"name": "đồngnai",
+		"country": "vn"
+	},
+	{
+		"name": "bàrịa–vũngtàu",
+		"country": "vn"
+	},
+	{
+		"name": "thànhphốhồchíminh",
+		"country": "vn"
+	},
+	{
+		"name": "longan",
+		"country": "vn"
+	},
+	{
+		"name": "tiềngiang",
+		"country": "vn"
+	},
+	{
+		"name": "bếntre",
+		"country": "vn"
+	},
+	{
+		"name": "tràvinh",
+		"country": "vn"
+	},
+	{
+		"name": "vĩnhlong",
+		"country": "vn"
+	},
+	{
+		"name": "đồngthap",
+		"country": "vn"
+	},
+	{
+		"name": "angiang",
+		"country": "vn"
+	},
+	{
+		"name": "kiêngiang",
+		"country": "vn"
+	},
+	{
+		"name": "cầnthơ",
+		"country": "vn"
+	},
+	{
+		"name": "hậugiang",
+		"country": "vn"
+	},
+	{
+		"name": "sóctrăng",
+		"country": "vn"
+	},
+	{
+		"name": "bạcliêu",
+		"country": "vn"
+	},
+	{
+		"name": "càmau",
+		"country": "vn"
+	},
+	{
+		"name": "sanjosé",
+		"country": "cr"
+	},
+	{
+		"name": "alajuela",
+		"country": "cr"
+	},
+	{
+		"name": "cartago",
+		"country": "cr"
+	},
+	{
+		"name": "heredia",
+		"country": "cr"
+	},
+	{
+		"name": "guanacaste",
+		"country": "cr"
+	},
+	{
+		"name": "puntarenas",
+		"country": "cr"
+	},
+	{
+		"name": "limón",
+		"country": "cr"
+	},
+	{
+		"name": "auckland",
+		"country": "nz"
+	},
+	{
+		"name": "newplymouth",
+		"country": "nz"
+	},
+	{
+		"name": "hawkesbay",
+		"country": "nz"
+	},
+	{
+		"name": "wellington",
+		"country": "nz"
+	},
+	{
+		"name": "nelson",
+		"country": "nz"
+	},
+	{
+		"name": "marlborough",
+		"country": "nz"
+	},
+	{
+		"name": "westland",
+		"country": "nz"
+	},
+	{
+		"name": "canterbury",
+		"country": "nz"
+	},
+	{
+		"name": "otago",
+		"country": "nz"
+	},
+	{
+		"name": "southland",
+		"country": "nz"
+	}
+]

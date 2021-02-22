@@ -1,0 +1,57 @@
+.back-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #4a4a4a;
+}
+.back-btn .mat-icon {
+  width: 1em;
+  height: 1em;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.header h2 {
+  text-align: center;
+  font: normal normal normal 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  opacity: 1;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+.body {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.body h3 {
+  font: normal normal bold 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #f15e3e;
+  margin-bottom: 18px;
+}
+
+
+.purchased-item {
+  width: 100%;
+}
+.purchased-item th {
+  font: normal normal normal 18px/32px Muli;
+  letter-spacing: 0px;
+  color: #808080;
+}
+.purchased-item td {
+  text-align: right;
+  font: normal normal normal 18px/32px Muli;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+}
+
+.purchased-summary {
+  vertical-align: bottom;
+  color: #808080 !important;
+}

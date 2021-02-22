@@ -1,0 +1,165 @@
+<div class="header">
+  <button class="back-btn" mat-dialog-close>
+    <mat-icon svgIcon="back"></mat-icon>
+  </button>
+  <h2>Verification Methods</h2>
+</div>
+<div class="body">
+  <div class="alert alert-danger standard-color" *ngIf="serverErrorMessage">{{serverErrorMessage}}</div>
+  <div class="panel">
+    <div class="panel-title d-flex align-items-center justify-content-between">
+      <span>Mobile</span>
+      <span class="verified" *ngIf="data.contactVerified">Verified<mat-icon class="size-regular ml-2" svgIcon="check">
+        </mat-icon></span>
+      <span class="verifying" *ngIf="!data.contactVerified">{{contactVerificationCodeSent?'Waiting for verification…':'Please enter your mobile number...'}}</span>
+    </div>
+    <div class="panel-body">
+      <div class="d-flex align-items-center">
+        <div class="flex-grow-1 pr-3">
+          <mat-form-field class="d-block w-100 mb-3  hasTelInput verification-tel-input"
+            *ngIf="data.contactVerified && !changeContact" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder='5555555555' name="contact" [(ngModel)]="data.combinedContactNumber" #contact="ngModel"
+              [disabled]="data.contactVerified && !changeContact" required>
+          </mat-form-field>
+          <mat-form-field class="d-block w-100 mb-3  hasTelInput verification-tel-input"
+            *ngIf="!data.contactVerified || changeContact" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input appPhoneMask matInput ng2TelInput
+              [ng2TelInputOptions]="{initialCountry: 'us' , separateDialCode:true}"
+              (intlTelInputObject)="telInputObject($event)"
+              (countryChange)="onCountryChange($event)" placeholder='5555555555' name="contact"
+              [(ngModel)]="data.contact" #contact="ngModel" [disabled]="data.contactVerified && !changeContact"
+              required (keypress) = "touchNumber($event)">
+          </mat-form-field>
+        </div>
+        <div><button type="button" *ngIf="data.contactVerified" class="btn edit-btn p-0"
+            (click)="changeContact = !changeContact;verificationCode = null;verificationCodeOtp.otp1= null;verificationCodeOtp.otp2= null;verificationCodeOtp.otp3= null;verificationCodeOtp.otp4= null;">
+            <i class="fa fas fa-edit"></i>
+          </button></div>
+      </div>
+      <div class="info-message" *ngIf="changeContact"><i class="fa fa-exclamation-triangle" style="color:#EFD282"></i>
+        Changes must be verified. <a  [routerLink]="'/dashboard'" mat-dialog-close class="pull-right standard-color">Skip for now</a></div>
+        
+    </div>
+  </div>
+  <div class="mt-3" *ngIf="contactVerificationCodeSent && changeContact">
+    <div class="info mb-4">Enter the 4-character just sent to <strong
+        class="font-muli">{{countryCode + data.contact}}</strong>
+    </div>
+    <div class="text-center">
+      <div class="standard-color font-muli mt-2 mb-3">{{resendPrefix ? 'New Code Sent! ' : ''}} Please check your
+        Phone to continue.</div>
+    </div>
+    <div class="d-flex flex-sm-row align-items-center mb-4 justify-content-md-center">
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp1" required aria-label="otp digit 1" #otp1="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp1" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp2" required aria-label="otp digit 2" #otp2="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp2" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp3" required aria-label="otp digit 3" #otp3="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp3" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp4" required aria-label="otp digit 4" #otp4="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp4" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
+      </mat-form-field>
+    </div>
+    <div class="text-large mb-5">
+      <p class="font-muli">Didn't receive a code?
+        <span class="pointer-cursor text-link font-muli font-weight-bold" [ngClass]="{'disable-resend': disableResend}"
+          (click)="resendVerificationCode(data.contact, 'contact')">Send again{{showWaitModeTimer ? ' in' : ''}}
+          <span class="" *ngIf="showWaitModeTimer">
+            <countdown [config]="{ leftTime: 15, notify: 0, format: 'mm:ss'}" class="timer"></countdown>
+          </span>
+        </span></p>
+    </div>
+
+
+  </div>
+  <button class="btn verify-btn mb-3" *ngIf="changeContact && !contactVerificationCodeSent"
+    (click)="verificationSendOTP(data.contact, 'contact')">Verify Contact</button>
+  <button class="btn verify-btn mb-3" *ngIf="changeContact && contactVerificationCodeSent"
+    (click)="verificationVerifyOTP(data.contact, 'contact')">Confirm</button>
+
+  <div class="panel">
+    <div class="panel-title d-flex align-items-center justify-content-between">
+      <span>Email</span>
+      <span class="verified" *ngIf="data.emailVerified">Verified<mat-icon class="size-regular ml-2" svgIcon="check">
+        </mat-icon>
+      </span>
+      <span class="verifying" *ngIf="!data.emailVerified">{{emailVerificationCodeSent?'Waiting for verification…':'Please enter your email....'}}</span>
+    </div>
+    <div class="panel-body">
+      <div class="d-flex align-items-center">
+        <div class="flex-grow-1 pr-3">
+          <mat-form-field class="d-block w-100 mb-3" appearance="outline">
+            <mat-label>Your email address</mat-label>
+            <input matInput placeholder='email@email.com' name="email" [(ngModel)]="data.email" #email="ngModel"
+              [disabled]="data.emailVerified && !changeEmail" required>
+          </mat-form-field>
+        </div>
+        <div><button type="button" *ngIf="data.emailVerified" class="btn edit-btn p-0"
+            (click)="changeEmailNv();verificationCode = null;verificationCodeOtp.otp1= null;verificationCodeOtp.otp2= null;verificationCodeOtp.otp3= null;verificationCodeOtp.otp4= null;">
+            <i class="fa fas fa-edit"></i>
+          </button></div>
+      </div>
+      <div class="info-message" *ngIf="changeEmail"><i class="fa fa-exclamation-triangle" style="color:#EFD282"></i>
+        Changes must be
+        verified.</div>
+    </div>
+  </div>
+  <div class="mt-3" *ngIf="emailVerificationCodeSent && changeEmail">
+    <div class="info mb-4">Enter the 4-character just sent to <strong class="font-muli">{{data.email}}</strong>
+    </div>
+    <div class="text-center">
+      <div class="standard-color font-muli mt-2 mb-3">{{resendPrefix ? 'New Code Sent! ' : ''}} Please check your
+        Email to continue.</div>
+    </div>
+    <div class="d-flex flex-sm-row align-items-center mb-4 justify-content-md-center">
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp1" required aria-label="otp digit 1" #otp1="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp1" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp2" required aria-label="otp digit 2" #otp2="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp2" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp3" required aria-label="otp digit 3" #otp3="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp3" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
+        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp4" required aria-label="otp digit 4" #otp4="ngModel"
+          [(ngModel)]="verificationCodeOtp.otp4" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
+      </mat-form-field>
+    </div>
+    <div class="text-large mb-5">
+      <p class="font-muli">Didn't receive a code?
+        <span class="pointer-cursor text-link font-muli font-weight-bold" [ngClass]="{'disable-resend': disableResend}"
+          (click)="resendVerificationCode(data.email, 'email')">Send again{{showWaitModeTimer ? ' in' : ''}}
+          <span class="" *ngIf="showWaitModeTimer">
+            <countdown [config]="{ leftTime: 15, notify: 0, format: 'mm:ss'}" class="timer"></countdown>
+          </span>
+        </span></p>
+    </div>
+
+
+  </div>
+  <button class="btn verify-btn mb-3" *ngIf="changeEmail && !emailVerificationCodeSent"
+    (click)="verificationSendOTP(data.email, 'email')">Verify Email</button>
+  <button class="btn verify-btn mb-3" *ngIf="changeEmail && emailVerificationCodeSent"
+    (click)="verificationVerifyOTP(data.email, 'email')">Confirm</button>
+</div>

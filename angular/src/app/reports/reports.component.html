@@ -1,0 +1,213 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-5">
+                <span *ngIf="allUsers">Generate report</span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <!-- <mat-card-subtitle class="invite-card-title mb-0 text-left">
+                    <a class="standard-color" href="javascript: void(0);" [routerLink]="'/getallusers/'">Show all users
+                    </a>
+                    <button type="button" style="margin-left: auto;" (click)="onLogout()">Logout</button>
+                </mat-card-subtitle> -->
+                <form #addUserForm="ngForm">
+                    <div class="div-heading bb-verify col-md-12 text-center mt-3 pt-4">
+                        <div class="row">
+                            <div class="col-md-4 col-4">
+                                <mat-form-field>
+                                    <mat-label>Select Report</mat-label>
+                                    <mat-select name="atsignType" [(ngModel)]="model.atsignType" required [title]="getViewValueFromKey(model.atsignType)">
+                                        <mat-option *ngFor="let type of atsignTypes" [value]="type.value" [title]="type.viewValue">
+                                            {{type.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <!-- <div class="col-md-7 row p0"> -->
+                            <div class="col-md-4 col-4">
+                                <mat-form-field>
+                                    <mat-label>Select From Date</mat-label>
+                                    <input matInput [matDatepicker]="frompicker" [max]="tomorrow" placeholder="From Date" name="fromDate"
+                                        [(ngModel)]="model.fromDate" required>
+                                    <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #frompicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4 col-4">
+                                <mat-form-field>
+                                    <mat-label>Select To Date</mat-label>
+                                    <input matInput [matDatepicker]="topicker" [max]="tomorrow" placeholder="To Date" name="toDate"
+                                        [(ngModel)]="model.toDate" required>
+                                    <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #topicker></mat-datepicker>                                    
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="handleNotAvailable">
+                            This @sign is not available
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="formValidation">
+                            All fields required
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
+                            {{showErrorMessage}}
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="invalidEmail">
+                            Please enter a valid email address
+                        </div>
+                        <div class="col-md-3 col-3 offset-md-9 mb-2 mt-3">
+                            <button class="searchButton" type="button" (click)="searchAtsign('')">Generate</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- <div *ngIf="allUsers.length>0" fxLayout="row">
+                    <div class="row mr-2">
+                        <div class="col-12 d-flex justify-content-end align-items-center">
+                            <mat-form-field>
+                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div> -->             
+                <div class="col-12 col-md-6 offset-md-6" [hidden]="pieChartData.length === 0">
+                    <canvas baseChart 
+                      [data]="pieChartData" 
+                      [labels]="pieChartLabels" 
+                      [chartType]="pieChartType"
+                      [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins"
+                      [legend]="pieChartLegend"
+                      [colors]="backgroundColors">
+                    </canvas>
+                  </div>
+                <div class="" [hidden]="totatData === 0">
+                    <div class=" col-12 text-right mb-3 mt-2">
+                        <span class="standard-color pointer-cursor" (click)="exportCsv()">Export CSV</span>
+                    </div>
+                <div class="mat-elevation-z8 tablescroll" [hidden]="totatData === 0">
+                    <mat-table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Id
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="id"
+                                title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsignName">
+                            <mat-header-cell style="max-width: 300px" *matHeaderCellDef mat-sort-header> @sign Name
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 300px" *matCellDef="let row" data-label="atsignName"
+                                title='{{row.atsignName ? row.atsignName : "-"}}'>
+                                {{row.atsignName ? row.atsignName : "-"}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="email">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> Email
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="email"
+                                title='{{row.email}} '> {{row.email}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="contact">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> Mobile No.
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="contact"
+                                title='{{row.contact}} '>  {{row.contact ? row.contact : "-"}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="userStatus">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> User Status
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="userStatus"
+                                title='{{row.userStatus}} '> {{row.userStatus ? row.userStatus : '-'}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="payAmount">
+                            <mat-header-cell style="max-width: 90px" *matHeaderCellDef mat-sort-header> Amount
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 90px" *matCellDef="let row" data-label="payAmount" title='{{row.payAmount ? row.payAmount : "-"}}'>
+                                        {{row.payAmount ? '$' + row.payAmount.toFixed(2) : '-'}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="premiumAtsignType">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> @sign Type
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="@sign Type"
+                                title='{{row.premiumAtsignType}} '>  {{row.premiumAtsignType ? row.premiumAtsignType : "-"}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsignType">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> @sign Type
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="@sign Type"
+                                title='{{row.atsignType}} '>  {{row.atsignType ? row.atsignType : "-"}} </mat-cell>
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="atsignCount">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> @sign Count
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="@sign Type"
+                                title='{{row.atsignCount}} '>  {{row.atsignCount ? row.atsignCount : 0}} </mat-cell>
+                        </ng-container> -->
+                        <ng-container matColumnDef="atsignCreatedOn">
+                            <mat-header-cell style="max-width: 130px" *matHeaderCellDef mat-sort-header> Date
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 130px" *matCellDef="let row" data-label="atsignCreatedOn">
+                                {{row.atsignCreatedOn | date}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="invitedCount">
+                            <mat-header-cell style="max-width: 130px" *matHeaderCellDef mat-sort-header> Total Invites 
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 130px" *matCellDef="let row" data-label="invitedCount">
+                                {{row.invitedCount}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="freeAtsignCount">
+                            <mat-header-cell style="max-width: 120px" *matHeaderCellDef mat-sort-header> Free @signs
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 120px" *matCellDef="let row" data-label="freeAtsignCount">
+                                {{row.freeAtsignCount}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="paidAtsignCount">
+                            <mat-header-cell style="max-width: 120px" *matHeaderCellDef mat-sort-header> Paid @signs
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 120px" *matCellDef="let row" data-label="paidAtsignCount">
+                                {{row.paidAtsignCount}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="totalAtsignCount">
+                            <mat-header-cell style="max-width: 110px" *matHeaderCellDef mat-sort-header> Total @signs
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 110px" *matCellDef="let row" data-label="totalAtsignCount">
+                                {{row.totalAtsignCount}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="activeCount">
+                            <mat-header-cell style="max-width: 130px" *matHeaderCellDef mat-sort-header>Total Active Invites
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 130px" *matCellDef="let row" data-label="activeCount"> 
+                                {{row.activeCount}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="inactiveCount">
+                            <mat-header-cell style="max-width: 150px" *matHeaderCellDef mat-sort-header> Total Pending Invites
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 150px" *matCellDef="let row" data-label="inactiveCount">
+                                {{row.inactiveCount}}
+                            </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator #atsignsPaginator [length]="totatData" [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>
+
+<div>
+    <a id="downloadfile" [hidden]="true" [href]="downloadUrl" ></a>
+</div>

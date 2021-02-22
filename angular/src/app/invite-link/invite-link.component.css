@@ -1,0 +1,76 @@
+.back-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #4a4a4a;
+}
+.back-btn .mat-icon {
+  width: 1em;
+  height: 1em;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.header h2 {
+  text-align: center;
+  font: normal normal normal 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  opacity: 1;
+  margin-bottom: 0;
+
+  flex-grow: 1;
+}
+.body {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.body .heading {
+  font: normal normal normal 18px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+}
+.button-row {
+  margin-bottom: 30px;
+}
+.button-row .btn {
+  font: normal normal normal 15px/17px Comfortaa;
+  letter-spacing: 0px;
+  color: #2d2a26;
+}
+.lead {
+  font: normal normal normal 22px/24px Comfortaa;
+  letter-spacing: 0px;
+  color: #2d2a26;
+}
+.regular {
+  font: normal normal normal 15px/17px Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+}
+.send-invite-button {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 28px;
+  text-align: center;
+  font: normal normal bold 22px/1 Comfortaa;
+  letter-spacing: 0px;
+  color: #f05e3e;
+  padding: 15px 20px;
+  border: 2px solid #f05e3e;
+}
+/deep/ .invite-form-field.mat-form-field .mat-form-field-infix {
+  font: normal normal normal 15px/19px Muli;
+}
+/deep/ .mat-checkbox-layout .mat-checkbox-label {
+  font: normal normal normal 14px/18px Muli;
+}
+.preview-btn,
+.edit-btn {
+  font: normal normal normal 15px/17px Comfortaa;
+  color: #2d2a26;
+}

@@ -1,0 +1,252 @@
+.back-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #4a4a4a;
+}
+.back-btn .mat-icon {
+  width: 1em;
+  height: 1em;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.at-color {
+  color: #f05e3e;
+}
+.header h2 {
+  text-align: center;
+  font: normal normal normal 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  opacity: 1;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+.annual-fee-text {
+  background: #efd28280;
+  padding: 15px 20px;
+  border-radius: 6px;
+  font: normal normal normal 15px/22px Muli;
+  letter-spacing: 0px;
+  color: #2d2a26;
+  margin-bottom: 22px;
+}
+.body {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.body table {
+  width: 100%;
+}
+.body thead th:first-child {
+  border-radius: 6px 0 0 6px;
+}
+.body thead th:last-child {
+  border-radius: 0 6px 6px 0;
+}
+.body th {
+  background: #efefef;
+  padding: 8px 16px;
+}
+.body td {
+  font: normal normal normal 18px/32px Muli;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  vertical-align: top;
+  padding: 24px 0 24px 16px;
+}
+.body td:last-child {
+  padding-right: 16px;
+}
+.atsign-name {
+  font: normal normal normal 18px/1 Comfortaa;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  margin-bottom: 15px;
+  word-break: break-all;
+}
+.body thead th:first-child {
+  font: normal normal bold 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #2d2a26;
+}
+.body tbody tr {
+  border-bottom: 1px solid #c3c3c3;
+}
+.body tfoot tr {
+  border-top: 1px solid #c3c3c3;
+}
+.body thead th {
+  font: normal normal normal 15px/32px Muli;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+}
+.btn-activate {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  text-align: center;
+  font: normal normal bold 11px/21px Muli;
+  letter-spacing: 0px;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.btn-activate.activated {
+  border-color: transparent;
+  background: #f05e3e;
+  color: #fff;
+}
+.btn-transfer {
+  background: #808080;
+  border: 1px solid #808080;
+  border-radius: 3px;
+  text-align: center;
+  font: normal normal bold 11px/21px Muli;
+  letter-spacing: 0px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  min-width: 100px;
+}
+.btn-transfer .fa,
+.delete-btn .fa {
+  font-size: 18px;
+}
+.body .delete-btn {
+  background: #808080;
+  border: 1px solid #808080;
+  border-radius: 3px;
+  text-align: center;
+  font: normal normal bold 11px/21px Muli;
+  letter-spacing: 0px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  min-width: 100px;
+}
+.btn.select-btn,
+.btn.clear-btn {
+  color: #f05e3e;
+  font: normal normal normal 15px/32px Muli;
+  letter-spacing: 0px;
+}
+.btn.renew-select {
+  font-size: 28px;
+  vertical-align: top;
+  line-height: 1;
+  color: #c3c3c3;
+}
+.btn.renew-select.selected {
+  color: #f05e3e;
+}
+.renew-selected-btn {
+  background: #f05e3e;
+  border-radius: 28px;
+  font: normal normal bold 15px/27px Comfortaa;
+  letter-spacing: 0px;
+  color: #ffffff;
+  padding: 9px 24px;
+  margin-bottom: 36px;
+}
+.no-atsign-msg {
+  font-size: 16px;
+  font-family: Muli;
+  color: #f05e3e;
+  line-height: 1.2;
+}
+.create-atsign-btn {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 2px solid #f05e3e;
+  border-radius: 28px;
+  color: #f05e3e;
+  white-space: nowrap;
+  padding: 8px 24px;
+}
+.separator {
+  border-right: 1px solid #4a4a4a;
+  min-height: 36px;
+}
+.text-expiring-soon {
+  font: normal normal bold 10px/1 Muli;
+  letter-spacing: 0px;
+  color: #f05e3e;
+}
+.expire-date {
+  font: normal normal normal 15px/32px Muli;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+}
+.textColor {
+  color: #f05e3e;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.transfered-atsign-label {
+  color: green;
+  border: 1px solid green;
+  font-size: 10px;
+  border-radius: 5px;
+  padding: 2px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.btn-green {
+  background-image: linear-gradient(180deg, #28a742, #026400);
+  border-color: #15b316;
+  background-color: #15b316;
+  color: #fff;
+}
+.btn-grey {
+  background-image: repeating-linear-gradient(
+    -70deg,
+    transparent,
+    transparent 13px,
+    #8e8e8e 13px,
+    #8e8e8e 26px
+  );
+  border-color: #8b8b8b;
+  animation: button-stripes 1s linear infinite;
+  background-color: #727272;
+  padding-left: 36px;
+  padding-right: 36px;
+  color: #fff;
+}
+@keyframes button-stripes {
+  0% {
+    background-position: -13px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@media screen and (max-width:376px){
+  .btn-grey,.btn-activate,.btn-transfer{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .body{
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .body th{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .body td{
+    padding: 24px 0 24px 8px;
+  }
+}
+@media (min-width: 768px) {
+  .annual-fee-text {
+    padding: 30px 60px;
+  }
+}

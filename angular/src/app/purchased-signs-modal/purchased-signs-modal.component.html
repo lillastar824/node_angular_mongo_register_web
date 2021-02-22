@@ -1,0 +1,123 @@
+<div class="header">
+  <button class="back-btn" mat-dialog-close>
+    <mat-icon svgIcon="back"></mat-icon>
+  </button>
+  <h2>My <span class="at-color">@</span>signs</h2>
+</div>
+<div class="body">
+  <div class="no-atsign-msg d-flex align-items-center flex-column mb-5" *ngIf="!data.paidAtSigns && (!data.freeAtSigns || (data.freeAtSigns && data.freeAtSigns.length === 0))">
+    <div class="flex-grow-1 mb-3">You don't have any @signs yet.</div>
+    <button class="btn create-atsign-btn" (click)="createAnotherSign();">Create
+      @sign</button>
+  </div>
+  <div class="text-right mb-3"  *ngIf="checkPayableAtsignExists()">
+    <button class="btn select-btn py-0" type="button" (click)="allSelected=true;selectUnselectAllAtsignForRenewal(allSelected)">Select All</button>|<button class="btn clear-btn py-0" type="button" (click)="allSelected=false;selectUnselectAllAtsignForRenewal(allSelected)">Clear</button>
+  </div>
+  <table *ngIf="data.paidAtSigns && data.paidAtSigns.length > 0"  matSort (matSortChange)="sortData($event)">
+    <thead>
+      <tr>
+        <!-- <th mat-sort-header="atsignName" disableClear>Purchased</th> -->
+        <th>Purchased</th>
+      <!-- <th class="text-right text-nowrap pr-2" style="width: 160px;" mat-sort-header="renewalDate" start="desc" disableClear>Renewal Date</th> -->
+      <th class="text-right text-nowrap pr-2" style="width: 160px;">Renewal Date</th>
+      <th class="text-right pl-2 p-md-3"><button class="btn renew-select p-0 " *ngIf="checkPayableAtsignExists()" [ngClass]="{'selected':allSelected==1}" type="button"><i aria-hidden="true" class="fa fa-check-circle" (click)="allSelected=!allSelected;selectUnselectAllAtsignForRenewal(allSelected)"></i></button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paidAtSign of data.paidAtSigns; index as i;">
+        <td><span class="d-block atsign-name">{{paidAtSign.atsignName}}<span class="transfered-atsign-label" *ngIf="paidAtSign.transferId">Transferred</span></span>
+          <div (click)="payNow(paidAtSign.atsignName,paidAtSign.verifyLink)" class="pay-method pointer-cursor"
+            *ngIf="paidAtSign.payNow">Pay Now</div>
+            <div class="d-flex flex-row flex-wrap align-items-center">
+          <button class="btn btn-activate hide-activate mr-2 mb-2" [ngClass]="{'btn-green': paidAtSign.isActivated === 3, 'btn-grey': paidAtSign.isActivated===2 }"
+            (click)="activateAtSign(paidAtSign.atsignName,'paid',i, paidAtSign.isActivated)"
+            *ngIf="!paidAtSign.payNow && paidAtSign.isActivated!==1">
+            {{paidAtSign.isActivated === 3 ? 'Click to scan' : paidAtSign.isActivated===2?"Activating...":"Activate"}}
+            <i class="fa fa-circle-o-notch fa-spin standard-color"
+              *ngIf="isActivating[i] || paidAtSign.isActivated===2"></i>
+          </button>
+          <button class="btn btn-activate hide-activate activated mr-2 mb-2"
+          (click)="confirmDeactivate(paidAtSign.atsignName,'paid',i, paidAtSign.isActivated)"
+          *ngIf="paidAtSign.isActivated === 2 || paidAtSign.isActivated === 3">
+           Reset
+        </button>
+        <span class="ml-2 mr-3 mb-2 separator d-none d-md-block extra-hide" *ngIf="paidAtSign.isActivated === 2 || paidAtSign.isActivated === 3"></span>
+          <button class="btn btn-transfer mr-2 d-inline-flex align-items-center mb-2 extra-hide"
+            (click)="atsignTransfer(paidAtSign)"
+            *ngIf="!paidAtSign.payNow && paidAtSign.isActivated!==1">
+            Transfer <i aria-hidden="true" class="fa fa-exchange ml-2"></i>
+          </button>
+          <button class="btn btn-activate hide-activate activated mb-2"
+            (click)="confirmDeactivate(paidAtSign.atsignName,'paid',i, paidAtSign.isActivated)"
+            *ngIf="!paidAtSign.payNow && paidAtSign.isActivated===1">
+            Deactivate
+          </button>
+        </div>
+        </td>
+        <td class="text-right text-nowrap"><span class="d-block text-uppercase text-expiring-soon" *ngIf="paidAtSign.expiringSoon">Expiring Soon!</span><span class="expire-date">{{paidAtSign.renewalDate | date}}</span></td>
+        <td class="text-right"><button class="btn renew-select p-0" type="button" *ngIf="paidAtSign.isPayable"
+          [ngClass]="{ 'disabled': paidAtSign.isPayable , 'selected': isSelectedForRenewal(paidAtSign.atsignName)}"
+          (click)="addOrRemoveAtsignForRenewal(paidAtSign.atsignName)">
+          <mat-icon class="size-regular" >check_circle_outline</mat-icon></button></td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="checkPayableAtsignExists()">
+      <tr>
+        <td class="text-right px-0" colspan="3">
+          <button class="btn select-btn py-0" type="button" (click)="allSelected=true;selectUnselectAllAtsignForRenewal(allSelected)">Select All</button>|<button class="btn clear-btn py-0" type="button" (click)="allSelected=false;selectUnselectAllAtsignForRenewal(allSelected)">Clear</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="annual-fee-text" *ngIf="data.paidAtSigns && data.paidAtSigns.length > 0">
+    <app-annual-fee-disclaimer></app-annual-fee-disclaimer>
+  </div>
+  <div class="text-right" *ngIf="checkPayableAtsignExists()">
+    <button class="btn renew-selected-btn" type="button" [ngClass]="{ 'disabled': atSignsForRenewal.length <= 0}" (click)="renewSelectedAtsigns()">Renew Selected</button>
+  </div>
+
+  <table *ngIf="data.freeAtSigns && data.freeAtSigns.length > 0">
+    <thead>
+      <tr>
+      <th>Free</th>
+      <th class="text-right" style="white-space: nowrap;">No renewal required</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let freeAtSign of data.freeAtSigns; index as i;">
+        <td colspan="2"><span class="d-block atsign-name">{{freeAtSign.atsignName}}<span class="transfered-atsign-label" *ngIf="freeAtSign.transferId">Transfered</span></span>
+          <button class="btn btn-activate hide-activate mr-2 mb-2"  [ngClass]="{'btn-green': freeAtSign.isActivated === 3, 'btn-grey': freeAtSign.isActivated===2 }"
+            (click)="activateAtSign(freeAtSign.atsignName,'free',i, freeAtSign.isActivated)"
+            *ngIf="!freeAtSign.payNow && freeAtSign.isActivated!==1">
+            {{freeAtSign.isActivated === 3 ? 'Click to scan' : freeAtSign.isActivated===2?"Activating...":"Activate"}}
+            <i class="fa fa-circle-o-notch fa-spin standard-color"
+              *ngIf="isActivating[i] || freeAtSign.isActivated===2"></i>
+            </button>
+          <button class="btn btn-activate hide-activate activated mr-2 mb-2"
+            (click)="confirmDeactivate(freeAtSign.atsignName,'free',i, freeAtSign.isActivated)"
+            *ngIf="freeAtSign.isActivated === 2 || freeAtSign.isActivated === 3">
+            Reset
+          </button>
+          <button class="btn hide-activate btn-transfer mb-2 mr-2 d-inline-flex align-items-center mr-1 extra-hide"
+            (click)="atsignTransfer(freeAtSign)"
+            *ngIf="!freeAtSign.payNow && freeAtSign.isActivated!==1">
+            Transfer
+            <i aria-hidden="true" class="fa fa-exchange ml-2"></i>
+            <i class="fa fa-circle-o-notch fa-spin standard-color"
+              *ngIf="isActivating[i] || freeAtSign.isActivated===2"></i>
+          </button>
+          <button class="btn btn-activate hide-activate activated mb-2 mr-2"
+            (click)="confirmDeactivate(freeAtSign.atsignName,'free',i, freeAtSign.isActivated)"
+            *ngIf="!freeAtSign.payNow && freeAtSign.isActivated===1">
+            Deactivate
+          </button>
+          <button class="btn delete-btn d-inline-flex align-items-center mb-2"
+            (click)="confirmDelete(freeAtSign)">Delete <i aria-hidden="true" class="fa fa-trash ml-2"></i></button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

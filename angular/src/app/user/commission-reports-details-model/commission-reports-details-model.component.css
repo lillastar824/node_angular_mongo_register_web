@@ -1,0 +1,32 @@
+.close-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #615c5c;
+    padding: 0;
+    top: -47px;
+  }
+  .close-btns{
+    margin-left: 702px;
+    margin-top: 27px;
+  }
+
+ .get-invited-card {
+    max-width: 770px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: none!important;
+    border-radius: 8px;
+    opacity: 1;
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+}
+
+.mat-card[_ngcontent-vcd-c19] {
+  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  display: block;
+  position: relative;
+  padding: 0px;
+  border-radius: 4px;
+}

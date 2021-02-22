@@ -1,0 +1,18 @@
+<div class="confirmation-dialog-message text-center mb-5">
+  <div>
+    <p>Are you sure you want to delete all details associated with <span
+        class="font-weight-bold my-3 d-block">{{data.atsign}}</span>
+    </p>
+ 
+  </div>
+</div>
+
+<div mat-dialog-content>
+    <div class="d-flex justify-content-between">
+      <!-- <button type="button" class="selected" (click)="deleteAtsign(data.id);">Confirm</button>
+      <button type="button" class="selected cancelButton" (click)="close()">Cancel</button> -->
+      <button type="button" class="selected btn rounded-pill" (click)="deleteAtsign(data.id);">Confirm</button>
+      <button type="button" class=" btn btn-outline-secondary rounded-pill" (click)="close()">Cancel</button>
+    </div>
+</div>
+ 

@@ -1,0 +1,129 @@
+<div>
+    <main role="main" class="mainBody" #main tabindex="-1">
+        <div class="welcome-page-container">
+            <div class="permissions headercontainer" *ngIf="!alreadyUsedLink && (invalidLink === false)">
+
+                <div class="welcometext text-center">
+                    <div class="heading">
+                      Congratulations, you’re one step closer to a better Internet!
+                    </div>
+                    <div class="heading-text">
+                      By creating your @sign, you’re pioneering a new Internet where people have full ownership of their data.
+
+                    </div>
+                    <div class="heading-text">
+                        Experiment with our free @sign generator or create your own custom @sign. @signs will soon be opened to the public, so grab yours before it’s too late!
+                    </div>
+                    <button type="button" class="get-atsign-button mt-3"
+                    (click)="getAtsign()">Get your @sign!</button>
+                    <div class="text-learn-more">
+                      Questions? Learn more about @signs on <a class="standard-color" href="https://atsign.com" target="_blank">our website</a>.
+
+                    </div>
+                    <!-- <div class="col-md-12 col-12 text-center mt-3">
+                        <button type="button" class="btn btn-primary font-12 get-atsign-button"
+                            (click)="getAtsign()">I'M READY TO GET MY
+                            @SIGN</button>
+                        <div class="font-12 mt-2"><a class="standard-color" href="https://atsign.com" target="_blank">OR, LEARN MORE</a></div>
+                    </div> -->
+                </div>
+                <div class="videochloe">
+                  <div class="video-heading-text">What is an <span class="standard-color">@</span>sign?</div>
+                  <div class="video-embed">
+                    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/464048120?color=F05E3E&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                  </div>
+
+
+                </div>
+
+            </div>
+            <div *ngIf="alreadyUsedLink">
+                This link is already used. Please <a href="/login">login </a>with registered Email 
+            </div>
+            <div *ngIf="invalidLink">
+                This link is invalid. Please click<a href="https://atsign.com/get-an-sign/">here</a> to get experience a "NEW INTERNET WORLD"
+            </div>
+            <!-- <div class="row permissions spacing" *ngIf="showSlides">
+                <div id="chloeSliderIndicators" class="carousel slide col-md-12 col-12 zoom-div" data-interval="false"
+                    data-ride="carousel" data-wrap="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#chloeSliderIndicators" data-slide-to="0" class="slider-indicators active">
+                        </li>
+                        <li data-target="#chloeSliderIndicators" data-slide-to="1" class="slider-indicators">
+                        </li>
+                        <li data-target="#chloeSliderIndicators" data-slide-to="2" class="slider-indicators">
+                        </li>
+                        <li data-target="#chloeSliderIndicators" data-slide-to="3" class="slider-indicators">
+                        </li>
+                        <li data-target="#chloeSliderIndicators" data-slide-to="4" class="slider-indicators">
+                        </li>
+                        <li data-target="#chloeSliderIndicators" data-slide-to="5" class="slider-indicators">
+                        </li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active col-md-12 col-12">
+                            <div class="chloe-slide-img chloe-slide-1"></div>
+                        </div>
+                        <div class="carousel-item col-md-12 col-12">
+                            <div class="chloe-slide-img chloe-slide-2"></div>
+                        </div>
+                        <div class="carousel-item col-md-12 col-12">
+                            <div class="chloe-slide-img chloe-slide-3"></div>
+                        </div>
+                        <div class="carousel-item col-md-12 col-12">
+                            <div class="chloe-slide-img chloe-slide-4"></div>
+                        </div>
+                        <div class="carousel-item col-md-12 col-12">
+                            <div class="chloe-slide-img chloe-slide-5"></div>
+                        </div>
+                        <div class="carousel-item col-md-12 col-12">
+                            <div class="chloe-slide-img chloe-slide-6"></div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#chloeSliderIndicators"  (click)="hideNavigationButton()" role="button" data-slide="prev">
+                        <i class="fa fa-chevron-circle-left standard-color"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#chloeSliderIndicators" (click)="hideNavigationButton()" role="button" data-slide="next">
+                        <i class="fa fa-chevron-circle-right standard-color"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-md-12 mobile-indicators mt-5">
+                    <button type="button" class="btn indicator-button mr-1" href="#chloeSliderIndicators" role="button"
+                    (click)="hideNavigationButton()" data-slide="prev">BACK</button>
+                    <button type="button" class="btn indicator-button ml-1" href="#chloeSliderIndicators" role="button"
+                    (click)="hideNavigationButton()" data-slide="next">NEXT</button>
+                </div>
+
+                 <div class="col-md-2 col-2 text-center mt-4"></div>
+                <div class="col-md-8 col-8 text-center mt-4">
+                    Click through the slideshow above to learn more about how @signs will make the internet a better
+                    place to work and play.
+                </div>
+                <div class="col-md-2 col-2 text-center mt-4"></div>
+                <div class="col-md-12 col-12 text-center mt-4">
+                    <button type="button" class="btn btn-primary font-12 get-atsign-button" (click)="getAtsign()">I'M
+                        READY TO GET MY
+                        @SIGN</button>
+                    <div class="font-12 standard-color mt-2"><a class="standard-color" target="_blank" href="https://atsign.com" >OR, LEARN MORE</a></div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <!-- <div class="copyright m-0 col-md-12">
+        <div class="row w-100" style="position: relative;max-width: 92%;margin: auto;">
+            <div class="col-md-1 d-flex justify-content-start">
+                <img src="../../assets/img/logo.png" height="35px" alt="@sign" />
+            </div>
+            <div class="col-md-11 col-12">
+                © Copyright 2020 | The @ Company |
+                <a href="https://atsign.com/privacy-policy/" target="_blank" class="policy-link ml-1">
+                    Privacy
+                    Policy </a> &nbsp;|
+                <a href="https://atsign.com/terms-conditions/" target="_blank" class="policy-link ml-1"> Terms &
+                    Conditions</a>
+            </div>
+        </div>
+    </div> -->
+</div>

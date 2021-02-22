@@ -1,0 +1,35 @@
+<div>
+  <form #accountVerifyForm="ngForm">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="get-invited-card">
+
+            <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+            <div class="get-invited-card-inner">
+              <div class="form row pt-0 pb-0 px-0">
+                <div class="col-12">
+                  <h1 class="invite-head">Verify by
+                    {{suffixMessage ? suffixMessage:(userService.selectHandle.atsignType==='free' && !userService.selectHandle.contact?'Email':'Email or Mobile')}}
+                  </h1>
+                </div>
+
+                <div class="col-12">
+                  <div class="row">
+
+                    <div class="col-12 p-0">
+                      <app-verification-code (verificationCodeSending)="verificationCodeChangedHandler($event)"
+                        [verificationCodeSend]=verificationCodeSent></app-verification-code>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div><img class="bubble-bg" src="../../../assets/img/Bubble.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

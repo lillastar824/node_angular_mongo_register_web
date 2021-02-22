@@ -1,0 +1,106 @@
+<div>
+  <form class="mb-0" #standardSignForm="ngForm">
+    <div class="success-message" *ngIf="showSucessMessage">
+      <div>
+        <i class="fa fa-envelope mr-2"></i>
+        <span class="highlight-msg">Awesome! </span>Please check your email for the link.
+      </div>
+      <i class="fa fa-times-circle close-icon mr-2"></i>
+    </div>
+    <div class="page-bg container"  [ngClass]="{'show-timer-navbar' :userService.showTimer,'filters-expanded': showCustomizeDialog  }">
+      <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+      <div class="row page-bg-inner" style="height: 100%;">
+        <img src="../../../assets/img/@sign-o-matic_group.png" class="signomatic-img">
+        <div class="col-12 d-flex flex-column" style="min-height: 450px;"  *ngIf="userService.selectHandle.atsignName">
+<div class="d-flex flex-column flex-grow-1 justify-content-center">
+  <div class="mt-5">
+    <!-- <div class="text-center pb-4">You must select at least 1, and up to 2</div> -->
+    <div class="text-right"><button class="filters-toggle-btn" (click)="showCustomizeDialog = !showCustomizeDialog">
+     <span *ngIf="standardHandlesPlaceHolder">({{standardHandlesPlaceHolder.length}})</span> Filters  <i class="fa fa-angle-up"  *ngIf="showCustomizeDialog"></i><i class="fa fa-angle-down"  *ngIf="!showCustomizeDialog"></i></button></div>
+    <div class="form filters-row row py-0 mb-3" *ngIf="showCustomizeDialog">
+
+      <div class="col-md-4 col-6 my-2" *ngFor="let option of allfreeHandles; index as i">
+        <div class="standard-tags d-flex justify-content-between align-items-center pointer-cursor"
+          [ngClass]="[freeHandlesLabels.indexOf(option) === -1 ? '' : 'active']"
+          (click)="changeFreeHandles(option)">
+          {{option | titlecase}}
+
+          <i [ngClass]="[freeHandlesLabels.indexOf(option) === -1 ? 'fa fa-plus' : 'fa fa-minus']"></i>
+        </div>
+      </div>
+      <div class="col-md-4 col-6 my-2">
+        <div class="standard-tags d-flex justify-content-center clear-btn align-items-center pointer-cursor"
+          (click)="clearFilters()"  [ngStyle]="{'color': getColor(standardHandlesPlaceHolder.length)}">
+          Clear
+        </div>
+      </div>
+    </div>
+      <div class="form row py-0">
+      <div class="alert alertBox col-12 text-center" *ngIf="selectionError">
+        {{selectionError}}
+      </div>
+      <div *ngIf="serverErrorMessages" class="alert alert-warning mt-4 col-lg-12">
+        {{serverErrorMessages}}
+      </div>
+
+      <!-- <div class="col-sm-12 mt-2  d-flex justify-content-center">
+        <a href="javascript: void(0);"
+          [routerLink]="'/premium-sign/' + inviteCode"
+          class="standard-color font-museo">No thanks. I want to create a custom @sign.</a>
+      </div> -->
+    </div>
+  </div>
+  <div  class="computed-atsign mb-1" *ngIf="!randomMessage">@<span>{{userService.selectHandle.atsignName}}</span></div>
+
+  <div  class="alert alert-success" role="alert" *ngIf="randomMessage">
+     <span class="textStyle">{{randomMessage}} <i class='fas fa-square fa-lg blink_me'></i></span>
+  </div>
+  <div class="d-flex py-3 justify-content-around">
+
+    <button type="button" class="reboot-btn" (click)="retry();computeHandle();" [disabled]='randomMessage'><mat-icon class="size-regular mr-2" svgIcon="reboot"></mat-icon>Retry</button>
+  </div>
+  <div class="mb-5">
+    <div style="height: 50px;" *ngIf="showCustomizeDialog"></div>
+  <!-- <p class="atsign-available-text my-4" *ngIf="!showCustomizeDialog">Take me to your leader…</p> -->
+  <button type="button" class="add-to-bag-btn mx-auto" style="max-width: 360px;" (click)="addToCart(standardSignForm)">Add to bag</button>
+</div>
+</div>
+
+          <div class="text-center">
+            <a href="javascript: void(0);" aria-label="back"
+              [routerLink]="'/premium-sign/' + inviteCode"
+              class="back-link">
+              <mat-icon class="mr-2" svgIcon="back"></mat-icon>Back to Custom
+            </a>
+          </div>
+        </div>
+        <div class="col-12 d-flex flex-column mx-auto px-0 compute-wrap" style="max-width:360px;" *ngIf="!userService.selectHandle.atsignName && !isCalculatingAtsign">
+          <div class="d-flex flex-column flex-grow-1 justify-content-center" >
+            <div class="page-desc">Auto-magically <br> generate your FREE @sign!</div>
+            <div *ngIf="serverErrorMessages" class="alert alert-warning mt-4">
+              {{serverErrorMessages}}
+            </div>
+            <button [disabled]="disableCompute" type="button" class="compute-btn mt-4" (click)="computeHandle()">
+              <mat-icon class="mr-2" svgIcon="robot-alt"></mat-icon>Compute
+            </button>
+          </div>
+          <div class="text-center">
+            <a href="javascript: void(0);" aria-label="back"
+              [routerLink]="'/premium-sign/' + inviteCode"
+              class="back-link">
+              <mat-icon class="mr-2" svgIcon="back"></mat-icon>Back to Custom
+            </a>
+          </div>
+
+
+
+        </div>
+
+      </div>
+      <img class="bubble-bg" src="../../../assets/img/Bubble.png">
+    </div>
+
+
+  </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

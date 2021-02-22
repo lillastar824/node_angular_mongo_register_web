@@ -1,0 +1,27 @@
+/deep/ .invite-history-panel .mat-dialog-container {
+    padding: 0;
+    background: #efefef;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  .invite-scroll {
+    height: 380px !important;
+    max-height: 380px !important;
+    padding: 35px 24px;
+  }
+  .heading {
+    text-align: center;
+    font: normal normal bold 22px/32px Comfortaa;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+  }
+  .text-activity {
+    text-align: left;
+    font: normal normal normal 18px/20px Comfortaa;
+    letter-spacing: 0px;
+    color: #2d2a26;
+    border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 6px;
+  }

@@ -1,0 +1,146 @@
+.product-info {
+  text-align: center;
+  letter-spacing: 0;
+  color: #4a4a4a;
+}
+
+.page-title {
+  text-align: center;
+  font: normal normal bold 36px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #f15e3e;
+  opacity: 1;
+  margin-top: 24px;
+  margin-bottom: 21px;
+}
+
+.sub-title {
+  text-align: center;
+  letter-spacing: 0px;
+  color: #4a4a4a;
+  opacity: 1;
+  margin-bottom: 28px;
+}
+
+.nav-pills {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-pills button {
+  width: 100%;
+  border-radius: 28px;
+  border: none;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+  font: normal normal normal 18px/1 Comfortaa;
+  letter-spacing: 0px;
+  align-items: center;
+  background-color: #efefef;
+  color: #4a4a4a;
+}
+
+.nav-pills button > span {
+  flex: 1 1 auto;
+  text-align: left;
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+    align-items: center;
+}
+.nav-item-count {
+  flex-grow: 1;
+  text-align: right;
+  font: normal normal 900 14px/1 Roboto;
+  letter-spacing: 0px;
+  color: #F05E3E;
+  text-transform: uppercase;
+  padding-left: 12px;
+}
+.nav-pills button .mat-icon {
+  width: 1em;
+  height: 1em;
+}
+.product-info-heading {
+  font-family: Muli;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.dashboard-button.create-atsign-btn {
+  background: transparent!important;
+  border: 2px solid #f15e3e!important;
+  color: #f15e3e!important;
+  font-weight: bold!important;
+}
+.directory-link{
+  font-weight: 700;
+    margin-bottom: 12px;
+    color: #4a4a4a;
+    font-size: 14px;
+    text-decoration: none!important;
+}
+.directory-link .fa{
+  color: #f15e3e;
+}
+
+.directory-link .fa-inverse {
+  color: #fff;
+}
+.bottom-buttons {
+  margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: 20px;
+}
+.bottom-buttons > * {
+  flex: 1 1 0;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.create-atsign-btn {
+  border: 2px solid #F05E3E;
+  border-radius: 28px;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  padding: 14px 15px;
+  font: normal normal bold 18px/1 Comfortaa;
+  letter-spacing: 0px;
+  align-items: center;
+  color: #F05E3E;
+}
+.send-gift-card-btn {
+  border: 2px solid #F05E3E;
+  border-radius: 28px;
+  background-color: #F05E3E;
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  padding: 14px 15px;
+  font: normal normal bold 18px/1 Comfortaa;
+  letter-spacing: 0px;
+  align-items: center;
+  color: #FFF;
+}
+.send-gift-card-btn .fa{
+  font-size: 24px;
+}
+
+.product-announcements{
+  text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid #D6D6D6;
+    color: #4a4a4a;
+}
+.product-announcements-heading{
+  font: normal normal bold 16px/32px Roboto;
+}
+
+@media (min-width:768px){
+  .product-announcements{  margin-bottom: -48px;}
+  .directory-link-wrap {margin-top: -40px;}
+}

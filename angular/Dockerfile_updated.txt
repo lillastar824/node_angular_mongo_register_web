@@ -1,0 +1,75 @@
+#Method 1 : for persistent storage SSL
+FROM node:12.2.0 as stage
+WORKDIR /app
+COPY package*.json /app/
+COPY .htaccess /app/
+RUN npm install -g @angular/cli@7.3.9
+RUN npm install
+COPY ./ /app/
+#RUN npm run build 
+RUN ng build --prod 
+RUN ls -la /app/dist/ 
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+#FROM httpd:alpine
+FROM php:7.1-apache
+RUN apt-get update && \
+    apt-get install -y \
+        zlib1g-dev
+RUN mkdir -p /etc/apache2/ssl
+RUN ls -la  /etc/apache2/ssl
+COPY --from=0  /app/dist/Angular/ /var/www/html
+COPY --from=0  /app/.htaccess /var/www/html
+COPY app-fe.conf /etc/apache2/sites-enabled/app-fe.conf
+RUN a2dissite 000-default.conf
+RUN a2enmod rewrite
+RUN a2enmod ssl
+EXPOSE 443
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+
+
+#to run this container
+#Step 1: Mount custom-cert(persistent directory) to /etc/apache2/ssl
+#for reference
+#sudo docker run -v /home/username/athandle/at_handle_registrar_web/angular/custom-cert:/etc/apache2/ssl/custom-cert -p 443:443 athandlefe:latest
+
+
+
+
+#Method 2 : copy SSL to docker image
+FROM node:12.2.0 as stage
+WORKDIR /app
+COPY package*.json /app/
+COPY .htaccess /app/
+RUN npm install -g @angular/cli@7.3.9
+RUN npm install
+COPY ./ /app/
+#RUN npm run build 
+RUN ng build --prod 
+RUN ls -la /app/dist/ 
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+#FROM httpd:alpine
+FROM php:7.1-apache
+RUN apt-get update && \
+    apt-get install -y \
+        zlib1g-dev
+RUN mkdir -p /etc/apache2/ssl
+RUN ls -la  /etc/apache2/ssl
+COPY --from=0  /app/dist/Angular/ /var/www/html
+COPY --from=0  /app/.htaccess /var/www/html
+COPY app-fe.conf /etc/apache2/sites-enabled/app-fe.conf
+####################
+COPY custom-cert/server.crt /etc/apache2/ssl/custom-cert/server.crt
+COPY custom-cert/server.key /etc/apache2/ssl/custom-cert/server.key
+COPY custom-cert/bundle.crt /etc/apache2/ssl/custom-cert/bundle.crt
+#######################
+RUN a2dissite 000-default.conf
+RUN a2enmod rewrite
+RUN a2enmod ssl
+EXPOSE 443
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+
+
+#to run this container
+#Step 1: Create custom-cert and copy SSL certificate in this directory

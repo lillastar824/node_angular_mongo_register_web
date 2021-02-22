@@ -1,0 +1,90 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-4">
+                <span *ngIf="!allAtsigns">Commission User Dashboard </span>
+            </h1>
+          <mat-card class="get-invited-card">
+                <!-- <div fxLayout="row" >
+                    <div class="row mr-2">
+                        <div class="col-12 text-right">
+                            <mat-form-field>
+                                <input matInput placeholder="Search" #input>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div> -->
+
+                
+     
+
+                <div   class="mat-elevation-z8 tablescroll" [hidden]="allAtsigns && allAtsigns.length === 0">
+
+                    <mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Id
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="id"
+                                title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }}
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> @sign Name
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" class="clickRow" data-label="type"  >
+                              {{row.atsign}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsign">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> @sign </mat-header-cell>
+                            <mat-cell  *matCellDef="let row" data-label="atsign">
+                                <div>
+                                    <div *ngFor="let item of row.comission; index as i; trackBy: trackByFn"
+                                        title='{{item.atsign ? item.atsign : "-"}}'>
+                                        {{item.atsign ? item.atsign : "-"}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="orderAmount">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Order Amount </mat-header-cell>
+                            <mat-cell  *matCellDef="let row" data-label="orderAmount">
+                                <div>
+                                    <div *ngFor="let item of row.comission; index as i; trackBy: trackByFn"
+                                        >
+                                        {{item.orderAmount}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="finalCommission">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Final Commission </mat-header-cell>
+                            <mat-cell  *matCellDef="let row" data-label="finalCommission">
+                                <div>
+                                    <div *ngFor="let item of row.comission; index as i; trackBy: trackByFn"
+                                        >
+                                        {{item.finalCommission}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator (page)="pageEvent = $event; onPaginateChange($event)" #atsignsPaginator
+                        [length]="totatData" [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>
+<div *ngIf="dataSise">
+    <h1 class="invite-head ml-4 mt-5 mb-5 text-center">
+        <span>No Record Found !!!</span>
+    </h1>
+</div> 

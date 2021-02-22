@@ -1,0 +1,30 @@
+.mat-dialog-title{
+    color: #fff;
+    background: #00A388 0% 0% no-repeat padding-box;
+/* border-radius: 12px 12px 0px 0px; */
+padding: 1rem;
+    text-align: center;
+    opacity: 1;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/deep/ .mat-dialog-container{
+    padding: 0;
+}
+
+
+
+.codes{
+height: 41px;
+background: #EFEFEF 0% 0% no-repeat padding-box;
+opacity: 1;
+display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.used-codes {
+    color: #9A9A9A;
+    padding: 0.5rem 2rem;
+}

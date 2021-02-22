@@ -1,0 +1,214 @@
+<div>
+  <form #premiumSignForm="ngForm">
+    <div class="success-message" *ngIf="showSucessMessage">
+      <div>
+        <i class="fa fa-envelope mr-2"></i>
+        <span class="highlight-msg">Awesome! </span>Please check your email for the link.
+      </div>
+      <i class="fa fa-times-circle close-icon mr-2"></i>
+    </div>
+    <div>
+      <div class="get-invited-card">
+        <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+        <div class="get-invited-card-inner">
+          <div class="form row py-0"  [ngClass]="{'min-height-300': !pricingDrawerExpanded}">
+            <div class="col-12">
+              <h1 class="invite-head text-center" [ngClass]="{'input-focused' : focusActive, 'has-ajax-response': atsignSuccessMessage || atsignErrorMessage}">Create your @sign</h1>
+            </div>
+            <div class="col-12">
+              <div style="position: relative;">
+                <div class="input-group" [ngClass]="{'active': showSuggestionBox && userService.atSignSearchHistory.length>0}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"
+                      [ngClass]="{'invalid-textbox' :premiumSignForm.submitted && !atsignName.valid, 'successBorder' :atsignSuccessMessage, 'errorBorder': atsignErrorMessage, 'active': focusActive }">
+                      <mat-icon svgIcon="@sign"></mat-icon>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" #atSignInput #atsignName="ngModel"
+                    [(ngModel)]="userService.selectHandle.atsignName" name="atsignName" required id="sign"
+                    appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)" (keydown)="atsignSuccessMessage = '';atsignErrorMessage = '';hybridMessage = ''"
+                    [ngClass]="{'invalid-textbox' :premiumSignForm.submitted && !atsignName.valid, 'successBorder' :atsignSuccessMessage, 'errorBorder': atsignErrorMessage }"
+                    maxLength=80 placeholder="What @sign would you like?"
+                    (keyup.enter)="checkAtsignAvailability(premiumSignForm, '')" autocomplete="off"
+                    (focus)="focusActive = true;" (focusout)="focusActive = false;">
+                  <div class="input-group-append">
+                    <span class="availability-status-icon mr-2" *ngIf="atsignSuccessMessage && userService.selectHandle.atsignName">
+                      <mat-icon class="size-regular" svgIcon="check"></mat-icon>
+                    </span>
+                    <button class="btn p-0" id="emoji-picker" (click)="toggleEmojiPicker()">
+                      <img src="../../../assets/img/white-emoji.PNG" class="emoji-icon">
+                    </button>
+                  </div>
+                </div>
+                <div class="text-right pointer-cursor small-text mt-1 mr-4" (click)="showSuggestionBox =true"><i class="fa fa-history mr-1"></i>History</div>
+                <div class="suggestionBox" *ngIf="showSuggestionBox && userService.atSignSearchHistory.length>0" (focus)="focusActive = true;">
+                  <div class="option p-1 word-break pointer-cursor" (click)="focusActive = true;userService.selectHandle.atsignName = data;checkAtsignAvailability(premiumSignForm, '');showSuggestionBox=false;" *ngFor="let data of userService.atSignSearchHistory">
+                    {{data}}
+                  </div>
+                </div>
+                <emoji-mart class="emojiPicker emoji-mart" set="apple" (emojiSelect)="addEmoji($event)"
+                  [hidden]="!showEmojiPicker" exclude=[flags] skin="3" showSingleCategory=true hideObsolete=true
+                  emojiTooltip=true showPreview="false" title="Pick emoji">
+                </emoji-mart>
+                <div *ngIf="specialCharError" class="alert alert-danger mt-4">
+                  {{specialCharError}}
+                </div>
+                <div *ngIf="serverErrorMessages" class="alert alert-danger mt-4">
+                  {{serverErrorMessages}}
+                </div>
+
+                <div *ngIf="hybridMessage" class="text-center standard-color mt-2">
+                  {{hybridMessage}}
+                </div>
+                <div *ngIf="atsignSuccessMessage && userService.selectHandle.atsignName" class="atsign-success-msg pt-3 mt-5 mb-4" [ngClass]="{'input-focused' : focusActive }">
+                  <span class="atsign-name word-break">@{{userService.selectHandle.atsignName}}</span>
+                  is available for <span class="atsign-price">${{userService.selectHandle.payAmount}}</span>
+                </div>
+                <div
+                  *ngIf="atsignErrorMessage && atsignErrorMessage.indexOf('Bummer') === -1 && atsignErrorMessage && atsignErrorMessage.indexOf('registered trademark') === -1"
+                  class="alert alert-danger">
+                  {{atsignErrorMessage}}</div>
+
+                  <div *ngIf="atsignErrorMessage === 'Oops, invite link already used'"
+                  class="anotherAtsign mt-3 text-center standard-color" (click)="createAnotherSign()">
+                  Create another @sign
+                  </div>
+                <div *ngIf="atsignErrorMessage && atsignErrorMessage.indexOf('registered trademark') !== -1" class="alert alert-danger">
+                  Oops, this is a registered trademark. If you affiliated with this trademark, please contact us at
+                  <a class="standard-color" href="mailto:info@atsign.com">info@atsign.com
+                  </a></div>
+                <div *ngIf="atsignErrorMessage && atsignErrorMessage.indexOf('Bummer') !== -1" class="col-12">
+                  <div class="alert alert-danger row d-flex align-items-center mt-4">
+                    <div class="flex-grow-1">
+                      <span class="standard-color">Bummer! </span> <span style="color: #000"
+                        class="word-break">"{{userService.selectHandle.atsignName}}"</span>
+                      <span class="standard-color"> is not available.</span>
+                    </div>
+                    <div class="">
+                      <span class="standard-color pointer-cursor" (click)="openDialog('invite')">
+                        Show similar? <i class="fa fa-refresh ml-1"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2 similar-available">
+                <div class=" col-12">
+                  <button type="button" class="btn addToCart mb-4" *ngIf="atsignSuccessMessage && userService.selectHandle.atsignName" appPreventDoubleClick
+                    [throttleTime]="3000" (throttledClick)="addToCart(premiumSignForm)"
+                    [disabled]="!userService.selectHandle.atsignName">
+                    Add to bag
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="(atsignSuccessMessage && userService.selectHandle.atsignName) || atsignErrorMessage">
+                <p class="spendy-text"><span class="font-weight-bold">Too spendy?</span> Try adding a character or emoji
+                  to your @sign. Or…</p>
+                <button (click)="convertToTen()" class="btn convert-hybrid-btn mb-2">
+                  <mat-icon class="mr-2" svgIcon="atom"></mat-icon>Convert to $10 Hybrid
+                </button>
+              </div>
+              <div *ngIf="(atsignSuccessMessage && userService.selectHandle.atsignName) || atsignErrorMessage">
+                <div (click) = "checkFreeCount()"
+                  class="btn free-o-matic-btn pointer-cursor">
+                  <mat-icon class="mr-2" svgIcon="robot-alt"></mat-icon> @sign-o-matic
+              </div>
+              </div>
+
+              <div class="col-12 info-box p-3 mt-3 text-center" *ngIf="showInfo">
+                <!-- <span class="standard-color dottedborder    "
+                  matTooltip="Please do not buy trademarked names (such as Google) because those names are protected under copyright law.">See
+                  restrictions</span> -->
+                  <div class="popup standard-color dottedborder" (click)="restrictionsPopup()">See
+                    restrictions
+                    <span class="popuptext" id="myPopup">Please do not buy trademarked names (such as Google) because those names are protected under copyright law.</span>
+                  </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-12 mb-2 pl-1 pr-1" *ngIf="fullAtsignName">
+                  <span class="closeButton pointer-cursor" (click)="fullAtsignName=''">x</span>
+                  <div class="total-price word-break">
+                    {{fullAtsignName}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pricing-drawer" [ngClass]="{'expanded': pricingDrawerExpanded, 'input-focused' : focusActive, 'has-ajax-response': atsignSuccessMessage || atsignErrorMessage}">
+            <div class="pricing-drawer-header pointer-cursor" (click)="pricingDrawerExpanded = !pricingDrawerExpanded">
+              <span class="pricing-drawer-toggler"></span>
+            <div class="pricing-drawer-heading">Pricing Options</div>
+            </div>
+
+            <div class="pricing-drawer-body">
+              <div (click) = "checkFreeCount()" class="d-flex align-items-center free-o-matic-link mb-4 pointer-cursor">
+                <div class="align-self-start">
+                  <mat-icon class="" svgIcon="robot-alt"></mat-icon>
+                </div>
+                <div class="px-3">
+                  <h3>@sign-o-matic</h3>
+                  <p>Our friendly robot does all the work — for free!</p>
+                </div>
+                <div>
+                  <mat-icon class="rotate-right size-regular" svgIcon="back"></mat-icon>
+                </div>
+              </div>
+              <mat-accordion class="pricing-options-accordion">
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="d-flex align-items-center justify-content-between">
+                      <span>Hybrid</span><span>$10</span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="d-block">For a cheaper price, you can add an underscore and 3-4 randomly generated
+                    characters to turn your Custom, Single Word, or Three Character @sign into a Hybrid @sign.</div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="d-flex align-items-center justify-content-between">
+                      <span>Custom</span><span>$100</span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="d-block">A <span>Custom </span>@sign is any combination of words, numbers, names, and emojis.</div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="d-flex align-items-center justify-content-between">
+                      <span>Single Word</span><span>$1,000</span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="d-block"> Your @sign counts as a Single Word @sign if it’s listed as a word in the American
+                    English Dictionary. This includes common first names or surnames.
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="d-flex align-items-center justify-content-between">
+                      <span>Three Character </span><span>$5,000</span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="d-block">A <span>Three Character</span> @sign is any combination of — you guessed it — three
+                    characters. This includes numbers, letters, and even emojis.
+                    <!-- <span>Three Character</span> @signs are super-premium based on very limited availability.  -->
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!-- <div class="d-flex align-items-center brands-accordion">
+                <div class="flex-grow-1">Brands</div>
+                <div><a href="#" class="learn-more-link">Learn more</a></div>
+              </div> -->
+              <p class="pricing-drawer-info mt-4">*Annual renewal fee of $10 for all paid @signs.<br> except
+                @sign-o-matic</p>
+            </div>
+          </div>
+        </div><img class="bubble-bg" src="../../../assets/img/Bubble.png">
+      </div>
+    </div>
+
+  </form>
+
+
+
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

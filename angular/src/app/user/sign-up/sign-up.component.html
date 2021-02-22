@@ -1,0 +1,77 @@
+<div>
+    <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+        <div class="success-message" *ngIf="showSucessMessage">
+            <div>
+                <i class="fa fa-envelope mr-2"></i>
+                User registered succesfully
+            </div>
+            <i class="fa fa-times-circle close-icon mr-2"></i>
+        </div>
+        <div class="success-message" *ngIf="serverErrorMessages">
+            <div>
+                <i class="fa fa-envelope mr-2"></i>
+                {{serverErrorMessages}}
+            </div>
+            <i class="fa fa-times-circle close-icon mr-2"></i>
+        </div>
+        <div>
+            <!-- <h1 class="invite-head">Sign Up</h1> -->
+            <mat-card class="get-invited-card">
+                <mat-card-subtitle class="invite-card-title">
+                    @Sign-up
+                </mat-card-subtitle>
+
+                <div class="form row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field appearance="outline" class=" w-100  mb-3">
+                                    <input matInput type="password" name="secretkey" #secretkey="ngModel"
+                                        [(ngModel)]="model.secretkey" placeholder="Admin Secret Key"
+                                        required
+                                        [ngClass]="{'invalid-textbox' :signUpForm.submitted && !secretkey.valid }">
+                                </mat-form-field>
+                                <mat-radio-group aria-label="Select User Role"
+                                                 [(ngModel)]="model.role"
+                                                 name="role">
+                                  <div class="col-12 mb-3">
+                                    <div class="row">
+                                      <div class="col-6">
+                                        <mat-radio-button value="1">Admin</mat-radio-button>
+                                      </div>
+                                      <div class="col-6">
+                                        <mat-radio-button value="2">Report Viewer</mat-radio-button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </mat-radio-group>
+                                <mat-form-field appearance="outline" class=" w-100  mb-3">
+                                    <input matInput type="text" name="email" #email="ngModel"
+                                        [(ngModel)]="model.email" placeholder="Email"
+                                        [pattern]="emailRegex" required
+                                        [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+                                </mat-form-field>
+
+                                <div *ngIf="signUpForm.submitted && email.errors?.pattern">
+                                    <label class="validation-message">Invalid email address.</label>
+                                </div>
+                                <mat-form-field appearance="outline" class=" w-100  mb-3">
+                                    <input matInput type="password" name="password" #password="ngModel"
+                                        [(ngModel)]="model.password" placeholder="Password" required
+                                        [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+                                </mat-form-field>
+                                <div *ngIf="signUpForm.submitted && password.errors?.minlength">
+                                    <label class="validation-message">Minimum 4 characters.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 offset-md-1">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+    </form>
+</div>

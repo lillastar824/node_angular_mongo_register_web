@@ -1,0 +1,209 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="og:description" content="The @ Company is creating a permissions internet where people can own their own data" />
+  <meta name="description" content="The @ Company is creating a permissions internet where people can own their own data" />
+  <meta property='og:image' content="../../assets/img/sociallogo.jpg"/>
+  <meta name="author" content="" />
+  <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+
+  <title>The @ Company - Register your @sign today</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body (scroll)="scrollMe($event)">
+  <a href="javascript: void(0);" (click)="scroll(main, 45)" class="skip">Skip to content</a>
+  <nav class="navbar navbar-expand-lg  fixed-top ">
+    <div class="container" style="max-width: 95%;">
+      <a class="navbar-brand mr-1" href="#"><img src="../../assets/img/homelogo.png" alt="@sign" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
+        style="margin-left: auto;">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'standard-color': activeTab === 'about'}" href="javascript: void(0);"
+              [routerLink]="'/about'">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'standard-color': activeTab === 'developers'}" href="javascript: void(0);"
+            [routerLink]="'/developers'">Developers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'standard-color': activeTab === 'faq'}" href="javascript: void(0);"
+              [routerLink]="'/faq'">FAQs</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'standard-color': activeTab === 'career'}" href="javascript: void(0);"
+              [routerLink]="'/career'">Career</a>
+          </li> -->
+          
+          <li class="nav-item dropdown d-flex">
+            <button class="signInButton mt-1 p-2 align-self-center pr-3 pl-3" (click)="scroll(target, 45)">
+              Get your @sign
+            </button>
+          </li>
+          <li class="nav-item active" *ngIf="!userService.isLoggedIn()">
+            <a class="nav-link standard-color" href="javascript: void(0);" [routerLink]="'/login'">
+              SIGN {{userService.isLoggedIn() ? 'OUT' : 'IN'}}
+              <i class="fa " [ngClass]="{'fa-sign-in' :!userService.isLoggedIn(),
+              'fa-sign-out': userService.isLoggedIn()}" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="nav-item active" *ngIf="userService.isLoggedIn()">
+            <div class="leftSet" *ngIf="userService.isLoggedIn()">
+              <button mat-button [matMenuTriggerFor]="menu"><img src="../../assets/img/account.png" style="height: 35px;width: 35px;">
+                Account <i class="fa fa-angle-down"></i>
+              </button>
+              <mat-menu #menu="matMenu">
+                  <button mat-menu-item [routerLink]="'/dashboard'" *ngIf="isUser" [ngClass]="{'active':currentRoute==='/dashboard'}">
+                      <span class="standard-color" style="font-family: 'Museo Sans Rounded 300'; font-size: 15px;"
+                          href="javascript: void(0);">DASHBOARD</span>
+                  </button>
+                  <button mat-menu-item [routerLink]="'/getallusers'" *ngIf="isAdmin" [ngClass]="{'active':currentRoute==='/getallusers'}">
+                      <span class="standard-color" style="font-family: 'Museo Sans Rounded 300'; font-size: 15px;"
+                          href="javascript: void(0);">SHOW ALL USERS</span>
+                  </button>
+                  <button mat-menu-item [routerLink]="'/reports'" *ngIf="isAdmin || isAdminReport" [ngClass]="{'active':currentRoute==='/reports'}">
+                      <span class="standard-color" style="font-family: 'Museo Sans Rounded 300'; font-size: 15px;"
+                          href="javascript: void(0);">REPORTS</span>
+                  </button>
+                  <button mat-menu-item [routerLink]="'/reservedatsigns'" *ngIf="isAdmin" [ngClass]="{'active':currentRoute==='/reservedatsigns'}">
+                      <span class="standard-color" style="font-family: 'Museo Sans Rounded 300'; font-size: 15px;"
+                          href="javascript: void(0);">RESERVED @SIGNS</span>
+                  </button>
+                  <button mat-menu-item (click)="onLogout()">
+                      <span class="standard-color" style="font-family: 'Museo Sans Rounded 300'; font-size: 15px;">SIGN OUT <i
+                              class="fa fa-sign-out" aria-hidden="true"></i></span>
+                  </button>
+              
+              </mat-menu>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div #main></div>
+
+
+
+  <div class="mainBody" tabindex="-1">
+    <div style="max-width: 100%;" class="lets-go" #target>
+
+      <div class="container text-center">
+        <div class="row mb-5 ">
+          <div class="col-sm-12">
+            <h2 class="movement-head mb-3 playfairBold">
+              Join us!
+            </h2>
+          </div>
+          <div class="col-md-12 mb-3 content" style=" font-family: 'MuliRegular'">
+            If you made it here, you must be a friend or family that wants to sign up for your @sign. We are currently
+            in
+            stealth mode, but please leave us your email and you will be the first to know when you can get your @sign!
+          </div>
+          <div class="col-md-12"  #inviteformdiv id='inviteformdiv'>
+            <form class="row" #inviteForm="ngForm">
+              <div class="col-md-12 mb-2 row ml-0">
+                <div class="col-md-8 col-12 p-0 mb-md-2 pr-md-2">
+                  <input placeholder="Email" aria-label="Email" class="mb-2 mb-md-0 input-box" id="email" #email="ngModel"
+                    [(ngModel)]="model.email" name="email" [ngClass]="{'invalid-textbox' :inviteForm.submitted && !email.valid }"
+                    aria-label="Email" [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidEmail(model.email)" />
+                </div>
+                <div class="col-md-8 col-12 p-0 pr-md-2" *ngIf = "showInviteBox">
+                  <input  [readonly]="hasInviteCode" placeholder="Invite Code" aria-label="atsign" class="mb-2 mb-md-0 input-box" id="atsign" #atsign="ngModel"
+                  [(ngModel)]="model.atsign" name="atsign" [ngClass]="{'invalid-textbox' :inviteForm.submitted && !atsign.valid }"
+                  aria-label="atsign" [ngModelOptions]="{updateOn: 'change'}" />
+                </div>
+                <div class="col-12 text-left MuliRegular mb-2 show-mobile" *ngIf = "!showInviteBox" style="font-size: 14px;">
+                  Have an invite code? <span class="MuliRegular pointer-cursor standard-color" (click) = "showInviteBox = true">Click here.</span>
+                </div>
+                <div class="col-md-4 col-12 p-0">
+                  <button type="submit" class="signInButton w-100" (click)="getInviteCode(inviteForm)">
+                    Let's go
+                  </button>
+                </div>
+              </div>
+              <div class="col-12 text-left MuliRegular ml-2 hide-mobile" *ngIf = "!showInviteBox" style="font-size: 14px;">
+                Have an invite code? <span class="MuliRegular pointer-cursor standard-color" (click) = "showInviteBox = true">Click here.</span>
+              </div>
+              <div role="alert" *ngIf="!inviteSend && inviteForm.submitted && !email.valid" class=" col-md-12 text-danger text-left ml-2">
+                <label class="validation-message">Oops, please enter Email Address.</label>
+            </div>
+            <div role="alert" *ngIf="inviteSend" class=" col-md-12 text-success text-left ml-2">
+                <label class="validation-message" *ngIf="!atSignInvite">Thank you! We will let you know when you can get your @sign.</label>
+                <label class="validation-message" *ngIf="atSignInvite">Thank you!</label>
+            </div>
+            <div role="alert" *ngIf="showErrorMessage" class=" col-md-12 text-danger text-left ml-2">
+                <span class="validation-message">{{showErrorMessage}}</span>
+            </div>
+            <div role="alert" *ngIf="activeUser" class=" col-md-12 text-success text-left ml-2">
+              <label class="validation-message">This email has already been registered. Please login <a href="javascript: void(0);"
+                [routerLink]="'/login'">here</a>.</label>
+          </div>
+            <div role="alert" *ngIf="invalidEmail" class=" col-md-12 text-danger text-left ml-2">
+                <label class="validation-message">Oops, please enter a valid Email Address.</label>
+            </div>
+            <div role="alert" *ngIf="serverErrorMessages" class=" col-md-12 text-danger text-left ml-2">
+                <label class="validation-message">{{serverErrorMessages}}</label>
+            </div>
+              <!-- <div class="col-md-12 d-flex align-items-baseline justify-content-center">
+                  <input type="checkbox" id="terms" />
+                  <label for="terms" style=" font-family: 'MuliRegular'">T&C Agree lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.</label>
+                </div> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class=" copyright m-0 ">
+      <div class="row w-100" style="position: relative;max-width: 92%;margin: auto;">
+        <div class="col-md-1 d-flex justify-content-start">
+          <img src="../../assets/img/logo.png" height="35px" alt="@sign" />
+        </div>
+        <div class="col-md-11 col-12">
+          &copy; 2019-2021 The @ Company <span aria-hidden="true" class="ml-1  mr-1">|</span> 
+          <a href="javascript: void(0);" target="_blank" [routerLink]="'/pickatsign'" class="policy-link ml-1">Picking an @sign</a>&nbsp;<span aria-hidden="true">|</span>
+          <a href="https://atsign.com/terms-conditions/" target="_blank"  class="policy-link ml-1"> Privacy
+            Policy </a> &nbsp;<span aria-hidden="true">|</span>
+          <a href="https://atsign.com/terms-conditions/" target="_blank"  class="policy-link ml-1"> Terms &
+            Conditions</a>
+        </div>
+      </div>
+    </footer>
+    <div [hidden]="!randomOneSign" class="randomAtSign bottomleft row fade-in"
+         id="atSign"
+         (mouseenter)="mouseEnter()"
+         (mouseleave)="mouseLeave()">
+      <i class="fa fa-times-circle cross-icon"
+         (click)="closeRandomSign()"></i>
+      <div style="border-right:1px solid #ccc"
+           class="col-2 p-0 pr-2">
+        <img src="../../assets/img/homelogo.png"
+             class="w-100"
+             alt="logo">
+      </div>
+      <div class="col-10 p-0 pl-2">
+        <span class="standard-color">@{{randomOneSign}}</span>
+        <div class=""
+             style="font-size: 12px;">just registered!
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

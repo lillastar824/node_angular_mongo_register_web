@@ -1,0 +1,67 @@
+<div>
+  <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && createSign(signInForm)">
+    <div class="success-message" *ngIf="showSucessMessage">
+      <div>
+        <i class="fa fa-envelope mr-2"></i>
+        <span class="highlight-msg">Awesome! </span>Please check your email for the link.
+      </div>
+      <i class="fa fa-times-circle close-icon mr-2"></i>
+    </div>
+    <div>
+      <h1 class="invite-head col-md-12">Let’s get started! Choose a Free or Premium @sign</h1>
+      <mat-card class="get-invited-card">
+        <!-- <mat-card-subtitle class="invite-card-title">Let’s get started! Choose a Free or Premium @Sign</mat-card-subtitle> -->
+        <div class="form row">
+        <div class="col-md-10 offset-md-1">
+            <mat-radio-group aria-label="Choose your @sign Type" class="example-radio-group" name="atsignType"
+                [(ngModel)]="userService.selectHandle.atsignType" (ngModelChange)="resetAtsign($event)">
+                <div class="row">
+                    <div class="col-6 mb-5  pl-1 pr-1">
+                        <mat-radio-button value="free">
+                            <div class="subscribe-plans-box standard"
+                                [ngClass]="{'active' :userService.selectHandle.atsignType === 'free'}">
+                                <span class="text">Free
+                                </span>
+                                <button type="button" (click)="userService.selectHandle.atsignType = 'free'"
+                                    class="mt-5 mb-3 select-button">{{userService.selectHandle.atsignType === 'free'?'SELECTED':'SELECT'}}
+                                    <i class="fa fa-check-circle"
+                                        *ngIf="userService.selectHandle.atsignType === 'free'"></i></button>
+        
+                            </div>
+                        </mat-radio-button>
+                        <div class="font-museo text-center text-muted mt-3">
+                          Use the amazing <span
+                          class="standard-color">@sign-o-matic</span> to create a Free @sign. You can always upgrade to premium later on.
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5 pl-1 pr-1">
+                        <mat-radio-button value="paid">
+                            <div class="subscribe-plans-box premium"
+                                [ngClass]="{'active' :userService.selectHandle.atsignType === 'paid'}">
+                                <span class="text">Premium</span>
+                                <button type="button" (click)="userService.selectHandle.atsignType = 'paid'"
+                                    class="mt-5 mb-3 select-button">{{userService.selectHandle.atsignType === 'paid'?'SELECTED':'SELECT'}}
+                                    <i class="fa fa-check-circle"
+                                        *ngIf="userService.selectHandle.atsignType === 'paid'"></i></button>
+                            </div>
+                        </mat-radio-button>
+                        <div class="font-museo text-center text-muted mt-3">
+                            Create a custom @sign by entering in a name, word, or anything else that inspires you. This is a
+                            paid option.
+                        </div>
+                    </div>
+                </div>
+            </mat-radio-group>
+          </div>
+          <div class="col-md-10 offset-md-1  pl-1 pr-1">
+            <div class="alert alert-danger text-center" *ngIf="showErrorMessage"> 
+              {{showErrorMessage}}
+            </div>
+            <button type="submit" [disabled]="!userService.selectHandle.atsignType" >CONTINUE {{userService.selectHandle.atsignType === 'free'?'WITH FREE':''}} {{userService.selectHandle.atsignType === 'paid'?'WITH PREMIUM':''}}</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+  </form>
+</div>

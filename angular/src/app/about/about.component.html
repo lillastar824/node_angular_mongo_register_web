@@ -1,0 +1,66 @@
+<main role="main" class="mainBody" #main tabindex="-1">
+    <div class="">
+        <div class=" intropart d-flex align-items-center justify-content-md-between justify-content-center w-100 flex-wrap">
+            <div class="mainTitle text-left mr-0 mr-sm-2 mr-md-0">
+                Our Vision
+            </div>
+            <video controls style="width: 100%;max-width: 300px;" class="mt-3 mt-md-0 ml-0 ml-sm-2 ml-md-0">
+                <source
+                    src="https://video.wixstatic.com/video/085997_d1a2833b29bf4421a149236d72b3576c/1080p/mp4/file.mp4"
+                    type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </div>
+    <div class="gridWrapper">
+        <div class="permissions">
+            <div class="col-md-12 d-flex pt-5 justify-content-center flex-column text-center p-0">
+                <h2 class="mb-2 permission-head playfairBold text-center">
+                    Our Team
+                </h2>
+                <div class="col-12 d-flex justify-content-center p-0">
+                    <div class="mt-5 mb-5 gridPadding">
+                        <div class="row col-12 mr-0 ml-0 p-0">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1 pointer-cursor" *ngFor="let data of teamMembers; index as i;">
+                                <div class="customTooltip" (click)="showDescription(i)">
+                                    <div style="position: relative;">
+                                        <img alt="{{data.name}} profile picture" class="teampicture"
+                                            src="{{'../../assets/img/'+data.image}}" height="120px" />
+                                        <span class="imageCaption font-museo">{{data.name}}</span>
+                                    </div>
+                                    <div class="customTooltiptext" [ngStyle]="{'display':showDesc[i]? 'block':'none','left':leftProperty}">
+                                        {{data.description}}</div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-12 customTooltiptext" [ngStyle]="{'display':'block'}">
+                                vdsv</div> -->
+                        </div>
+                    </div>
+                    <!-- <div class="d-flex row justify-content-center mt-5 mb-5" *ngFor="let data of teamMembers; index as i;">
+              <div class="mr-4">
+                <img alt="{{data.name}} profile picture" class="teampicture" src="{{'../../assets/img/'+data.image}}" height="200px" />
+              </div>
+              <div class="text-left col-sm-4">
+                <h2 class="name-head" *ngIf="data.atsign">@{{data.atsign}}</h2>
+                <div class="name-sub-head"><b>{{data.name}}</b>  <span
+                    class="standard-color name-sub-head" *ngIf="data.email"> / <a class="standard-color" href="mailto:{{data.email}}">{{data.email}}</a></span></div>
+                <div class="name-sub-text">
+                  {{data.description}}
+                </div>
+                <div *ngIf="data.linkedin">
+                  <a href="https://www.linkedin.com/in/{{data.linkedin}}/" target="_blank"><i
+                      class="fa fa-linkedin-square standard-color"></i></a>
+                </div>
+              </div>
+            </div> -->
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+<app-home-common></app-home-common>

@@ -1,0 +1,32 @@
+ 
+        <div class="modal-header">
+            <h3 class="modal-title font-weight-bold"> Are you sure?</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onNoClick()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    <form [formGroup]="form">
+        <div class="alert alert-warning mt-4 mb-4 borderColor" role="alert">
+            <i class="fa fa-warning"></i> This action cannot be undone.
+          </div>
+        <div class="confirmation-dialog-message text-left mb-5 mt-3">
+            <div>
+                <div class="fontdesign">
+                    Resetting your @sign <span class="font-weight-bold my-3"> "@{{data.atsign}}" </span> will <b>erase</b> your data, including data entered on any @pp, and <b>cannot be reversed</b>. Note that your @sign will not be deleted.
+                    <br>
+                    <div class="font-weight-bold mt-3">
+                        Type "@{{data.atsign}}" to proceed</div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="atsignName"
+                            aria-describedby="emailHelp"
+                            placeholder="Please type in @sign which you want to deactivate">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <!-- <button type="button" class="selected" (click)="deactivateAtSign();">Confirm</button> -->
+            <button type="button" class="btn btn-danger btn-lg btn-block" (click)="deactivateAtSign();"> Yes, delete all data associated with this @sign </button>
+        </div>
+    </form>

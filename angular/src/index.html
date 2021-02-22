@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="og:description" content="The @ Company is creating a permissions internet where people can own their own data" />
+  <meta property='og:image' content="../../assets/img/sociallogo.jpg"/>
+  <meta name="description" content="The @ Company is creating a permissions internet where people can own their own data" />
+  <meta name="author" content="" />
+  <link rel="manifest" href="../../assets/manifest.json" />
+  <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+
+  <title>The @ Company - Register your @sign today</title>
+<link rel="icon" type="image/x-icon" href="./assets/img/favicon.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <script src="https://js.stripe.com/v3/"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.1.0/dist/focus-visible.min.js"></script>
+  <!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  _paq.push(['requireCookieConsent']);
+  (function() {
+    var u="https://atsign.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src='//cdn.matomo.cloud/atsign.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+  function isIE() {
+    var ua = window.navigator.userAgent; //Check the userAgent property of the window.navigator object
+    var msie = ua.indexOf('MSIE '); // IE 10 or older
+    var trident = ua.indexOf('Trident/'); //IE 11
+
+    return (msie > 0 || trident > 0);
+  }
+    //function to show alert if it's IE
+function ShowIEAlert(){
+    if(isIE()){
+       alert("Oops, Your browser is not supported, please use Chrome for best user experience");
+    }
+}
+ShowIEAlert();
+</script>
+
+
+
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

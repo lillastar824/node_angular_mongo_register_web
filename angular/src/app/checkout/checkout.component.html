@@ -1,0 +1,169 @@
+<div class="checkout-wrap mb-5">
+  <div class="get-invited-card">
+    <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
+    <div class="get-invited-card-inner" *ngIf="userService.cartData.length > 0">
+      <form #checkout="ngForm" class="mb-0 checkout" *ngIf="userService.selectHandle.subTotal === 0">
+        <h1 class="invite-head text-center">Checkout - It’s almost yours!</h1>
+        <div class="header">
+          <h2>Confirm your Free @sign</h2>
+
+          <!-- <a href="javascript: void(0);" *ngIf="!code" class="btn p-0 close-btn"
+      [routerLink]="['/account-verify/' + (userService.selectHandle.inviteCode ? userService.selectHandle.inviteCode : userService.selectHandle.friendInviteCode)]">
+      <img src="../../assets/img/icon-close.png" alt="" style="width:50%">
+    </a> -->
+        </div>
+        <div class="body">
+          <div class="col-md-12" *ngIf="showErrorMessage">
+            <div class=" alert alert-danger">{{showErrorMessage}}</div>
+          </div>
+          <div><label>Your @sign:</label></div>
+          <div class="cart-items mb-4">
+            <div class="cart-item" *ngFor="let data of userService.cartData; index as i;">
+              <div class="cart-item-name">{{data.atsignName}}</div>
+              <div class="cart-item-price"></div>
+              <!-- <div><button type="button" class="btn p-0"><i class="fa fa-minus-circle" aria-hidden="true"
+            (click)="confirmDelete(data)"></i></button>
+                </div> -->
+            </div>
+          </div>
+          <button type="button" class="checkout-btn sendVerificationCodeButton" (click)="saveAtsign(checkout)">
+            Save</button>
+        </div>
+      </form>
+      <form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="mb-0 checkout"
+        *ngIf="userService.selectHandle.subTotal > 0">
+        <div class="success-message text-center" *ngIf="code">
+          <div>
+            Congratulations! You are one of the first people to help us build an internet for people. You are making the
+            first step to owning the keys to your datadom!
+
+            <span class="success-help-text">
+              By signing up for your @sign, you are placing your vote for a
+              future internet where people take back control and own their own data.
+            </span>
+          </div>
+        </div>
+
+        <div class="header">
+
+          <h2>Checkout</h2>
+          <!-- <a href="javascript: void(0);" *ngIf="!code" class="btn p-0 close-btn"
+        [routerLink]="['/account-verify/' + (userService.selectHandle.inviteCode ? userService.selectHandle.inviteCode : userService.selectHandle.friendInviteCode)]">
+        <img src="../../assets/img/icon-close.png" alt="" style="width:50%">
+      </a> -->
+        </div>
+        <div class="body">
+          <div class="cart-items">
+            <div class="cart-item" *ngFor="let data of userService.cartData; index as i;">
+              <div class="cart-item-name">{{data.atsignName}}</div>
+              <div class="cart-item-price">{{'$' + data.payAmount + '.00'}}</div>
+              <!-- <div><button type="button" class="btn p-0"><i class="fa fa-minus-circle" aria-hidden="true"
+                (click)="confirmDelete(data)"></i></button></div> -->
+            </div>
+            <div class="cart-item"
+              *ngIf="userService.commercialAtsignDiscountPercentage && userService.commercialAtsignDiscountPercentage > 0">
+              <div class="cart-item-name">Discount</div>
+              <div class="cart-item-price">
+                {{'-$' + ((userService.selectHandle.subTotal * userService.commercialAtsignDiscountPercentage)/100).toFixed() + '.00'}}
+              </div>
+            </div>
+            <div class="cart-item" *ngIf="promoCardAmount">
+              <div class="cart-item-name">Promotional Code</div>
+              <div class="cart-item-price">
+                {{'-$' + amountToBeDeductedFromPromoCard+'.00'}}
+              </div>
+            </div>
+          </div>
+          <div class="cart-items-total py-3 mb-3">
+            <div class="cart-total">
+              <span class="d-inline-block mr-3">Total:</span>
+              {{'$' + calculateFinalAmount(userService.selectHandle.subTotal,userService.commercialAtsignDiscountPercentage,promoCardAmount).toFixed() + '.00'}}
+            </div>
+            <div></div>
+          </div>
+          <div class="my-4" [hidden]="!calculateFinalAmount(userService.selectHandle.subTotal,userService.commercialAtsignDiscountPercentage,promoCardAmount) > 0">
+            <i class="fa fa-lock ml-2"></i>
+            <i class="fa fa-cc-visa ml-2"></i>
+            <i class="fa fa-cc-mastercard  ml-2"></i>
+            <i class="fa fa-cc-discover ml-2"></i>
+            <i class="fa fa-cc-stripe ml-2"></i>
+          </div>
+          <p class="pay-info-text" [hidden]="!calculateFinalAmount(userService.selectHandle.subTotal,userService.commercialAtsignDiscountPercentage,promoCardAmount) > 0">We do not store your payment information.</p>
+          <div
+            [hidden]="!calculateFinalAmount(userService.selectHandle.subTotal,userService.commercialAtsignDiscountPercentage,promoCardAmount) > 0">
+            <div class="">
+              <mat-form-field class="d-block w-100 mb-3" appearance="outline">
+                <mat-label class="cardName">Name on Card</mat-label>
+                <input matInput placeholder="* Name on Card" #username="ngModel" [(ngModel)]="nameOnCard"
+                  name="username" [ngClass]="{'invalid-textbox' :checkout.submitted && !username.valid }">
+              </mat-form-field>
+              <fa-icon [icon]="faCheckCircle" *ngIf="contactVerified" class="green contactSign"></fa-icon>
+            </div>
+
+            <div id="card-number-element" #cardNumberElement></div>
+            <div id="card-expiry-element" class="mb-0" #cardExpiryElement></div>
+            <div class="form-group input-group mb-0">
+
+              <i class="fa fa-question-circle-o"
+                matTooltip="The CVC (also referred to as CVV) is the three- or four-digit number printed directly on the credit card, usually either on the signature strip or the front of the card."></i>
+              <div id="card-cvc-element" #cardCvcElement></div>
+
+            </div>
+          </div>
+          <!-- ===============Apply promo code================== -->
+          <div>
+            <div class="float-right"> 
+              <a class="text-color" (click)="isApplyPromoCode=!isApplyPromoCode" *ngIf="!isApplyPromoCode">Apply Promotional Code</a>
+            </div>
+            <div class="row"> 
+              <div class="col-6">
+              </div>
+              <div class="col-6 text-right" *ngIf="isApplyPromoCode">
+                  <mat-form-field class="d-block w-100">
+                      <input matInput placeholder="Promotional Code" #username="ngModel" [(ngModel)]="promotionalCode"
+                      name="promotionalCode" [readonly]="disablePromoCode" (change)="showErrorMessage=''">
+                      <button *ngIf="!disablePromoCode"  matSuffix class="selected btn rounded-pill shadow mb-1"  type="button" appPreventDoubleClick [throttleTime]="3000" (throttledClick)="applyPromoCode(promotionalCode)" [disabled]="disableSubmit">Apply
+                      </button>
+                      <button *ngIf="disablePromoCode" matSuffix class="selected btn rounded-pill shadow mb-1"  type="button" (click)="promotionalCode='';removePromoCode()" [disabled]="disableSubmit">Clear
+                      </button>
+                  </mat-form-field>
+              </div>
+          </div>
+          </div>
+          <!-- ================================= -->
+          <div class="text-center agreement">
+            <mat-checkbox [checked]="checkoutTnC" (change)="checkoutTnC=!checkoutTnC">I agree to the <a
+                href="https://atsign.com/terms-conditions/" target="_blank" role="link" class="standard-color">Terms
+                & Conditions</a></mat-checkbox>
+          </div>
+          <div *ngIf="showErrorMessage">
+            <div class="alert alert-danger">{{showErrorMessage}}</div>
+          </div>
+          <button type="button" class="checkout-btn sendVerificationCodeButton" (click)="onSubmit(checkout)"
+            [disabled]="disableSubmit">
+            Submit Payment</button>
+        </div>
+        <!-- <div class="promo-code">
+          <a (click)="isApplyPromoCode=!isApplyPromoCode" *ngIf="!isApplyPromoCode">Apply Promotional Code</a>
+          <div *ngIf="isApplyPromoCode">
+            <div class="">
+              <mat-form-field class="d-block w-100 mb-3" appearance="outline">
+                <mat-label class="promotionalCode">Promotional Code</mat-label>
+                <input matInput placeholder="Promotional Code" #username="ngModel" [(ngModel)]="promotionalCode"
+                  name="promotionalCode" [disabled]="disablePromoCode">
+              </mat-form-field>
+              <button type="button" class="checkout-btn sendVerificationCodeButton"
+                (click)="applyPromoCode(promotionalCode)" [disabled]="disableSubmit">
+                Apply promo code
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </form>
+    </div>
+    <div class="get-invited-card-inner" *ngIf="userService.cartData.length === 0">No @sign in bag!, click <a href="javascript: void(0);"
+      [routerLink]="['/premium-sign/' + userService.selectHandle['inviteCode']]">here</a> to try again!</div>
+    <img class="bubble-bg" src="../../../assets/img/Bubble.png">
+  </div>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

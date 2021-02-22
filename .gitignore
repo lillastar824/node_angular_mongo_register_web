@@ -1,0 +1,7 @@
+server/config/log/debug.log
+server/config/log/exceptions.log
+server/package-lock.json
+angular/package-lock.json
+angular/src/environments/environment.prod.ts
+server/.env
+angular/app-fe.conf

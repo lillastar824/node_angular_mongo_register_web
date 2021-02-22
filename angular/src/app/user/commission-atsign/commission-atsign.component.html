@@ -1,0 +1,189 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-5">
+                <span *ngIf="allAtsigns">Commercial @sign</span>
+                <span class="help">
+                    <fa-icon [icon]="faInfoCircle" (click)="openHelpDialog()"></fa-icon>
+                </span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <form #addUserForm="ngForm">
+                    <div class="div-heading bb-verify row text-center pt-4">
+                        <div class="col-md-12">
+                            <div class="row flex justify-content-space">
+
+                                <div class="col-md-3 atsign-grid">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>@sign</mat-label>
+                                        <input maxlength="256" matInput type="text" id="atsign" name="atsign"
+                                            aria-describedby="atsign" placeholder="Enter @sign name" #atsign="ngModel"
+                                            [(ngModel)]="model.atsign" required
+                                            [ngClass]="{'mat-form-field-invalid' :(formValidation && !atsign.valid) }"
+                                            appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3 atsign-grid">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Commission percentage</mat-label>
+                                        <input maxlength="256" matInput type="number" id="commissionPercentage"
+                                            name="commissionPercentage" aria-describedby="commissionPercentage"
+                                            placeholder="Enter Commission percentage" #commissionPercentage="ngModel"
+                                            [(ngModel)]="model.commissionPercentage" required
+                                            [ngClass]="{'mat-form-field-invalid' :(formValidation && !commissionPercentage.valid) }"
+                                            appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)" required>
+                                    </mat-form-field>
+                                </div>
+                                <!-- Commission todo -->
+                                <div class="col-md-3 atsign-grid">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Discount percentage</mat-label>
+                                        <input maxlength="256" matInput type="number" id="discountOfferedPercentage"
+                                            name="discountOfferedPercentage" aria-describedby="discountOfferedPercentage"
+                                            placeholder="Enter Discount percentage" #discountOfferedPercentage="ngModel"
+                                            [(ngModel)]="model.discountOfferedPercentage" required
+                                            [ngClass]="{'mat-form-field-invalid' :(formValidation && !discountOfferedPercentage.valid) }"
+                                            appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2 atsign-grid">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Maximum Discount Amount</mat-label>
+                                        <input maxlength="256" matInput type="number" id="maxDiscountAmount"
+                                            name="maxDiscountAmount" aria-describedby="maxDiscountAmount"
+                                            placeholder="Maximum Discount Amount" #maxDiscountAmount="ngModel"
+                                            [(ngModel)]="model.maxDiscountAmount" required
+                                            [ngClass]="{'mat-form-field-invalid' :(formValidation && !maxDiscountAmount.valid) }" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="addButton" type="button" (click)="addAtsign()">{{'Add'}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="formValidation">
+                            Oops, please enter @sign
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
+                            {{showErrorMessage}}
+                        </div>
+                        <div class="col-md-12 text-success text-right" *ngIf="showSuccessMessage">
+                            {{showSuccessMessage}}
+                        </div>
+                        <div *ngIf="specialCharError" class="alert alert-danger col-md-12 mt-3 text-center">
+                            {{specialCharError}}
+                        </div>
+                    </div>
+                </form>
+                <div fxLayout="row">
+                    <div class="row mr-2">
+                        <div class="col-12 text-right">
+                            <mat-form-field>
+                                <input matInput placeholder="Search" #input>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="mat-elevation-z8 tablescroll" [hidden]="allAtsigns && allAtsigns.length === 0">
+
+                    <mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Id
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="id"
+                                title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }}
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="atsign">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> @sign Name
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                                {{row.atsign}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="commissionPercentage">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Commission Percentage
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index;" data-label="name">
+                                <span *ngIf="!isEdit[i]">{{row.commissionPercentage}}</span>
+                                <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
+                                    <input matInput maxlength="256" #name="ngModel" type="number"
+                                        [(ngModel)]="row.commissionPercentage" name="commissionPercentage" required
+                                        appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
+                                    <mat-error *ngIf="row.commissionPercentage==''">Commission cannot be blank
+                                    </mat-error>
+                                    <div class="editError" *ngIf="showEmptyErrorMessage">{{showEmptyErrorMessage}}
+                                    </div>
+                                </mat-form-field>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="discountOfferedPercentage">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Offered Percentage
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index;" data-label="name">
+                                <span *ngIf="!isEdit[i]">{{row.discountOfferedPercentage}}</span>
+                                <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
+                                    <input matInput maxlength="256" #name="ngModel" type="number"
+                                        [(ngModel)]="row.discountOfferedPercentage" name="discountOfferedPercentage"
+                                        required appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
+                                    <mat-error *ngIf="row.discountOfferedPercentage==''">Discount cannot be blank
+                                    </mat-error>
+                                    <div class="editError" *ngIf="showEmptyErrorMessage">{{showEmptyErrorMessage}}
+                                    </div>
+                                </mat-form-field>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="maxDiscountAmount">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Maximum Discount Amount(USD)
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index;" data-label="name">
+                                <span *ngIf="!isEdit[i]">{{row.maxDiscountAmount}}</span>
+                                <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
+                                    <input matInput maxlength="256" #name="ngModel" type="number"
+                                        [(ngModel)]="row.maxDiscountAmount" name="maxDiscountAmount"
+                                        appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
+                                </mat-form-field>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="edit">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Edit
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="edit">
+                                <button title="Edit" [disabled]="disableAll" type="button" class="btn btn-primary"
+                                    *ngIf="!isEdit[i]" (click)="editAtsign(row)">
+                                    <fa-icon [icon]="faEdit"></fa-icon>
+                                </button>
+                                <button title="Update" type="button" class="btn btn-primary" *ngIf="isEdit[i]"
+                                    (click)="updateAtsign(row)">
+                                    <i class="fa fa-save" style="padding: 3px;"></i>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="delete">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Delete
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row" data-label="delete">
+                                <button title="Delete" [disabled]="disableAll" type="button" class="btn btn-primary"
+                                    (click)="openDialog(row)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator (page)="pageEvent = $event; onPaginateChange($event)" #atsignsPaginator
+                        [length]="totatData" [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

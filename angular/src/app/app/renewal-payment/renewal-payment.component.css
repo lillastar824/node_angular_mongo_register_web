@@ -1,0 +1,316 @@
+.checkout {
+    padding: 0 24px;
+  }
+  .StripeElement {
+    margin: 1rem 0 1rem;
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+    width: 100%;
+  }
+  
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+  
+  .back-arrow {
+    background: #efefef;
+    border-radius: 50%;
+    opacity: 1;
+    color: #d94d1a;
+    width: 34px;
+    border: 1px solid #efefef;
+    justify-content: center;
+  }
+  
+  .invite-card-title.mat-card-subtitle {
+    display: flex;
+  }
+  .invite-card-title.mat-card-subtitle span {
+    margin: auto;
+  }
+  
+  .form /deep/ .mat-form-field-wrapper {
+    padding-bottom: 5px;
+  }
+  
+  .total-price {
+    /* height: 50px; */
+    background: #f2e1ac80 0% 0% no-repeat padding-box;
+    border: 1px solid #f2e1ac;
+    border-radius: 3px;
+    opacity: 1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  
+  .highlight-msg {
+    color: #d94d1a;
+    font-weight: 500;
+    /* font: 700 20px/32px "Museo Sans Rounded"; */
+  }
+  .standard-color {
+    color: #d94d1a;
+  }
+  
+  .form-group input {
+    padding: 25px 10px;
+  }
+  .form-group .cvv-input {
+    border-right: 0px;
+  }
+  
+  .input-group-append .input-group-text {
+    background: transparent;
+    border-left: 0px;
+  }
+  .form-group input::placeholder {
+    color: #b0afa5;
+  }
+  .fa-lock {
+    color: #9a9a9a;
+  }
+  
+  .fa-cc-visa,
+  .fa-cc-mastercard,
+  .fa-cc-discover,
+  .fa-cc-stripe {
+    color: #4a4a4a;
+  }
+  
+  #card-number-element {
+    margin-bottom: 0;
+  }
+  
+  #card-number-element,
+  #card-expiry-element,
+  #card-cvc-element {
+    margin: 0.5rem 0 0.8rem;
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    box-shadow: unset;
+    width: 100%;
+    padding: 13px 10px;
+  }
+  .agreement {
+    margin-bottom: 24px;
+  }
+  .agreement,
+  .agreement a,
+  .agreement span {
+    font: normal normal normal 14px/32px Muli;
+    letter-spacing: 0px;
+  }
+  
+  /deep/ .mat-checkbox-checked.mat-accent /deep/ .mat-checkbox-background {
+    background-color: #d94d1a;
+  }
+  /*
+  #card-number-element input::placeholder,
+  #card-expiry-element input::placeholder,
+  #card-cvc-element input::placeholder {
+    color: #949494;
+    font-weight: bold;
+  } */
+  
+  .fa-question-circle-o {
+    position: absolute;
+    right: 30px;
+    top: 40%;
+    color: #9a9a9a;
+    z-index: 999;
+  }
+  
+  .success-help-text {
+    display: block;
+    margin-top: 22px;
+    font-size: 17px;
+    font-family: "Museo Sans Rounded 300";
+    font-weight: 500;
+  }
+  
+  .success-message {
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+  }
+  
+  .cart-list div {
+    font-family: "Museo Sans Rounded 300";
+  }
+  .cart-header {
+    background: #fff;
+    padding-bottom: 0;
+  }
+  .sub-total-list div {
+    width: 100%;
+    font-family: "Museo Sans Rounded 700";
+  }
+  
+  .header {
+    padding-top: 24px;
+    align-items: center;
+    padding-bottom: 57px;
+    display: flex;
+  }
+  .header h2 {
+    font: normal normal bold 22px/32px Comfortaa;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    margin-bottom: 0;
+    flex: 1 1 auto;
+  }
+  .body {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cart-title {
+    font: normal normal normal 22px/32px Muli;
+    letter-spacing: 0px;
+    color: #f15e3e;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .cart-items {
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #c3c3c3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    grid-gap: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .cart-item-name {
+    font: normal normal bold 22px/32px Comfortaa;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    word-break: break-all;
+  }
+  .cart-item-price {
+    font: normal normal normal 18px/32px Muli;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    text-align: right;
+  }
+  .cart-item .btn {
+    color: #9a9a9a;
+    font-size: 20px;
+  }
+  .annual-fee-disclaimer {
+    font: normal normal normal 16px/20px Muli;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    margin-bottom: 68px;
+  }
+  .checkout-btn {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 2px solid #f05e3e;
+    border-radius: 28px;
+    text-align: center;
+    font: normal normal bold 22px/1 Comfortaa;
+    letter-spacing: 0px;
+    color: #f05e3e;
+    width: 100%;
+    padding: 15px 30px;
+  }
+  .cart-items-total {
+    border-bottom: 1px solid #c3c3c3;
+    display: grid;
+    grid-template-columns: 1fr 40px;
+  }
+  .cart-total {
+    text-align: right;
+    font: normal normal bold 18px/32px Muli;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+  }
+  .pay-info-text {
+    font: normal normal bold 14px/32px Muli;
+    letter-spacing: 0px;
+    color: #f15e3e;
+    text-transform: uppercase;
+  }
+  .cardName{
+    color: #c4bebe;
+  }
+  .selected{
+    background-color: #f05e3e !important;
+    color: white;
+  }
+  .text-color{
+    color: #f05e3e;
+    cursor: pointer;
+  }
+
+
+  .congrats-wrap {
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .congrats-icon {
+    height: 72px;
+    width: 72px;
+  }
+  .congrats-message {
+    font: normal normal bold 22px/24px Comfortaa;
+    letter-spacing: 0px;
+    color: #f15e3e;
+    padding: 0 20px;
+  }
+  .purchased-atsigns {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .purchased-atsign {
+    border: 1px solid #c3c3c3;
+    border-radius: 28px;
+    font: normal normal bold 22px/1 Comfortaa;
+    letter-spacing: 0px;
+    padding: 15px 24px;
+    word-break: break-all;
+    display: block;
+  }
+  .back-to-dashboard-btn {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 2px solid #f05e3e;
+    border-radius: 28px;
+    text-align: center;
+    font: normal normal bold 22px/1 Comfortaa;
+    letter-spacing: 0px;
+    color: #f05e3e;
+    padding: 15px 24px;
+    width: 100%;
+  }
+  .confetti {
+    transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  

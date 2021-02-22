@@ -1,0 +1,16 @@
+{
+    "name": "The @ Company",
+    "short_name": "@",
+    "start_url": "/",
+    "theme_color": "#ffffff",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "The @ Company",
+    "icons": [
+        {
+            "src": "./img/favicon.jpg",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

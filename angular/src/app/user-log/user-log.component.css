@@ -1,0 +1,14 @@
+.get-invited-card {
+    max-width: 95%;
+    padding-bottom: 10px;
+}
+
+.searchButton {
+    background: #d94d1a;
+    border-radius: 6px;
+    opacity: 1;
+    color: #fff;
+    width: 100%;
+    font: 700 15px/32px "Museo Sans Rounded";
+    border: 1px solid #d94d1a;
+}

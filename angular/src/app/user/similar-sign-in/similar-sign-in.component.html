@@ -1,0 +1,33 @@
+<div style="max-width: 600px;">
+
+    <div mat-dialog-title>
+        <h4 style="margin: auto"><i class="fa fa-refresh mr-2"></i>Similar @signs</h4>
+        <span> <i class="fa fa-times-circle mr-2" (click)="onNoClick()"></i>
+        </span>
+    </div>
+    <div class="text-center">
+        <div class="codes">
+            <div (click)="filterResult('letter')" class="pointer"><i class="fa mr-1" [ngClass]="{'fa-check-circle': filterSimilarSign === 'letter', 'fa-check-circle-o': filterSimilarSign !== 'letter'}"></i>Only Letters</div>
+            <div (click)="filterResult('shortest')" class="pointer"><i class="fa mr-1" [ngClass]="{'fa-check-circle': filterSimilarSign === 'shortest', 'fa-check-circle-o': filterSimilarSign !== 'shortest'}"></i>Shortest Available</div>
+            <div (click)="filterResult('specialChar')" class="pointer"><i class="fa mr-1" [ngClass]="{'fa-check-circle': filterSimilarSign === 'specialChar', 'fa-check-circle-o': filterSimilarSign !== 'specialChar'}"></i>No Special Characters</div>
+        </div>
+        <div class="scrollInsideModal">
+            <table class="table" style="table-layout: fixed; overflow-wrap: break-word;">
+                <tbody>
+                    <tr *ngFor="let sign of similarSign">
+                        <td>{{sign}}</td>
+                        <td>
+                            <button class="select-button" [ngClass]="{'active':sign === selectedSign}"
+                                (click)="selectedSign = sign"><i class="fa fa-check-circle-o mr-1"></i>
+                                <span>Select</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-danger mb-3" *ngIf="similarSign.length === 0 && noSimilarSign">No Similar @sign available.</div>
+        </div>
+        <div class="mb-3"><button type="button" class="selected" (click)="selectHandle(selectedSign)">Add
+                Selected</button></div>
+    </div>
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

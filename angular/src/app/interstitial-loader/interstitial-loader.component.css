@@ -1,0 +1,19 @@
+.loader-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #646464;
+  opacity: 1;
+  z-index: 999;
+}
+
+.loader-message {
+  text-align: center;
+  font: normal normal bold 22px/32px Comfortaa;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  max-width: 222px;
+}

@@ -1,0 +1,42 @@
+.main-wrapper{
+    max-height: 400px;
+    min-width: 800px;
+    max-width: 1500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.wrapper-img {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.image {
+    height: 100%;
+    position: absolute;
+    /* left: -100px; */
+    bottom: 0;
+}
+
+.cross-icon {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    color: #a7a7a7;
+    z-index: 99;    
+    border-radius: 20px;
+    padding: 2px 4px 3px 4px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 768px) {
+    .image {
+      width: 100%;
+    }
+    .main-wrapper{
+        max-height: 434px;
+        min-width: 200px;
+    }
+  }

@@ -1,0 +1,125 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-5">
+                <span *ngIf="allAtsigns">Reserved @sign</span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <!-- <mat-card-subtitle class="invite-card-title mb-0">
+                    <a class="standard-color" href="javascript: void(0);" [routerLink]="'/getallusers/'">Show all users
+                    </a>
+                    <button type="button" style="margin-left: auto;" (click)="onLogout()">Logout</button>
+                </mat-card-subtitle> -->
+                <form #addUserForm="ngForm">
+                    <div class="div-heading bb-verify row text-center pt-4">
+                        <div class="col-md-12">
+                    <div class="row flex justify-content-space">
+                        <div class="col-md-6 atsign-grid">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Name</mat-label>
+                                <input  maxlength="256" matInput type="name" id="name" name="name" aria-describedby="name" placeholder="Enter name"
+                                    #name="ngModel" [(ngModel)]="model.name" required
+                                    [ngClass]="{'mat-form-field-invalid' :(formValidation && !name.valid) }"
+                                    appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <mat-checkbox [checked]="model.brandName" (change)="model.brandName = !model.brandName" class="font-300" >is brand name?</mat-checkbox>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="addButton" type="button" (click) = "addAtsign()">{{'Add'}}
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="formValidation">
+                                Please fill @sign 
+                            </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
+                                {{showErrorMessage}}
+                            </div>
+                            <div class="col-md-12 text-success text-right" *ngIf="showSuccessMessage">
+                                {{showSuccessMessage}}
+                            </div>
+                            <div *ngIf="specialCharError" class="alert alert-danger col-md-12 mt-3 text-center">
+                                {{specialCharError}}
+                            </div>
+                    </div>
+                </form>
+                <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabClick($event)">
+                    <mat-tab label="Custom"></mat-tab>
+                    <mat-tab label="Brand"></mat-tab>
+                  </mat-tab-group>
+                        <div fxLayout="row">
+                    <div class="row mr-2">
+                        <div class="col-12 text-right">
+                            <mat-form-field>
+                                <input matInput placeholder="Search" #input>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="mat-elevation-z8 tablescroll" [hidden]="allAtsigns && allAtsigns.length === 0">
+
+                    <mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="id" title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> @sign Name
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index;" data-label="name">
+                                <span *ngIf="!isEdit[i]">{{row.name}}</span> 
+                                <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
+                                    <input matInput maxlength="256" #name="ngModel"
+                                    [(ngModel)]="row.name" name="name" required
+                                    appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
+                                    <mat-error *ngIf="row.name==''">@sign name cannot be blank</mat-error>
+                                </mat-form-field>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="type">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Type
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                                {{row.type}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="edit">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Edit
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="edit">
+                                <button title="Edit" [disabled]="disableAll" type="button" class="btn btn-primary" *ngIf="!isEdit[i]"
+                                    (click)="editAtsign(row)">
+                                    <fa-icon [icon]="faEdit"></fa-icon>
+                                </button>
+                                <button title="Update" type="button" class="btn btn-primary" *ngIf="isEdit[i]"
+                                    (click)="updateAtsign(row)">
+                                    <i class="fa fa-save" style="padding: 3px;"></i>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="delete">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Delete
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row" data-label="delete">
+                                <button title="Delete" [disabled]="disableAll" type="button" class="btn btn-primary"
+                                    (click)="openDialog(row)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+                       
+                       
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator (page)="pageEvent = $event; onPaginateChange($event)" #atsignsPaginator [length]="totatData" [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

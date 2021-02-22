@@ -1,0 +1,12 @@
+Got to <path to your mongodb server>\bin > open command prompt and execute:
+
+mongoimport -d atsign -c atsigns --drop --file <path to your repo>\at_handle_registrar_web\server\db\atsign.json --jsonArray
+
+
+mongoimport --db atsign --collection firstNames --file firstNames.json --jsonArray
+mongoimport --db atsign --collection lastNames --file lastNames.json --jsonArray
+mongoimport --db atsign --collection dictionary --file dictionary.json --jsonArray
+mongoimport --db atsign --collection brands --file 500companies.json --jsonArray
+mongoimport --db atsign --collection countries --file countries.json --jsonArray
+mongoimport --db atsign --collection states --file states.json --jsonArray
+mongoimport --db atsign --collection cities --file cities.json --jsonArray

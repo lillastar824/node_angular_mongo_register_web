@@ -1,0 +1,20 @@
+<div class="confirmation-dialog-message text-center mb-5">
+  <div>
+    <p>Are you sure you want to approve commission of <b>${{data.totalFinalCommission}}</b> for<span
+        class="font-weight-bold my-3 d-block">@{{data._id}}</span>
+    </p>
+ 
+  </div>
+</div>
+
+<div mat-dialog-content>
+    <div class="d-flex justify-content-between">
+      <!-- <button type="button" class="selected rounded-pill" (click)="deleteAtsign(data);">Confirm</button>
+      <button type="button" class="selected cancelButton" (click)="close()">Cancel</button> -->
+
+      <button type="button" class="selected btn rounded-pill" (click)="approveCommission(data._id);" >Confirm</button>
+      <button type="button" class=" btn btn-outline-secondary rounded-pill" (click)="close()">Cancel</button>
+   
+    </div>
+</div>
+ 

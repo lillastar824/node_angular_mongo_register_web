@@ -1,0 +1,150 @@
+/* *
+======================================================================================
+======================================================================================
+* */
+
+.close-icon {
+  color: #d94d1a;
+}
+
+.form /deep/ .mat-form-field-prefix {
+  top: 0;
+  padding-right: 5px;
+}
+
+.form
+  /deep/
+  .mat-form-field-appearance-outline
+  /deep/
+  .mat-form-field-outline-thick {
+  color: #d94d1a;
+}
+
+.subscribe-plans-box {
+  height: 250px;
+  background: #f8f0d5 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  opacity: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  color: #4a4a4a;
+  border: 3px solid #f8f0d5;
+}
+.subscribe-plans-box.premium {
+  background-color: #2C2C2C;
+  border-color: #2C2C2C;
+  color: #f2e1ac;
+}
+.pay-method {
+  background: #4a4a4a 0% 0% no-repeat padding-box;
+  opacity: 1;
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.query-button {
+  opacity: 1;
+  color: #9a9a9a;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 25px;
+}
+.premium span.text, .standard span.text  {
+  position: relative;
+  padding-top: 20px;
+}
+.premium span.text::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 30px;
+  background: url("../../../assets/img/GoldenLogo.png");
+  background-repeat: no-repeat;
+  bottom: 35px;
+  background-size: 30px 30px;
+  transform: translate(55%, 35%);
+}
+.standard span.text::before {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 37px;
+  background: url("../../../assets/img/icon-robot-black.png");
+  background-repeat: no-repeat;
+  bottom: 35px;
+  background-size: 30px 30px;
+  transform: translate(5%, 35%);
+}
+.premium .pay-method {
+  background-color: #d94d1a;
+}
+
+/* .subscribe-plans-box.active {
+  background: #f8f0d5 0% 0% no-repeat padding-box;
+  border: 3px solid #d94d1a;
+  box-shadow: 2px 2px 5px #ccc;
+}
+.subscribe-plans-box.premium.active {
+  border: 3px solid #d94d1a;
+  background-color: #2C2C2C;
+  color: #f2e1ac;
+  box-shadow: 2px 2px 5px #ccc;
+} */
+
+.form /deep/ .mat-radio-container {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.form /deep/ .mat-radio-button {
+  width: 100%;
+}
+.form /deep/ .mat-radio-label-content {
+  width: 100%;
+  padding: 0;
+}
+.emailBackground {
+  background: #f2e1ac80 0% 0% no-repeat padding-box;
+  border: 1px solid #f2e1ac;
+  border-radius: 3px;
+  opacity: 1;
+}
+.emailBackground > span {
+  color: #9a9a9a;
+  font-size: 14px;
+}
+.sendVerificationCodeButton {
+  background: #00a388;
+}
+.contactSign {
+  position: absolute;
+  top: 23px;
+  right: 25px;
+}
+/deep/ .mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  height: 25px !important;
+}
+.select-button {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #AAAAAA;
+    border-radius: 6px;
+    width: 90%;
+    color: #AAA;
+}
+.subscribe-plans-box.active .select-button {
+    background: #00A388 0% 0% no-repeat padding-box;
+    border: 2px solid #00A388;
+    border-radius: 6px;
+    width: 90%;
+    color: #fff;
+}

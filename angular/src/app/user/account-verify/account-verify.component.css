@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Museo Sans Rounded 300";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Museo Sans Rounded 300"),
+    url("../../../assets/fonts/MuseoSansRounded300.woff") format("woff");
+}
+
+.back-arrow {
+  background: #efefef;
+  border-radius: 50%;
+  opacity: 1;
+  color: #d94d1a;
+  width: 34px;
+  border: 1px solid #efefef;
+  justify-content: center;
+}
+
+.invite-card-title.mat-card-subtitle {
+  display: flex;
+}
+.invite-card-title.mat-card-subtitle span {
+  margin: auto;
+}
+.form button {
+  background: #d94d1a;
+  border-radius: 6px;
+  opacity: 1;
+  color: #fff;
+  width: 100%;
+  height: 55px;
+  font: 700 15px/32px "Museo Sans Rounded";
+  border: 1px solid #d94d1a;
+}
+
+.form button.sendVerificationCodeButton {
+  border: 2px solid #00a388;
+  border-radius: 6px;
+  opacity: 1;
+  color: #00a388;
+  background: #fff;
+  box-shadow: 0;
+  height: 55px;
+}
+
+.sendVerificationCodeButton:hover,
+.sendVerificationCodeButton:focus {
+  box-shadow: 1px 1px 5px #444;
+}
+
+.form button.sendVerificationCodeButton:disabled {
+  background: #fff !important;
+  border: 2px solid #aaaaaa !important;
+  color: #aaaaaa !important;
+}
+
+.sent-msg {
+  color: #00a388;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.bb-verify {
+  border-bottom: 1px solid #dbdbdb;
+}
+.resend-msg {
+  text-align: right;
+  letter-spacing: 0;
+  color: #d94d1a;
+}
+
+/deep/ .mat-checkbox-layout /deep/ .mat-checkbox-label {
+  font-family: "Museo Sans Rounded 300";
+}
+
+#verifyemail {
+  color: #949494;
+}
+.get-invited-card {
+  max-width: 500px;
+}
+
+/deep/ .mat-form-field-wrapper {
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .get-invited-card-inner,
+  .invite-head {
+    text-align: center;
+  }
+}

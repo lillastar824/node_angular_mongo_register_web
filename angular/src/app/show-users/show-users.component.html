@@ -1,0 +1,265 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-5">
+                <span *ngIf="allUsers && !showHistoryTable">View All Users</span>
+                <span *ngIf="userHistory && showHistoryTable">User Handle History</span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <!-- <mat-card-subtitle class="invite-card-title mb-0 pull-left">
+                    <a class="standard-color" href="javascript: void(0);" [routerLink]="'/reservedatsigns/'">Reserved @signs &nbsp;
+                    </a>
+                    <a class="standard-color" href="javascript: void(0);" [routerLink]="'/reports/'"> | Reports
+                    </a>
+                    <button type="button" style="margin-left: auto;" (click)="onLogout()">Logout</button>
+                </mat-card-subtitle> -->
+                <form #addUserForm="ngForm">
+                    <div class="div-heading bb-verify row text-center pt-4">
+                        <div class="col-md-12 text-left">Enter Email of user to be invited(Premium)</div>
+                    <div class="col-md-12 p0 row" *ngFor="let cart of userCart;let i=index; trackBy: trackByFn">
+                        <div class="col-md-3 col-6">
+                            <mat-form-field appearance="outline" class="w-100" *ngIf="i===0">
+                                <mat-label>Enter Email</mat-label>
+                                <input matInput id="email{{i}}" name="email{{i}}" aria-describedby="email" placeholder="Enter Email"
+                                    #email="ngModel" [(ngModel)]="userCart[i].email" required [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidEmail(userCart[i].email,'add')"
+                                    [ngClass]="{'mat-form-field-invalid' :(formValidation && !(email + i).valid) || invalidEmail }">
+                            </mat-form-field>
+                        </div>
+                        <!-- <div class="col-md-7 row p0"> -->
+                        <div class="col-md-4 col-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Enter @sign</mat-label>
+                                <input matInput  id="atsignName{{i}}" name="atsignName{{i}}" aria-describedby="atsignName" placeholder="Enter @sign" autocomplete="off" maxlength="255"
+                                    #atsignName="ngModel" [(ngModel)]="userCart[i].atsignName" required appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)"
+                                    [ngClass]="{'is-invalid' :formValidation && !(atsignName + i).required }"
+                                    [disabled]="userCart[i+1] && userCart[i+1].atsignName">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Enter Amount($)</mat-label>
+                                <input matInput type="text" id="payAmount{{i}}" name="payAmount{{i}}" aria-describedby="payAmount"
+                                    placeholder="Enter Amount" #payAmount="ngModel" maxlength="5" [(ngModel)]="userCart[i].payAmount" numbersOnly required
+                                    [ngClass]="{'is-invalid' :formValidation && !(payAmount + i).required }"
+                                    [disabled]="userCart[i+1] && userCart[i+1].payAmount" (change)="formValidation=false;"
+                                    (ngModelChange)=checkValue(userCart[i].payAmount);
+                                    >
+                            </mat-form-field>
+                        </div>
+                        <!-- </div> -->
+                        <div class="col-md-1 col-2 mt-3" *ngIf="i===userCart.length-1">
+                            <button title="Add one more @sign" class="addButton" type="button" (click)="addToCart(userCart[i].email, userCart[i].atsignName, userCart[i].payAmount)">+</button>
+                        </div>
+                        <div class="col-md-1 col-2 mt-3" *ngIf="i!==userCart.length-1">
+                            <button title="Remove @sign" class="addButton" type="button" (click)="removeFromCart(userCart[i].atsignName, i)">-</button>
+                        </div>
+                    </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="handleNotAvailable">
+                                This @sign is not available
+                            </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="formValidation">
+                                All fields required
+                            </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
+                                {{showErrorMessage}}
+                            </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="invalidEmail">
+                                Please enter a valid email address
+                            </div>
+                    <div class="col-md-3 col-3 offset-md-9 mb-2 mt-3">
+                        <button class="addButton" type="button" (click)="addUser(addUserForm)">Send Invite
+                            </button>
+                    </div>
+                    </div>
+                    <div *ngIf="specialCharError" class="alert alert-danger text-center">{{specialCharError}}
+                    </div>
+                </form>
+                <form #inviteUserForm="ngForm">
+                    <div class="div-heading bb-verify row text-center">
+                        <div class="col-md-12 p0 row">
+                        <div class="col-md-12 text-left">Enter Email of user to be invited(User will choose Free/ Premium)</div>
+                            <div class="col-md-9 col-8">
+                                <mat-form-field appearance="outline" class="w-100" >
+                                    <mat-label>Enter Email</mat-label>
+                                    <input matInput id="inviteEmail" name="inviteEmail" aria-describedby="inviteEmail"
+                                        placeholder="Enter Email" #inviteEmail="ngModel" [(ngModel)]="model.inviteEmail" required
+                                        [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidEmail(model.inviteEmail,'invite')"
+                                        [ngClass]="{'mat-form-field-invalid' :(inviteFormValidation && !inviteEmail.valid) || inviteInvalidEmail }">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3 col-4 mb-2 mt-3">
+                                <button class="addButton" type="button" (click)="inviteUser(model.inviteEmail,'')">Send
+                                    Invite</button>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="inviteFormValidation">
+                            All fields required
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="inviteErrorMessage">
+                            {{inviteErrorMessage}}
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="inviteInvalidEmail">
+                            Please enter a valid email address
+                        </div>
+                    </div>
+                </form>
+                        <div *ngIf="allUsers && !showHistoryTable" fxLayout="row">
+                    <div class="row mr-2">
+                        <div class="col-12 text-right">
+                            <mat-form-field>
+                                <input matInput placeholder="Search" #input>
+                                <button mat-icon-button matSuffix (click)="paginator.pageIndex = 0;searchData()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="mat-elevation-z8 tablescroll">
+
+                    <mat-table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="email">
+                            <mat-header-cell style="max-width: 250px" *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+                            <mat-cell style="max-width: 250px" *matCellDef="let row" data-label="email" title='{{row.email}} '> {{row.email}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="userStatus">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Status
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row" data-label="userStatus">
+                                {{row.userStatus}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsignName">
+                            <mat-header-cell style="max-width: 200px" *matHeaderCellDef mat-sort-header> @sign Name </mat-header-cell>
+                            <mat-cell style="max-width: 200px" *matCellDef="let row" data-label="atsignName">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn"
+                                        title='{{item.atsignName ? item.atsignName : "-"}}' [hidden]="!item.atsignName">
+                                        {{item.atsignName ? item.atsignName : "-"}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="inviteLink">
+                            <mat-header-cell style="max-width: 500px" *matHeaderCellDef mat-sort-header> Invite Link </mat-header-cell>
+                            <mat-cell style="max-width: 500px" *matCellDef="let row" data-label="inviteLink">
+                                <div
+                                    title="{{(row.atsignDetails && row.atsignDetails[0]) ? row.atsignDetails[0]['inviteLink'] :'-'}}">
+                                    {{(row.atsignDetails && row.atsignDetails[0]) ? row.atsignDetails[0]['inviteLink'] :"-"}}
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="payAmount">
+                            <mat-header-cell style="max-width: 90px" *matHeaderCellDef mat-sort-header> Amount
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 90px" *matCellDef="let row" data-label="payAmount">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn"
+                                    title='{{item.payAmount ? item.payAmount : "-"}}' [hidden]="!item.atsignName">
+                                        {{item.payAmount ? '$' + fixDecimal(item.payAmount) : '-'}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="orderId">
+                            <mat-header-cell style="max-width: 200px" *matHeaderCellDef mat-sort-header> Order Id
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 200px" *matCellDef="let row" data-label="orderId">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn"
+                                    title='{{item.orderId ? item.orderId : "-"}}'  [hidden]="!item.atsignName">
+                                        {{item.orderId ? '#' + item.orderId : '-'}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="userRole">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Role
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row" data-label="userRole">
+                                {{row.userRole}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="friendInvite">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Invited Friend's Count
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row" data-label="friendInvite">
+                                {{row.inviteFriendDetailsCount}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="mobileOtp">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> OTP
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row" data-label="mobileOtp">
+                                {{row.mobileOtp}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="invitedOn">
+                            <mat-header-cell style="max-width: 130px" *matHeaderCellDef mat-sort-header> Invited Date
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 130px" *matCellDef="let row" data-label="invitedOn">
+                                {{row.invitedOn | date}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsignCreatedOn">
+                            <mat-header-cell style="max-width: 130px" *matHeaderCellDef mat-sort-header> Register Date
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 130px" *matCellDef="let row" data-label="atsignCreatedOn">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn">
+                                        {{item.atsignCreatedOn | date}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="inviteCode">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Send Invite
+                            </mat-header-cell>
+                            <mat-cell style="max-width:70px" *matCellDef="let row" data-label="inviteCode">
+                                <button type="button" class="btn btn-primary"
+                                    *ngIf="row.userStatus==='Invited' && row.atsignDetails && row.atsignDetails[0] && !row.atsignDetails[0].inviteLink && !row.atsignDetails[0].atsignName"
+                                    (click)="inviteUser(row.email,row.atsignDetails[0]['inviteCode'])">
+                                    <fa-icon [icon]="faUserPlus"></fa-icon>
+                                </button>
+                                <button type="button" class="btn btn-primary"
+                                    *ngIf="row.userStatus==='Invited' && row.atsignDetails && row.atsignDetails[0] && row.atsignDetails[0].inviteLink && !row.atsignDetails[0].atsignType"
+                                    (click)="inviteUser(row.email,row.atsignDetails[0]['inviteCode'])">
+                                    <fa-icon [icon]="faHistory"></fa-icon>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="deleteUser">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Delete User
+                            </mat-header-cell>
+                            <mat-cell style="max-width:70px" *matCellDef="let row" data-label="deleteUser">
+                                <button type="button" class="btn btn-primary" *ngIf="row.userStatus!=='Deleted'"
+                                    (click)="openDialog(row)"
+                                    >
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="changePassword">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Change Password
+                            </mat-header-cell>
+                            <mat-cell style="max-width:70px" *matCellDef="let row" data-label="changePassword">
+                                <button type="button" class="btn btn-primary" *ngIf="row.userRole==='Admin'"
+                                    (click)="changePassword(row.email, row._id)"
+                                    >
+                                    <i class="fa fa-key"></i>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator [length]="totalData" [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>
+
+<!-- <div class="div-heading text-center" *ngIf="userHistory && userHistory.length===0 && showHistoryTable">No Record Found</div> -->

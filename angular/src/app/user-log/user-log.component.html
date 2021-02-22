@@ -1,0 +1,173 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head pl-5">
+                
+                <span *ngIf="allUsers">User Log</span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <!-- <mat-card-subtitle class="invite-card-title mb-0 text-left">
+                    <a class="standard-color" href="javascript: void(0);" [routerLink]="'/getallusers/'">Show all users
+                    </a>
+                    <button type="button" style="margin-left: auto;" (click)="onLogout()">Logout</button>
+                </mat-card-subtitle> -->
+                <form #addUserForm="ngForm">
+                    <div class="div-heading bb-verify col-md-12 text-center mt-3">
+                        <div class="row mt-2">
+                            <div class="col-6 mb-3">
+                                <mat-radio-group aria-label="Choose account type" name="accountType" [(ngModel)]="model.type">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-6 p-0 text-left">
+                                                        <mat-radio-button value="email" (change) = "model.email = '';model.contact = '';invalidEmail='';">
+                                                            Email
+                                                        </mat-radio-button>
+                                                    </div>
+                                                    <div class="col-6 p-0 text-left">
+                                                        <mat-radio-button value="mobile" (change) = "model.email = '';model.contact = '';invalidEmail='';">
+                                                            Mobile
+                                                        </mat-radio-button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mat-radio-group>
+                                    </div>
+                                </div>
+                                                                    <div class="row mt-2">
+                            <div class="col-md-4 col-4">
+                                <mat-form-field class="w-100" *ngIf="model.type === 'email'">
+                                    <mat-label>Enter Email</mat-label>
+                                    <input matInput type="email" id="email" name="email" aria-describedby="email" placeholder="name@domain.com"
+                                        #email="ngModel" [(ngModel)]="model.email" required [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidEmail(model.email)"
+                                        [ngClass]="{'mat-form-field-invalid' :(formValidation && !email.valid) || invalidEmail }" >
+                                </mat-form-field>
+                                <mat-form-field class="w-100" *ngIf="model.type !== 'email'">
+                                    <mat-label>Enter Contact</mat-label>
+                                    <input matInput type="text" id="contact" name="contact" aria-describedby="contact" placeholder="+1 5555555555"
+                                        #email="ngModel" [(ngModel)]="model.contact" required [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidMobile(model.contact)"
+                                        [ngClass]="{'mat-form-field-invalid' :(formValidation && !email.contact) || invalidEmail }" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4 col-4">
+                                <mat-form-field>
+                                    <mat-label>Select From Date</mat-label>
+                                    <input matInput [matDatepicker]="frompicker" placeholder="From Date" name="fromDate"
+                                        [(ngModel)]="model.fromDate" required>
+                                    <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #frompicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4 col-4">
+                                <mat-form-field>
+                                    <mat-label>Select To Date</mat-label>
+                                    <input matInput [matDatepicker]="topicker" placeholder="To Date" name="toDate"
+                                        [(ngModel)]="model.toDate" required>
+                                    <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #topicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <!-- <div class="col-md-3 col-5 offset-md-1 mt-2">
+                                <button class="searchButton" type="button" (click)="fetchUser()">Generate</button>
+                            </div> -->
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="formValidation">
+                            All fields required
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
+                            {{showErrorMessage}}
+                        </div>
+                        <div class="col-md-12 text-danger text-right" *ngIf="invalidEmail">
+                            {{invalidEmail}}
+                        </div>
+                        <div class="col-md-3 col-6 offset-md-9 mb-2 mt-3">
+                            <button class="searchButton" type="button" (click)="fetchUser()">Generate</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- <div *ngIf="allUsers.length>0" fxLayout="row">
+                    <div class="row mr-2">
+                        <div class="col-12 d-flex justify-content-end align-items-center">
+                            <mat-form-field>
+                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="" [hidden]="allUsers.length === 0">
+                <div class="mat-elevation-z8 tablescroll">
+                    <mat-table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Id
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="id"
+                                title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="url">
+                            <mat-header-cell style="max-width: 150px" *matHeaderCellDef mat-sort-header> Url
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 150px" *matCellDef="let row" data-label="url"
+                                title='{{row.url ? row.url : "-"}}' class="word-break p-1">
+                                {{row.url ? row.url : "-"}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="method">
+                            <mat-header-cell style="max-width: 100px" *matHeaderCellDef mat-sort-header> Method
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 100px" *matCellDef="let row" data-label="method"
+                                title='{{row.method}} ' class="word-break p-1"> {{row.method}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="body">
+                            <mat-header-cell style="max-width: 350px" *matHeaderCellDef mat-sort-header> Body
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="body"
+                                title='{{row.body}} ' class="word-break p-1">
+                                {{row.body}}
+                                <!-- <div *ngFor="let key of Object.keys(row.body)">
+                                    <div class="mt-2 mb-2 ml-4">
+                                        <span>{{key}}</span>: <span class="regular-font">{{row.body[key]}}</span>
+                                    </div>
+                                </div> -->
+                                </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="referer">
+                            <mat-header-cell style="max-width: 200px" *matHeaderCellDef mat-sort-header> Referer
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 200px" *matCellDef="let row" data-label="referer" 
+                            title='{{row.referer ? row.referer : "-"}}' class="word-break p-1">
+                                        {{row.referer ? row.referer : '-'}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="userAgent">
+                            <mat-header-cell style="max-width: 200px" *matHeaderCellDef mat-sort-header> User Agent
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 200px; display: block;" *matCellDef="let row" data-label="userAgent" 
+                            title='{{row.userAgent | json}}' class="p-1">
+                                        <!-- {{row.userAgent | json}} -->
+                                        <div *ngFor="let key of Object.keys(row.userAgent)">
+                                    <div class="mt-2 mb-2 ml-4">
+                                        <span>{{key}}</span>: <span class="regular-font">{{row.userAgent[key]}}</span>
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="createdOn">
+                            <mat-header-cell style="max-width: 130px" *matHeaderCellDef mat-sort-header> Date
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 130px" *matCellDef="let row" data-label="createdOn">
+                                {{row.createdOn | date:'medium'}}
+                            </mat-cell>
+                        </ng-container>
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator #atsignsPaginator [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

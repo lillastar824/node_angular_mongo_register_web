@@ -1,0 +1,91 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-5">
+                <span *ngIf="allAtsigns">Commission @sign details</span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <!-- <div fxLayout="row">
+                    <div class="row mr-2">
+                        <div class="col-12 text-right">
+                            <mat-form-field>
+                                <input matInput placeholder="Search" #input>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="mat-elevation-z8 tablescroll" [hidden]="allAtsigns && allAtsigns.length === 0">
+
+                    <mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Id
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row; let i = index;" data-label="id"
+                                title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }}
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="orderId">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Order ID
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" class="clickRow" data-label="type" (click)="openDialog(row.metadata.orderData,row.metadata.orderId,row.createdAt)">
+                                {{row.metadata.orderId}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="createdAt">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Created date
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"  data-label="type">
+                                {{row.createdAt | date: 'MM/dd/yyyy'}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="commissionOfferedPercentage">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Commission Offered Percentage
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type" >
+                                {{row.commissionOfferedPercentage}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="discountOfferedPercentage">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>  Discount Offered Percentage
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                               <div class="text-center">{{row.discountOfferedPercentage}}</div> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="currency">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Currency
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                              <div class="text-center">{{row.currency}}</div> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="orderAmount">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Order Amount
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                              <div class="text-center">{{row.orderAmount}}</div> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="paidAmount">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Paid Amount
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                              <div class="text-center">{{row.paidAmount}}</div> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="finalCommission">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Final Commission
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="type">
+                              <div class="text-center">{{row.finalCommission}}</div> </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator (page)="pageEvent = $event; onPaginateChange($event)" #atsignsPaginator
+                        [length]="totatData" [pageSizeOptions]="[25, 50, 100]"></mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

@@ -16,7 +16,7 @@ const registerRoutes = function (router) {
 
     //--Commission Routes--
     router.get('/commission', JwtHelper.verifyJwtToken, AdminController.getCommercialAtsignCommissionDetails)
-    router.get('/commission/reports/:atsign', JwtHelper.verifyJwtToken, AdminController.getCommercialRepotsDetails)
+    router.get('/commission/reports/:atsign', JwtHelper.verifyJwtToken, AdminController.getCommercialReportsDetailsByAtsign)
     router.post('/commission/approve', JwtHelper.verifyJwtToken, AdminController.approveCommissionByAtsign)
     //--Commission Routes End--
 
@@ -42,10 +42,14 @@ const registerRoutes = function (router) {
     router.post('/change-password', JwtHelper.verifyJwtToken, AdminController.changePassword);
 
     router.post('/send-invite-link', JwtHelper.verifyJwtToken, AdminController.sendInviteLink);
-    router.post('/create-user', JwtHelper.verifyJwtToken, AdminController.addUser);
+    router.post('/create-user', JwtHelper.verifyJwtToken, AdminController.addUserAtsign);
     router.post('/admin/transfer-atsign', JwtHelper.verifyJwtToken, AdminController.transferUserAtsign)
 
     router.get('/all-transfer-atsign', JwtHelper.verifyJwtToken, AdminController.getAllTransferAtsigns)
+    
+    //--assign-atsign
+    router.post('/admin/assign-atsign', JwtHelper.verifyJwtToken, AdminController.assignAtsignToUser)
+    router.get('/admin/assign-atsign', JwtHelper.verifyJwtToken, AdminController.getAdminAssignedAtsign)
 }
 module.exports = { registerRoutes }
 //----Admin Routes End----

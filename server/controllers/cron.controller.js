@@ -2,6 +2,7 @@
 const CronService = require('./../services/cron.service')
 const GiftUpController = require('./gift-up.controller')
 const UserController = require('./user.controller')
+const TransferAtsignController = require('./transfer-atsign.controller')
 const logError = require('./../config/handleError');
 const axios = require('axios');
 const logger = require('../config/log');
@@ -18,8 +19,11 @@ const isCronExecutable = async function (cron, isForced) {
         case 'past30': return CronService.isCronExecutable('past30', date);
         case 'past60': return CronService.isCronExecutable('past60', date);
         case 'past61': return CronService.isCronExecutable('past61', date);
+        case 'transfer_past30': return CronService.isCronExecutable('past30', date);
+        case 'transfer_past59': return CronService.isCronExecutable('past60', date);
+        case 'transfer_past60': return CronService.isCronExecutable('past61', date);
         case 'promo-code': return CronService.isCronExecutable('promo-code', datetime);
-        case 'secondary': return CronService.isCronExecutable('promo-code', datetime);
+        case 'secondary': return CronService.isCronExecutable('secondary', date);
     }
 }
 const sendRenewalNotificationPre60 = async function (req, res) {
@@ -112,17 +116,69 @@ const sendRenewalNotificationPast61 = async function (req, res) {
         res.status(400).json({ status: 'error', message: 'Cron is either executed or in scheduling state', data: cronExecutableScript.value.data })
     }
 }
+const sendTransferNotificationPast30 = async function (req, res) {
+    const cronExecutableScript = await isCronExecutable('transfer_past30', req.params.forced)
+    if (cronExecutableScript.error) {
+        return res.status(400).json({ status: 'error', message: cronExecutableScript.error.message })
+    }
+    if (cronExecutableScript.value.status === true) {
+        TransferAtsignController.expireAtsignScript('30_DAY_REMINDER')
+            .then(function () {
+                if (cronExecutableScript.value.data && cronExecutableScript.value.data._id) CronService.updateStatus(cronExecutableScript.value.data._id)
+            })
+            .catch(function (error) {
+                logError(error)
+            })
+        return res.status(200).json({ status: 'success', message: 'Executing' })
+    } else {
+        res.status(400).json({ status: 'error', message: 'Cron is either executed or in scheduling state', data: cronExecutableScript.value.data })
+    }
+}
+const sendTransferNotificationPast59 = async function (req, res) {
+    const cronExecutableScript = await isCronExecutable('transfer_past59', req.params.forced)
+    if (cronExecutableScript.error) {
+        return res.status(400).json({ status: 'error', message: cronExecutableScript.error.message })
+    }
+    if (cronExecutableScript.value.status === true) {
+        TransferAtsignController.expireAtsignScript('59_DAY_REMINDER')
+            .then(function () {
+                if (cronExecutableScript.value.data && cronExecutableScript.value.data._id) CronService.updateStatus(cronExecutableScript.value.data._id)
+            })
+            .catch(function (error) {
+                logError(error)
+            })
+        return res.status(200).json({ status: 'success', message: 'Executing' })
+    } else {
+        res.status(400).json({ status: 'error', message: 'Cron is either executed or in scheduling state', data: cronExecutableScript.value.data })
+    }
+}
+const expireTransferPast60 = async function (req, res) {
+    const cronExecutableScript = await isCronExecutable('transfer_past60', req.params.forced)
+    if (cronExecutableScript.error) {
+        return res.status(400).json({ status: 'error', message: cronExecutableScript.error.message })
+    }
+    if (cronExecutableScript.value.status === true) {
+        TransferAtsignController.expireAtsignScript('60_DAY_EXPIRE')
+            .then(function () {
+                if (cronExecutableScript.value.data && cronExecutableScript.value.data._id) CronService.updateStatus(cronExecutableScript.value.data._id)
+            })
+            .catch(function (error) {
+                logError(error)
+            })
+        return res.status(200).json({ status: 'success', message: 'Executing' })
+    } else {
+        res.status(400).json({ status: 'error', message: 'Cron is either executed or in scheduling state', data: cronExecutableScript.value.data })
+    }
+}
 
 const executePromoCodeScript = async function (req, res) {
     const cronExecutableScript = await isCronExecutable('promo-code', req.params.forced)
     if (cronExecutableScript.error) {
         return res.status(400).json({ status: 'error', message: cronExecutableScript.error.message })
     }
-    console.log(cronExecutableScript.value);
     if (cronExecutableScript.value.status === true) {
         GiftUpController.undoAwaitedTransaction()
             .then(function (data) {
-                // console.log(data);
                 if (cronExecutableScript.value.data && cronExecutableScript.value.data._id) CronService.updateStatus(cronExecutableScript.value.data._id)
             })
             .catch(function (error) {
@@ -145,7 +201,6 @@ const getCronDetails = async function (req, res) {
 
 
 const checkSecondaryStarted = async function (atsign) {
-    console.log("checking atsign:"+atsign);
     const result = await axios({
         method: 'post',
         url: process.env.REGISTRAR_CHECK,
@@ -161,33 +216,29 @@ const checkAtsignQueueIndex = async function (atsign, attemptCount) {
         data: { atsign: atsign },
         headers: { authorization: process.env.REGISTRAR_NODE_TOKEN, 'content-type': 'application/json; charset=utf-8' }
     })
-    console.log(result.data,result.status,"result.data,result.status");
     return result.status == 200 && result.data && result.data.data ? result.data.data.index : -1
 }
 const deleteSecondary = async function (atsign) {
-    console.log("deleting atsign:"+atsign);
     const result = axios({
         method: 'post',
         url: process.env.REGISTRAR_DELETE,
         data: { atsign: atsign },
-        headers:{authorization: process.env.REGISTRAR_NODE_TOKEN,'content-type': 'application/json; charset=utf-8'}
+        headers: { authorization: process.env.REGISTRAR_NODE_TOKEN, 'content-type': 'application/json; charset=utf-8' }
     })
-    return 
+    return
 }
 
 const validateSecondaryStarted = async function (atsign, cronValue) {
     let api = ''
-    let checkCountInterval=null
+    let checkCountInterval = null
     try {
         let timeoutTime = 2 * 60 * 1000
         let intervalTime = 1 * 60 * 1000
         setTimeout(async () => {
             api = process.env.REGISTRAR_CHECK;
             const isSecondaryStarted = await checkSecondaryStarted(atsign)
-            console.log(isSecondaryStarted,"isSecondaryStarted");
             if (isSecondaryStarted) {
-                console.log(isSecondaryStarted);
-                api=process.env.REGISTRAR_DELETE
+                api = process.env.REGISTRAR_DELETE
                 await deleteSecondary(atsign)
 
                 if (cronValue.data && cronValue.data._id) CronService.updateStatus(cronValue.data._id)
@@ -200,10 +251,9 @@ const validateSecondaryStarted = async function (atsign, cronValue) {
                         clearInterval(checkCountInterval)
                         throw Error('Unable to start secondary')
                     }
-                    api=process.env.INFRASTRUCTUR_QUEUE_STATUS
+                    api = process.env.INFRASTRUCTUR_QUEUE_STATUS
                     let checkedCount = await checkAtsignQueueIndex(atsign, attemptCount)
                     attemptCount = attemptCount - 1
-                    console.log(checkedCount, "checkedCount");
                     if (checkedCount < currentQueueIndex) {
                         currentQueueIndex = checkedCount
                         attemptCount = 5
@@ -212,12 +262,11 @@ const validateSecondaryStarted = async function (atsign, cronValue) {
                         clearInterval(checkCountInterval)
                         const isSecondaryStarted = await checkSecondaryStarted(atsign)
                         if (isSecondaryStarted) {
-                            console.log(isSecondaryStarted);
-                            api=process.env.REGISTRAR_DELETE
+                            api = process.env.REGISTRAR_DELETE
                             await deleteSecondary(atsign)
                             if (cronValue.data && cronValue.data._id) CronService.updateStatus(cronValue.data._id)
                             return;
-                        }else{
+                        } else {
                             throw Error('Unable to start secondary')
                         }
                     }
@@ -226,7 +275,7 @@ const validateSecondaryStarted = async function (atsign, cronValue) {
             }
         }, timeoutTime);
     } catch (error) {
-        if(checkCountInterval){
+        if (checkCountInterval) {
             clearInterval(checkCountInterval)
         }
         if (error.response) logError(Error(JSON.stringify({ status: error.response.status, statusText: error.response.statusText, api: process.env.REGISTRAR_ASSIGN })))
@@ -251,12 +300,11 @@ const checkSecondary = async function (req, res) {
             api = createSecondaryPayload.url
             const createSecondary = await axios(createSecondaryPayload);
             if (createSecondary.data['QRcode']) {
-                console.log("created");
                 validateSecondaryStarted(createSecondaryPayload.data.atsign, cronExecutableScript.value)
-                res.send({status:'success',message:'Executing'})
+                res.send({ status: 'success', message: 'Executing' })
             } else {
                 logError(Error('Unable to create secondary server'))
-                res.send({status:'error',message:'Unable to create secondary server'})
+                res.send({ status: 'error', message: 'Unable to create secondary server' })
             }
         } else {
             res.status(400).json({ status: 'error', message: 'Cron is either executed or in scheduling state', data: cronExecutableScript.value.data })
@@ -277,5 +325,8 @@ module.exports = {
     sendRenewalNotificationPast61,
     executePromoCodeScript,
     getCronDetails,
-    checkSecondary
+    checkSecondary,
+    sendTransferNotificationPast30,
+    sendTransferNotificationPast59,
+    expireTransferPast60
 }

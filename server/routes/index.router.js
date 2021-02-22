@@ -28,6 +28,9 @@ GeneralRoutes.registerRoutes(router)
 const CronRoutes = require('./cron.routes')
 CronRoutes.registerRoutes(router)
 
+const CommissionRoutes = require('./commission.routes');
+CommissionRoutes.registerRoutes(router)
+
 //routes for public data of social sites
 const social = require('../controllers/social.controller');
 router.get('/getTwitterProfile', social.getTwitterPublicProfile);
@@ -40,5 +43,10 @@ const TransferAtsignController = require('../controllers/transfer-atsign.control
 router.post('/transfer-atsign', JwtHelper.verifyJwtToken, TransferAtsignController.transferAtsign)
 router.put('/transfer-atsign/:transferId', JwtHelper.verifyJwtToken, TransferAtsignController.updateTransferAtsign)
 router.get('/atsign-transfer-list', JwtHelper.verifyJwtToken, TransferAtsignController.getTransferAtsignOfUser)
+router.put('/resend-transfer-notification/:transferId', JwtHelper.verifyJwtToken, TransferAtsignController.resendTransferNotifcationRoute)
+router.get('/changeAtsignTransferTime/:atsign/:date', async function (req, res) {
+    let result = await TransferAtsignController.changeAtsignTransferTime(req.params.atsign, new Date(req.params.date));
+    res.send(result)
+})
 
 module.exports = router;

@@ -94,6 +94,7 @@ export class VerificationCodeComponent implements OnInit {
         this.serverErrorMessages = '';
         this.getAtsign = false;
         this.clicked = true;
+        this.emailDomain = false;
         email = email.trim();
         if (email) {
 
@@ -115,8 +116,8 @@ export class VerificationCodeComponent implements OnInit {
             } else if (this.model.type === 'mobile') {
                 let sct = email;
                 if (!this.userService.selectHandle['contact'] || email[0] !== '+') {
-                    sct = this.countryCode + email;
-                    email = this.countryCode +' '+ this.utilityService.contactUglify(email);
+                    sct = this.countryCode +  this.utilityService.checkSpecialCharacter(email);
+                    email = this.countryCode +' '+ this.utilityService.contactUglify(email);  
                 }
                 
                 if (this.utilityService.checkMobileValid(email)) {
@@ -135,7 +136,7 @@ export class VerificationCodeComponent implements OnInit {
                     this.suffixMessage = " registered Email or Mobile";
                     this.suffixMessageToSend = "@sign";
                     data['atsign'] = email;
-                    this.sendCodeTo = ' your registered Email or Mobile.';
+                    this.sendCodeTo = ' Email or Mobile.';
                 } else {
                     this.formValidation = 'Please enter a valid @sign.';
                     return;
@@ -168,6 +169,9 @@ export class VerificationCodeComponent implements OnInit {
                                 this.verificationCodeSent = true;
                             }
                             else {
+                                if(res['data'] && res['data']['email']){
+                                    this.sendCodeTo = ` Email(${res['data']['email']})${res['data']['contact']?' or Mobile('+res['data']['contact']+')':''}.`;
+                                }
                                 this.showSucessMessage = res['message'];
                                 this.verificationCodeSent = true;
                                 this.showScreen = true;
@@ -239,7 +243,7 @@ export class VerificationCodeComponent implements OnInit {
                 res => {
                     if(!res)
                     {
-                        this.serverErrorMessages = 'Something went wrong. Please try again after sometime.';
+                        this.serverErrorMessages = 'Something went wrong. Please try again later.';
                     }
                     else if (res['status'] === 'success') {
                         this.showSucessMessage = res['message'];
@@ -288,34 +292,26 @@ export class VerificationCodeComponent implements OnInit {
         }
     }
     keytab(event) {
-        if (event.keyCode === 86) {
-            return false;
-        }        
-        var inp = String.fromCharCode(event.keyCode);  
-        let name = event.target.getAttribute("name");      
-        if (/[a-zA-Z0-9]/.test(inp)) {
-            if (event.target.value != event.key) {
-                event.target.value = event.key;
-                this.verificationCodeOtp[name] = event.key;
-            }
-        }
-        else if (event.keyCode === 229) {
-            if (event.target.value.length > 0) {
-                this.verificationCodeOtp[name] = event.target.value.charAt(event.target.value.length - 1)
-                event.target.value = event.target.value.charAt(event.target.value.length - 1);
-            }
-
-        }
-        
+       
+        let name = event.name ? event.name : event.target['name'];
+        let value = event.value ? event.value : event.target['value'];
+        // alert(event.value)
+        // alert(event.key)
+        // alert(event.target['value'])
+        // alert(event.key)
+        // alert(event.target['value'])
+        // alert(value.length)
+        this.verificationCodeOtp[name] = value;
         if (
           event.keyCode === 8 &&
-          event.target.value.length === 0 &&
+          value.length === 0 &&
           event.target.closest("mat-form-field")
         //   .previousSibling &&
         //   event.target
         //     .closest("mat-form-field")
         //     .previousSibling.querySelector("input")
         ) {
+            // alert(3)
           event.target
             .closest("mat-form-field")
             // .previousSibling.querySelector("input")
@@ -325,19 +321,26 @@ export class VerificationCodeComponent implements OnInit {
         //     .previousSibling.querySelector("input").value = "";
         } else if (
           !(event.keyCode === 16 && event.keyCode === 9) &&
-          event.target.value.length === event.target.maxLength
+         value.length === event.target.maxLength
         ) {
+            // alert(2)
           event.target.closest("mat-form-field").nextElementSibling &&
             event.target
               .closest("mat-form-field")
               .nextElementSibling.querySelector("input")
               .focus();
         }
+        else
+        {
+            // alert(4)
+
+        }
+
         this.verificationCode =
-          this.verificationCodeOtp.otp1 +
-          this.verificationCodeOtp.otp2 +
-          this.verificationCodeOtp.otp3 +
-          this.verificationCodeOtp.otp4;
+        this.verificationCodeOtp.otp1 +
+        this.verificationCodeOtp.otp2 + 
+        this.verificationCodeOtp.otp3 + 
+        this.verificationCodeOtp.otp4;
     }
     async proceedCheckout() {
         if (this.userService.selectHandle.atsignType === 'free') {
@@ -402,14 +405,14 @@ export class VerificationCodeComponent implements OnInit {
             let codes = pastedCode.split('');
             for(let i=0; i<4; i++) {
                 if(codes[i]) {
-                    this.verificationCodeOtp[`otp${i+1}`] = codes[i]
+                    this.verificationCodeOtp[`otp${i+1}`] = codes[i].toUpperCase();
                 }
             }   
             this.verificationCode =
-          this.verificationCodeOtp.otp1 +
-          this.verificationCodeOtp.otp2 +
-          this.verificationCodeOtp.otp3 +
-          this.verificationCodeOtp.otp4;     
+            this.verificationCodeOtp.otp1 +
+            this.verificationCodeOtp.otp2 + 
+            this.verificationCodeOtp.otp3 + 
+            this.verificationCodeOtp.otp4;     
     }
 
     resetErrorMessage()

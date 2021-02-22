@@ -1,0 +1,126 @@
+<div class="header">
+  <button class="back-btn" mat-dialog-close>
+    <mat-icon svgIcon="back"></mat-icon>
+  </button>
+  <h2>Manage</h2>
+</div>
+<div class="body">
+  <h3 class="atsign-name mb-4"><span class="at-color">@</span>{{atsign.atsignName}}</h3>
+  <mat-accordion class="manage-atsigns">
+    <mat-expansion-panel [expanded]="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1" *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="d-flex align-items-center"><mat-icon class="size-regular mr-3">power_settings_new</mat-icon> Reset</span>
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <app-reset-atsign [atsign]="atsign" (onAtsignDeactivated)="onDeactivated($event)"></app-reset-atsign>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel  [expanded]="atsign.isActivated !== 2 && atsign.isActivated !== 3">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="d-flex align-items-center"><i aria-hidden="true" class="fa fa-exchange mr-3"></i>Transfer</span>
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p>Transfer your @sign “{{atsign.atsignName}}” to a new owner. Once the new owner accepts the transfer, this action cannot be undone.</p>
+      <div *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1">
+      <div class="mb-2"> <strong>Step 1 - Reset @sign</strong></div> 
+        <app-reset-atsign [atsign]="atsign" (onAtsignDeactivated)="onDeactivated($event, true, 1)"></app-reset-atsign>
+      </div>
+      <!-- <div class="custom-alert-warning mb-3" role="alert"><i class="fa fa-warning"></i> Please reset your @sign before transferring </div> -->
+    <div class="mb-2" *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1"> <strong>Step 2 - Transfer @sign</strong></div> 
+      <form [formGroup]="atsignTransferForm">
+        <div class="d-flex flex-wrap mb-3">
+            <input type="text" class="form-control input-field" formControlName="atsignEmail"
+              (change)="inviteMessage = false" [ngClass]="{ 'is-invalid': submitted && atsignFormControl.atsignEmail.errors }"
+               placeholder="recipient@email.com">
+            <button type="button" class="btn btn-danger ml-sm-3 text-nowrap mt-2 mt-sm-0" appPreventDoubleClick [throttleTime]="3000" (throttledClick)="atsignTransfer(data)"
+                  [disabled]="atsign.payNow || atsign.isActivated!==0" [ngClass]="{'disabled' : atsign.payNow || atsign.isActivated!==0}">Transfer</button>
+        </div>
+        <div *ngIf="submitted && atsignFormControl.atsignEmail.errors" class="invalid-feedback">
+          <div *ngIf="atsignFormControl.atsignEmail.errors.required">Valid Email is required</div>
+        </div>
+      </form>
+      <div class="d-flex mb-3">
+        <div class="text-danger mb-2" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>
+        <div class="text-danger mb-2" *ngIf="inviteMessage">
+          Uh oh, this person doesn't exist in our system yet. Click <span (click)="inviteUser()"
+          class="pointer-cursor acolor">here</span> to invite them. Once this person is active, try again to transfer your @sign.
+          </div>
+        <div class="text-success mb-2" *ngIf="successMessages">
+          {{successMessages}}
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel  >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="d-flex align-items-center"><mat-icon class="size-regular mr-3">delete</mat-icon> Delete</span>
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p *ngIf="atsign.atsignType==='paid'">Purchased @signs cannot be deleted. If you no longer want your @sign “{{atsign.atsignName}}”, you may transfer it or let the renewal expire.</p>
+      <div *ngIf="atsign.atsignType==='free'">
+        <p>Are you sure you want to delete {{'@'+atsign.atsignName}}?</p>
+        <div class="custom-alert-warning mb-3" role="alert"><i class="fa fa-warning"></i> This action deletes this @sign from your account, and cannot be undone. </div>
+        <p>Type “@{{atsign.atsignName}}” to proceed</p>
+
+        <form [formGroup]="deleteForm">
+          <div class="d-flex flex-wrap mb-3">
+              <input type="text" class="form-control input-field" formControlName="atsignName"
+
+                                  placeholder="Please type in the @sign that you want to delete">
+                                  <button type="button" class="btn btn-danger ml-sm-3 text-nowrap  mt-2 mt-sm-0" appPreventDoubleClick [throttleTime]="3000" (throttledClick)="deleteAtsign()">Yes, delete my @sign</button>
+          </div>
+        </form>
+        <div class="d-flex mb-3">
+          <div class="text-danger text-right mb-2" *ngIf="deleteErrorMessage">
+            {{deleteErrorMessage}}
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="activePanelIndex === 2" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="d-flex align-items-center"><fa-icon [icon]="faServer" class="mr-3"></fa-icon>Advance Settings</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1">
+        <div class="mb-2"> <strong>Step 1 - Reset @sign</strong></div> 
+          <app-reset-atsign [atsign]="atsign" (onAtsignDeactivated)="onDeactivated($event, true, 2)"></app-reset-atsign>
+        </div>
+      <div class="mb-2" *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1"> <strong>Step 2 - Settings</strong></div> 
+      <!-- <div class="custom-alert-warning mb-3" role="alert"><i class="fa fa-warning"></i> @sign must be Reset before Advanced Setting can be used </div> -->
+      <form [formGroup]="settingsForm">
+        <div class="form-group row">
+          <label for="domain" class="col-sm-2 col-form-label text-right">Domain</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="domain" placeholder="Domain Name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="port" class="col-sm-2 col-form-label text-right">Port</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" formControlName="port" placeholder="Port Number">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-2 col-form-label text-right"></div>
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-danger text-nowrap" [disabled]="!settingsForm.dirty || settingsForm.invalid || atsign.isActivated!==0" [ngClass]="{ 'disabled': !settingsForm.dirty || settingsForm.invalid }"
+              appPreventDoubleClick [throttleTime]="3000" (throttledClick)="updateSettings()">{{isAdvanceSettingsAvailable() ? 'Update' : 'Activate'}}</button>
+            <button type="button" class="btn btn-danger text-nowrap ml-3" *ngIf="isAdvanceSettingsAvailable()"
+              appPreventDoubleClick [throttleTime]="3000" (throttledClick)="resetSettings()">Reset</button>  
+          </div>
+          </div>
+      </form>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

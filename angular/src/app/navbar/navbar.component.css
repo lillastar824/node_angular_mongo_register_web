@@ -25,6 +25,9 @@ mat-drawer-content {
   margin-left: auto;
   margin-right: auto;
 }
+.navbar.admin-page{
+max-width: 100%;
+}
 .navbar.scrolled {
   padding-top: 15px;
   padding-bottom: 15px;

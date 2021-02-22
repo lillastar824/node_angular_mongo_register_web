@@ -15,10 +15,10 @@
                 </mat-card-subtitle> -->
                 <form #addUserForm="ngForm">
                     <div class="div-heading bb-verify row text-center pt-4">
-                        <div class="col-md-12 text-left">Enter Email of user to be invited(Premium)</div>
-                    <div class="col-md-12 p0 row" *ngFor="let cart of userCart;let i=index; trackBy: trackByFn">
+                        <div class="col-md-12 text-left mb-4 pl-0">Enter Email of user to be invited(Premium)</div>
+                    <div class="col-md-12 p0 row mt-3" *ngFor="let cart of userCart;let i=index; trackBy: trackByFn">
                         <div class="col-md-3 col-6">
-                            <mat-form-field appearance="outline" class="w-100" *ngIf="i===0">
+                            <mat-form-field appearance="outline" class="w-100 admin-mat-form-field" *ngIf="i===0">
                                 <mat-label>Enter Email</mat-label>
                                 <input matInput id="email{{i}}" name="email{{i}}" aria-describedby="email" placeholder="Enter Email"
                                     #email="ngModel" [(ngModel)]="userCart[i].email" required [ngModelOptions]="{updateOn: 'change'}" (change)="checkValidEmail(userCart[i].email,'add')"
@@ -27,7 +27,7 @@
                         </div>
                         <!-- <div class="col-md-7 row p0"> -->
                         <div class="col-md-4 col-6">
-                            <mat-form-field appearance="outline" class="w-100">
+                            <mat-form-field appearance="outline" class="w-100 admin-mat-form-field">
                                 <mat-label>Enter @sign</mat-label>
                                 <input matInput  id="atsignName{{i}}" name="atsignName{{i}}" aria-describedby="atsignName" placeholder="Enter @sign" autocomplete="off" maxlength="255"
                                     #atsignName="ngModel" [(ngModel)]="userCart[i].atsignName" required appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)"
@@ -36,7 +36,7 @@
                             </mat-form-field>
                         </div>
                         <div class="col-md-4 col-6">
-                            <mat-form-field appearance="outline" class="w-100">
+                            <mat-form-field appearance="outline" class="w-100 admin-mat-form-field">
                                 <mat-label>Enter Amount($)</mat-label>
                                 <input matInput type="text" id="payAmount{{i}}" name="payAmount{{i}}" aria-describedby="payAmount"
                                     placeholder="Enter Amount" #payAmount="ngModel" maxlength="5" [(ngModel)]="userCart[i].payAmount" numbersOnly required
@@ -77,9 +77,9 @@
                 <form #inviteUserForm="ngForm">
                     <div class="div-heading bb-verify row text-center">
                         <div class="col-md-12 p0 row">
-                        <div class="col-md-12 text-left">Enter Email of user to be invited(User will choose Free/ Premium)</div>
+                        <div class="col-md-12 text-left mb-4">Enter Email of user to be invited(User will choose Free/ Premium)</div>
                             <div class="col-md-9 col-8">
-                                <mat-form-field appearance="outline" class="w-100" >
+                                <mat-form-field appearance="outline" class="w-100 admin-mat-form-field" >
                                     <mat-label>Enter Email</mat-label>
                                     <input matInput id="inviteEmail" name="inviteEmail" aria-describedby="inviteEmail"
                                         placeholder="Enter Email" #inviteEmail="ngModel" [(ngModel)]="model.inviteEmail" required
@@ -135,6 +135,16 @@
                                     <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn"
                                         title='{{item.atsignName ? item.atsignName : "-"}}' [hidden]="!item.atsignName">
                                         {{item.atsignName ? item.atsignName : "-"}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="transfer">
+                            <mat-header-cell style="max-width: 50px" *matHeaderCellDef mat-sort-header></mat-header-cell>
+                            <mat-cell style="max-width: 50px" *matCellDef="let row" data-label="transfer">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn" [hidden]="!item.atsignName">
+                                        <i aria-hidden="true" class="fa fa-exchange transfer-icon" (click)="transferAtsign(item)"></i>
                                     </div>
                                 </div>
                             </mat-cell>

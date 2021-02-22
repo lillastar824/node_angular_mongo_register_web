@@ -5,6 +5,7 @@ const emailRegex = /^[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-
 const crypto = require('crypto');
 const uuid = require('uuid');
 const User = mongoose.model('User');
+const AtsignDetail = mongoose.model('AtsignDetail');
 const Atsign = mongoose.model('Atsign');
 const Brands = mongoose.model('brands');
 const ReserveAtsigns = mongoose.model('Reserveatsigns');
@@ -110,6 +111,7 @@ const generateInviteCode = function () {
     return hash;
 }
 const countAtsignLength = function(inputStr){
+    if(!inputStr) return 0;
     let temp = inputStr.match(emojiRegex);
     let emojiLength = temp && temp.length ? temp.length : 0;
     let atsignWithoutEmoji = inputStr.replace(emojiRegex, '');
@@ -129,10 +131,16 @@ const checkSignAvailability = async function (input, returnPrice = false, type, 
         if ((!isAdmin && countAtsignLength(atsignName) < 3) || countAtsignLength(atsignName) > 55) {
             return false;
         }
+
+        let isAtsignValidToBuy = await AtsignDetail.countDocuments({atsignName:{ '$regex': `^${atsignName}$`, '$options': 'i' },status:{$nin:['DELETED','TRANSFERRED']}})
+        if(isAtsignValidToBuy && isAtsignValidToBuy > 0) return false
+
+        // 7th feb commented due to atsigndetail //Required reserved atsign
         const user = await User.find({ "atsignDetails.atsignName": { '$regex': `^${atsignName}$`, '$options': 'i' } });
         if (user.length > 0) {
             return false;
         }
+        
         let reserveHandle = await ReserveAtsigns.findOne({ atsignName: { '$regex': `^${atsignName}$`, '$options': 'i' } });
         let alterRes = reserveHandle;
         if (reserveHandle) {
@@ -349,6 +357,15 @@ const escapeRegExp = function (string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
+const makeFileName = (paginationData) => {
+    let fdate = new Date(paginationData['startdate']);
+    let tdate = new Date(paginationData['lastdate']);
+    let fromDate = (fdate.getMonth() + 1) + '-' + fdate.getDate() + '-' + fdate.getFullYear();
+    let toDate = (tdate.getMonth() + 1) + '-' + tdate.getDate() + '-' + tdate.getFullYear();
+    let fileName = paginationData['atsignType'] + '_' + fromDate + '_' + toDate + ".csv";
+    return fileName;
+}
+
 
 module.exports = {
     atSignEmojiOnly,
@@ -376,5 +393,6 @@ module.exports = {
     defaultTimeLeft,
     escapeRegExp,
     countAtsignLength,
-    calculateUTF7Length
+    calculateUTF7Length,
+    makeFileName
 }

@@ -70,7 +70,7 @@ export class CommissionReportsDetailsComponent implements OnInit {
             sortBy: 'name',
             sortOrder: 'asc',
         }
-        this.getCommercialRepotsDetails(data);
+        this.getCommercialReportsDetailsByAtsign(data);
     }
     ngAfterViewInit() {
         this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
@@ -89,7 +89,7 @@ export class CommissionReportsDetailsComponent implements OnInit {
         //         searchTerm: this.input.nativeElement.value ? this.input.nativeElement.value : '',
         //         atsignType: this.atsignType
         //       }
-        //       this.getCommercialRepotsDetails(data)
+        //       this.getCommercialReportsDetailsByAtsign(data)
         //     })
         //   )
         //   .subscribe();
@@ -105,7 +105,7 @@ export class CommissionReportsDetailsComponent implements OnInit {
                 // searchTerm: this.input.nativeElement.value ? this.input.nativeElement.value : '',
                 atsignType: this.atsignType
               }
-              this.getCommercialRepotsDetails(data)
+              this.getCommercialReportsDetailsByAtsign(data)
               // this.loadLessonsPage();
             })
           )
@@ -113,7 +113,7 @@ export class CommissionReportsDetailsComponent implements OnInit {
     
       }
 
-    getCommercialRepotsDetails(data) {
+    getCommercialReportsDetailsByAtsign(data) {
         if (!data) {
             data = {
                 pageNo: this.paginator.pageIndex + 1,
@@ -124,7 +124,7 @@ export class CommissionReportsDetailsComponent implements OnInit {
 
         }
         this.SpinnerService.show();
-        this.userService.getCommercialRepotsDetails(this.paramsId,data).subscribe(
+        this.userService.getCommercialReportsDetailsByAtsign(this.paramsId,data).subscribe(
             res => {
            
                 this.allAtsigns = res['data'] && res['data']['records'] ? res['data']['records'] : [];

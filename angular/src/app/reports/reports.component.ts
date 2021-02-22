@@ -74,10 +74,12 @@ export class ReportsComponent implements OnInit {
             { value: 'all-invite', viewValue: 'All invited users - didn\'t get @signs' },//reserved emails invited state
             { value: 'friend-invite', viewValue : 'All friend invites'},
             { value: 'referred-by', viewValue : 'All home referral'},
+            // { value: 'promo-code', viewValue : 'Giftup Promocode'},
             { value: 'all-10', viewValue : 'All 10$ '},
             { value: 'all-100', viewValue : 'All 100$'},
             { value: 'all-1000', viewValue : 'All 1000$'},
-            { value: 'all-5000', viewValue : 'All 5000$'}
+            { value: 'all-5000', viewValue : 'All 5000$'},
+            { value: 'commercial-atsign', viewValue : 'Commercial Atsign'}
         ];
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
@@ -170,6 +172,10 @@ getViewValueFromKey(key)
                         this.displayedColumns = ['id', 'email', 'contact','freeAtsignCount', 'paidAtsignCount', 'totalAtsignCount','activeCount','inactiveCount', 'invitedCount'];
                     }else if(this.model.atsignType === 'referred-by'){
                         this.displayedColumns = ['id', 'email', 'contact','atsignName','freeAtsignCount', 'paidAtsignCount', 'totalAtsignCount','activeCount','inactiveCount', 'invitedCount'];
+                    }else if(this.model.atsignType === 'promo-code'){
+                        this.displayedColumns = ['id','promocode', 'email', 'atsignName','atsignCreatedOn','amount', 'promocodeAmount'];
+                    }else if(this.model.atsignType === 'commercial-atsign'){
+                        this.displayedColumns = ['id','commercialAtsign', 'email', 'atsignName','payAmount','atsignCreatedOn'];
                     }
                     this.SpinnerService.hide();
                 },

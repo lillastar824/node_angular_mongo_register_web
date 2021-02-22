@@ -65,6 +65,17 @@ let AtsignDetailSchema = new Schema({
     },
     transferId:{
         type:String
+    },
+    assignedByAdmin:{
+        type:String
+    },
+    advanceDetails:{
+        domain:{
+            type:String
+        },
+        port:{
+            type:String
+        }, 
     }
 });
 // ["ACTIVE","TRANSFERRING","DELETED"]

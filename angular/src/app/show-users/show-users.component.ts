@@ -14,6 +14,8 @@ import { UtilityService } from '../shared/services/utility.service'
 import { debounceTime, distinctUntilChanged, startWith, tap, delay } from 'rxjs/operators';
 import { merge, fromEvent } from "rxjs";
 import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { ConfirmDialogComponent } from '../shared/components/confirm-dialog/confirm-dialog.component';
+import { AdminTransferAtsignComponent } from '../app/admin-transfer-atsign/admin-transfer-atsign.component';
 
 export interface UserData { }
 @Component({
@@ -45,7 +47,7 @@ export class ShowUsersComponent implements OnInit {
     model: any = {
         inviteEmail: ''
     }
-    displayedColumns: string[] = ['email', 'userStatus', 'atsignName', 'payAmount', 'orderId', 'inviteLink', 'userRole', 'friendInvite', 'invitedOn', 'atsignCreatedOn', 'inviteCode', 'mobileOtp', 'deleteUser', 'changePassword'];
+    displayedColumns: string[] = ['email', 'userStatus', 'atsignName', 'transfer', 'payAmount', 'orderId', 'inviteLink', 'userRole', 'friendInvite', 'invitedOn', 'atsignCreatedOn', 'inviteCode', 'mobileOtp', 'deleteUser', 'changePassword'];
     displayedColumnsHistoryTable: string[] = ['email', 'contact', 'atsignName', 'atsignType', 'updatedOn'];
     formValidation: boolean = false;
     inviteFormValidation: boolean = false;
@@ -252,65 +254,7 @@ export class ShowUsersComponent implements OnInit {
                 this.checkAtsignAvailability({ atsignName: this.userCart[this.userCart.length - 1].atsignName, atsignType: 'paid', fromAdmin: true }, (res) => {
                     if (res) {
                         this.handleNotAvailable = false;
-                        //console.log(this.userCart)
-                        this.userService.addUser({ userCart: this.userCart }).subscribe(
-                            res => {
-                                if (res['status'] === 'success') {
-                                    this.showErrorMessage = '';
-                                    this.showSucessMessage = true;
-                                    let user = {};
-                                    user['email'] = this.userCart[0].email;
-                                    user["atsignDetails"] = [];
-                                    for (let i = 0; i < this.userCart.length; i++) {
-                                        user["atsignDetails"].push(
-                                            {
-                                                "payAmount": this.userCart[i].payAmount,
-                                                "atsignName": this.userCart[i].atsignName,
-                                                "inviteLink": res['data']['inviteLink']
-
-                                            })
-                                    }
-                                    user['userStatus'] = 'Invited';
-                                    user['userRole'] = 'User';
-                                    user['_id'] = res['data']['_id'];
-                                    user['invitedOn'] = new Date().toISOString();
-                                    this.allUsers['users'].unshift(user);
-                                    this.dataSource = new MatTableDataSource(this.allUsers['users']);
-                                    this.userCart = [{
-                                        email: '',
-                                        atsignName: '',
-                                        payAmount: ''
-                                    }];
-                                    let selBox = document.createElement('textarea');
-                                    selBox.style.position = 'fixed';
-                                    selBox.style.left = '0';
-                                    selBox.style.top = '0';
-                                    selBox.style.opacity = '0';
-                                    selBox.value = res['data']['inviteLink'];
-                                    document.body.appendChild(selBox);
-                                    selBox.focus();
-                                    selBox.select();
-                                    document.execCommand('copy');
-                                    document.body.removeChild(selBox);
-                                    this._snackBar.open('Invite link copied to clipboard and sent to Email', 'x', {
-                                        duration: 15000,
-                                        panelClass: ['custom-snackbar']
-                                    });
-                                    // window.alert('Invite sent successfully')
-                                } else {
-                                    this.showErrorMessage = res['message'];
-                                }
-                                this.SpinnerService.hide();
-                            },
-                            err => {
-                                if (err.status === 422) {
-                                    this.serverErrorMessages = err.error.join('<br/>');
-                                }
-                                else
-                                    this.serverErrorMessages = 'Something went wrong.Please contact admin.';
-                                this.SpinnerService.hide();
-                            }
-                        );
+                        this.addUserOrReserveAtsign({ userCart: this.userCart })
                     } else {
                         this.handleNotAvailable = true;
                         this.SpinnerService.hide();
@@ -323,6 +267,83 @@ export class ShowUsersComponent implements OnInit {
             } else {
                 this.formValidation = true;
             }
+    }
+
+    addUserOrReserveAtsign(userId = null) {
+        let data = { userCart: this.userCart };
+        if(userId) data["userId"] = userId;
+        this.userService.addUser(data).subscribe(
+            res => {
+                if (res['status'] === 'success') {
+                    this.showErrorMessage = '';
+                    this.showSucessMessage = true;
+                    let user = {};
+                    user['email'] = this.userCart[0].email;
+                    user["atsignDetails"] = [];
+                    for (let i = 0; i < this.userCart.length; i++) {
+                        user["atsignDetails"].push(
+                            {
+                                "payAmount": this.userCart[i].payAmount,
+                                "atsignName": this.userCart[i].atsignName,
+                                "inviteLink": res['data']['inviteLink']
+
+                            })
+                    }
+                    user['userStatus'] = 'Invited';
+                    user['userRole'] = 'User';
+                    user['_id'] = res['data']['_id'];
+                    user['invitedOn'] = new Date().toISOString();
+                    this.allUsers['users'].unshift(user);
+                    this.dataSource = new MatTableDataSource(this.allUsers['users']);
+                    this.userCart = [{
+                        email: '',
+                        atsignName: '',
+                        payAmount: ''
+                    }];
+                    let selBox = document.createElement('textarea');
+                    selBox.style.position = 'fixed';
+                    selBox.style.left = '0';
+                    selBox.style.top = '0';
+                    selBox.style.opacity = '0';
+                    selBox.value = res['data']['inviteLink'];
+                    document.body.appendChild(selBox);
+                    selBox.focus();
+                    selBox.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(selBox);
+                    this._snackBar.open('Invite link copied to clipboard and sent to Email', 'x', {
+                        duration: 15000,
+                        panelClass: ['custom-snackbar']
+                    });
+                    // window.alert('Invite sent successfully')
+                } else if(res['status'] === 'error' && res['data']['userId']) {
+                    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+                        width: '90%',
+                        maxWidth: '600px',
+                        backdropClass: 'confirmation-dialog-overlay-backdrop',
+                        panelClass: ['top-center-panel', 'confirmation-dialog-panel'],
+                        data: { title : 'Reserve @sign', confirmMessage: `This user already exists in the system, do you still want to reserve the @sign to the user?`}
+                      });
+                      dialogRef.afterClosed().subscribe(result => {
+                        if (result) {
+                            this.addUserOrReserveAtsign(res['data']['userId'])
+                        }
+                      });
+
+                } else {
+                    this.showErrorMessage = res['message'];
+                }
+                this.SpinnerService.hide();
+            },
+            err => {
+                if (err.status === 422) {
+                    this.serverErrorMessages = err.error.join('<br/>');
+                }
+                else
+                    this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+                this.SpinnerService.hide();
+            }
+        );
     }
     addToCart(email, atsignName, payAmount) {
         this.showErrorMessage = '';
@@ -421,5 +442,15 @@ export class ShowUsersComponent implements OnInit {
     }
     trackByFn(index, item) {
       return index;
+    }
+
+    transferAtsign(atsign) {
+        const dialogRef = this.dialog.open(AdminTransferAtsignComponent, {
+            width: '90%',
+            maxWidth: '600px',
+            backdropClass: 'confirmation-dialog-overlay-backdrop',
+            panelClass: ['top-center-panel', 'confirmation-dialog-panel'],
+            data: atsign
+          });
     }
 }

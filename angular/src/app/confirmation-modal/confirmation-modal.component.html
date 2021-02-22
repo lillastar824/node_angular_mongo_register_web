@@ -4,7 +4,7 @@
     {{data.email ? data.email : (data.name ? data.name : (data.cartData ? '@sign' : (data.atsignData ? '@sign':'')))}}?
   </h4>
 </div>
-  <div class="confirmation-dialog-message text-center mb-5" *ngIf="!data.cartData">
+  <div class="confirmation-dialog-message text-center mb-5 px-4" *ngIf="!data.cartData">
     <div>
       <p>Are you sure you want to delete all details associated with <span
           class="font-weight-bold my-3 d-block">{{data.email ? data.email : (data.name ? data.name : (data.cartData ? '@'+data.cartData.atsignName: (data.atsignData ? '@'+data.atsignData.atsignName:'')))}}</span>
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <div class="confirmation-dialog-message text-center mb-5" *ngIf="data.cartData">
+  <div class="confirmation-dialog-message text-center mb-5 px-4" *ngIf="data.cartData">
     <div>
       <p>Are you sure you want to delete <span
           class="font-weight-bold my-3 d-block">@{{data.cartData ?  data.cartData.atsignName: (data.atsignData ?  data.atsignData.atsignName:'')}}</span>

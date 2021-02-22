@@ -15,7 +15,7 @@
                         <div class="col-md-12">
                     <div class="row flex justify-content-space">
                         <div class="col-md-6 atsign-grid">
-                            <mat-form-field appearance="outline" class="w-100">
+                            <mat-form-field appearance="outline" class="w-100  admin-mat-form-field">
                                 <mat-label>Name</mat-label>
                                 <input  maxlength="256" matInput type="name" id="name" name="name" aria-describedby="name" placeholder="Enter name"
                                     #name="ngModel" [(ngModel)]="model.name" required
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                             <div class="col-md-12 text-danger text-right" *ngIf="formValidation">
-                                Please fill @sign 
+                                Please fill @sign
                             </div>
                             <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
                                 {{showErrorMessage}}
@@ -70,7 +70,7 @@
                             <mat-header-cell *matHeaderCellDef mat-sort-header> @sign Name
                             </mat-header-cell>
                             <mat-cell *matCellDef="let row; let i = index;" data-label="name">
-                                <span *ngIf="!isEdit[i]">{{row.name}}</span> 
+                                <span *ngIf="!isEdit[i]">{{row.name}}</span>
                                 <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
                                     <input matInput maxlength="256" #name="ngModel"
                                     [(ngModel)]="row.name" name="name" required
@@ -109,8 +109,8 @@
                                 </button>
                             </mat-cell>
                         </ng-container>
-                       
-                       
+
+
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                         <mat-row *matRowDef="let row; columns: displayedColumns;">
                         </mat-row>

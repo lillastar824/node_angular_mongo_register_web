@@ -9,7 +9,8 @@ let AwaitedTransactionSchema = new Schema({
     inviteCode:{type:String},
     cartData:[Object],
     orderAmount:Number,
-    completeOrderId:Number
+    completeOrderId:Number,
+    cartAmount:Number
 },{strict:false});
 
 AwaitedTransactionSchema.plugin(timeStamp)

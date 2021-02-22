@@ -1,3 +1,4 @@
+<div class="pricing-drawer-overlay" [ngClass]="{'pricing-drawer-expanded': pricingDrawerExpanded}" (click)="pricingDrawerExpanded = !pricingDrawerExpanded"></div>
 <div>
   <form #premiumSignForm="ngForm">
     <div class="success-message" *ngIf="showSucessMessage">

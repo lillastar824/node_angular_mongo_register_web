@@ -1,0 +1,63 @@
+.confirmation-dialog-title {
+    font: normal normal bold 22px/32px Comfortaa;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .confirmation-dialog-message {
+    font: normal normal normal 18px/20px Comfortaa;
+    letter-spacing: 0px;
+    color: #2d2a26;
+  }
+  .select-button {
+    border: 1px solid #707070;
+    font-family: "Museo Sans Rounded 300";
+    letter-spacing: 0;
+    color: #9a9a9a;
+    background: #fff;
+    border-radius: 3px;
+  }
+  
+  .selected {
+    /* height: 50px;
+    background: #D94D1A 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    border: 1px solid #D94D1A;
+        color: #fff;
+        padding: 0 1.5rem; */
+    text-align: center;
+    font: normal normal normal 16px/1 Comfortaa;
+    letter-spacing: 0px;
+    color: #2d2a26;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .cancelButton {
+    background: #4a4a4a 0% 0% no-repeat padding-box;
+    border-radius: 17px;
+    color: #fff;
+    padding: 8px 32px;
+  }
+  .text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dark-overlay-backdrop {
+    background: #4a4a4a;
+    opacity: 0.85 !important;
+  }
+  .dialog-header{
+    background: #fff;
+    padding: 12px 24px;
+    margin-bottom: 32px;
+  }
+  .dialog-footer{
+    padding: 12px 24px;
+    border-top: 1px solid #d1d1d1;
+  }
+  .modal-offset-padding{
+    margin:-24px;
+  }
+  

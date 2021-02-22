@@ -249,7 +249,7 @@ export class CheckoutComponent implements AfterViewInit, OnDestroy {
 
       let response: any = await this.userService.stripePay({ paymentIntentId: data.paymentIntent.id, user_id: this.userService.selectHandle.user_id || this.userId,transactionId,clientSecret }).toPromise();
       if (!response) {
-        this.showErrorMessage = 'Something went wrong. Please try again after sometime.';
+        this.showErrorMessage = 'Something went wrong. Please try again later.';
         this.SpinnerService.hide();
         this.disableSubmit = false;
       }
@@ -304,7 +304,7 @@ export class CheckoutComponent implements AfterViewInit, OnDestroy {
     this.userService.stripePay(this.orderData).subscribe(
       res => {
         if (!res) {
-          this.showErrorMessage = 'Something went wrong. Please try again after sometime.';
+          this.showErrorMessage = 'Something went wrong. Please try again later.';
           this.SpinnerService.hide();
           this.disableSubmit = false;
         }
@@ -522,6 +522,5 @@ export class CheckoutComponent implements AfterViewInit, OnDestroy {
     return amountAfterPromotion;
 
   }
-
 
 }

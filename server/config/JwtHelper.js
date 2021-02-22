@@ -21,7 +21,8 @@ const adminRoutes = [
     '/api/create-user',
     '/api/send-invite-link',
     '/api/all-transfer-atsign',
-    '/api/admin/transfer-atsign'
+    '/api/admin/transfer-atsign',
+    '/api/admin/assign-atsign',
 ];
 const reportRoutes = [
     '/api/reports/user',
@@ -80,6 +81,7 @@ module.exports.getIdIfExists = (req) => {
 async function verifyRole(req) {
     let role = await userService.getUserRoleById(req._id);
     let originalUrl = req.originalUrl.split('?')[0]
+    if(originalUrl[originalUrl.length-1] == '/') originalUrl = originalUrl.substring(0,originalUrl.length-1)
     let regexUrl = originalUrl.split('/')//.push('*').join('/')
     regexUrl[regexUrl.length - 1] = '*';
     regexUrl = regexUrl.join('/')

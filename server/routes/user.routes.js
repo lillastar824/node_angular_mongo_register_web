@@ -67,10 +67,10 @@ const registerRoutes = function (router) {
         res.send({ status: 'success', message: 'Success' })
     })
 
-    // router.get('/changeAtsignValidTillTime/:atsign/:date',async function(req,res){
-    //     let result = AtsignDetailController.changeAtsignValidTillTime(req.params.atsign,new Date(req.params.date));
-    //     res.send(result)
-    // })
+    router.get('/changeAtsignValidTillTime/:atsign/:date',async function(req,res){
+        let result = await AtsignDetailController.changeAtsignValidTillTime(req.params.atsign,new Date(req.params.date));
+        res.send(result)
+    })
 }
 
 module.exports = {

@@ -6,7 +6,6 @@ const UtilityFunctions = require('../config/UtilityFunctions');
 
 const downlaodFileStructure = function (req, res) {
     const directoryPath = path.join(__dirname, '../csv');
-    console.log(directoryPath);
     fs.readdir(directoryPath, function (err, files) {
         if (err) return res.send({ message: 'Unable to scan directory: ' + err });
         return res.send({ file: files });

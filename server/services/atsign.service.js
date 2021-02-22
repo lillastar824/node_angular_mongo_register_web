@@ -21,7 +21,7 @@ exports.getAllAtsigns = async (paginationData) => {
     let filter ={};
     if(searchTerm){
         filter = {
-            name : {$regex: new RegExp(searchTerm,'i')}
+            name : {$regex: new RegExp(utlity.escapeRegExp(searchTerm),'i')}
         };
     }else{
         filter = {};
@@ -168,7 +168,7 @@ exports.validateFreeCartData = async (userId, cartData) => {
     return { status: 'success'};
 }
 
-const saveFreeCartItem = async (userid, inviteCode, atsignName, index, length, completeOrderId,atsignData) => {
+const saveFreeCartItem = async (userid, inviteCode, atsignName, index, length, completeOrderId,atsignData,assignedByAdmin) => {
     const atsign = {};
     atsign.atsignName = atsignName;
     atsign.atsignCreatedOn = new Date;
@@ -180,7 +180,7 @@ const saveFreeCartItem = async (userid, inviteCode, atsignName, index, length, c
     date.setUTCSeconds(0)
     date.setUTCMilliseconds(0)
     date.setFullYear(date.getFullYear() + 1)
-    await AtsignDetailController.addAtsignDetail({
+    let atsignDetailsObj = {
         "atsignName": atsign.atsignName,
         "atsignType": atsign.atsignType,
         "atsignCreatedOn": atsign.atsignCreatedOn,
@@ -196,8 +196,11 @@ const saveFreeCartItem = async (userid, inviteCode, atsignName, index, length, c
             amount_paid: atsign['payAmount'],
             billing_reason: 'BUY_ATSIGN',
             total: atsign['payAmount'] ? atsign['payAmount'].toFixed(0) : 0
-        }]
-    })
+        }],
+    }
+
+    if(assignedByAdmin) atsignDetailsObj['assignedByAdmin'] = assignedByAdmin
+    await AtsignDetailController.addAtsignDetail(atsignDetailsObj)
     
     let update = {
         "$set": {
@@ -260,7 +263,7 @@ const saveFreeCartItem = async (userid, inviteCode, atsignName, index, length, c
     return ReserveAtsigns.findOneAndDelete({ userid: userid, atsignName: atsignName });
 }
 
-const createFreeOrder = async function (userId, inviteCode, cartData, retryAttempt = 0) {
+const createFreeOrder = async function (userId, inviteCode, cartData,assignedByAdmin, retryAttempt = 0) {
     let createdTransaction = null
     const payAmount = 0, completeOrderId = utlity.generateOrderId();
     try {
@@ -276,14 +279,12 @@ const createFreeOrder = async function (userId, inviteCode, cartData, retryAttem
             atsignName: atsignNames,
             orderId: completeOrderId
         }
-        // console.log(newTransaction, "newTransaction");
         createdTransaction = await Transactions.create(newTransaction)
 
     } catch (err) {
-        // console.log(err.name, err.code);
         if (err.name == 'MongoError' && err.code == '11000' && retryAttempt < 3) {
             retryAttempt = retryAttempt + 1;
-            return createFreeOrder(userId, inviteCode, cartData, retryAttempt);
+            return createFreeOrder(userId, inviteCode, cartData, assignedByAdmin,retryAttempt);
         }
         return { error: err }
     }
@@ -296,9 +297,9 @@ const createFreeOrder = async function (userId, inviteCode, cartData, retryAttem
                     "price": 0
                 })
                 if (i === 0) {
-                    cartItemData[i] = await saveFreeCartItem(userId, inviteCode, cartData[i].atsignName, i, cartData.length, completeOrderId,atsignData);
+                    cartItemData[i] = await saveFreeCartItem(userId, inviteCode, cartData[i].atsignName, i, cartData.length, completeOrderId,atsignData,assignedByAdmin);
                 } else {
-                    cartItemData[i] = await saveFreeCartItem(userId, inviteCode + '_' + i, cartData[i].atsignName, i, cartData.length, completeOrderId,atsignData);
+                    cartItemData[i] = await saveFreeCartItem(userId, inviteCode + '_' + i, cartData[i].atsignName, i, cartData.length, completeOrderId,atsignData,assignedByAdmin);
                 }
             }
             return { value: { order: createdTransaction, cartItemData } }

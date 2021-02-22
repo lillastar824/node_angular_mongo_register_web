@@ -9,17 +9,17 @@
         (change)="inviteMessage = false" [ngClass]="{ 'is-invalid': submitted && atsignFormControl.atsignEmail.errors }"
         type="text" />
       <div *ngIf="submitted && atsignFormControl.atsignEmail.errors" class="invalid-feedback">
-        <div *ngIf="atsignFormControl.atsignEmail.errors.required">Email is required</div>
+        <div *ngIf="atsignFormControl.atsignEmail.errors.required">Valid Email is required</div>
       </div>
     </div>
-    <div class="col-md-12 text-danger text-right mb-2" *ngIf="serverErrorMessages">
+    <div class="col-md-12 text-danger mb-2" *ngIf="serverErrorMessages">
       {{serverErrorMessages}}
     </div>
-    <div class="col-md-12 text-danger text-right mb-2" *ngIf="inviteMessage">
+    <div class="col-md-12 text-danger mb-2" *ngIf="inviteMessage">
       Uh oh, this person doesn't exist in our system yet. Click <span (click)="inviteUser()"
       class="pointer-cursor acolor">here</span> to invite them. Once this person is active, try again to transfer your @sign.
       </div>
-    <div class="col-md-12 text-success text-right mb-2" *ngIf="successMessages">
+    <div class="col-md-12 text-success mb-2" *ngIf="successMessages">
       {{successMessages}}
     </div>
     <div class="form-group col-12">

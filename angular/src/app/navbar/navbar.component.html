@@ -54,12 +54,15 @@
             [ngClass]="{'active':currentRoute==='/reservedatsigns'}">
             <mat-icon svgIcon="create"></mat-icon>Reserved @signs
           </button></li>
+        <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/assign-atsigns'"
+            [ngClass]="{'active':currentRoute==='/assign-atsigns'}">
+            <mat-icon svgIcon="create"></mat-icon>Assign @signs
+          </button></li>
         <li *ngIf="isAdmin"><button class="btn nav-menu-item" (click)="drawer.close()" [routerLink]="'/userlog'"
             [ngClass]="{'active':currentRoute==='/userlog'}">
             <mat-icon>visibility</mat-icon>Logs
           </button></li>
-        <li *ngIf="isAdmin || isAdminReport"><button class="btn nav-menu-item" (click)="drawer.close();changePassword()"
-            [ngClass]="{'active':currentRoute==='/reservedatsigns'}">
+        <li *ngIf="isAdmin || isAdminReport"><button class="btn nav-menu-item" (click)="drawer.close();changePassword()">
             <mat-icon >settings</mat-icon>Change Password
           </button></li>
         <li><button class="btn nav-menu-item" (click)="drawer.close();onLogout()">
@@ -95,8 +98,8 @@
       </div>
 
   </div>
-    <mat-toolbar class="navbar inner-navbar" (scroll)="scrollMe($event)" *ngIf="showToolbar">
-      <mat-toolbar-row class="navbar-logo" style="height: auto;">
+    <mat-toolbar class="navbar inner-navbar" (scroll)="scrollMe($event)" *ngIf="showToolbar" [ngClass]="{'admin-page' :isAdmin }">
+      <mat-toolbar-row class="navbar-logo" style="height: auto;" >
         <div class="flex-grow-1">
           <!--tbd && !userService.showTimer -->
           <button *ngIf="showNavbar" class="btn px-0 three-dots" (click)="drawer.toggle()">

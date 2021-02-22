@@ -13,6 +13,7 @@ color: #4A4A4A;
 .otp-input{
   width: 65px;
 }
+
 .timer-duration{
   display: inline-flex;
   min-width: 55px;
@@ -29,3 +30,4 @@ color: #4A4A4A;
     margin-right: auto;
   }
 }
+

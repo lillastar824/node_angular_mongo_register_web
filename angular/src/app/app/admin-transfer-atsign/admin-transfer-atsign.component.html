@@ -1,0 +1,37 @@
+<div mat-dialog-content>
+    <div *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1">
+        <div class="mb-2"> <strong>This @sign is active, you can not transfer. Please contact user to reset.</strong>
+        </div>
+    </div>
+    <form [formGroup]="atsignTransferForm" *ngIf="!atsign.isActivated || atsign.isActivated === 0">
+        <p>Transfer @sign “{{atsign.atsignName}}” to a new owner.</p>
+        <div class="d-flex mb-3">
+            <input type="text" class="form-control input-field" formControlName="atsignEmail"
+                (change)="inviteMessage = false"
+                [ngClass]="{ 'is-invalid': submitted && atsignFormControl.atsignEmail.errors }"
+                placeholder="recipient@email.com">
+            <button type="button" class="btn btn-danger ml-sm-3 text-nowrap mt-2 mt-sm-0" appPreventDoubleClick
+                [throttleTime]="3000" (throttledClick)="atsignTransfer(data)"
+                [disabled]="atsign.payNow || atsign.isActivated!==0"
+                [ngClass]="{'disabled' : atsign.payNow || atsign.isActivated!==0}">Transfer</button>
+        </div>
+        <div *ngIf="submitted && atsignFormControl.atsignEmail.errors" class="invalid-feedback">
+            <div *ngIf="atsignFormControl.atsignEmail.errors.required">Valid Email is required</div>
+        </div>
+    </form>
+    <div class="d-flex mb-3">
+        <div class="text-danger mb-2" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+        </div>
+        <div class="text-danger mb-2" *ngIf="inviteMessage">
+            Uh oh, this person doesn't exist in our system yet. Click <span (click)="inviteUser()"
+                class="pointer-cursor acolor">here</span> to invite them. Once this person is active, try again to
+            transfer your
+            @sign.
+        </div>
+        <div class="text-success mb-2" *ngIf="successMessages">
+            {{successMessages}}
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>

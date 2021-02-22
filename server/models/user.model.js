@@ -92,6 +92,9 @@ const userSchema = new mongoose.Schema({
             type: Number,
             default: 0
         },
+        activationTime:{
+            type:Date
+        },
         transferId: {
             type: String
         }

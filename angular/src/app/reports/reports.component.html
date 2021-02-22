@@ -93,12 +93,55 @@
                                 title=' '> {{ (i+1) + (atsignsPaginator.pageIndex * atsignsPaginator.pageSize) }}
                             </mat-cell>
                         </ng-container>
-                        <ng-container matColumnDef="atsignName">
+                        <ng-container matColumnDef="promocode">
+                            <mat-header-cell style="max-width: 70px" *matHeaderCellDef mat-sort-header> Promocode
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 70px" *matCellDef="let row;" data-label="promocode"
+                                title='{{ row.promocode }}'> {{ row.promocode }}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="commercialAtsign">
+                            <mat-header-cell style="max-width: 300px" *matHeaderCellDef mat-sort-header> Commercial @sign
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 300px" *matCellDef="let row;" data-label="commercialAtsign"
+                                title='{{ row.commercialAtsign }}'> {{ row.commercialAtsign }}
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="atsignName"  *ngIf="model.atsignType !== 'commercial-atsign'">
                             <mat-header-cell style="max-width: 300px" *matHeaderCellDef mat-sort-header> @sign Name
                             </mat-header-cell>
                             <mat-cell style="max-width: 300px" *matCellDef="let row" data-label="atsignName"
                                 title='{{row.atsignName ? row.atsignName : "-"}}'>
                                 {{row.atsignName ? row.atsignName : "-"}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsignName"  *ngIf="model.atsignType === 'commercial-atsign'">
+                            <mat-header-cell style="max-width: 300px" *matHeaderCellDef mat-sort-header> @sign Name
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 300px" *matCellDef="let row" data-label="atsignName">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn"
+                                    title='{{item.atsignName ? item.atsignName : "-"}}' [hidden]="!item.atsignName">
+                                        {{item.atsignName ? item.atsignName : '-'}}
+                                    </div>
+                                </div>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="amount">
+                            <mat-header-cell style="max-width: 300px" *matHeaderCellDef mat-sort-header>Transaction Amount
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 300px" *matCellDef="let row" data-label="amount"
+                                title='{{row.amount}}'>
+                                {{row.amount}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="promocodeAmount">
+                            <mat-header-cell style="max-width: 300px" *matHeaderCellDef mat-sort-header> Promocode Amount
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 300px" *matCellDef="let row" data-label="promocodeAmount"
+                                title='{{row.promocodeAmount ? row.promocodeAmount : "-"}}'>
+                                {{row.promocodeAmount ? row.promocodeAmount : "-"}}
                             </mat-cell>
                         </ng-container>
                         <ng-container matColumnDef="email">
@@ -119,11 +162,23 @@
                             <mat-cell style="max-width: 350px" *matCellDef="let row" data-label="userStatus"
                                 title='{{row.userStatus}} '> {{row.userStatus ? row.userStatus : '-'}} </mat-cell>
                         </ng-container>
-                        <ng-container matColumnDef="payAmount">
+                        <ng-container matColumnDef="payAmount" *ngIf="model.atsignType !== 'commercial-atsign'">
                             <mat-header-cell style="max-width: 90px" *matHeaderCellDef mat-sort-header> Amount
                             </mat-header-cell>
                             <mat-cell style="max-width: 90px" *matCellDef="let row" data-label="payAmount" title='{{row.payAmount ? row.payAmount : "-"}}'>
                                         {{row.payAmount ? '$' + row.payAmount.toFixed(2) : '-'}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="payAmount" *ngIf="model.atsignType === 'commercial-atsign'">
+                            <mat-header-cell style="max-width: 90px" *matHeaderCellDef mat-sort-header> Amount
+                            </mat-header-cell>
+                            <mat-cell style="max-width: 90px" *matCellDef="let row" data-label="payAmount">
+                                <div>
+                                    <div *ngFor="let item of row.atsignDetails; index as i; trackBy: trackByFn"
+                                    title='{{item.payAmount ? item.payAmount : "-"}}' [hidden]="!item.atsignName">
+                                        {{item.payAmount ? '$' + item.payAmount.toFixed(2) : '-'}}
+                                    </div>
+                                </div>
                             </mat-cell>
                         </ng-container>
                         <ng-container matColumnDef="premiumAtsignType">

@@ -16,7 +16,7 @@
     <div class="panel-body">
       <div class="d-flex align-items-center">
         <div class="flex-grow-1 pr-3">
-          <mat-form-field class="d-block w-100 mb-3  hasTelInput verification-tel-input"
+          <mat-form-field class="d-block w-100 mb-3"
             *ngIf="data.contactVerified && !changeContact" appearance="outline">
             <mat-label>Phone Number</mat-label>
             <input matInput placeholder='5555555555' name="contact" [(ngModel)]="data.combinedContactNumber" #contact="ngModel"
@@ -37,10 +37,14 @@
             (click)="changeContact = !changeContact;verificationCode = null;verificationCodeOtp.otp1= null;verificationCodeOtp.otp2= null;verificationCodeOtp.otp3= null;verificationCodeOtp.otp4= null;">
             <i class="fa fas fa-edit"></i>
           </button></div>
+        <!-- <div *ngIf="data.contactVerified && data.combinedContactNumber" ><button type="button" class="btn edit-btn p-0 ml-2"
+            (click)="deleteContact()">
+            <i class="fa fas fa-trash"></i>
+          </button></div> -->
       </div>
       <div class="info-message" *ngIf="changeContact"><i class="fa fa-exclamation-triangle" style="color:#EFD282"></i>
         Changes must be verified. <a  [routerLink]="'/dashboard'" mat-dialog-close class="pull-right standard-color">Skip for now</a></div>
-        
+
     </div>
   </div>
   <div class="mt-3" *ngIf="contactVerificationCodeSent && changeContact">
@@ -53,23 +57,23 @@
     </div>
     <div class="d-flex flex-sm-row align-items-center mb-4 justify-content-md-center">
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp1" required aria-label="otp digit 1" #otp1="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp1" required aria-label="otp character 1" #otp1="ngModel"
           [(ngModel)]="verificationCodeOtp.otp1" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
       </mat-form-field>
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp2" required aria-label="otp digit 2" #otp2="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp2" required aria-label="otp character 2" #otp2="ngModel"
           [(ngModel)]="verificationCodeOtp.otp2" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
       </mat-form-field>
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp3" required aria-label="otp digit 3" #otp3="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp3" required aria-label="otp character 3" #otp3="ngModel"
           [(ngModel)]="verificationCodeOtp.otp3" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
       </mat-form-field>
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp4" required aria-label="otp digit 4" #otp4="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp4" required aria-label="otp character 4" #otp4="ngModel"
           [(ngModel)]="verificationCodeOtp.otp4" (keyup.enter)="verificationVerifyOTP(data.contact, 'contact')">
       </mat-form-field>
     </div>
@@ -126,23 +130,23 @@
     </div>
     <div class="d-flex flex-sm-row align-items-center mb-4 justify-content-md-center">
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp1" required aria-label="otp digit 1" #otp1="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp1" required aria-label="otp character 1" #otp1="ngModel"
           [(ngModel)]="verificationCodeOtp.otp1" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
       </mat-form-field>
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp2" required aria-label="otp digit 2" #otp2="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp2" required aria-label="otp character 2" #otp2="ngModel"
           [(ngModel)]="verificationCodeOtp.otp2" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
       </mat-form-field>
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp3" required aria-label="otp digit 3" #otp3="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp3" required aria-label="otp character 3" #otp3="ngModel"
           [(ngModel)]="verificationCodeOtp.otp3" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
       </mat-form-field>
       <mat-form-field appearance="outline" class="mr-3 text-center otp-input">
-        <input autocomplete="off"  id="codeInput" matInput (keyup)="keytab($event)" 
-          maxlength="1" (paste)="onOTPPaste($event)" name="otp4" required aria-label="otp digit 4" #otp4="ngModel"
+        <input appOTPInput autocomplete="off"  id="codeInput" matInput (onOTPInputHandle)="keytab($event)" (keyup)="keytab($event)"
+          maxlength="1" (paste)="onOTPPaste($event)" name="otp4" required aria-label="otp character 4" #otp4="ngModel"
           [(ngModel)]="verificationCodeOtp.otp4" (keyup.enter)="verificationVerifyOTP(data.email, 'email')">
       </mat-form-field>
     </div>

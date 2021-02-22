@@ -1,6 +1,7 @@
 const AtsignDetailService = require('./../services/atsign-detail.service');
+const { CONSTANTS } = require('./../config/const')
 const moment = require('moment')
-const PAYMENT_EXTENSION_DAYS = 60;
+const { PAYMENT_EXTENSION_DAYS, RENEWAL_PAYMENT_VALID_BEFORE_DAYS } = CONSTANTS
 
 const checkAtsignIsPayable = async function (atsign) {
     const { error, value } = await AtsignDetailService.getAtsignDetails(atsign)
@@ -8,11 +9,13 @@ const checkAtsignIsPayable = async function (atsign) {
     if (!value) return { value: { status: false, atsignDetail: null } }
     let currentDate = new Date()
     let lastPaymentDetails = value.paymentDetails[value.paymentDetails.length - 1]
-    let lastPaymentValidFrom = new Date(lastPaymentDetails.period_start)
+    // let lastPaymentValidFrom = new Date(lastPaymentDetails.period_start)
     let lastPaymentValidTill = new Date(lastPaymentDetails.period_end)
+    let paymentValidFromDate = moment(lastPaymentValidTill).utc().subtract(RENEWAL_PAYMENT_VALID_BEFORE_DAYS, 'days').toDate()
     let lastPaymentValidTillWithExt = moment(lastPaymentValidTill).utc().add(PAYMENT_EXTENSION_DAYS, 'days').toDate()
     if (value.atsignType == 'free') return { value: { status: false, atsignDetail: value } }
-    if (currentDate >= lastPaymentValidFrom && currentDate <= lastPaymentValidTillWithExt) {
+    // if (currentDate >= lastPaymentValidFrom && currentDate <= lastPaymentValidTillWithExt) {
+    if (currentDate >= paymentValidFromDate && currentDate <= lastPaymentValidTillWithExt) {
         return { value: { status: true, atsignDetail: value } }
     }
     return { value: { status: false, atsignDetail: value } }
@@ -51,10 +54,13 @@ const cancelAtsignTransfer = async function (atsign, transferId) {
     const { error, value } = await AtsignDetailService.cancelAtsignTransfer(atsign, transferId)
     return { error, value }
 }
+const getAtsignDetails = async function (atsign,status) {
+    const { error, value } = await AtsignDetailService.getAtsignDetails(atsign,status)
+    return { error, value }
+}
 
 const completeAtsignTransfer = async function (userId, transferredTo, atsign, transferId) {
     const { error, value } = await AtsignDetailService.markAtsignTransferred(userId, atsign, transferId)
-    console.log("value",userId, atsign, transferId,value);
     if (value && value._id) {
         let date = (new Date())
         date.setUTCHours(0)
@@ -67,7 +73,7 @@ const completeAtsignTransfer = async function (userId, transferredTo, atsign, tr
             "atsignType": value.atsignType,
             "atsignCreatedOn": value.atsignCreatedOn,
             "premiumAtsignType": value.premiumAtsignType,
-            "payAmount": value.payAmount?value.payAmount:0,
+            "payAmount": value.payAmount ? value.payAmount : 0,
             "lastPaymentValidFrom": new Date(),
             "userId": transferredTo,
             'lastPaymentValidTill': date,
@@ -76,7 +82,7 @@ const completeAtsignTransfer = async function (userId, transferredTo, atsign, tr
             'paymentDetails': [{
                 period_start: new Date(),
                 period_end: date,
-                amount_paid: value.payAmount?value.payAmount:0,
+                amount_paid: value.payAmount ? value.payAmount : 0,
                 billing_reason: 'BUY_ATSIGN',
                 total: value.payAmount ? value.payAmount : 0
             }],
@@ -97,12 +103,50 @@ const completeAtsignTransfer = async function (userId, transferredTo, atsign, tr
 
 }
 
+const markAtsignAsDeleted = async function (atsign) {
+    const { error, value } = await AtsignDetailService.markAtsignAsDeleted(atsign)
+    if (error) {
+        return { error }
+    } else {
+        return value ? { value } : { error: "Oops, @sign doesn't exists." }
+    }
+}
 
 
+const getAdminAssignedAtsign = async function (filter, sortBy, pageNo, limit) {
+    try {
+        const AdminAssignedAtsignPromise = await Promise.all([AtsignDetailService.getAdminAssignedAtsign(filter, sortBy, pageNo, limit), AtsignDetailService.countAdminAssignedAtsign(filter)])
+        let error = AdminAssignedAtsignPromise[0].error || AdminAssignedAtsignPromise[1].error
+        if (error) {
+            return { error }
+        }
+        else {
+            return {
+                value: {
+                    records: AdminAssignedAtsignPromise[0].value,
+                    total: AdminAssignedAtsignPromise[1].value,
+                    pageNo,
+                    limit
+                }
+            }
+        }
 
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
+    }
+}
 
+const updateAdvanceSetting = async function (userId,atsign,domain,port) {
+    const { error, value } = await AtsignDetailService.updateAdvanceSetting(userId,atsign,domain,port)
+    if (error) {
+        return { error }
+    } else {
+        return value ? { value } : { error: "Oops, @sign doesn't exists." }
+    }
+}
 
 module.exports = {
+    getAtsignDetails,
     checkAtsignIsPayable,
     payAtsignRenewalFees,
     addAtsignDetail,
@@ -111,5 +155,8 @@ module.exports = {
     changeAtsignValidTillTime,
     initializeAtsignTransfer,
     completeAtsignTransfer,
-    cancelAtsignTransfer
+    cancelAtsignTransfer,
+    markAtsignAsDeleted,
+    getAdminAssignedAtsign,
+    updateAdvanceSetting
 }

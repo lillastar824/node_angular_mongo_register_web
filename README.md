@@ -91,5 +91,3 @@ https://www.npmjs.com/package/npm-license-crawler
 npm i npm-license-crawler -g
 - npm-license-crawler --production --onlyDirectDependencies --dependencies --csv licenses.csv
 
-
--- Build date 01/28

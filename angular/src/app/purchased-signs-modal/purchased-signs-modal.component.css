@@ -50,30 +50,32 @@
 }
 .body th {
   background: #efefef;
-  padding: 8px 16px;
+  padding: 8px 8px;
 }
 .body td {
-  font: normal normal normal 18px/32px Muli;
-  letter-spacing: 0px;
-  color: #4a4a4a;
-  vertical-align: top;
-  padding: 24px 0 24px 16px;
+
+  font: normal normal 600 13px/32px Muli;
+letter-spacing: 0px;
+color: #4A4A4A;
+padding: 16px 8px;
+  /* vertical-align: top; */
+  /* padding: 24px 0 24px 16px; */
 }
 .body td:last-child {
-  padding-right: 16px;
+  /* padding-right: 16px; */
 }
 .atsign-name {
-  font: normal normal normal 18px/1 Comfortaa;
+  font: normal normal bold 15px/1.25 Muli;
   letter-spacing: 0px;
-  color: #4a4a4a;
-  margin-bottom: 15px;
+  color: #4A4A4A;
+  /* margin-bottom: 0; */
   word-break: break-all;
 }
-.body thead th:first-child {
+/* .body thead th:first-child {
   font: normal normal bold 22px/32px Comfortaa;
   letter-spacing: 0px;
   color: #2d2a26;
-}
+} */
 .body tbody tr {
   border-bottom: 1px solid #c3c3c3;
 }
@@ -81,22 +83,18 @@
   border-top: 1px solid #c3c3c3;
 }
 .body thead th {
-  font: normal normal normal 15px/32px Muli;
-  letter-spacing: 0px;
-  color: #4a4a4a;
+
+  font: normal normal normal 14px/32px Muli;
+letter-spacing: 0px;
+color: #4A4A4A;
 }
 .btn-activate {
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #aaaaaa;
+  background: #F05E3E 0% 0% no-repeat padding-box;
   border-radius: 3px;
-  text-align: center;
-  font: normal normal bold 11px/21px Muli;
-  letter-spacing: 0px;
-  color: #9a9a9a;
-  text-transform: uppercase;
-  padding: 7px 18px;
-  min-width: 100px;
-  white-space: nowrap;
+  font: normal normal 600 13px/1 Muli;
+letter-spacing: 0px;
+color: #FFFFFF;
+white-space: nowrap;
 }
 
 .btn-activate.activated {
@@ -159,7 +157,7 @@
 .no-atsign-msg {
   font-size: 16px;
   font-family: Muli;
-  color: #f05e3e;
+  color: black;
   line-height: 1.2;
 }
 .create-atsign-btn {
@@ -183,6 +181,7 @@
   font: normal normal normal 15px/32px Muli;
   letter-spacing: 0px;
   color: #4a4a4a;
+  white-space: nowrap;
 }
 .textColor {
   color: #f05e3e;
@@ -190,7 +189,7 @@
   cursor: pointer;
 }
 
-.transfered-atsign-label {
+.transferred-atsign-label {
   color: green;
   border: 1px solid green;
   font-size: 10px;
@@ -229,6 +228,10 @@
   }
 }
 @media screen and (max-width:376px){
+  .table-zoom-55
+  {
+    zoom: 55%;
+  }
   .btn-grey,.btn-activate,.btn-transfer{
     padding-left: 10px;
     padding-right: 10px;
@@ -249,4 +252,91 @@
   .annual-fee-text {
     padding: 30px 60px;
   }
+}
+
+
+.hide-free{
+  font: normal normal bold 13px/1 Muli;
+letter-spacing: 0px;
+color: #F05E3E;
+}
+.manage-btn{
+  background: #EFEFEF 0% 0% no-repeat padding-box;
+    border: 1px solid #C3C3C3;
+    border-radius: 3px;
+    font: normal normal 600 13px/1 Muli;
+    letter-spacing: 0px;
+    color: #2D2A26;
+}
+
+.dollar-sign{
+  font-size: 16px;
+  color: #DBB54C;
+}
+.atsign-activated{
+  color: #199188;
+  line-height: 1;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.free-type{
+  color: #808080;
+}
+
+.actions-dropdown-btn{
+  border: 1px solid #AAAAAA;
+  border-radius: 3px;
+  padding: 8px 16px;
+  font: normal normal 600 13px/1 Muli;
+  letter-spacing: 0px;
+  color: #2D2A26;
+}
+.transfer-completed{
+  color: #199188;
+}
+.transfer-pending{
+  color: #808080;
+}
+.transfer-in,
+.transfer-out{
+  color: #2D2A26;
+}
+.transfer-out .mat-icon{
+  color: #F05E3E;
+}
+.incoming-table th:last-child{
+  width:160px;
+}
+.accept-btn{
+  background: #199188;
+    border: 1px solid #199188;
+    border-radius: 3px;
+    font: normal normal 600 13px/1 Muli;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+.reject-btn{
+  background: transparent;
+  border: 1px solid #D51D1D;
+  border-radius: 3px;
+  font: normal normal 600 13px/1 Muli;
+  letter-spacing: 0px;
+  color: #D51D1D;
+}
+::ng-deep .custom-tooltip {
+  margin-bottom: 6px !important;
+  padding: 6px 8px;
+  font: normal normal 400 12px/1 Muli!important;
+  color: #FFFFFF;
+  background-color: #4A4A4A;
+}
+.btn.btn-disabled {
+  background: transparent;
+  border: 1px solid #4c4141;
+  border-radius: 3px;
+  font: normal normal 600 13px/1 Muli;
+  letter-spacing: 0px;
+  color: #4c4141;
 }

@@ -208,6 +208,9 @@
   color: #4a4a4a;
   word-break: break-all;
 }
+.free-atsign-checkout .cart-item-name{
+  grid-column: -1/1;
+}
 .cart-item-price {
   font: normal normal normal 18px/32px Muli;
   letter-spacing: 0px;

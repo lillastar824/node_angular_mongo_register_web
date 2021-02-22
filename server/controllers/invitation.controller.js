@@ -23,10 +23,11 @@ exports.sendInviteLink = async (req, res) => {
     }
 }
 
-module.exports.addUser = async (req, res) => {
+module.exports.addUserAtsign = async (req, res) => {
+    // req.body.userId =  "6022c663a3aa23a995b350a9"
     let cartData = req.body.userCart;
     let origin = req.headers.origin;
-    let data = await userService.addUser(cartData,origin);
+    let data = await userService.addUserAtsign(cartData,origin,req.body.userId);
     if (data.status === 'logError') {
         res.status(400).send(data.message);
         logError(data.message,req);

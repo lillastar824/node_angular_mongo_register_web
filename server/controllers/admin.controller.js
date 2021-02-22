@@ -6,12 +6,13 @@ const { messages } = require('../config/const');
 const logError = require('../config/handleError');
 const CommissionController = require('../controllers/commission.controller');
 const TransferAtsignController = require('../controllers/transfer-atsign.controller');
+const AtsignDetailController = require('../controllers/atsign-detail.controller');
 const GiftUpController = require('../controllers/gift-up.controller');
 const { fstat ,createReadStream , createWriteStream} = require('fs');
 const AtsignConfigsController = require('../controllers/atsignconfigs.controller');
 const InvitationController = require('../controllers/invitation.controller');
 const UserController = require('../controllers/user.controller');
-
+const PaymentController = require('./../controllers/payment.controller')
 
 module.exports.getAllUsers = async (req, res) => {
     let paginationData = {};
@@ -42,7 +43,13 @@ module.exports.getUsersForReport = async (req, res) => {
     paginationData['startdate'] = startdate;
     paginationData['lastdate'] = lastdate;
     paginationData['csv'] = req.body.csv;
-    let data = await reportsService.getUsersForReport(paginationData);
+    let data = null
+    if(paginationData['atsignType'] === 'promo-code'){
+        data = await PaymentController.getPromoCodeReport(paginationData);
+    }else{
+        data = await reportsService.getUsersForReport(paginationData);
+    }
+    
     if (paginationData['csv'] === 'all') {
         res.setHeader('content-type', 'text/csv');
         res.setHeader('content-disposition', 'attachment; filename='+data.fileName);
@@ -215,6 +222,11 @@ exports.getCommercialAtsignCommissionDetails = async (req, res) => {
     let pageNo = req.query.pageNo && Number(req.query.pageNo) > 0 ? Number(req.query.pageNo) : 1
     let limit = req.query.limit && Number(req.query.limit) > 0 ? Number(req.query.limit) : 10
     let filter = req.query.searchTerm ? { atsign: { '$regex': `^${req.query.searchTerm}`, '$options': 'i' } } : null
+    if(req.query.fromDate || req.query.endDate){
+        filter['createdAt'] = {}
+        if(req.query.fromDate){filter['createdAt'] = {$gte:new Date(req.query.fromDate)}}
+        if(req.query.fromDate){filter['createdAt'] = {$lte:new Date(req.query.endDate)}}
+    }
     let sortBy = req.query.sortBy ? { [req.query.sortBy]: req.query.sortOrder == 'desc' ? -1 : 1 } : null
     let { error, value } = await CommissionController.getCommercialAtsignCommissionDetails(filter, sortBy, pageNo, limit);
     if (value) {
@@ -231,13 +243,13 @@ exports.getCommercialAtsignCommissionDetails = async (req, res) => {
 
 // get atsign reports details... 
 
-exports.getCommercialRepotsDetails = async (req, res) => {
+exports.getCommercialReportsDetailsByAtsign = async (req, res) => {
     let atsign = req.params.atsign;
     let pageNo = req.query.pageNo && Number(req.query.pageNo) > 0 ? Number(req.query.pageNo) : 1
     let limit = req.query.limit && Number(req.query.limit) > 0 ? Number(req.query.limit) : 10
     let sortBy = req.query.sortBy ? { [req.query.sortBy]: req.query.sortOrder == 'desc' ? -1 : 1 } : null
 
-    let { error, value } = await CommissionController.getCommercialRepotsDetails(atsign, limit, pageNo, sortBy);
+    let { error, value } = await CommissionController.getCommercialReportsDetailsByAtsign(atsign, limit, pageNo, sortBy);
     if (value) {
         return res.status(200).json({ status: 'success', message: messages.SUCCESSFULLY, data: value })
     } else {
@@ -322,15 +334,14 @@ exports.getAllTransferAtsigns = async (req, res) => {
 exports.sendInviteLink = async (req,res) => {
     InvitationController.sendInviteLink(req,res);
 }
-exports.addUser = async (req,res) => {
-    InvitationController.addUser(req,res);
+exports.addUserAtsign = async (req,res) => {
+    InvitationController.addUserAtsign(req,res);
 }
 exports.transferUserAtsign = async (req,res) => {
     if(!req.body.email || !req.body.atsign) return res.send({status:'error',message:messages.INVALID_REQ_BODY})
     
     const atsignOwner = await UserController.getUserByAtsign(req.body.atsign)
     if(!atsignOwner) return res.send({status:'error',message:messages.INVALID_ATSIGN})
-    console.log(atsignOwner);
     const transferToUser =  await UserController.getUserByEmail(req.body.email)
     if(transferToUser.error){
         if (transferToUser.error.type == 'info') {
@@ -352,6 +363,37 @@ exports.transferUserAtsign = async (req,res) => {
         }
     } else {
         return res.status(200).json({ status: "success", message: messages.SUCCESSFULLY, data: { transferId: value } })
+    }
+}
+
+
+exports.assignAtsignToUser = async (req,res) => {
+    if(!req.body.email || !req.body.atsign) return res.send({status:'error',message:messages.INVALID_REQ_BODY})
+    UserController.assignAtsignToUserByAdmin(req,res)
+}
+exports.getAdminAssignedAtsign = async (req,res) => {
+    let pageNo = req.query.pageNo && Number(req.query.pageNo) > 0 ? Number(req.query.pageNo) : 1
+    let limit = req.query.limit && Number(req.query.limit) > 0 ? Number(req.query.limit) : 10
+    let filter = req.query.searchTerm ? { atsignName: { '$regex': `^${req.query.searchTerm}`, '$options': 'i' } } : {}
+    let sortBy = req.query.sortBy ? { [req.query.sortBy]: req.query.sortOrder == 'desc' ? -1 : 1 } : null
+    filter['assignedByAdmin'] = {"$exists":true}
+    let { error, value } = await AtsignDetailController.getAdminAssignedAtsign(filter, sortBy, pageNo, limit);
+    if (value) {
+        if(value.records){
+            value.records = await Promise.all(value.records.map(async record=>{
+                const userDetail = await UserController.getUserById(record.userId)
+                if(userDetail && userDetail.value && userDetail.value.email) record.email = userDetail.value.email
+                return record;
+            }))
+        }
+        return res.status(200).json({ status: 'success', message: messages.SAVED_SUCCESSFULLY, data: value })
+    } else {
+        if (error.type == 'info') {
+            res.status(200).json({ status: 'error', message: error.message })
+        } else {
+            logError(error.data, req)
+            res.status(200).send({ status: 'error', message: messages.SOMETHING_WRONG_RETRY });
+        }
     }
 }
 

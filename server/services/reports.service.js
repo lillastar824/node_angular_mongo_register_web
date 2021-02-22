@@ -1,11 +1,14 @@
 
 const User = require('./../models/user.model');
+const Commission = require('./../models/commission.model');
 const ObjectsToCsv = require('objects-to-csv');
 const path = require('path');
-const csvFolderPath = "./csv/";
+const { CONSTANTS } = require('./../config/const');
+const csvFolderPath = CONSTANTS.CSV_PATH
 const mail = require('./../config/mailer');
+const utility = require('./../config/UtilityFunctions')
 module.exports.getUsersForReport = async (paginationData) => {
-    let atsignData = ['all', 'all-free', 'free', 'all-paid', 'paid', 'all-reserved', 'all-custom', 'all-single', 'all-three', 'all-100', 'all-5000', 'all-10', 'all-1000'];
+    let atsignData = ['all', 'all-free', 'free', 'all-paid', 'paid', 'all-reserved', 'all-custom', 'all-single', 'all-three', 'all-100', 'all-5000', 'all-10', 'all-1000','commercial-atsign'];
     let Users;
     let users;
     let dateFilter = {};
@@ -65,6 +68,9 @@ module.exports.getUsersForReport = async (paginationData) => {
                 filter['_id.premiumAtsignType'] = 'Three Character';
                 users = await getReportsForFilter(filter, dateFilter, paginationData);
                 break;
+            case 'commercial-atsign':
+                users = await getReportsForCommercialAtsign(filter, dateFilter, paginationData);
+                break;
             default:
                 break;
         }
@@ -82,10 +88,24 @@ module.exports.getUsersForReport = async (paginationData) => {
             if (paginationData['atsignType'] === 'all-free') {
                 delete header['payAmount'];
             }
-            let output = formatDataForCSV(header, users['users']);
+            let output = null
+            if (paginationData['atsignType'] === 'commercial-atsign') {
+                header = {
+                    commercialAtsign:'Commercial @sign',
+                    email: "Email",
+                    contact: "Mobile No.",
+                    orderId:"Order Id",
+                    atsignName: "@sign Name",
+                    atsignDetails: "@sign Details",
+                    atsignCreatedOn: "Date",
+                };
+                 output = formatDataForCommercialCSV(header, users['users']);
+            }else{
+                 output = formatDataForCSV(header, users['users']);
+            }
 
             if (paginationData['csv'] === 'all') {
-                let fileName = makeFileName(paginationData),totalPaidAmount=0;
+                let fileName = utility.makeFileName(paginationData),totalPaidAmount=0;
                 let csvData = output.map(item => {
                     let obj = {};
                     for (let key in header) {
@@ -185,7 +205,7 @@ module.exports.getUsersForReport = async (paginationData) => {
         let output = formatDataForUserCSV(header, Users['users'], free, paid, paginationData['startdate'], paginationData['lastdate']);
 
         if (paginationData['csv'] === 'all') {
-            let fileName = makeFileName(paginationData);
+            let fileName = utility.makeFileName(paginationData);
             let csvData = output['output'].map(item => {
                 let obj = {};
                 for (let key in header) {
@@ -282,6 +302,87 @@ async function getReportsForFilter(filter, dateFilter, paginationData) {
         { $limit: limit }
     ]).collation({locale: "en" }).exec();
 
+    let responseData = {};
+    responseData['users'] = users;
+    responseData['pageNo'] = paginationData['pageNo'];
+    responseData['totalPage'] = Math.ceil(totalData / paginationData['pageSize']);
+    responseData['totalData'] = totalData;
+    return responseData;
+}
+async function getReportsForCommercialAtsign(filter, dateFilter, paginationData) {
+    let sortOrder = paginationData['sortOrder'] === "asc" ? 1 : -1;
+    let sortBy = paginationData['sortBy'];
+    let totalData;
+    let limit = paginationData['pageSize'];
+    let skip = paginationData['pageSize'] * (paginationData["pageNo"] - 1);
+    let totalCount = await Commission.aggregate([
+        {
+            $match: {
+                createdAt: {
+                    $gte: paginationData['startdate'],
+                    $lte: paginationData['lastdate']
+                }
+            },
+        },
+        { "$addFields": { "userObjectId": { "$toObjectId": "$metadata.commsionForUserId" }, atsignPurchased: '$metadata.orderData' } },
+        {
+            $lookup:
+            {
+                from: 'users',
+                localField: 'userObjectId',
+                foreignField: '_id',
+                as: 'userDetails'
+            }
+        },
+        // { $unwind: { path: '$atsignPurchased' } },
+        { $count: 'count' }
+    ]);
+
+    if (totalCount.length === 0) {
+        return false;
+    }
+    totalData = totalCount[0].count;
+    if (paginationData['csv'] === 'all') {
+        skip = 0;
+        limit = totalData + 1;
+    }
+    let users = await Commission.aggregate([
+        {
+            $match: {
+                createdAt: {
+                    $gte: paginationData['startdate'],
+                    $lte: paginationData['lastdate']
+                }
+            },
+        },
+        { "$addFields": { "userObjectId": { "$toObjectId": "$metadata.commsionForUserId" }, atsignPurchased: '$metadata.orderData' } },
+        {
+            $lookup:
+            {
+                from: 'users',
+                localField: 'userObjectId',
+                foreignField: '_id',
+                as: 'userDetails'
+            }
+        },
+        // { $unwind: { path: '$atsignPurchased' } },
+        {
+            $project: {
+                email: { $arrayElemAt: ["$userDetails.email", 0] },
+                contact: { $arrayElemAt: ["$userDetails.contact", 0] },
+                atsignDetails: "$atsignPurchased",
+                commercialAtsign: '$atsign',
+                atsignCreatedOn: "$createdAt",
+                orderId: "$metadata.orderId",
+                premiumAtsignType: "$atsignPurchased.premiumHandleType",
+                userStatus: { $arrayElemAt: ["$userDetails.userStatus", 0] },
+                createdAt: "$createdAt"
+            }
+        },
+        { $sort: { [sortBy]: sortOrder } },
+        { $skip: skip },
+        { $limit: limit }
+    ]).collation({ locale: "en" }).exec();
     let responseData = {};
     responseData['users'] = users;
     responseData['pageNo'] = paginationData['pageNo'];
@@ -648,6 +749,55 @@ var formatDataForCSV = (header, data) => {
     });
     return output;
 };
+var formatDataForCommercialCSV = (header, data) => {
+    let output = [], _user;
+
+    // atsignName: "@sign Name",
+    // payAmount: "Paid Amount",
+    // orderId:"Order Id",
+    // email: "Email",
+    // contact: "Mobile No.",
+    // atsignCreatedOn: "Date",
+    // atsignDetails: "Date",
+
+    data.forEach((user) => {
+        _user = {};
+        for (let row in header) {
+            switch (row) {
+                case "email":
+                    _user[row] = user.email;
+                    break;
+                case "contact":
+                    _user[row] = user.contact;
+                    break;
+                case "atsignCreatedOn": {
+                    let date = user['createdAt']
+                    _user[row] = getFormattedDate(date);
+                    break;
+                }
+                case "atsignDetails": {
+                    _user[row] = user['atsignDetails'].map(atsignDetail => {return { atsignName : atsignDetail.atsignName,payAmount:atsignDetail.payAmount}})
+                        break;
+                }
+                case "atsignName": {
+                    _user[row] = user['atsignDetails'].map(atsignDetail=>atsignDetail.atsignName).join("\n")
+                        break;
+                }
+                case "orderId": {
+                    _user[row] = ""+ user['orderId'].toString() + "\n"
+                        break;
+                }
+                case "commercialAtsign": {
+                    _user[row] = user['commercialAtsign']
+                        break;
+                }
+                
+            }
+        }
+        output.push(_user);
+    });
+    return output;
+};
 
 var formatDataForUserCSV = (header, data, free, paid, startdate, lastdate) => {
     let output = [], _user;
@@ -749,14 +899,6 @@ var getFormattedDate = (date) => {
 
 }
 
-var makeFileName = (paginationData) => {
-    let fdate = new Date(paginationData['startdate']);
-    let tdate = new Date(paginationData['lastdate']);
-    let fromDate = (fdate.getMonth() + 1) + '-' + fdate.getDate() + '-' + fdate.getFullYear();
-    let toDate = (tdate.getMonth() + 1) + '-' + tdate.getDate() + '-' + tdate.getFullYear();
-    let fileName = paginationData['atsignType'] + '_' + fromDate + '_' + toDate + ".csv";
-    return fileName;
-}
 
 var getAllFriendInvites = async (dateBetween, paginationData) => {
     let pageNo = Number(paginationData['pageNo']);

@@ -356,7 +356,7 @@ export class PremiumSigninComponent implements OnInit {
                     //   this.showSucessMessage = true;
                     if(!res)
                     {
-                        this.serverErrorMessages = 'Something went wrong. Please try again after sometime.';
+                        this.serverErrorMessages = 'Something went wrong. Please try again later.';
                     }
                     else if (res['status'] === 'success') {
                         this.userService.selectHandle.premiumHandleType = res['data']['premiumHandleType'];

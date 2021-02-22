@@ -6,16 +6,19 @@ const User = mongoose.model('User');
 const ReserveAtsigns = mongoose.model('Reserveatsigns');
 const logError = require('./../config/handleError');
 const mail = require('./../config/mailer');
-const { regexSpecialChars, checkValidInviteLink } = require('./../config/UtilityFunctions');
+const { regexSpecialChars, checkValidInviteLink, makeFileName } = require('./../config/UtilityFunctions');
 const textMessage = require('./../config/textMessage');
 const ObjectId = require('mongodb').ObjectID;
 const { findTimeDiffSec, defaultTimeLeft, generateOrderId } = require('./../config/UtilityFunctions');
-const { messages } = require('./../config/const');
+const { messages, CONSTANTS } = require('./../config/const');
 const CommissionController = require('./../controllers/commission.controller')
 const GiftUpController = require('./gift-up.controller')
 const AwaitedTransaction = require('./../models/awaited-transaction')
 const AtsignDetailController = require("./atsign-detail.controller");
 const UserController = require("./user.controller");
+const csvFolderPath = CONSTANTS.CSV_PATH
+const ObjectsToCsv = require('objects-to-csv');
+const path = require('path');
 async function stripepublishkey(req, res, next) {
     return res.status(200).send({ key: process.env.STRIPE_PUBLISHABLE_KEY });
 }
@@ -55,6 +58,8 @@ async function saveTransaction(intent, userid, cartData, payAmount, completeOrde
         }
     });
 }
+
+module.exports.saveTransaction = saveTransaction
 
 async function saveAtsign(paymentMethod, userid, inviteCode, atsignName, premiumHandleType, atsignPrice, index, length, orderAmount, originalOrderAmount, res, completeOrderId, atsignData, promotionalCardDetails) {
     const price = atsignPrice;
@@ -162,7 +167,7 @@ async function saveAtsign(paymentMethod, userid, inviteCode, atsignName, premium
     return ReserveAtsigns.findOneAndDelete({ userid: userid, atsignName: atsignName });
 }
 
-async function generateResponse(intent, userid, inviteCode, cartData, orderAmount, res, completeOrderId, transactionId) {
+async function generateResponse(intent, userid, inviteCode, cartData, orderAmount, res, completeOrderId,cartAmount) {
     try {
         // Generate a response based on the intent's status
         switch (intent.status) {
@@ -170,7 +175,7 @@ async function generateResponse(intent, userid, inviteCode, cartData, orderAmoun
             case "requires_source_action":
                 // Card requires authentication
                 intent.metadata = JSON.stringify(intent.metadata)
-                const newAwaitedTransaction = await AwaitedTransaction.create({ intent, userid, inviteCode, cartData, orderAmount, completeOrderId })
+                const newAwaitedTransaction = await AwaitedTransaction.create({ intent, userid, inviteCode, cartData, orderAmount, completeOrderId,cartAmount })
                 return {
                     requiresAction: true,
                     clientSecret: intent.client_secret,
@@ -220,7 +225,6 @@ async function generateResponse(intent, userid, inviteCode, cartData, orderAmoun
                 return { clientSecret: intent.client_secret };
         }
     } catch (error) {
-        console.log(error);
         switch (error.type) {
             case 'StripeCardError':
                 // A declined card error
@@ -276,14 +280,22 @@ async function stripePay(req, res, next) {
         if (paymentIntentId && transactionId) {
             let transaction = await AwaitedTransaction.findOneAndDelete({ 'intent.id': paymentIntentId, userid: req._id, _id: transactionId })
             if (transaction) {
-                let { intent, userid, inviteCode, cartData, orderAmount, completeOrderId } = transaction
+                let { intent, userid, inviteCode, cartData, orderAmount, completeOrderId ,cartAmount} = transaction
                 promoCodeTransactionId = intent.promoCodeTransactionId
                 promoCodeTransactionCode = intent.promotionalCode
                 let newIntent = await stripe.paymentIntents.confirm(paymentIntentId)
                 newIntent['amountDebitedFromPromoCard'] = intent.amountDebitedFromPromoCard
                 newIntent['promotionalCode'] = intent.promotionalCode
                 newIntent['promoCodeTransactionId'] = intent.promoCodeTransactionId
-                resp = await generateResponse(newIntent, userid, inviteCode, cartData, orderAmount, res, completeOrderId, transactionId);
+                resp = await generateResponse(newIntent, userid, inviteCode, cartData, orderAmount, res, completeOrderId);
+                if (!resp.requiresAction) {
+                    await CommissionController.checkAndProvideCommission(userid, {
+                        amount: cartAmount,
+                        currency: intent.currency,
+                        cartData: cartData,
+                        completeOrderId
+                    }, true)
+                }
             } else {
                 return res.status(200).json({ status: 'error', message: messages.RETRY_STRIPE_TRANSACTION, data: {} });
             }
@@ -381,14 +393,18 @@ async function stripePay(req, res, next) {
                 intent['promotionalCode'] = promotionalCode;
                 intent['promoCodeTransactionId'] = promoCodeTransactionId;
             }
-            resp = await generateResponse(intent, userid, inviteCode, discountedCartData, discountDetails.finalOrderAmount, res, completeOrderId);
-            let a = await CommissionController.checkAndProvideCommission(userid, {
-                amount: cartAmount,
-                currency: currency,
-                cartData: discountedCartData,
-                completeOrderId
-            }, true)
+            resp = await generateResponse(intent, userid, inviteCode, discountedCartData, discountDetails.finalOrderAmount, res, completeOrderId,cartAmount);
+            
+            if (!resp.requiresAction) {
+                await CommissionController.checkAndProvideCommission(userid, {
+                    amount: cartAmount,
+                    currency: currency,
+                    cartData: discountedCartData,
+                    completeOrderId
+                }, true)
+            }
         }
+        
         if (!res.headersSent) res.send(resp);
     } catch (e) {
         if (promoCodeTransactionCode && promoCodeTransactionId) await GiftUpController.undoGiftCardRedemption(promoCodeTransactionCode, promoCodeTransactionId)
@@ -521,6 +537,8 @@ async function paymentAmountToStripe(paymentMethodId, paymentIntentId, amount, u
     }
 }
 
+module.exports.paymentAmountToStripe = paymentAmountToStripe;
+
 async function renewalAtsignsPayment(req, res) {
     try {
         const { paymentMethodId, paymentIntentId, useStripeSdk, renewalAtsigns } = req.body, userId = req._id;
@@ -597,5 +615,75 @@ async function renewalAtsignsPayment(req, res) {
         }
     }
 }
+const getPromoCodeReport = async function (paginationData) {
+    let filter = {
+        "created":{
+            $gte: paginationData['startdate'],
+            $lte: paginationData['lastdate']
+        },
+        'promotionalCodeDetails.promotionalCode': { $exists: true,$ne:null }, 
+    }
 
+    let pageNo = paginationData['pageNo'] && !isNaN(paginationData['pageNo']) ? Number(paginationData['pageNo']) : 1,
+    limit = paginationData['pageSize']  && !isNaN(paginationData['pageSize']) ? Number(paginationData['pageSize']) : 25,
+    sortOrder = paginationData['sortOrder'] === "asc" ? 1 : -1,
+    sortBy = paginationData['sortBy']?(paginationData['sortBy']==='atsignCreatedOn' ? 'created':'atsignCreatedOn'):'created';
+    
+    let transactionCount = await Transaction.countDocuments(filter)
+    if (paginationData['csv'] === 'all') {
+        limit = transactionCount + 1
+    }
+    let transactionRecord = await Transaction.find(filter).sort({[sortBy]:sortOrder}).skip((pageNo - 1) * limit).limit(limit)
+    let list = transactionRecord
+    let header = {
+        promocode: "Promocode",
+        atsignName: "Atsigns",
+        email: "Email",
+        atsignCreatedOn: "Created At",
+        amount:'Transaction Amount',
+        promocodeAmount:'Promocode Amount'
+        
+    };
+    list = await Promise.all(list.map(async transaction=>{
+        const user = await UserController.getUserById(transaction.userId)
+        return {
+            promocode: transaction.promotionalCodeDetails.promotionalCode,
+            atsignName: transaction.atsignName.map(atsign=>atsign.atsignName).join(','),
+            email: user ? user.email : '',
+            atsignCreatedOn: getFormattedDate(transaction.created),
+            amount: transaction.amount/100,
+            promocodeAmount:transaction.promotionalCodeDetails.promotionalCardAmount/100
+        }
+    }))
+
+    if (paginationData['csv'] === 'all') {
+        let fileName = makeFileName(paginationData),totalPaidAmount=0;
+        let csvData = list.map(item => {
+            let obj = {};
+            for (let key in header) {
+                if (header.hasOwnProperty(key)) {
+                    const element = header[key];
+                    obj[element] = item[key];
+                    if(key=='payAmount') totalPaidAmount = totalPaidAmount + Number(item[key])
+                }
+            }
+            return obj;
+        });
+        csvData.push({})
+        csvData.push({ 'Paid Amount': 'Total:'+totalPaidAmount })
+        const csv = new ObjectsToCsv(csvData);
+        await csv.toDisk(path.join(csvFolderPath, fileName));
+        return { filePath: path.join(__dirname,'..',csvFolderPath, fileName),fileName:fileName }
+    }
+    return { csvData: {header,rows: list },pageNo ,totalPage:Math.ceil(transactionCount/limit),totalData:transactionCount};
+
+}
+var getFormattedDate = (date) => {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var now = new Date(date);
+    var thisMonth = months[now.getMonth()]; // getMonth method returns the month of the date (0-January :: 11-December)
+    return thisMonth + ' ' + now.getDate() + ' ' + now.getFullYear();
+
+}
+module.exports.getPromoCodeReport = getPromoCodeReport
 module.exports.renewalAtsignsPayment = renewalAtsignsPayment

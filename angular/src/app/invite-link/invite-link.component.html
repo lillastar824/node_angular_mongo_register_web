@@ -2,7 +2,7 @@
   <button class="back-btn" (click)="onNoClick()">
     <mat-icon svgIcon="back"></mat-icon>
   </button>
-  <h2><span *ngIf="!showInviteSentScreen"><b>Invite {{showInviteScreen ? 'your Friends' : 'Preview'}}</b></span>
+  <h2><span *ngIf="!showInviteSentScreen"><b>Invite {{showInviteScreen ? 'Your Friends' : 'Preview'}}</b></span>
     <span *ngIf="showInviteSentScreen">Invitation Sent</span></h2>
 </div>
 <div class="body">
@@ -62,6 +62,9 @@
               <!-- Hey, check out these @signs. I just got mine, you should consider getting one before the good ones are gone. Here is my personal link. I think it’s going to blow up! -->
             <!-- <input matInput placeholder="" #contact="ngModel" [(ngModel)]="model.contact" name="contact" aria-label=""> -->
           </mat-form-field>
+          <div class="text-danger text-right py-2 text-sm" *ngIf="model.personalNote?.length>5000">
+            Maximum 5000 characters are allowed
+          </div>
         </div>
         <div class="mb-4 d-flex justify-content-space">
           <mat-checkbox [checked]="model.sendCopy" #sendCopy="ngModel" [(ngModel)]="model.sendCopy" name="sendCopy"
@@ -82,15 +85,15 @@
 
   <div class="mb-5" *ngIf="showPreviewScreen">
     <div class="row">
-      <div class="col-md-2 text-right col-3">From:</div>
+      <div class="col-md-2 text-right col-3 px-0 px-md-3">From:</div>
       <div class="col-md-10 col-9 font-museo word-break">{{model.from}}</div>
     </div>
     <div class="row">
-      <div class="col-md-2 text-right col-3">To:</div>
+      <div class="col-md-2 text-right col-3 px-0 px-md-3">To:</div>
       <div class="col-md-10 col-9 font-museo word-break">{{model.email}}</div>
     </div>
     <div class="row">
-      <div class="col-md-2 text-right col-3">Subject:</div>
+      <div class="col-md-2 text-right col-3 px-0 px-md-3">Subject:</div>
       <div class="col-md-10 col-9 font-museo word-break">{{model.from}} invited you to get your very own @sign!</div>
     </div>
     <div class="col-md-12 alert alert-danger text-center mt-1" *ngIf="showServerError">

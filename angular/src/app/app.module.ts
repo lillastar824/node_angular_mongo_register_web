@@ -105,6 +105,14 @@ import { KeypressHandlerDirective } from './directives/keypress-handler.directiv
 import { RenewalPaymentComponent } from './app/renewal-payment/renewal-payment.component';
 import { HelpComponent } from './user/commission-atsign/help/help.component';
 import { PartnerDashboardComponent } from './app/partner-dashboard/partner-dashboard.component';
+import { ManageAtsignComponent } from './manage-atsign/manage-atsign.component';
+import { TransferAtsignPaymentComponent } from './transfer-atsign-payment/transfer-atsign-payment.component';
+import { AssignAtsignsComponent } from './assign-atsigns/assign-atsigns.component';
+import { ConfirmDeleteContactDialogComponent } from './verification-methods-dialog/dialog/confirm-delete-contact-dialog/confirm-delete-contact-dialog.component';
+import { OTPInputDirective } from './directives/otp-input.directive';
+import { ResetAtsignComponent } from './app/manage-atsign/reset-atsign/reset-atsign.component';
+import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
+import { AdminTransferAtsignComponent } from './app/admin-transfer-atsign/admin-transfer-atsign.component';
 
 @NgModule({
   declarations: [
@@ -177,7 +185,15 @@ import { PartnerDashboardComponent } from './app/partner-dashboard/partner-dashb
     KeypressHandlerDirective,
     RenewalPaymentComponent,
     HelpComponent,
-    PartnerDashboardComponent
+    PartnerDashboardComponent,
+    ManageAtsignComponent,
+    TransferAtsignPaymentComponent,
+    AssignAtsignsComponent,
+    ConfirmDeleteContactDialogComponent,
+    OTPInputDirective,
+    ResetAtsignComponent,
+    ConfirmDialogComponent,
+    AdminTransferAtsignComponent
   ],
   imports: [
     BrowserModule,
@@ -243,7 +259,11 @@ import { PartnerDashboardComponent } from './app/partner-dashboard/partner-dashb
     CommissionAtsignApproveComponent,
     // SendGiftCardComponent,
     TransferAtsignComponent,
-    HelpComponent
+    ManageAtsignComponent,
+    HelpComponent,
+    ConfirmDeleteContactDialogComponent,
+    ConfirmDialogComponent,
+    AdminTransferAtsignComponent
   ],
 })
 export class AppModule {}

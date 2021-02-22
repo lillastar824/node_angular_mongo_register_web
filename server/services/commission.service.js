@@ -4,9 +4,9 @@ const moment = require('moment')
 
 const addCommission = async function (commissionDetails) {
     try {
-        const { userId, commissionOfferedPercentage, discountOfferedPercentage, finalCommission, status, metadata, atsign, currency, orderAmount,maxDiscountAmount } = commissionDetails
+        const { userId, commissionOfferedPercentage, discountOfferedPercentage, finalCommission, status, metadata, atsign, currency, orderAmount, maxDiscountAmount } = commissionDetails
         if (userId && metadata.commsionForUserId && metadata.orderData) {
-            const newCommission = await Commission.create({ atsign, userId, commissionOfferedPercentage, discountOfferedPercentage, finalCommission, status, currency, orderAmount, metadata,maxDiscountAmount })
+            const newCommission = await Commission.create({ atsign, userId, commissionOfferedPercentage, discountOfferedPercentage, finalCommission, status, currency, orderAmount, metadata, maxDiscountAmount })
             return { value: newCommission }
         } else {
             return { error: { type: 'info', message: messages.INVALID_REQ_BODY } }
@@ -19,10 +19,8 @@ const getCommercialAtsignCommissionDetails = async function (filter, sortBy, pag
 
     try {
         filter = filter && typeof filter == 'object' ? filter : {}
-        sortBy = sortBy && typeof sortBy == 'object' && Object.keys(sortBy).length > 0 ? sortBy : { status:'1' }
+        sortBy = sortBy && typeof sortBy == 'object' && Object.keys(sortBy).length > 0 ? sortBy : { status: '1' }
         sortBy['status'] = 1
-        // filter['status'] = filter['status'] ? filter['status'] : 'pending'
-        filter['createdAt'] = filter['createdAt'] ? { $lte: new Date(filter['createdAt']) } : { $lte: new Date() }
         const commissionDetails = await Commission.aggregate([
             { "$match": filter },
             {
@@ -67,7 +65,6 @@ const countCommercialAtsignCommissionDetails = async function (filter) {
 
     try {
         filter = filter && typeof filter == 'object' ? filter : {}
-        filter['createdAt'] = filter['createdAt'] ? { $lte: new Date(filter['createdAt']) } : { $lte: new Date() }
         const commissionDetailsCount = await Commission.aggregate([
             { "$match": filter },
             {
@@ -92,14 +89,14 @@ const countCommercialAtsignCommissionDetails = async function (filter) {
 }
 
 // get Commission reports Atsign details 
-const getCommercialRepotsDetails = async function (atsign, limit, pageNo, sortBy) {
+const getCommercialReportsDetailsByAtsign = async function (atsign, limit, pageNo, sortBy) {
     try {
         sortBy = sortBy && typeof sortBy == 'object' && Object.keys(sortBy).length > 0 ? sortBy : { _id: -1 }
-        let commercialAtsigns = await Commission.find({atsign: { '$regex': `^${atsign}$`, '$options': 'i' }}).sort(sortBy).skip((pageNo - 1) * limit).limit(limit).lean();
+        let commercialAtsigns = await Commission.find({ atsign: { '$regex': `^${atsign}$`, '$options': 'i' } }).sort(sortBy).skip((pageNo - 1) * limit).limit(limit).lean();
         commercialAtsigns.map(atsign => {
             atsign.finalCommission = atsign.finalCommission / 100
             atsign.orderAmount = atsign.orderAmount / 100
-            atsign.paidAmount = atsign.metadata.orderData.reduce((acc,val)=>acc+val.payAmount,0)
+            atsign.paidAmount = atsign.metadata.orderData.reduce((acc, val) => acc + val.payAmount, 0)
             // atsign.paidAmount = (atsign.orderAmount - (atsign.orderAmount * atsign.discountOfferedPercentage * 0.01))
             return atsign
         })
@@ -108,10 +105,25 @@ const getCommercialRepotsDetails = async function (atsign, limit, pageNo, sortBy
         return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
     }
 }
-const countCommercialRepotsReport = async function (atsign) {
-    
+const getCommissionRepotsDetailsByUser = async function (filter, limit, pageNo, sortBy) {
     try {
-        let commercialAtsignCount = await Commission.countDocuments( {atsign: { '$regex': `^${atsign}$`, '$options': 'i' }});
+        sortBy = sortBy && typeof sortBy == 'object' && Object.keys(sortBy).length > 0 ? sortBy : { _id: -1 }
+        let commercialAtsigns = await Commission.find(filter).sort(sortBy).skip((pageNo - 1) * limit).limit(limit).lean();
+        commercialAtsigns.map(atsign => {
+            atsign.finalCommission = atsign.finalCommission / 100
+            atsign.orderAmount = atsign.orderAmount / 100
+            atsign.paidAmount = atsign.metadata.orderData.reduce((acc, val) => acc + val.payAmount, 0)
+            // atsign.paidAmount = (atsign.orderAmount - (atsign.orderAmount * atsign.discountOfferedPercentage * 0.01))
+            return atsign
+        })
+        return { value: commercialAtsigns }
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
+    }
+}
+const countCommissionRepotsDetailsByUser = async function (filter) {
+    try {
+        let commercialAtsignCount = await Commission.countDocuments(filter);
         return { value: commercialAtsignCount }
     } catch (error) {
         return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
@@ -124,7 +136,7 @@ const approveAndGetCommissionByAtsign = async function (atsign, approveTillTime,
             let filter = {
                 atsign: { '$regex': `^${atsign}$`, '$options': 'i' },
                 updatedAt: { '$lte': approveTillTime },
-                status:'pending'
+                status: 'pending'
             }
             let commissionDetails = await Commission.aggregate([
                 { "$match": filter },
@@ -135,7 +147,7 @@ const approveAndGetCommissionByAtsign = async function (atsign, approveTillTime,
                         totalFinalCommission: { $sum: "$finalCommission" },
                         status: { $first: "$status" },
                         currency: { $first: "$currency" },
-                        userId: {'$first': "$userId"}
+                        userId: { '$first': "$userId" }
                     }
                 }
             ]);
@@ -144,8 +156,8 @@ const approveAndGetCommissionByAtsign = async function (atsign, approveTillTime,
                 commissionDetails[0].totalFinalCommission = commissionDetails[0].totalFinalCommission * .01
                 await Commission.updateMany(filter, { transactionId: transactionId, status: 'success' })
                 return { value: commissionDetails[0] }
-            }else{
-                return {error:{ type: 'info', message: messages.NO_RECORD_FOUND }}
+            } else {
+                return { error: { type: 'info', message: messages.NO_RECORD_FOUND } }
             }
         } else {
             return { error: { type: 'info', message: messages.INVALID_REQ_BODY } }
@@ -173,8 +185,9 @@ module.exports = {
     addCommission,
     getCommercialAtsignCommissionDetails,
     countCommercialAtsignCommissionDetails,
-    getCommercialRepotsDetails,
-    countCommercialRepotsReport,
+    getCommercialReportsDetailsByAtsign,
+    getCommissionRepotsDetailsByUser,
+    countCommissionRepotsDetailsByUser,
     approveAndGetCommissionByAtsign,
     rollBackApprovedCommissionByTransactionId
 }

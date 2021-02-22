@@ -14,7 +14,7 @@
 
 .tablescroll {
     overflow-x: auto;
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 div.tablescroll>table>thead>tr>th {
@@ -83,4 +83,7 @@ div.tablescroll>table>tbody>tr>td {
     color: #fff;
     background-color: #d94d1a !important;
     border-color: #d94d1a !important;
+}
+.transfer-icon {
+    cursor: pointer;
 }

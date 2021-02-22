@@ -2,7 +2,7 @@
   <div class="get-invited-card">
     <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
     <div class="get-invited-card-inner" *ngIf="userService.cartData.length > 0">
-      <form #checkout="ngForm" class="mb-0 checkout" *ngIf="userService.selectHandle.subTotal === 0">
+      <form #checkout="ngForm" class="mb-0 checkout free-atsign-checkout" *ngIf="userService.selectHandle.subTotal === 0">
         <h1 class="invite-head text-center">Checkout - It’s almost yours!</h1>
         <div class="header">
           <h2>Confirm your Free @sign</h2>
@@ -20,7 +20,7 @@
           <div class="cart-items mb-4">
             <div class="cart-item" *ngFor="let data of userService.cartData; index as i;">
               <div class="cart-item-name">{{data.atsignName}}</div>
-              <div class="cart-item-price"></div>
+              <!-- <div class="cart-item-price"></div> -->
               <!-- <div><button type="button" class="btn p-0"><i class="fa fa-minus-circle" aria-hidden="true"
             (click)="confirmDelete(data)"></i></button>
                 </div> -->
@@ -112,10 +112,10 @@
           </div>
           <!-- ===============Apply promo code================== -->
           <div>
-            <div class="float-right"> 
+            <div class="float-right">
               <a class="text-color" (click)="isApplyPromoCode=!isApplyPromoCode" *ngIf="!isApplyPromoCode">Apply Promotional Code</a>
             </div>
-            <div class="row"> 
+            <div class="row">
               <div class="col-6">
               </div>
               <div class="col-6 text-right" *ngIf="isApplyPromoCode">

@@ -1,1 +1,106 @@
-<p>partner-dashboard works!</p>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-12 px-4">
+      <h2 class="partner-title mb-5">ConnectTech / Combined</h2>
+      <div class="d-flex mb-3">
+        <h2 class="snapshot-heading flex-grow-1 mb-0">Revenue Snapshot</h2>
+        <p class="snapshot-period">Current Period</p>
+
+      </div>
+      <div class="revenue-snapshots d-flex mb-5">
+        <div class="revenue-snapshot">
+          <p class="revenue-title">Current Earnings</p>
+          <p class="revenue-amount">${{revenueSnapshot?.currentEarnings}}</p>
+          <p class="text-sub">Detail</p>
+        </div>
+        <div class="revenue-snapshot border-left border-right">
+          <p class="revenue-title">Pending Payout</p>
+          <p class="revenue-amount">${{revenueSnapshot?.pendingPayout}}</p>
+          <p class="text-sub">Payout expected to arrive November 25, 2020</p>
+        </div>
+        <div class="revenue-snapshot">
+          <p class="revenue-title">Lifetime Earnings</p>
+          <p class="revenue-amount">${{revenueSnapshot?.lifetimeEarnings}}</p>
+          <p class="text-sub">Detail</p>
+        </div>
+      </div>
+      <div class="d-flex mb3">
+        <h2 class="snapshot-heading flex-grow-1 mb-0">Reports</h2>
+        <div>
+          <mat-form-field class="mr-3">
+            <mat-label>Select From Date</mat-label>
+            <input matInput [matDatepicker]="frompicker" [max]="tomorrow" placeholder="From Date" name="fromDate"
+                [(ngModel)]="model.fromDate" required (dateInput)="onDateChange()" (dateChange)="onDateChange()">
+            <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+            <mat-datepicker #frompicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Select To Date</mat-label>
+            <input matInput [matDatepicker]="topicker" [max]="tomorrow" placeholder="To Date" name="toDate" [min]="model.fromDate"
+                [(ngModel)]="model.toDate" required (dateInput)="onDateChange()" (dateChange)="onDateChange()">
+            <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+            <mat-datepicker #topicker></mat-datepicker>                                    
+          </mat-form-field>
+
+        </div>
+      </div>      
+      <table mat-table [dataSource]="reportsDataSource" multiTemplateDataRows class="w-100 report-table">
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef> Purchase Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdAt | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="atsign">
+          <th mat-header-cell *matHeaderCellDef> Referer </th>
+          <td mat-cell *matCellDef="let element"> @{{element.atsign}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="orderAmount">
+          <th mat-header-cell *matHeaderCellDef> Purchase Amt </th>
+          <td mat-cell *matCellDef="let element"> ${{element.orderAmount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="finalCommission">
+          <th mat-header-cell *matHeaderCellDef> Commission Amt </th>
+          <td mat-cell *matCellDef="let element"> ${{element.finalCommission}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalNoOfTransactions">
+          <th mat-header-cell *matHeaderCellDef> Transaction Detail </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalNoOfTransactions > 0 ? element.totalNoOfTransactions + '
+            @signs' : 'No @signs' }} </td>
+        </ng-container>
+      
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      
+        <ng-container matColumnDef="none">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length -1"> </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element">
+            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+              <p *ngFor="let atsignDetail of element.atsignDetails">{{atsignDetail.noOfAtsigns}} @ {{atsignDetail.key}}</p>
+            </div>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+          [class.example-expanded-row]="expandedElement === element"
+          (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['none', 'expandedDetail']" class="example-detail-row"></tr>
+      </table>
+      <mat-paginator [length]="total" [pageSizeOptions]="[25, 50, 100]" (page)="pageEvent = $event; onPaginateChange($event)"></mat-paginator>
+<div class="text-right mt-3">
+  <button type="button" class="export-btn btn mr-2">Export to Google</button>
+  <button type="button" class="export-btn btn">Export as XLS</button>
+</div>
+    </div>
+
+    </div>
+
+</div>

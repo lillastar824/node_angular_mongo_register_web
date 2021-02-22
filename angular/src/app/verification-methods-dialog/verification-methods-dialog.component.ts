@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { MatSnackBar, MAT_DIALOG_DATA } from "@angular/material";
+import { MatDialog, MatSnackBar, MAT_DIALOG_DATA } from "@angular/material";
 import { UserService } from "../shared/services/user.service";
 import { UtilityService } from "../shared/services/utility.service";
+import { ConfirmDeleteContactDialogComponent } from "./dialog/confirm-delete-contact-dialog/confirm-delete-contact-dialog.component";
 
 @Component({
   selector: "app-verification-methods-dialog",
@@ -23,7 +24,8 @@ export class VerificationMethodsDialogComponent implements OnInit {
     private userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private utilityService: UtilityService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit() {
@@ -155,27 +157,12 @@ export class VerificationMethodsDialogComponent implements OnInit {
     });
   }
   keytab(event) {
-    if (event.keyCode === 86) {
-        return false;
-    }        
-    var inp = String.fromCharCode(event.keyCode); 
-    let name = event.target.getAttribute("name");       
-    if (/[a-zA-Z0-9]/.test(inp)) {        
-        if (event.target.value != event.key) {
-            event.target.value = event.key;
-            this.verificationCodeOtp[name] = event.key;
-        }
-    }
-    else if (event.keyCode === 229) {
-      if (event.target.value.length > 0) {
-        this.verificationCodeOtp[name] = event.target.value.charAt(event.target.value.length - 1)
-        event.target.value = event.target.value.charAt(event.target.value.length - 1);
-      }
-
-    }
+    let name = event.name;      
+    let value = event.value
+    this.verificationCodeOtp[name] = value;
     if (
       event.keyCode === 8 &&
-      event.target.value.length === 0 &&
+      value.length === 0 &&
       event.target.closest("mat-form-field")
     //   .previousSibling &&
     //   event.target
@@ -191,7 +178,7 @@ export class VerificationMethodsDialogComponent implements OnInit {
     //     .previousSibling.querySelector("input").value = "";
     } else if (
       !(event.keyCode === 16 && event.keyCode === 9) &&
-      event.target.value.length === event.target.maxLength
+     value.length === event.target.maxLength
     ) {
       event.target.closest("mat-form-field").nextElementSibling &&
         event.target
@@ -226,7 +213,7 @@ export class VerificationMethodsDialogComponent implements OnInit {
 
         for(let i=0; i<4; i++) {
             if(codes[i]) {
-                this.verificationCodeOtp[`otp${i+1}`] = codes[i]
+                this.verificationCodeOtp[`otp${i+1}`] = codes[i].toUpperCase();
             }
         }   
         this.verificationCode =
@@ -235,4 +222,45 @@ export class VerificationMethodsDialogComponent implements OnInit {
           this.verificationCodeOtp.otp3 +
           this.verificationCodeOtp.otp4;     
 }
+
+  deleteContact() {
+    const dialogRef = this.dialog.open(ConfirmDeleteContactDialogComponent, {
+      width: '90%',
+      maxWidth: '600px',
+      backdropClass: 'confirmation-dialog-overlay-backdrop',
+      panelClass: ['top-center-panel', 'confirmation-dialog-panel']
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.removeContact().subscribe(
+          (res) => {
+            if ( res["status"] === 'success') {
+              this.data.combinedContactNumber = ''
+              this.data.contact = ''
+              this.data.contactVerified = false
+              this.data.countryCode = ''
+              this.changeContact = true
+              this.userService.selectHandle.contact = ''
+              this._snackBar.open("Contact has been removed successfully.", "x", {
+                duration: 15000,
+                panelClass: ["custom-snackbar"],
+              });
+            } else {
+              this._snackBar.open(res["message"], "x", {
+                duration: 15000,
+                panelClass: ["custom-snackbar"],
+              });
+            }
+          }, err => {
+            this._snackBar.open("Unable to remove contact. Try after some time.", "x", {
+              duration: 15000,
+              panelClass: ["custom-snackbar"],
+            });
+          }
+        )
+      }
+    });
+
+    
+  }
 }

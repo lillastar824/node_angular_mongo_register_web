@@ -26,11 +26,14 @@ const CONSTANTS = {
     FREE_ATSIGN_MAX_LENGTH: 25,
     MIN_NO_OF_ATSIGN_REQUIRED_TO_TRANSFER: 2,
     ATSIGN_TRANSFER_AFTER_DATE: '2020-05-31',
-    SECONDARY_STATUS :{
+    SECONDARY_STATUS: {
         SECONDARY_STOPPED: 0,
         SECONDARY_STARTED: 1,
         SECONDARY_CREATED: 2
-    }
+    },
+    PAYMENT_EXTENSION_DAYS: 60,
+    RENEWAL_PAYMENT_VALID_BEFORE_DAYS: 90,
+    CSV_PATH: "./csv/"
 }
 const messages = {
     'NOT_AVAILABLE_ATSIGN': 'Bummer! This @sign is not available!',
@@ -44,7 +47,7 @@ const messages = {
     'SENT_SUCCESS': 'Sent Successfully',
     'MAIL_CONTACT_REQ': 'Must send contact or email',
     'ENTER_VALID_MAIL': 'Please enter a valid email address',
-    'AMT_NOT_0': 'Amount cannot be 0',
+    'AMT_NOT_0': 'Oops, Amount should be greater than 0',
     'INVITE_SENT': 'Invite Sent Successfully',
     'UNAUTH_REQ': 'No token provided.',
     'INVALID_TOKEN': 'Token authentication failed.',
@@ -91,18 +94,19 @@ const messages = {
     'CONTACT_ALREADY_EXIST': "This contact already exists in our system.",
     'OTP_REQUIRED': "Oops, OTP is required.",
     'RETRY_STRIPE_TRANSACTION': "Oops, max time exceed. Please retry",
-    'USER_NOT_ACTIVE': "This person is not active. Can't perform any action.",
-    'SELF_TRANSFER_NOT_ALLOWED': 'Self transfer of @sign is not allowed',
-    'MIN_ATSIGN_REQ_TO_TRANS': 'Minimum ' + CONSTANTS.MIN_NO_OF_ATSIGN_REQUIRED_TO_TRANSFER + ' @signs are required to do transfer',
+    'USER_NOT_ACTIVE': "Sorry, we are unable to send transfer requests to this email. Please check that this email is still active.",
+    'SELF_TRANSFER_NOT_ALLOWED': "Sorry! You can't transfer an @sign to yourself.",
+    'TRANSFER_SENT': 'Congrats! Your transfer request was sent successfully.',
+    'MIN_ATSIGN_REQ_TO_TRANS': 'To transfer an @sign to someone else, you must have at least ' + CONSTANTS.MIN_NO_OF_ATSIGN_REQUIRED_TO_TRANSFER + ' @signs.',
     'ATSIGN_TRANSFER_AFTER_DATE_ERROR': 'You can only transfer @sign created till ' + moment(CONSTANTS.ATSIGN_TRANSFER_AFTER_DATE).format('Do MMM YYYY')
 }
 
 const validationSchemas = {
     atsign: {
         saveAtSignSchemaMsg: {
-            atsignNameErrorMsg: 'Atsign is required',
+            atsignNameErrorMsg: '@sign is required',
             emailErrorMsg: 'Email is invalid',
-            atsignTypeErrorMsg: 'Atsign type is invalid',
+            atsignTypeErrorMsg: '@sign type is invalid',
             inviteCodeErrorMsg: 'Invite code is required',
             isReservedErrorMsg: 'Reserve code is invalid'
         }
@@ -115,7 +119,7 @@ const validationSchemas = {
     user: {
         sendInviteSchemaMsg: {
             emailErrorMsg: 'Email is invalid',
-            atsignErrorMsg: 'Atsign is invalid'
+            atsignErrorMsg: '@sign is invalid'
         },
         verifyContactSchemaMsg: {
             emailErrorMsg: 'Email is invalid',

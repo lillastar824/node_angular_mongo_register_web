@@ -71,4 +71,15 @@ constructor() {
          const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
          return nameRegex.test(from);
           }
+
+          checkSpecialCharacter(contact) {
+            const lastChar = contact.substr(contact.length - 1)
+            if (isNaN(lastChar)) {
+                return contact.replace(lastChar, " ");
+            }
+            else {
+    
+                return contact;
+            }
+        }
 }

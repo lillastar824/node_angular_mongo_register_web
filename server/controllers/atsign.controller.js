@@ -8,6 +8,7 @@ const utilityFunction = require('../config/UtilityFunctions');
 const { messages } = require('./../config/const');
 const atsignService = require('../services/atsign.service');
 const CommissionController = require('./../controllers/commission.controller');
+const AtsignDetailController = require('./../controllers/atsign-detail.controller');
 const { checkAndProvideCommission } = require('./../controllers/commission.controller');
 
 async function reserveatsign(req, res) {
@@ -274,5 +275,32 @@ exports.saveFreeOnlyCart = async (req, res) => {
         }
     } else {
         return res.status(200).json(isValidCartData);
+    }
+}
+
+module.exports.assignFreeAtsignToUserByAdmin = async function (adminId,userId, atsign, inviteCode) {
+    const cartData = [{ atsignName: atsign, payAmount: 0 }]
+    const newOrder = await atsignService.createFreeOrder(userId, inviteCode, cartData,adminId);
+    if (newOrder.error) {
+        return { error: { type: 'info', message: (newOrder.value && newOrder.value.order ? "Please contact support for your order" : messages.SOMETHING_WRONG_RETRY), data: newOrder.value } }
+    } else {
+        if (newOrder.value && newOrder.value.order && newOrder.value.order.orderId) {
+            return { value: newOrder.value }
+        }
+    }
+}
+
+module.exports.updateAdvanceSetting = async function(req,res){
+    if(!req.body.atsign) res.status(200).json({ status: 'error', message: messages.INVALID_REQ_BODY })
+    let { error, value } = await AtsignDetailController.updateAdvanceSetting(req._id,req.body.atsign,req.body.domain ||'',req.body.port||null);
+    if (value) {
+        return res.status(200).json({ status: 'success', message: messages.SAVED_SUCCESSFULLY, data: value })
+    } else {
+        if (error.type == 'info') {
+            res.status(200).json({ status: 'error', message: error.message })
+        } else {
+            logError(error.data, req)
+            res.status(200).send({ status: 'error', message: messages.SOMETHING_WRONG_RETRY });
+        }
     }
 }

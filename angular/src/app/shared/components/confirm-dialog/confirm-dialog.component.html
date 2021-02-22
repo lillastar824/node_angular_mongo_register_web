@@ -1,0 +1,16 @@
+<div class="modal-offset-padding">
+  <div class="dialog-header">
+    <h4 class="confirmation-dialog-title text-ellipsis mb-0">{{data.title}}</h4>
+  </div>
+  <div class="confirmation-dialog-message text-center mb-5">
+    <div>
+      <p>{{data.confirmMessage}}</p>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <div class="d-flex justify-content-between">
+      <button type="button" class="selected" [mat-dialog-close]="true">Confirm</button>
+      <button type="button" class="selected cancelButton" mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</div>

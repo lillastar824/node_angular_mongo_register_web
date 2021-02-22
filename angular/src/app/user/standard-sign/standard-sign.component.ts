@@ -218,6 +218,10 @@ export class StandardSignComponent implements OnInit {
           (res) => {
             this.serverErrorMessages = "";
             if (res) {
+              if(res['status'] === 'error')
+              {
+                this.serverErrorMessages = res['message'];
+              }
               this.userService.selectHandle.atsignName = res["atsignName"];
               if (
                 this.userService.atSignSearchHistory.length ===
@@ -330,7 +334,10 @@ export class StandardSignComponent implements OnInit {
   checkAtsignAvailability(atsignName, callback) {
     this.userService.checkAtsignAvailability(atsignName).subscribe(
       (res) => {
-        if (res["status"] === "success") {
+        if (!res) {
+          callback({'status':'error','message':'Something went wrong. Please try again later.'});
+        }
+        else if (res["status"] === "success") {
           callback(res["data"]);
         } else {
           callback(false);

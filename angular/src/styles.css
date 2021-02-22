@@ -11,7 +11,7 @@
 }
 */
 * {
-  font-family: "Comfortaa";
+  /* font-family: "Comfortaa"; */
   box-sizing: border-box;
 }
 /* BASIC */
@@ -24,7 +24,7 @@ body {
 body {
   height: 100vh;
   margin: 0;
-  font-family: "Museo Sans Rounded 700", "Helvetica Neue", sans-serif;
+  font-family: "Comfortaa";
 }
 
 .emoji-mart-category .emoji-mart-emoji span
@@ -326,7 +326,7 @@ transform:none;
 .custom-snackbar {
   background: #d94d1a;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 400;
 }
 .custom-snackbar .mat-simple-snackbar-action {
   color: #ffffff !important;
@@ -704,3 +704,70 @@ button.dashboard-button:focus, button.three-dots:focus {
   .mat-checkbox-checked .mat-checkbox-background{
     background-color: #F05E3E!important;
   }
+
+
+.custom-tabs > .mat-tab-header {
+  /* border-bottom: none;
+  margin-left: -40px;
+  margin-right: -40px; */
+}
+.custom-tabs > .mat-tab-header > .mat-tab-header-pagination{
+/* display:none; */
+}
+.custom-tabs > .mat-tab-header > .mat-tab-label-container{
+ /* overflow-x: auto; */
+
+  }
+
+
+.custom-tabs .mat-tab-label {
+  opacity: 1;
+  justify-content: start;
+  font: normal normal bold 16px/32px Muli;
+  letter-spacing: 0px;
+  color: #808080;
+  text-transform: uppercase;
+padding: 0 16px;
+  /* text-transform: uppercase; */
+  height: 40px;
+  border-bottom: 3px solid transparent;
+  min-width: 0;
+}
+.custom-tabs .mat-ink-bar {
+  display: none;
+}
+.custom-tabs .mat-tab-label-active {
+  color: #F05E3E;
+  border-color: #f2623e;
+}
+.custom-tabs.mat-tab-group {
+  /* font-family: "Muli"; */
+}
+.custom-tabs .mat-tab-label-content {
+  /* border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  padding-top: 6px; */
+}
+.custom-tabs .mat-tab-label:nth-child(3){
+  margin-left: auto;
+}
+.my-atsigns .mat-checkbox-checked .mat-checkbox-background,
+.my-atsigns .mat-checkbox-indeterminate .mat-checkbox-background{
+  background-color: #F05E3E;
+}
+.my-atsigns .mat-checkbox-ripple{
+  display: none;
+}
+.manage-atsigns  .mat-expansion-panel-body {
+  font: normal normal normal 14px/18px Muli;
+  letter-spacing: 0px;
+  color: #4A4A4A;
+  padding: 0 35px 0;
+}
+.lh-sm{
+  line-height: 1.25;
+}
+
+.admin-mat-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
+  font: 400 14px/18px Comfortaa;
+}

@@ -36,9 +36,8 @@ const jwt = require('jsonwebtoken');
 const UtilityFunctions = require('./../config/UtilityFunctions');
 const AtsignDetailController = require('./atsign-detail.controller');
 const NotificationController = require('./notifications.controller');
-
-
-
+const AtsignDetail = require('./../models/atsign-detail.model')
+const { setTimeout } = require('timers');
 
 let assignValue = () => {
     const allChoicess = {
@@ -57,7 +56,6 @@ module.exports.assignValue = assignValue;
 
 
 module.exports.insertJson = (req, res, next) => {
-    //console.log(req.body)
     if (req.body.secretKey === 'xVKMCjkSByq8TVBA') {
         const fs = require('fs');
         const path = require("path");
@@ -65,10 +63,8 @@ module.exports.insertJson = (req, res, next) => {
 
             let DictionaryData = fs.readFileSync(path.resolve(__dirname, '../db/dictionary.json'));
             Dictionary.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     Dictionary.insertMany(JSON.parse(DictionaryData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         res.send({ status: 'success', message: messages.SUCCESSFULLY });
                     });
                 }
@@ -80,10 +76,8 @@ module.exports.insertJson = (req, res, next) => {
         else if (req.body.item === 'firstname') {
             let FirstNamesData = fs.readFileSync(path.resolve(__dirname, '../db/firstNames.json'));
             FirstNames.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     FirstNames.insertMany(JSON.parse(FirstNamesData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         if (!err) {
                             res.send({ status: 'success', message: messages.SUCCESSFULLY });
                         } else {
@@ -99,10 +93,8 @@ module.exports.insertJson = (req, res, next) => {
         else if (req.body.item === 'lastname') {
             let LastNamesData = fs.readFileSync(path.resolve(__dirname, '../db/lastNames.json'));
             LastNames.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     LastNames.insertMany(JSON.parse(LastNamesData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         if (!err) {
                             res.send({ status: 'success', message: messages.SUCCESSFULLY });
                         } else {
@@ -118,10 +110,8 @@ module.exports.insertJson = (req, res, next) => {
         else if (req.body.item === 'brands') {
             let brandsData = fs.readFileSync(path.resolve(__dirname, '../db/500companies.json'));
             Brands.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     Brands.insertMany(JSON.parse(brandsData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         if (!err) {
                             res.send({ status: 'success', message: messages.SUCCESSFULLY });
                         } else {
@@ -137,10 +127,8 @@ module.exports.insertJson = (req, res, next) => {
         else if (req.body.item === 'countries') {
             let countriesData = fs.readFileSync(path.resolve(__dirname, '../db/countries.json'));
             Countries.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     Countries.insertMany(JSON.parse(countriesData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         if (!err) {
                             res.send({ status: 'success', message: messages.SUCCESSFULLY });
                         } else {
@@ -156,10 +144,8 @@ module.exports.insertJson = (req, res, next) => {
         else if (req.body.item === 'states') {
             let statesData = fs.readFileSync(path.resolve(__dirname, '../db/states.json'));
             States.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     States.insertMany(JSON.parse(statesData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         if (!err) {
                             res.send({ status: 'success', message: messages.SUCCESSFULLY });
                         } else {
@@ -175,10 +161,8 @@ module.exports.insertJson = (req, res, next) => {
         else if (req.body.item === 'cities') {
             let citiesData = fs.readFileSync(path.resolve(__dirname, '../db/cities.json'));
             Cities.deleteMany({}, (err, doc) => {
-                //console.log("error", err, "doc", doc)
                 if (!err) {
                     Cities.insertMany(JSON.parse(citiesData), (err, doc) => {
-                        //console.log("error", err, "doc", doc)
                         if (!err) {
                             res.send({ status: 'success', message: messages.SUCCESSFULLY });
                         } else {
@@ -267,12 +251,12 @@ module.exports.userProfile = (req, res, next) => {
                             if(atsignPayDetails.value.atsignDetail){
                                 atsign.renewalDate = new Date(atsignPayDetails.value.atsignDetail.lastPaymentValidTill)
                                 atsign.expiringSoon = moment().utc().add(60, "days").toDate() < atsign.renewalDate ? false:true
-                            }
-                            else{
-                                atsign.renewalDate = '2200-01-01T00:00:00.000Z'
+                                atsign.atsignDetailObj = atsignPayDetails.value.atsignDetail
                             }
                         }
                     }else{
+                        let atsignPayDetails = await AtsignDetailController.checkAtsignIsPayable(atsign.atsignName)
+                        if(atsignPayDetails.value) atsign.atsignDetailObj = atsignPayDetails.value.atsignDetail
                         atsign.renewalDate = '2200-01-01T00:00:00.000Z'
                     }
                     // atsign['renewalDate'] = moment(atsign.atsignCreatedOn).utc().add(365, "days").toDate();
@@ -309,7 +293,7 @@ module.exports.getUserDetails = async (req, res, next) => {
     try {
         let filter = { 'atsignDetails.inviteCode': req.body.inviteCode };
         filter['userStatus'] = { $ne: 'Deleted' };
-        let user = await User.findOneAndUpdate(filter, { userStatus: 'Active' }, { fields: { saltSecret: 0, password: 0, mobileOtp: 0, mobileVerified: 0, otpGenerateTime: 0 } })
+        let user = await User.findOneAndUpdate(filter, { userStatus: 'Active' }, { fields: {saltSecret: 0, password: 0, mobileOtp: 0, mobileVerified: 0, otpGenerateTime: 0 } })
         if (!user) return res.status(200).json({ status: 'error', message: messages.USER_NOT_FOUND });
         if (userFromToken && userFromToken._id && userFromToken._id.toString() != user._id.toString()) {
             if (user.userStatus !== 'Invited') {
@@ -337,9 +321,7 @@ module.exports.getUserDetails = async (req, res, next) => {
 }
 
 module.exports.getAtsignAvailability = async (req, res, next) => {
-    console.log(req.params.atsign)
     let isSignAvailable = await checkSignAvailability(req.params.atsign, true, 'paid', false);
-    console.log(isSignAvailable)
     return res.status(isSignAvailable?200:404).json({});
 }
 module.exports.checkAtsignAvailability = async (req, res, next) => {
@@ -523,7 +505,10 @@ module.exports.sendVerificationCode = async (req, res) => {
         } else if (contact) {
             filter['contact'] = contact;
         } else if (atsign) {
-            filter['atsignDetails.atsignName'] = { '$regex': '^' + UtilityFunctions.escapeRegExp(atsign) + '$', $options: 'i' };
+            // filter['atsignDetails.atsignName'] = { '$regex': '^' + UtilityFunctions.escapeRegExp(atsign) + '$', $options: 'i' };
+            const atsignDetails = await AtsignDetailController.getAtsignDetails(atsign, ['ACTIVE', 'TRANSFERRING'])
+            if (!(atsignDetails && atsignDetails.value && ['ACTIVE', 'TRANSFERRING'].indexOf(atsignDetails.value.status) > -1)) return res.send({ status: "success", message: messages.VERIFICATION_CODE_SENT, data: { 'atsign': 1 } });
+            filter['_id'] = atsignDetails.value.userId;
         }
     }
 
@@ -549,7 +534,7 @@ module.exports.removeContact = async function (req, res) {
         return res.status(200).json({ status: 'error', message: messages.SOMETHING_WRONG_RETRY});
     }
 }
-module.exports.verifyContact = (req, res, next) => {
+module.exports.verifyContact = async (req, res, next) => {
     let update = {};
     update['mobileVerified'] = true;
     update['userStatus'] = 'Active';
@@ -565,7 +550,10 @@ module.exports.verifyContact = (req, res, next) => {
     if (req.body.email) {
         filter['email'] = req.body.email.toLowerCase();
     } else if (req.body.atsign) {
-        filter['atsignDetails.atsignName'] = { '$regex': '^' + req.body.atsign.replace('@', '') + '$', $options: 'i' }
+        const atsignDetails = await AtsignDetailController.getAtsignDetails(req.body.atsign, ['ACTIVE', 'TRANSFERRING'])
+        if (!(atsignDetails && atsignDetails.value && ['ACTIVE', 'TRANSFERRING'].indexOf(atsignDetails.value.status) > -1)) return res.send({ status: 'error', message: messages.INVALD_CODE, data: {} });
+        filter['_id'] = atsignDetails.value.userId;
+        // filter['atsignDetails.atsignName'] = { '$regex': '^' + req.body.atsign.replace('@', '') + '$', $options: 'i' }
     } else {
         filter['contact'] = req.body.contact;
     }
@@ -678,7 +666,6 @@ module.exports.saveProductNotification = (req, res, next) => {
     User.findOneAndUpdate(filter, update, (err, doc) => {
         if (err) {
             logError(err, req, res);
-            //console.log("Something wrong when updating data!");
         } else {
             return res.status(200).json({ status: 'success', message: messages.SAVD, "data": {} });
         }
@@ -1032,16 +1019,13 @@ module.exports.randomatSign = async (req, res) => {
     const restrictedAtsigns = ['anal','mcdonalds','sex','porno','porn','KimKardashian','sexo','sexy','_sex','_sexy','_porn','_porno','freeporn','pornos','FreePorn','Free_Porn'];
     // let restrictedAtsigns1 = await Restrictedatsigns.find({}).distinct('atsign');
     // console.log(restrictedAtsigns1)
-    doc = await User.aggregate([{ $sample: { size: 120 } }, { $project: { "atsignDetails.atsignName": true, _id: false } }]);
+   // doc = await AtsignDetail.aggregate([{ $sample: { size: 120 } }, { $project: { "atsignName": true, _id: false } }]);
+    doc = await AtsignDetail.aggregate([{ "$match": { "status": 'ACTIVE' } },{ $sample: { size: 40 } }, { $project: { "atsignName": true, _id: false } }])
+   
     for (let i = 0; i < doc.length; i++) {
-        if (doc[i].atsignDetails && doc[i].atsignDetails.length > 0) {
-            //return 16 atsigns
-            for (let j = 0; j < doc[i].atsignDetails.length; j++) {
-                if (doc[i].atsignDetails[j].atsignName && !sampleatsign.includes(doc[i].atsignDetails[j].atsignName) && !restrictedAtsigns.includes(doc[i].atsignDetails[j].atsignName) && countAtsignLength(doc[i].atsignDetails[j].atsignName) < 30){
-                     sampleatsign.push(doc[i].atsignDetails[j].atsignName);
-                }
- 
-            }
+        let atsignName = doc[i].atsignName;
+        if (!sampleatsign.includes(atsignName)  && !restrictedAtsigns.includes(atsignName) && countAtsignLength(atsignName) < 30) {
+            sampleatsign.push(atsignName);
         }
     }
     return res.status(200).json({ status: 'success', message: "", data: sampleatsign });
@@ -1067,7 +1051,7 @@ module.exports.getRandomOptions = async (req, res) => {
     return res.status(200).json({ status: 'success', message: "", data: choices });
 }
 
-module.exports.deleteStandardAtsign = async (req, res) => {
+module.exports.deleteStandardAtsign1 = async (req, res) => {
     let atsign = req.body.atsignName;
     let userId = ObjectId(req._id);
     const filter = { '_id': userId, 'atsignDetails.atsignName': atsign, 'atsignDetails.atsignType': 'free' };
@@ -1205,17 +1189,13 @@ module.exports.freeSignCount = async (req, res) => {
        
 //         // finalResult['success']=[]
 //         // finalResult['failure']=[]
-//         // console.log(transaction.length);return;
 //         for (let i = 0; i < transaction.length; i++) {
 //             let date = transaction[i].created;
 //             let startdate = new Date(date.getTime() - 1000*60);
 //             let lastdate = new Date(date.getTime() + 1000*60);
-//             // console.log( Object.values(transaction[i]['atsignName'][0]);return;
 //             let oldAtsign = transaction[i]['atsignName'];//Object.values(transaction[i]['atsignName'][0]).toString().replace(',','');
-//         // console.log(oldAtsign)
 //             transaction[i]['atsignName'] = [];
 //             let users = await User.findOne({ _id: ObjectId(transaction[i].userId)});
-//             // console.log(users && users['_id'],'users')
 //             if (users) {
 //                 var tamount=0;
 //                 for (let j = 0; j < users['atsignDetails'].length; j++) {
@@ -1228,7 +1208,6 @@ module.exports.freeSignCount = async (req, res) => {
 //                         tamount+=users['atsignDetails'][j]['payAmount'];
 //                     }
 //                 }
-//                 // console.log(tamount, transaction[i].amount, finalResult['success'])
 //                 if(tamount === transaction[i].amount/100)
 //                 {
 //                     finalResult.push({'success':{'oldAtsign':oldAtsign,'transaction':transaction[i], 'user':users}});
@@ -1256,7 +1235,6 @@ module.exports.updateAtsignType = async (req, res, next) => {
     new Promise(function (resolve, reject) {
         for (let i = 0; i < users.length; i++) {
             for (let j = 0; j < users[i]['atsignDetails'].length; j++) {
-                //console.log(users[i]['atsignDetails'][j])
                 if (users[i]['atsignDetails'] && users[i]['atsignDetails'][j]['premiumAtsignType'] && users[i]['atsignDetails'][j]['premiumAtsignType'] === 'Vanity') {
                     users[i]['atsignDetails'][j]['premiumAtsignType'] = 'Custom';
                 }
@@ -1283,7 +1261,6 @@ module.exports.updateEmailCase = async (req, res, next) => {
                     users[i].email = lowerCaseEmail;
                     new User(users[i]).save();
                 }
-                //   //console.log(users[i].email, lowerCaseEmail)
                 // new User(users[i]).save();
             }
 
@@ -1361,6 +1338,7 @@ module.exports.logout = async (req, res, next) => {
 }
 
 module.exports.activateAtSign = async (req, res, next) => {
+
     let atsign = await User.find({ _id: ObjectId(req._id), "atsignDetails.atsignName": { '$regex': `^${req.body.atSignName}$`, '$options': 'i' } }, { 'atsignDetails.$': 1 });
     if (atsign.length === 0) {
         return res.send({ status: 'error', message: 'Invalid atsign' });
@@ -1384,7 +1362,8 @@ module.exports.activateAtSign = async (req, res, next) => {
                 }
                 let update = {
                     "$set": {
-                        "atsignDetails.$.isActivated": CONSTANTS.SECONDARY_STATUS.SECONDARY_CREATED
+                        "atsignDetails.$.isActivated": CONSTANTS.SECONDARY_STATUS.SECONDARY_CREATED,
+                        "atsignDetails.$.activationTime": new Date()
                     }
                 }
                 const doc = await User.findOneAndUpdate(filter, update, { new: true })
@@ -1414,7 +1393,6 @@ module.exports.deactivateAtSign = async (req, res, next) => {
         }
     })
         .then(async result  => {
-            console.log(result)
             if (result.status == 200) {
                 let filter = {
                     '_id': ObjectId(req._id),
@@ -1422,7 +1400,8 @@ module.exports.deactivateAtSign = async (req, res, next) => {
                 }
                 let update = {
                     "$set": {
-                        "atsignDetails.$.isActivated": CONSTANTS.SECONDARY_STATUS.SECONDARY_STOPPED
+                        "atsignDetails.$.isActivated": CONSTANTS.SECONDARY_STATUS.SECONDARY_STOPPED,
+                        "atsignDetails.$.activationTime": null
                     }
                 }
                 const doc = await User.findOneAndUpdate(filter, update, { new: true })
@@ -1453,8 +1432,6 @@ module.exports.checkAtSignStatus = async (req, res, next) => {
     //     }
     // })
         .then(async result => {
-            // console.log(result.status)
-            // console.log(result, 'result')
 
             if (result.status == 200) {
                 let filter = {
@@ -1471,7 +1448,6 @@ module.exports.checkAtSignStatus = async (req, res, next) => {
             res.send({ status: 'success', message: 'Updated  Successfully', data: result.status == 200 ? {data:req.body.atSignName}:{} });
         })
         .catch(error => {
-            //console.log('error')
             res.send({ status: 'error', message: error.message, error_code: error.response ? error.response.status : null })
         })
 }
@@ -1520,7 +1496,6 @@ module.exports.checkActivateStatus = async (req, res, next) => {
 module.exports.registerUser = async function (email) {
     try {
         let existingUserByEmail = await userService.checkUserExistByEmail(email);
-        // console.log('existingUserByEmail',existingUserByEmail)
         if (existingUserByEmail) {
             return { error: { type: 'info', message: messages.USER_ALREADY_REGISTERED, data: { user_status: existingUserByEmail.userStatus } } }
         }
@@ -1600,7 +1575,7 @@ module.exports.registerUserWithAtsign = async function (email, atsign, originHea
 
         let savedUser = await userService.saveUser(user);
         if (savedUser) {
-            
+              
             mail.sendEmailSendGrid({
                 templateName: 'signup_invite',
                 receiver: email,
@@ -1746,9 +1721,9 @@ function getDateFilterForRenewalNotificationPastDate(notificationAfterDays) {
 async function sendRenewalNotificationByBatch(pageNo, limit, filter, template,notificationData={}) {
     filter['atsignType'] = { $ne: 'free' }
     filter['payAmount'] = { $gte: 0 }
-    filter['status'] = 'ACTIVE'
+    filter['status'] = { $in: ['ACTIVE', 'TRANSFERRING'] }
     let results = await AtsignDetailController.findAtsignForRenewal(filter, (pageNo - 1) * limit, limit)
-    if (results.value.length) {
+    if (results.value && results.value.length) {
         await Promise.all(results.value.map(async atsignByUser => {
             let user = await userService.getUserById(atsignByUser._id)
             if (user.userStatus && user.email && user.userStatus.toLowerCase() == 'active') {
@@ -1767,7 +1742,7 @@ async function sendRenewalNotificationByBatch(pageNo, limit, filter, template,no
 }
 
 module.exports.sendRenewalNotification = async function () {
-    let pageNo = 1, limit = 1, batchResult = null;
+    let pageNo = 1, limit = 25, batchResult = null;
     const filter = getDateFilterForRenewalNotification(60)
     batchResult = await sendRenewalNotificationByBatch(pageNo, limit, filter, "renewal_reminder_60", { daysToExpire: 60 });
     while (batchResult && batchResult.value && batchResult.value.isNext) {
@@ -1776,7 +1751,7 @@ module.exports.sendRenewalNotification = async function () {
     }
 }
 module.exports.sendRenewalNotificationPast30 = async function () {
-    let pageNo = 1, limit = 10, batchResult = null;
+    let pageNo = 1, limit = 25, batchResult = null;
     const filter = getDateFilterForRenewalNotificationPastDate(30)
     batchResult = await sendRenewalNotificationByBatch(pageNo, limit, filter, "renewal_reminder_past30", { daysAfterExpire: 30 });
     while (batchResult && batchResult.value && batchResult.value.isNext) {
@@ -1785,7 +1760,7 @@ module.exports.sendRenewalNotificationPast30 = async function () {
     }
 }
 module.exports.sendRenewalNotificationCurrent = async function () {
-    let pageNo = 1, limit = 10, batchResult = null;
+    let pageNo = 1, limit = 25, batchResult = null;
     const filter = getDateFilterForRenewalNotificationPastDate(0)
     batchResult = await sendRenewalNotificationByBatch(pageNo, limit, filter, "renewal_reminder_due", { daysToExpire: 0 });
     while (batchResult && batchResult.value && batchResult.value.isNext) {
@@ -1794,7 +1769,7 @@ module.exports.sendRenewalNotificationCurrent = async function () {
     }
 }
 module.exports.sendRenewalNotificationPast60 = async function () {
-    let pageNo = 1, limit = 10, batchResult = null;
+    let pageNo = 1, limit = 25, batchResult = null;
     const filter = getDateFilterForRenewalNotificationPastDate(60)
     batchResult = await sendRenewalNotificationByBatch(pageNo, limit, filter, "renewal_reminder_past60", { daysAfterExpire: 60 });
     while (batchResult && batchResult.value && batchResult.value.isNext) {
@@ -1803,7 +1778,7 @@ module.exports.sendRenewalNotificationPast60 = async function () {
     }
 }
 module.exports.sendRenewalNotificationPast61 = async function () {
-    let pageNo = 1, limit = 10, batchResult = null;
+    let pageNo = 1, limit = 25, batchResult = null;
     const filter = getDateFilterForRenewalNotificationPastDate(61)
     batchResult = await sendRenewalNotificationByBatch(pageNo, limit, filter, "atsign_expired", { expired: true });
     while (batchResult && batchResult.value && batchResult.value.isNext) {
@@ -1813,7 +1788,6 @@ module.exports.sendRenewalNotificationPast61 = async function () {
 }
 
 //User Renewal Notification End
-
 exports.checkLastVerification = async function(req,res) {
     let id = req._id;
     let user = await User.findOne({ _id: ObjectId(id)});
@@ -1944,3 +1918,74 @@ function sanitizeAtsign(atsign, encodeURI = false) {
         return atsign.toLowerCase();
     }
 }
+
+async function disableAtsign(atsign) {
+    try {
+        let disableAtsign = await axios({
+            method: 'post',
+            url: process.env.REGISTRAR_DELETE,
+            data: { atsign: sanitizeAtsign(atsign) },
+            headers: { authorization: process.env.REGISTRAR_NODE_TOKEN, 'content-type': 'application/json; charset=utf-8' }
+        })
+        return { value: { status: 'success', data: disableAtsign } }
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { stack: error.stack, message: error.message } } }
+    }
+}
+async function deleteAtsign(atsign, currentUser, deletedByAdmin) {
+    const atsignDetails = await AtsignDetailController.getAtsignDetails(atsign)
+    if (atsignDetails.error) return { error: atsignDetails.error }
+    if (!(atsignDetails.value && atsignDetails.value.status === 'ACTIVE' && (deletedByAdmin || (currentUser && atsignDetails.value.userId === currentUser.toString())))) {
+        return { error: {type:'info', message: '@sign is not deletable' } }
+    } 
+    const atsignUserDetails = await userService.getUserById(atsignDetails.value.userId)
+    const atsignDetailFromUser = atsignUserDetails.atsignDetails.find(atsignDetail => atsignDetail.atsignName.toLowerCase() === atsign.toLowerCase())
+    if (!atsignDetailFromUser) return { type:'info',message: "Please contact customer support" }
+    if (atsignDetailFromUser){
+        if (atsignDetailFromUser.isActivated == 2) return { error: {type:'info', message: '@sign is in activating state. First reset it to delete it' } }
+        if (atsignDetailFromUser.isActivated > 0) await disableAtsign(atsignDetails.value.atsignName)
+    } 
+
+    const markAtsign = await AtsignDetailController.markAtsignAsDeleted(atsignDetails.value.atsignName)
+    if (markAtsign.error) return { error: markAtsign.error }
+    const removedAtsignUser = await userService.removeAtsignFromUser(atsignDetails.value.userId, atsignDetails.value.atsignName)
+    if (removedAtsignUser.error) return { error: removedAtsignUser.error }
+    return { value: atsignDetails.value }
+}
+module.exports.deleteStandardAtsign = async (req, res) => {
+    let atsign = req.body.atsignName;
+    let userId = ObjectId(req._id);
+    const {error,value} = await deleteAtsign(atsign,userId)
+    if (error) {
+        if (error.type === 'info') {
+            return res.status(200).json({ status: 'error', message: error.message })
+        } else {
+            logError(error.data)
+            return res.status(200).json({ status: 'error', message: messages.SOMETHING_WRONG_RETRY })
+        }
+    }
+    return res.status(200).json({ status: 'success', message: "Atsign Deleted" });
+}
+
+
+let assignAtsignToUserByAdmin = async function (req, res) {
+    if (!req.body.email || !req.body.atsign) return res.send({ status: 'error', message: messages.INVALID_REQ_BODY })
+    const user = await userService.getUserByEmail(req.body.email)
+    if (!(user && user._id)) return res.send({ status: 'error', message: messages.USER_NOT_FOUND })
+    if (user.userStatus.toLowerCase() != 'active') return res.send({ status: 'error', message: messages.USER_NOT_ACTIVE })
+
+    const checkAtsign = await checkSignAvailability(req.body.atsign.toLowerCase())
+    if (!checkAtsign) return res.send({ status: 'error', message: messages.NOT_AVAILABLE_ATSIGN })
+    const inviteCode = generateInviteCode()
+    const {error,value} = await AtsignController.assignFreeAtsignToUserByAdmin(req._id,user._id, req.body.atsign, inviteCode)
+    if (error) {
+        if (error.type === 'info') {
+            return res.status(200).json({ status: 200, message: error.message })
+        } else {
+            logError(error.data)
+            return res.status(200).json({ status: 'error', message: messages.SOMETHING_WRONG_RETRY })
+        }
+    }
+    return res.status(200).json({ status: 'success', message: messages.SIGN_ADDED ,data:value});
+}
+module.exports.assignAtsignToUserByAdmin = assignAtsignToUserByAdmin

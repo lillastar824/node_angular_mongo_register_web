@@ -58,7 +58,7 @@ export class TransferAtsignComponent implements OnInit {
       } else {
         this.successMessages = res['message']
         setTimeout(() => {
-          this.dialogRef.close({ event: 'transfered', data: atsign });
+          this.dialogRef.close({ event: 'transferred', data: atsign });
         }, 1500);
       }
     })

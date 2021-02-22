@@ -26,7 +26,7 @@ const checkAndProvideCommission = async function (userId, orderDetails, inCents)
                 } else {
                     if (refferdByAtsignCommissionDetails.value && refferdByAtsignCommissionDetails.value.commissionPercentage && refferdByAtsignCommissionDetails.value.commissionPercentage > 0) {
                         const userAtsign = userDetails.atsignDetails.filter(atsign=>atsign.atsignName?true:false)
-                        if(userAtsign.length === orderDetails.cartData.length && cartReferalCode.toLowerCase() == 'internetoptimist'){
+                        if(userAtsign.length === orderDetails.cartData.length && cartReferalCode.toLowerCase().replace('@','') == 'internetoptimist'){
                             mail.sendEmailSendGrid({
                                 templateName: "early_access_signup_success",
                                 receiver: userDetails.email,
@@ -253,10 +253,10 @@ const getCommercialAtsignCommissionDetails = async function (filter, sortBy, pag
 
 
 // get atsign reports details... 
- 
-const getCommercialRepotsDetails = async function (atsign, limit, pageNo, sortBy) {
+
+const getCommercialReportsDetailsByAtsign = async function (atsign, limit, pageNo, sortBy) {
     try {
-        const commissionDetailPromise = await Promise.all([CommissionService.getCommercialRepotsDetails(atsign, limit, pageNo, sortBy), CommissionService.countCommercialRepotsReport(atsign)]);
+        const commissionDetailPromise = await Promise.all([CommissionService.getCommercialReportsDetailsByAtsign(atsign, limit, pageNo, sortBy), CommissionService.countCommercialRepotsReportByAtsign(atsign)]);
         let error = commissionDetailPromise[0].error || commissionDetailPromise[1].error
         if (error) {
             return { error: error }
@@ -275,7 +275,7 @@ const getCommercialRepotsDetails = async function (atsign, limit, pageNo, sortBy
     }
 }
 
-const approveCommissionByAtsign = async function (currentUser,atsign, approveTillTime, transactionId) {
+const approveCommissionByAtsign = async function (currentUser, atsign, approveTillTime, transactionId) {
     try {
         if (atsign && approveTillTime && transactionId) {
             let response = {};
@@ -288,7 +288,7 @@ const approveCommissionByAtsign = async function (currentUser,atsign, approveTil
                     totalOrderAmount: value.totalOrderAmount,
                     totalFinalCommission: value.totalFinalCommission,
                     currency: value.currency
-                },false,true)
+                }, false, true)
                 if (commisionTransaction.error) {
                     await CommissionService.rollBackApprovedCommissionByTransactionId(transactionId)
                     return { error: commisionTransaction.error }
@@ -314,12 +314,12 @@ const approveCommissionByAtsign = async function (currentUser,atsign, approveTil
                             "currency": value.currency,
                             "accountsname": process.env.ATSIGN_COMMISSION_MANAGER_NAME || 'Ashish',
                             "atsignEmail": atsignUser.email,
-                            "commissionpaidtill": moment(approveTillTime).format("MM/DD/YYYY hh:mm a")                           
+                            "commissionpaidtill": moment(approveTillTime).format("MM/DD/YYYY hh:mm a")
                         },
                         "cc_email": cc_email
                     };
                     mail.sendEmailSendGrid(data);
-                    response = {...value}
+                    response = { ...value }
                     return { value }
                 }
             } else {
@@ -334,6 +334,95 @@ const approveCommissionByAtsign = async function (currentUser,atsign, approveTil
     }
 }
 
+const isCommercialAtsign = async  function(atsign){
+    const {error,value} = await CommertialAtsignService.isCommercialAtsign(atsign)
+    return {error,value}
+}
+
+const getCommercialAtsignCommissionByUser = async function (req, res) {
+    let pageNo = req.query.pageNo && Number(req.query.pageNo) > 0 ? Number(req.query.pageNo) : 1
+    let limit = req.query.limit && Number(req.query.limit) > 0 ? Number(req.query.limit) : 1000//Need to check todo
+    let filter = req.query.searchTerm ? { atsign: { '$regex': `^${req.query.searchTerm}`, '$options': 'i', userId: req._id } } : {userId: req._id}
+    let sortBy = req.query.sortBy ? { [req.query.sortBy]: req.query.sortOrder == 'desc' ? -1 : 1 } : null
+    let { error, value } = await getCommercialAtsignCommissionDetails(filter, sortBy, pageNo, limit);
+
+    if (value) {
+        return res.status(200).json({ status: 'success', message: messages.SAVED_SUCCESSFULLY, data: value })
+    } else {
+        if (error.type == 'info') {
+            res.status(200).json({ status: 'error', message: error.message })
+        } else {
+            logError(error.data, req)
+            res.status(200).send({ status: 'error', message: messages.SOMETHING_WRONG_RETRY });
+        }
+    }
+}
+
+const getCommissionRepotsDetailsByUser = async function (req, res) {
+    let pageNo = req.query.pageNo && Number(req.query.pageNo) > 0 ? Number(req.query.pageNo) : 1
+    let limit = req.query.limit && Number(req.query.limit) > 0 ? Number(req.query.limit) : 10
+    // let filter = req.query.searchTerm ? { atsign: { '$regex': `^${req.query.searchTerm}`, '$options': 'i', userId: req._id } } : null
+    let filter  = { userId: req._id };
+    let to = moment();
+    let from = moment().subtract(1, 'month');
+
+    if (req.query.fromDate && req.query.toDate) {
+        from = moment(new Date(req.query.fromDate));
+        to = moment(new Date(req.query.toDate)); 
+    }
+
+    let fromDate = new Date(from.year(), from.month(), from.date(), 0, 0, 0);
+    let toDate = new Date(to.year(), to.month(), to.date(), 23, 59, 60);
+    filter["createdAt"] = { $gte: fromDate, $lte: toDate };
+
+    let sortBy = req.query.sortBy ? { [req.query.sortBy]: req.query.sortOrder == 'desc' ? -1 : 1 } : null
+    try {
+        let commissionDetailPromise = await Promise.all([CommissionService.getCommissionRepotsDetailsByUser(filter, limit, pageNo, sortBy), CommissionService.countCommissionRepotsDetailsByUser(filter)]);
+        console.log(commissionDetailPromise);
+        let error = commissionDetailPromise[0].error || commissionDetailPromise[1].error
+        if (error) {
+            if (error.type == 'info') {
+                res.status(200).json({ status: 'error', message: error.message })
+            } else {
+                logError(error.data, req)
+                res.status(200).send({ status: 'error', message: messages.SOMETHING_WRONG_RETRY });
+            }
+        } else {
+            return res.status(200).json({ status: 'success', message: messages.SAVED_SUCCESSFULLY, data: {
+                records: commissionDetailPromise[0].value.map(commissionDetail=>{
+                    return {
+                        "status":commissionDetail.status,
+                        "atsign":commissionDetail.atsign,
+                        "commissionOfferedPercentage":commissionDetail.commissionOfferedPercentage,
+                        "discountOfferedPercentage":commissionDetail.discountOfferedPercentage,
+                        "paidAmount":commissionDetail.paidAmount,
+                        "finalCommission":commissionDetail.finalCommission,
+                        "currency":commissionDetail.currency,
+                        "orderAmount":commissionDetail.orderAmount,
+                        "updatedAt":commissionDetail.updatedAt,
+                        "createdAt":commissionDetail.createdAt,
+                        "orderData" : {
+                            orderId: commissionDetail.metadata.orderId,
+                            commsionForUserId: commissionDetail.metadata.commsionForUserId,
+                            atsignDetails: commissionDetail.metadata.orderData ? commissionDetail.metadata.orderData.reduce((acc,atsignDetail)=>{
+                                acc[atsignDetail.originalAmount] = acc[atsignDetail.originalAmount] ? acc[atsignDetail.originalAmount] + 1 : 1;
+                               return acc
+                               },{}):[],
+                        }
+                    }
+                }),
+                total: commissionDetailPromise[1].value,
+                pageNo,
+                limit
+            } })
+        }
+
+    } catch (error) {
+        res.status(200).send({ status: 'error', message: messages.SOMETHING_WRONG_RETRY });
+    }
+}
+
+
 module.exports = {
     checkAndProvideCommission,
     getDiscountDetails,
@@ -343,6 +432,11 @@ module.exports = {
     getCommercialAtsignDetals,
     updateCommercialAtsign,
     getCommercialAtsignCommissionDetails,
-    getCommercialRepotsDetails,
-    approveCommissionByAtsign
+    // getCommercialRepotsDetails,
+    approveCommissionByAtsign,
+    isCommercialAtsign,
+    getCommercialReportsDetailsByAtsign,
+    approveCommissionByAtsign,
+    getCommercialAtsignCommissionByUser,
+    getCommissionRepotsDetailsByUser
 }

@@ -61,17 +61,23 @@ export class ConfirmationModalComponent implements OnInit {
 
         this.userService.deleteSavedAtsign({ name: name, type: type, _id: _id }).subscribe(
             res => {
-                this._snackBar.open('@sign deleted successfully.', 'x', {
+                let msg = 'Reserved @sign deleted successfully.'
+                let successRes: any = { event: 'Deleted', data: name };
+                if (res['status'] === 'error') {
+                    msg = res['message'];
+                    successRes = {};
+                }
+                this._snackBar.open(msg, 'x', {
                     duration: 15000,
                     panelClass: ['custom-snackbar']
                 });
-                this.dialogRef.close({event: 'Deleted', data: name});
+                this.dialogRef.close(successRes);
             },
             err => {
                 if (err.status === 422) {
                     this.serverErrorMessages = err.error.join('<br/>');
                 } else {
-                    this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+                    this.serverErrorMessages = 'Something went wrong! Please contact admin.';
                 }
             }
         );

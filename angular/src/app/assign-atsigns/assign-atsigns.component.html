@@ -1,0 +1,82 @@
+<div>
+    <form>
+        <div>
+            <h1 class="invite-head ml-5">
+                <span *ngIf="assignedAtsigns">Assign @sign</span>
+            </h1>
+            <mat-card class="get-invited-card">
+                <form [formGroup]="assignAtsignForm">
+                    <div class="div-heading bb-verify row text-center pt-4">
+                        <div class="col-md-12">
+                    <div class="row flex justify-content-space">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="w-100 admin-mat-form-field" >
+                                <mat-label>@sign</mat-label>
+                                <input  maxlength="256" matInput type="name" id="atsign" name="atsign" aria-describedby="atsign" placeholder="Enter atsign"
+                                    required  formControlName="atsign" [ngClass]="{'mat-form-field-invalid' :(assignAtsignForm.controls.atsign.touched && assignAtsignForm.controls.atsign.invalid) }"
+                                    appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="w-100 admin-mat-form-field" >
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" id="email" name="email" aria-describedby="email"   formControlName="email" required
+                                    [ngClass]="{ 'mat-form-field-invalid': assignAtsignForm.controls.email.touched && assignAtsignForm.controls.email.invalid }"
+                                placeholder="Enter assignee email">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="assign-atsign-btn" (click)="assignAtsign()">Assign</button>
+                        </div>
+                        </div>
+                    </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="assignAtsignForm.touched && assignAtsignForm.invalid">
+                                Please fill all the details
+                            </div>
+                            <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">
+                                {{showErrorMessage}}
+                            </div>
+                            <div class="col-md-12 text-success text-right" *ngIf="showSuccessMessage">
+                                {{showSuccessMessage}}
+                            </div>
+                            <div *ngIf="specialCharError" class="alert alert-danger col-md-12 mt-3 text-center">
+                                {{specialCharError}}
+                            </div>
+                    </div>
+                </form>
+                <div class="mat-elevation-z8 tablescroll" [hidden]="assignedAtsigns && assignedAtsigns.length === 0">
+
+                    <mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+                        <ng-container matColumnDef="atsignName">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> @sign
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row; let i = index;" data-label="atsignName">
+                                <span>{{row.atsignName}}</span>
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="email">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Email
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="email">
+                                {{row.email}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="atsignCreatedOn">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> Assigned On
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="atsignCreatedOn">
+                                {{row.atsignCreatedOn|date}} </mat-cell>
+                        </ng-container>
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </mat-row>
+                    </mat-table>
+
+                    <mat-paginator [length]="totatData" [pageSizeOptions]="[25, 50, 100]" (page)="pageEvent = $event; onPaginateChange($event)"></mat-paginator>
+                </div>
+
+            </mat-card>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>

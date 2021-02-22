@@ -27,9 +27,9 @@ export class ActivateAtsignComponent implements OnInit,OnDestroy {
     clearInterval(this.checkActivate);
   }
   activateAtSign(){
-    this.userService.showQRCode({ 'atSignName': this.data.atsignData }).subscribe(
+    this.userService.checkAtSignStatus({ 'atSignName': this.data.atsignData }).subscribe(
       res => {
-        if (res['status'] === 'success') {
+        if(res['status'] == 'error' && res['error_code'] && res['error_code'] === 418){
          this.qrCode = this.data.imgData;
          clearInterval(this.checkActivate);
         }

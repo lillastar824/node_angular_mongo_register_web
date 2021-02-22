@@ -17,7 +17,7 @@
         </div>
         <div class="col-12">
           <ul class="nav-pills mb-5">
-            <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openDialog('purchased-signs')">
+            <li *ngIf="userDetails.atsignDetails.length !== 0 || transferredAtsigns.length !== 0"><button class="dashboard-button" (click)="openDialog('purchased-signs')">
                 <mat-icon svgIcon="briefcase"></mat-icon><span>My @signs</span>
                 <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
               </button></li>
@@ -36,7 +36,7 @@
                 <mat-icon class="rotate-right" svgIcon="back"></mat-icon>
               </button></li>
               <li *ngIf="userDetails.atsignDetails.length !== 0"><button class="dashboard-button" (click)="openDialog('invite')">
-                <mat-icon svgIcon="invite"></mat-icon><span>Invite your Friends
+                <mat-icon svgIcon="invite"></mat-icon><span>Invite Your Friends
                   ({{totalFriendCount}}) 
                   <!-- <span class="nav-item-count">2 Remaining</span> -->
                 </span>

@@ -1,6 +1,6 @@
 const TransferAtsign = require('../models/transfer-atsign.model')
-
-const addTransfterAtsign = async function (atsign, oldOwnerId, newOwnerId, atsignType, atsignPrice, atsignTransferPrice, transferedObject, status, transferredBy) {
+const { messages } = require('./../config/const');
+const addTransfterAtsign = async function (atsign, oldOwnerId, newOwnerId, atsignType, atsignPrice, atsignTransferPrice, transferredObject, status, transferredBy) {
     try {
         let transferObj = await TransferAtsign.create({
             atsign,
@@ -9,7 +9,7 @@ const addTransfterAtsign = async function (atsign, oldOwnerId, newOwnerId, atsig
             atsignType,
             atsignPrice,
             atsignTransferPrice,
-            transferedObject,
+            transferredObject,
             status,
             transferredBy
 
@@ -20,9 +20,9 @@ const addTransfterAtsign = async function (atsign, oldOwnerId, newOwnerId, atsig
     }
 
 }
-const updateTransferStatus = async function (transactionId, status) {
+const updateTransferStatus = async function (transactionId, status, updatedBy = '') {
     try {
-        let transferObj = await TransferAtsign.findOneAndUpdate({ _id: transactionId }, { status: status })
+        let transferObj = await TransferAtsign.findOneAndUpdate({ _id: transactionId }, { status: status, updatedBy })
         return { value: transferObj };
     } catch (error) {
         return { error: { type: 'error', message: error.message, data: { stack: error.stack, message: error.message } } }
@@ -30,13 +30,29 @@ const updateTransferStatus = async function (transactionId, status) {
 }
 
 
-const getTransferAtsignOfUser = async function (oldOwnerId, filter, sortBy, pageNo = 1, limit = 10) {
+const getTransferAtsignOfUser = async function (userId, filter, sortBy, pageNo = 1, limit = 10) {
     try {
         filter = filter && typeof filter == 'object' ? filter : {}
         sortBy = sortBy && typeof sortBy == 'object' && Object.keys(sortBy).length > 0 ? sortBy : { _id: -1 }
-
-        if (oldOwnerId) {
-            const atsignTransfer = await TransferAtsign.find({ oldOwnerId: oldOwnerId }).sort(sortBy).skip((pageNo - 1) * limit).limit(limit).lean();
+        if (userId) {
+            let atsignTransfer = await TransferAtsign.find({ $or: [{ oldOwnerId: userId }, { newOwnerId: userId }] }).sort(sortBy).skip((pageNo - 1) * limit).limit(limit).lean();
+            atsignTransfer = atsignTransfer.map(atsign => {
+                atsign['transferType'] = atsign.oldOwnerId.toString() === userId.toString() ? 'outgoing':'incoming'
+                return atsign
+            })
+            return { value: atsignTransfer }
+        } else {
+            return { error: { type: 'info', message: messages.INVALID_ATSIGN } }
+        }
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
+    }
+}
+const countTransferAtsignOfUser = async function (userId, filter) {
+    try {
+        filter = filter && typeof filter == 'object' ? filter : {}
+        if (userId) {
+            const atsignTransfer = await TransferAtsign.countDocuments({ $or: [{ oldOwnerId: userId }, { newOwnerId: userId }] });
             return { value: atsignTransfer }
         } else {
             return { error: { type: 'info', message: messages.INVALID_ATSIGN } }
@@ -59,7 +75,7 @@ const getAllTransferAtsigns = async function (filter, sortBy, pageNo = 1, limit 
     }
 }
 
-const countCommercialAtsign = async function (filter) {
+const countAllTransferAtsigns = async function (filter) {
     try {
         filter = filter && typeof filter == 'object' ? filter : {}
         const commercialAtsignCount = await TransferAtsign.countDocuments(filter)
@@ -71,18 +87,49 @@ const countCommercialAtsign = async function (filter) {
 
 const getTransferAtsignListById = async function (id) {
     try {
-        const TransferAtsignObj = await TransferAtsign.findOne({_id:id,status:'PENDING'}).lean()
+        const TransferAtsignObj = await TransferAtsign.findOne({ _id: id, status: 'PENDING' }).lean()
+        return { value: TransferAtsignObj }
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
+    }
+}
+const findAtsignForScript = async function (filter, skip, limit) {
+    try {
+        const TransferAtsignObj = await TransferAtsign.find(filter).skip(skip).limit(limit)
+        return { value: TransferAtsignObj }
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
+    }
+}
+const changeAtsignTransferTime = async function (atsign,date) {
+    try {
+        const TransferAtsignObj = await TransferAtsign.updateOne({atsign,status:'PENDING'},{createdAt:date})
+        return { value: TransferAtsignObj }
+    } catch (error) {
+        return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
+    }
+}
+const addHistory = async function (transferId,history) {
+    try {
+        const TransferAtsignObj = await TransferAtsign.findOneAndUpdate({_id:transferId},{$push:{history:history}})
         return { value: TransferAtsignObj }
     } catch (error) {
         return { error: { type: 'error', message: error.message, data: { message: error.message, stack: error.stack } } }
     }
 }
 
+
+
+
 module.exports = {
     addTransfterAtsign,
     updateTransferStatus,
     getTransferAtsignOfUser,
     getAllTransferAtsigns,
-    countCommercialAtsign,
-    getTransferAtsignListById
+    countAllTransferAtsigns,
+    getTransferAtsignListById,
+    findAtsignForScript,
+    countTransferAtsignOfUser,
+    changeAtsignTransferTime,
+    addHistory
 }

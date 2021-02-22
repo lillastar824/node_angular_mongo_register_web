@@ -54,6 +54,9 @@ export class CommissionAtsignComponent implements OnInit {
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     createAtsignId: any;
+    showCommissionError: boolean= false;
+    comissionError: boolean= false;
+    showDiscountError: boolean= false;
     @HostListener('matSortChange', ['$event'])
     sortChange(e) {
     }
@@ -242,7 +245,8 @@ export class CommissionAtsignComponent implements OnInit {
         if (100 >= data.commissionPercentage && 100 >= data.discountOfferedPercentage) {
             if (data.commissionPercentage) {
                 if (data.commissionPercentage < data.discountOfferedPercentage) {
-                    return this.showEmptyErrorMessage = "Commission can't be less than discount";
+                   // return this.showEmptyErrorMessage = "Commission can't be less than discount";
+                   return null;
                 }
                 data.commissionPercentage = Number(data.commissionPercentage)
                 data.discountOfferedPercentage = Number(data.discountOfferedPercentage)
@@ -273,7 +277,8 @@ export class CommissionAtsignComponent implements OnInit {
                 this.showEmptyErrorMessage = "Please fill value";
             }
         } else {
-            this.showEmptyErrorMessage = "Percentage must be less than 100";
+            // this.showEmptyErrorMessage = "Percentage must be less than 100";
+            return null;
         }
     }
     onPaginateChange(e) {
@@ -308,5 +313,45 @@ export class CommissionAtsignComponent implements OnInit {
             width: '500px'
         });
     }
+    errorCommissionMessage(data) {
+        let maxValue = 100;
+        if (maxValue < data.commissionPercentage) {
+            this.showCommissionError = true;
+            this.showEmptyErrorMessage = "Percentage must be less than 100";
+            
+           
+        }
+        else {
+            this.showCommissionError = false; 
+            if(data.commissionPercentage < data.discountOfferedPercentage){
+                this.comissionError = true;
+                this.showEmptyErrorMessage = "Commission can't be less than discount";
+            }
+            else{
+                this.comissionError = false;
+            }
+              
+        }}
+
+        errorDiscountMessage(data) {
+            let maxValue = 100;
+            if (maxValue < data.discountOfferedPercentage) {
+                this.showDiscountError = true;
+                this.showEmptyErrorMessage = "Percentage must be less than 100";
+              
+            }
+            else {
+                this.showDiscountError = false; 
+                if(data.commissionPercentage < data.discountOfferedPercentage){
+                    this.comissionError = true;
+                    this.showEmptyErrorMessage = "Commission can't be less than discount";
+                }
+                else{
+                    this.comissionError = false;
+                }
+                       
+            }
+        }
+    
 }
 

@@ -14,7 +14,7 @@
                             <div class="row flex justify-content-space">
 
                                 <div class="col-md-3 atsign-grid">
-                                    <mat-form-field appearance="outline" class="w-100">
+                                    <mat-form-field appearance="outline" class="w-100 admin-mat-form-field">
                                         <mat-label>@sign</mat-label>
                                         <input maxlength="256" matInput type="text" id="atsign" name="atsign"
                                             aria-describedby="atsign" placeholder="Enter @sign name" #atsign="ngModel"
@@ -24,7 +24,7 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-3 atsign-grid">
-                                    <mat-form-field appearance="outline" class="w-100">
+                                    <mat-form-field appearance="outline" class="w-100 admin-mat-form-field">
                                         <mat-label>Commission percentage</mat-label>
                                         <input maxlength="256" matInput type="number" id="commissionPercentage"
                                             name="commissionPercentage" aria-describedby="commissionPercentage"
@@ -36,7 +36,7 @@
                                 </div>
                                 <!-- Commission todo -->
                                 <div class="col-md-3 atsign-grid">
-                                    <mat-form-field appearance="outline" class="w-100">
+                                    <mat-form-field appearance="outline" class="w-100 admin-mat-form-field">
                                         <mat-label>Discount percentage</mat-label>
                                         <input maxlength="256" matInput type="number" id="discountOfferedPercentage"
                                             name="discountOfferedPercentage" aria-describedby="discountOfferedPercentage"
@@ -47,7 +47,7 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2 atsign-grid">
-                                    <mat-form-field appearance="outline" class="w-100">
+                                    <mat-form-field appearance="outline" class="w-100 admin-mat-form-field">
                                         <mat-label>Maximum Discount Amount</mat-label>
                                         <input maxlength="256" matInput type="number" id="maxDiscountAmount"
                                             name="maxDiscountAmount" aria-describedby="maxDiscountAmount"
@@ -108,12 +108,16 @@
                             <mat-cell *matCellDef="let row; let i = index;" data-label="name">
                                 <span *ngIf="!isEdit[i]">{{row.commissionPercentage}}</span>
                                 <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
-                                    <input matInput maxlength="256" #name="ngModel" type="number"
+                                    <input matInput maxlength="256" #name="ngModel" type="number" (change)="errorCommissionMessage(row)"
                                         [(ngModel)]="row.commissionPercentage" name="commissionPercentage" required
                                         appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
                                     <mat-error *ngIf="row.commissionPercentage==''">Commission cannot be blank
                                     </mat-error>
-                                    <div class="editError" *ngIf="showEmptyErrorMessage">{{showEmptyErrorMessage}}
+                                    <!-- <div class="editError" *ngIf="showEmptyErrorMessage">{{showEmptyErrorMessage}}
+                                    </div> -->
+                                    <div class="editError" *ngIf="comissionError">{{showEmptyErrorMessage}}
+                                    </div>
+                                    <div class="editError" *ngIf="showCommissionError">{{showEmptyErrorMessage}}
                                     </div>
                                 </mat-form-field>
                             </mat-cell>
@@ -124,12 +128,16 @@
                             <mat-cell *matCellDef="let row; let i = index;" data-label="name">
                                 <span *ngIf="!isEdit[i]">{{row.discountOfferedPercentage}}</span>
                                 <mat-form-field class="example-full-width mb-2" *ngIf="isEdit[i]">
-                                    <input matInput maxlength="256" #name="ngModel" type="number"
+                                    <input matInput maxlength="256" #name="ngModel" type="number" (change)="errorDiscountMessage(row)"
                                         [(ngModel)]="row.discountOfferedPercentage" name="discountOfferedPercentage"
                                         required appKeypressHandler (onKeyPressHandle)="onKeyPressHandle($event)">
                                     <mat-error *ngIf="row.discountOfferedPercentage==''">Discount cannot be blank
                                     </mat-error>
-                                    <div class="editError" *ngIf="showEmptyErrorMessage">{{showEmptyErrorMessage}}
+                                    <!-- <div class="editError" *ngIf="showEmptyErrorMessage">{{showEmptyErrorMessage}}
+                                    </div> -->
+                                    <div class="editError" *ngIf="comissionError">{{showEmptyErrorMessage}}
+                                    </div>
+                                    <div class="editError" *ngIf="showDiscountError">{{showEmptyErrorMessage}}
                                     </div>
                                 </mat-form-field>
                             </mat-cell>

@@ -9,7 +9,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 declare let gtag: Function;
 
-const svgIcons = ['congrats','atom', 'robot','robot-alt','back','copy','history','preview','@sign','check','infinity','invite','briefcase','notifications','purchase-history','verification-methods','customize','reboot']
+const svgIcons = ['congrats','atom', 'robot','robot-alt','back','copy','history','preview','@sign','check','infinity','invite','briefcase','notifications','purchase-history','verification-methods','customize','reboot','transfer-in','transfer-out']
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',

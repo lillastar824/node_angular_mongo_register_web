@@ -37,6 +37,8 @@ import { AtsignTransferListComponent } from './atsign-transfer-list/atsign-trans
 import { AllTransferAtsignComponent } from './all-transfer-atsign/all-transfer-atsign.component';
 import { RenewalPaymentComponent } from './app/renewal-payment/renewal-payment.component';
 import { PartnerDashboardComponent } from './app/partner-dashboard/partner-dashboard.component';
+import { TransferAtsignPaymentComponent } from './transfer-atsign-payment/transfer-atsign-payment.component';
+import { AssignAtsignsComponent } from './assign-atsigns/assign-atsigns.component';
 const defaultTitle = 'The @ Company - ';
 
 export function getTitle(title) {
@@ -234,6 +236,14 @@ export const appRoutes: Routes = [
   {
     path: 'partner-dashboard', component: PartnerDashboardComponent, canActivate: [AuthGuard],
     data : { 'title' : getTitle('Dashboard') , roles: [Role.User] }
+  },
+  {
+    path: 'transfer-atsign-payment', component: TransferAtsignPaymentComponent, canActivate: [AuthGuard],
+    data : { 'title' : getTitle('Transfrer Atsign Payment') , roles: [Role.User] }
+  },
+  {
+    path: 'assign-atsigns', component: AssignAtsignsComponent, canActivate: [AuthGuard],
+    data : { 'title' : getTitle('Assign @signs') , roles: [Role.Admin] }
   },
   {
     path: '', pathMatch: 'full', redirectTo: 'dashboard'

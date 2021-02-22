@@ -14,6 +14,9 @@ const registerRoutes = function (router) {
     router.get('/cron/renewal/past61/:forced?',CronMiddleware, CronController.sendRenewalNotificationPast61);
     router.get('/cron/payment/promo-code/:forced?',CronMiddleware, CronController.executePromoCodeScript);
     router.get('/cron/secondary/:forced?',CronMiddleware, CronController.checkSecondary);
+    router.get('/cron/transfer/past30/:forced?',CronMiddleware, CronController.sendTransferNotificationPast30);
+    router.get('/cron/transfer/past59/:forced?',CronMiddleware, CronController.sendTransferNotificationPast59);
+    router.get('/cron/transfer/past60/:forced?',CronMiddleware, CronController.expireTransferPast60);
     router.post('/cron',CronMiddleware, CronController.getCronDetails);
 }
 

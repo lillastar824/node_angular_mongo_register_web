@@ -28,7 +28,7 @@ let TransferAtsignSchema = new Schema({
         type: Number,
         required: true
     },
-    transferedObject: {
+    transferredObject: {
         type: Object,
         required: true
     },
@@ -39,7 +39,19 @@ let TransferAtsignSchema = new Schema({
     status: {
         type: String,
         required: true
-    }
+    },
+    updatedBy: {
+        type: String,
+    },
+    history: [{
+        date: {
+            type: Date,
+        },
+        action: {
+            type: String,
+            enum: ['TRANSFER_MAIL_RESEND']
+        }
+    }]
 });
 
 TransferAtsignSchema.plugin(timeStamp)

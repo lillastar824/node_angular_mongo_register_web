@@ -169,7 +169,7 @@ module.exports.sendInviteLink = async (email, inviteCode, origin) => {
   }
 }
 
-module.exports.addUser = async (cartData, origin) => {
+module.exports.addUserAtsign = async (cartData, origin,userId) => {
   try {
     let inviteCode = await utility.generateInviteCode();
     let email = cartData[0]['email'].toLowerCase();
@@ -187,7 +187,7 @@ module.exports.addUser = async (cartData, origin) => {
       cartData[i]['inviteLink'] = inviteLink;
     }
     if (!utility.checkValidEmail(email)) {
-      let data = await User.findOne({ email: email });
+      let data = await User.findOne({ email: email }).lean();
       if (!data) {
         const user = new User();
         user['email'] = email;
@@ -219,8 +219,36 @@ module.exports.addUser = async (cartData, origin) => {
             return { status: 'success', message: messages.INVITE_SENT, data: { inviteLink: inviteLink, _id: doc._id } };
           }
         }
-      } else {
-        return { status: 'error', message: messages.USER_ALREADY_REGISTERED };
+      }
+      else if(userId && userId == data._id){
+
+        let updatedUser = await User.findOneAndUpdate({_id:data._id},{ "$push": { "atsignDetails": { "$each": cartData }}})
+        if(updatedUser){
+          let reserveData = [];
+          for (let i = 0; i < cartData.length; i++) {
+            let currentData = {};
+            currentData['userid'] = updatedUser._id;
+            currentData['atsignName'] = cartData[i].atsignName;
+            currentData['price'] = cartData[i].payAmount;
+            currentData['atsignType'] = 'reserved';
+            reserveData.push(currentData);
+          }
+          let reserve = await ReserveAtsigns.insertMany(reserveData);
+          if (reserve) {
+            data = {
+              templateName: "signup_invite",
+              receiver: email,
+              dynamicdata: {
+                "invite_link": inviteLink
+              }
+            };
+            mail.sendEmailSendGrid(data);
+            return { status: 'success', message: messages.INVITE_SENT, data: { inviteLink: inviteLink, _id: data._id } };
+          }
+        }
+      }
+       else {
+        return { status: 'error', message: messages.USER_ALREADY_REGISTERED,data:{userId : data._id}};
       }
     } else {
       return { status: 'error', message: messages.ENTER_VALID_MAIL, data: {} };
@@ -306,7 +334,23 @@ exports.sendInviteCode = async (filter, update, atsign) => {
           mail.sendEmailSendGrid(data);
         }
       }
-      return { status: "success", message: messages.VERIFICATION_CODE_SENT, data: {} };
+      let responseData = {}
+      if (atsign) {
+        let emailRedactedLength = doc.email.lastIndexOf('@') - 2;
+        let redactedEmail = ''
+        if (emailRedactedLength > 4) {
+          redactedEmail = doc.email.substr(0, 2) + Array(doc.email.length).fill('X', 2, emailRedactedLength).join('') + doc.email.substr(emailRedactedLength)
+        } else {
+          emailRedactedLength++
+          redactedEmail = doc.email.substr(0, 1) + Array(doc.email.length).fill('X', 1, emailRedactedLength).join('') + doc.email.substr(emailRedactedLength)
+        }
+        const redactedPhone = doc.contact ? doc.contact.substr(0, 4) + Array(doc.contact.length).fill('X', 4, -2).join('') + doc.contact.substr(-2) : ''
+        responseData = {
+          email: redactedEmail,
+          contact: redactedPhone
+        }
+      }
+      return { status: "success", message: messages.VERIFICATION_CODE_SENT, data: responseData };
     }
     catch (error) {
       return { status: 'logError', message: messages.USER_ALREADY_ADDED, data: {error} };
@@ -455,7 +499,7 @@ module.exports.removeAtsignFromUser = async function (userId, atsign) {
     return { error: { type: 'error', message: error.message, data: { stack: error.stack, message: error.message } } }
   }
 }
-module.exports.randomOTP = async function(length=4, chars='123456789ABCDEFGHJKMNPQRSTUWXYZ') {
+  module.exports.randomOTP = async function(length=4, chars='123456789ABCDEFGHJKMNPQRSTUWXYZ') {
     let result = '';
     for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
 

@@ -1,0 +1,19 @@
+<p>Resetting your @sign “{{atsign.atsignName}}” will erase your data, including data entered on any @pp, and cannot be
+    reversed. Note: Your @sign will not be deleted.</p>
+<div class="custom-alert-warning mb-3" role="alert"><i class="fa fa-warning"></i> This action cannot be undone. </div>
+<p>Type “@{{atsign.atsignName}}” to proceed</p>
+<form [formGroup]="resetForm">
+    <div class="d-flex flex-wrap mb-3">
+        <input type="text" class="form-control input-field" formControlName="atsignName"
+            placeholder="Please type in @sign which you want to reset">
+        <button type="button" class="btn btn-danger ml-sm-3 text-nowrap mt-2 mt-sm-0" appPreventDoubleClick
+            [throttleTime]="3000"
+            [disabled]="atsign.isActivated !== 2 && atsign.isActivated !== 3 && atsign.isActivated !== 1"
+            (throttledClick)="deactivateAtSign()">Yes, delete all data</button>
+    </div>
+</form>
+<div class="d-flex mb-3">
+    <div class="text-danger text-left mb-2" *ngIf="resetServerErrorMessage">
+        {{resetServerErrorMessage}}
+    </div>
+</div>

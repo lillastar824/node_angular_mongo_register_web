@@ -248,7 +248,7 @@ export class UserService {
     const params = data;
     return this.http.get(`${environment.apiBaseUrl}/commission`, { params });
   }
-  getCommercialRepotsDetails(atsign, data) {
+  getCommercialReportsDetailsByAtsign(atsign, data) {
     const params = data;
     return this.http.get(`${environment.apiBaseUrl}/commission/reports/${atsign}`,{params});
   }
@@ -273,11 +273,17 @@ export class UserService {
   }
   atsignTransferList(data) {
     const params = data;
-    return this.http.get(`${environment.apiBaseUrl}/atsign-transfer-list/`,{params});
+    return this.http.get(`${environment.apiBaseUrl}/atsign-transfer-list`,{params});
   }
   getAllTransferAtsign(data) {
     const params = data;
-    return this.http.get(`${environment.apiBaseUrl}/all-transfer-atsign/`,{params});
+    return this.http.get(`${environment.apiBaseUrl}/all-transfer-atsign`,{params});
+  }
+  updateTransferAtsignStatus(transferId, data) {
+    return this.http.put(`${environment.apiBaseUrl}/transfer-atsign/${transferId}`, data);
+  }
+  resendTransferNotification(transferId) {
+    return this.http.put(`${environment.apiBaseUrl}/resend-transfer-notification/${transferId}`, {});
   }
 //================================================
 
@@ -377,6 +383,10 @@ export class UserService {
   }
   sendNewInviteLink() {
     return this.http.get(environment.apiBaseUrl + '/sendNewInviteLink');
+  }
+
+  removeContact() {
+    return this.http.post(environment.apiBaseUrl + '/removecontact' , {})
   }
   //Helper Methods
 
@@ -493,6 +503,14 @@ export class UserService {
   
   checkInviteCodeValid(params) {
     return this.http.get(environment.apiBaseUrl +'/checkInviteCodeValid?inviteCode='+params,this.noAuthHeader);
+  }
+
+  assignAtsign(data) {
+    return this.http.post(environment.apiBaseUrl + '/admin/assign-atsign', data);
+  }
+
+  getAllAssignedAtsigns(params) {
+    return this.http.get(environment.apiBaseUrl + '/admin/assign-atsign', { params });
   }
 
 

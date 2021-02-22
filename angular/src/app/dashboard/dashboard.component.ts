@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
     contactVerified: boolean = false;
     showLists: boolean = false;
     unreadNotifications : any[] = []
+    transferredAtsigns : any = []
     verifyUserContact: boolean = false;
     constructor(private userService: UserService,
         private route: ActivatedRoute,
@@ -59,10 +60,6 @@ export class DashboardComponent implements OnInit {
                 const inviteLeft = 500 - this.userDetails['inviteFriendDetails'].length;
                 this.inviteLeft = inviteLeft > 0 ? inviteLeft : 0;
                 handles.forEach(function(value, key) {
-                  if(value['isActivated'] == 1)
-                    {
-                      value['isActivated'] = 2;
-                    }
                     if(!value['atsignName']){
                         handles.splice(key, 1);
                     }
@@ -103,7 +100,17 @@ export class DashboardComponent implements OnInit {
                 this.SpinnerService.hide();
             }
         );
-
+        
+          this.userService.atsignTransferList({}).subscribe(  res => {
+            if (res['status'] === 'success') {
+              this.transferredAtsigns = res["data"]["records"];
+            }
+          },
+          err => {
+            //console.log(err);
+          })
+      
+        
         if(this.userService.selectHandle['handleType'] === "paid"){
         this.userService.checkPaidUser(this.userService.selectHandle['atsignName']).subscribe(
             res => {
@@ -147,7 +154,8 @@ export class DashboardComponent implements OnInit {
             maxWidth: '100%',
             data: {
                 freeAtSigns: this.freeAtSigns,
-                paidAtSigns: this.paidAtSigns
+                paidAtSigns: this.paidAtSigns,
+                atSigns : this.userDetails['atsignDetails']
             }
           });
         } else{

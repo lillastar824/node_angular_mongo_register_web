@@ -301,15 +301,15 @@
   max-height: 1000px;
 }
 @media screen and (max-width: 767px) {
-  .pricing-drawer.input-focused .pricing-drawer-body {
-    max-height: 0;
+  .pricing-drawer.input-focused {
+    display: none;
   }
-  .invite-head.input-focused {
+  /* .invite-head.input-focused {
     display: none;
   }
   .pricing-drawer.input-focused.has-ajax-response {
     display: none;
-  }
+  } */
   .atsign-success-msg.input-focused {
     margin-top: 0 !important;
   }

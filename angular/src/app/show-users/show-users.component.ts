@@ -348,44 +348,50 @@ export class ShowUsersComponent implements OnInit {
     addToCart(email, atsignName, payAmount) {
         this.showErrorMessage = '';
         if (!this.invalidEmail) {
-            if(payAmount.toString() !== "0"){
-            if (this.userCart[0].email && atsignName && payAmount) {
-                this.SpinnerService.show();
-                this.formValidation = false;
-                this.checkAtsignAvailability({ atsignName: atsignName, atsignType: 'paid', fromAdmin: true }, (res) => {
-                    if (res) {
-                        this.handleNotAvailable = false;
-                        let count = 0;
-                        this.userCart.map(el => el.atsignName.toLowerCase() === atsignName.toLowerCase() ? count++ : count);
-                        if (count < 2) {
-                            this.userCart.push({
-                                email: this.userCart[0].email,
-                                atsignName: '',
-                                payAmount: ''
-                            })
-                            this.showErrorMessage = "";
+            if (payAmount.toString() !== "0") {
+                if (this.userCart[0].email && atsignName && payAmount) {
+                    this.SpinnerService.show();
+                    this.formValidation = false;
+                    this.checkAtsignAvailability({ atsignName: atsignName, atsignType: 'paid', fromAdmin: true }, (res) => {
+                        if (res) {
+                            this.handleNotAvailable = false;
+                            let count = 0;
+                            this.userCart.map(el => el.atsignName.toLowerCase() === atsignName.toLowerCase() ? count++ : count);
+                            if (count < 2) {
+                                this.userCart.push({
+                                    email: this.userCart[0].email,
+                                    atsignName: '',
+                                    payAmount: ''
+                                })
+                                this.showErrorMessage = "";
+                            } else {
+                                this.showErrorMessage = "@sign not available";
+                            }
+                            this.SpinnerService.hide();
                         } else {
-                            this.showErrorMessage = "@sign not available";
+                            this.handleNotAvailable = true;
+                            this.SpinnerService.hide();
                         }
-                        this.SpinnerService.hide();
-                    } else {
-                        this.handleNotAvailable = true;
-                        this.SpinnerService.hide();
-                    }
-                })
-            } 
-        }else {
+                    })
+                }
+            } else {
                 this.showErrorMessage = 'Amount must be greater than 0 and less than 100000';
             }
-            } else {
-                this.formValidation = true;
-            }
-        
+        } else {
+            this.formValidation = true;
+        }
+
     }
     checkAtsignAvailability(atsignName, callback) {
         this.userService.checkAtsignAvailability(atsignName).subscribe(
             res => {
-                if (res['status'] === 'success') {
+                if(!res)
+                {
+                    this.showErrorMessage = 'Something went wrong. Please try again later.';
+                    this.SpinnerService.hide();
+                    callback(false);
+                }
+                else if (res['status'] === 'success') {
                     callback(true);
                 } else {
                     callback(false);

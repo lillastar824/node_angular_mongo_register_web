@@ -29,7 +29,8 @@
                             <div class="mb-3">
                                 <mat-form-field class="d-block w-100 mb-3" appearance="outline" *ngIf="model.type === 'atsign'">
                                   <mat-label>Your @sign</mat-label>
-                                    <input matInput
+                                    <input matInput autocorrect="off" autocapitalize="off" spellcheck="false"
+                                    autocomplete="off" 
                                         placeholder='chloe'
                                         #email="ngModel" [(ngModel)]="model.email"
                                         name="atsign" required

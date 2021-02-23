@@ -243,7 +243,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'assign-atsigns', component: AssignAtsignsComponent, canActivate: [AuthGuard],
-    data : { 'title' : getTitle('Assign @signs') , roles: [Role.Admin] }
+    data : { 'title' : getTitle('Assign Free @signs') , roles: [Role.Admin] }
   },
   {
     path: '', pathMatch: 'full', redirectTo: 'dashboard'

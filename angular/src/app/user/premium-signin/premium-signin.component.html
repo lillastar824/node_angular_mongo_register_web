@@ -12,7 +12,7 @@
       <div class="get-invited-card">
         <img class="bubbles-bg" src="../../../assets/img/Bubbles.png">
         <div class="get-invited-card-inner">
-          <div class="form row py-0"  [ngClass]="{'min-height-300': !pricingDrawerExpanded}">
+          <div class="form row py-0"  [ngClass]="{'min-height-300': !focusActive}">
             <div class="col-12">
               <h1 class="invite-head text-center" [ngClass]="{'input-focused' : focusActive, 'has-ajax-response': atsignSuccessMessage || atsignErrorMessage}">Create your @sign</h1>
             </div>

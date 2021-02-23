@@ -24,7 +24,7 @@
         </mat-panel-title>
 
       </mat-expansion-panel-header>
-      <p>Transfer your @sign “{{atsign.atsignName}}” to a new owner. Once the new owner accepts the transfer, this action cannot be undone.</p>
+      <p>Transfer your @sign “@{{atsign.atsignName}}” to a new owner. Once the new owner accepts the transfer, this action cannot be undone.</p>
       <div *ngIf="atsign.isActivated === 2 || atsign.isActivated === 3 || atsign.isActivated === 1">
       <div class="mb-2"> <strong>Step 1 - Reset @sign</strong></div> 
         <app-reset-atsign [atsign]="atsign" (onAtsignDeactivated)="onDeactivated($event, true, 1)"></app-reset-atsign>

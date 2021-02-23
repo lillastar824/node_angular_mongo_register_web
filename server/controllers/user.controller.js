@@ -391,12 +391,13 @@ module.exports.checkAtsignAvailability = async (req, res, next) => {
                 userid: userId,
                 timer_started: false,
                 atsignType:'free',
-                timestamp: null
+                timestamp: null,
+                atsignName: atsignData.atsignName
             };
             update['atsignName'] = atsignData.atsignName;
             update['price'] = price;
             update['atsignType'] = handle_type;
-            freeReserveHandle = await ReserveAtsigns.findOneAndUpdate(filter, update);
+            freeReserveHandle = await ReserveAtsigns.findOneAndUpdate(filter, update, { upsert: true });
         } else if (!fromAdmin && !reserveHandle) {
             const reserveAtsigns = new ReserveAtsigns();
             reserveAtsigns.userid = userId;
@@ -1939,7 +1940,7 @@ async function deleteAtsign(atsign, currentUser, deletedByAdmin) {
         return { error: {type:'info', message: '@sign is not deletable' } }
     } 
     const atsignUserDetails = await userService.getUserById(atsignDetails.value.userId)
-    const atsignDetailFromUser = atsignUserDetails.atsignDetails.find(atsignDetail => atsignDetail.atsignName.toLowerCase() === atsign.toLowerCase())
+    const atsignDetailFromUser = atsignUserDetails.atsignDetails.find(atsignDetail => atsignDetail.atsignName && atsignDetail.atsignName.toLowerCase() === atsign.toLowerCase())
     if (!atsignDetailFromUser) return { type:'info',message: "Please contact customer support" }
     if (atsignDetailFromUser){
         if (atsignDetailFromUser.isActivated == 2) return { error: {type:'info', message: '@sign is in activating state. First reset it to delete it' } }

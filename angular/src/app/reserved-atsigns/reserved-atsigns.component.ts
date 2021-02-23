@@ -182,7 +182,7 @@ export class ReservedAtsignsComponent implements OnInit {
             this.userService.addReserveAtsigns({ 'name': this.model.name, 'type': this.model.brandName ? 'Brand' : 'Custom' }).subscribe(
                 res => {
                     if (res['status'] === 'success') {
-                        this.allAtsigns.push({ 'name': this.model.name, 'type': this.model.brandName ? 'Brand' : 'Custom' });
+                        this.allAtsigns.push({ 'name': this.model.name, '_id': res['data']['_id'], 'type': this.model.brandName ? 'Brand' : 'Custom' });
                         this.dataSource = new MatTableDataSource(this.allAtsigns);
                         // this.dataSource.paginator = this.paginator;
                         // this.dataSource.sort = this.sort;

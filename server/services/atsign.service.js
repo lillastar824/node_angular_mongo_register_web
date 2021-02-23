@@ -68,10 +68,10 @@ exports.addReserveAtsigns = async (name, type) => {
         if (!dataBrand && !dataCustom) {
             const brands = new Brands();
             brands.name = name;
-            await brands.save().catch(err => {
+          response =  await brands.save().catch(err => {
                 return { status: 'logError', error: err }
             });
-            return { status: 'success', message: messages.SIGN_ADDED, data: {} };
+            return { status: 'success', message: messages.SIGN_ADDED, data: response };
         } else {
             return { status: 'error', message: messages.SIGN_EXIST, data: {} };
         }
@@ -79,10 +79,10 @@ exports.addReserveAtsigns = async (name, type) => {
         if (!dataBrand && !dataCustom) {
             const atsign = new Atsign();
             atsign.name = name;
-            await atsign.save().catch(err => {
+            response = await atsign.save().catch(err => {
                 return { status: 'logError', error: err }
             });
-            return { status: 'success', message: messages.SIGN_ADDED, data: {} };
+            return { status: 'success', message: messages.SIGN_ADDED, data: response };
         } else {
             return { status: 'error', message: messages.SIGN_EXIST, data: {} };
         }

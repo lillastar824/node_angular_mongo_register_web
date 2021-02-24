@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator, MatSort, MatTableDataSource, Sort } from '@angular/material';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../shared/services/user.service';
+import { EmailValidator } from '../shared/validators/email.validator';
 
 @Component({
   selector: 'app-assign-atsigns',
@@ -17,7 +18,7 @@ export class AssignAtsignsComponent implements OnInit {
   displayedColumns : string[] = ["atsignName", "email", "atsignCreatedOn"];
   assignAtsignForm = new FormGroup({
     atsign: new FormControl("", Validators.required),
-    email: new FormControl("", Validators.required)
+    email: new FormControl("", [Validators.required, EmailValidator])
   });
   specialCharError: string = null;
   pageEvent: any;
@@ -76,7 +77,13 @@ export class AssignAtsignsComponent implements OnInit {
     this.showErrorMessage = '';
     this.specialCharError = '';
     this.assignAtsignForm.markAllAsTouched();
-
+   
+    if(!this.assignAtsignForm.controls.email.valid){
+      this.showErrorMessage = "Invalid Email";
+      this.showSuccessMessage = '';
+      return 
+    }
+    
     if(this.assignAtsignForm.valid) {
       this.userService.assignAtsign(this.assignAtsignForm.value).subscribe((res) => {
         

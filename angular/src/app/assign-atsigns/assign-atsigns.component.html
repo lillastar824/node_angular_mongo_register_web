@@ -31,7 +31,7 @@
                         </div>
                         </div>
                     </div>
-                            <div class="col-md-12 text-danger text-right" *ngIf="assignAtsignForm.touched && assignAtsignForm.invalid">
+                            <div class="col-md-12 text-danger text-right" *ngIf="assignAtsignForm.touched && (assignAtsignForm.controls.email.untouched || assignAtsignForm.controls.atsign.untouched) ">
                                 Please fill all the details
                             </div>
                             <div class="col-md-12 text-danger text-right" *ngIf="showErrorMessage">

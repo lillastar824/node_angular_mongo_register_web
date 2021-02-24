@@ -248,6 +248,9 @@
 
 @media screen and (max-width: 400px) {
   #sign {
+    font: normal normal normal 16px/1 Muli;
+  }
+  #sign::placeholder {
     font: normal normal normal 12px/1 Muli;
   }
 }
@@ -316,6 +319,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .min-height-300 {
+    min-height: 300px;
+  }
   .pricing-drawer-overlay.pricing-drawer-expanded {
     display: none
   }
@@ -525,9 +531,6 @@
   top: 68px;
   width: 100%;
   z-index: 9;
-}
-.min-height-300 {
-  min-height: 300px;
 }
 
 

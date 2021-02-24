@@ -223,12 +223,7 @@ export class StandardSignComponent implements OnInit {
                 this.serverErrorMessages = res['message'];
               }
               this.userService.selectHandle.atsignName = res["atsignName"];
-              if (
-                this.userService.atSignSearchHistory.length ===
-                this.utilityService.searchHistoryCount
-              ) {
-                this.userService.atSignSearchHistory.splice(0, 1);
-              }
+              
               if (
                 this.userService.atSignSearchHistory.indexOf(
                   this.userService.selectHandle.atsignName
@@ -237,6 +232,12 @@ export class StandardSignComponent implements OnInit {
                 this.userService.atSignSearchHistory.push(
                   this.userService.selectHandle.atsignName
                 );
+                if (
+                  this.userService.atSignSearchHistory.length >
+                  this.utilityService.searchHistoryCount
+                ) {
+                  this.userService.atSignSearchHistory.splice(0, 1);
+                }
               }
               this.handleNotAvailable = false;
               this.isCalculatingAtsign = false;

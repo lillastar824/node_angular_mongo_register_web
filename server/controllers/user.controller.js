@@ -1539,7 +1539,8 @@ const getUserByAtsign = async function(atsign){
     if (regexSpecialChars(atsignName)) {
         return null;
     }
-    const user = await User.findOne({ "atsignDetails.atsignName": { '$regex': `^${atsignName}$`, '$options': 'i' } },{ 'atsignDetails.$': 1 });  
+    // const user = await User.findOne({ "atsignDetails.atsignName": { '$regex': `^${atsignName}$`, '$options': 'i' } },{ 'atsignDetails.$': 1 });  
+    const user = await User.findOne({ "atsignDetails.atsignName": { '$regex': `^${atsignName}$`, '$options': 'i' } }).lean();  
     return user;
 }
 

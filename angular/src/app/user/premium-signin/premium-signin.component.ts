@@ -61,7 +61,6 @@ export class PremiumSigninComponent implements OnInit {
         private interstitialLoaderService :InterstitialLoaderService,
         private _snackBar: MatSnackBar) {
         this.showSucessMessage = "";
-        this.userService.showTimer = this.userService.showTimer ? this.userService.showTimer : false;
         this.route.params.subscribe((params) => {
           this.inviteCode = params["inviteCode"];
           if (params.code) {
@@ -76,9 +75,7 @@ export class PremiumSigninComponent implements OnInit {
         this.userService.selectHandle.payAmount = this.userService.selectHandle.payAmount ? this.userService.selectHandle.payAmount : 100;
         this.userService.selectHandle.premiumHandleType = this.userService.selectHandle.premiumHandleType ? this.userService.selectHandle.premiumHandleType : 'custom'
         this.userService.selectHandle.atsignName = this.userService.selectHandle.atsignName ? this.userService.selectHandle.atsignName : '';
-        if (this.userService.cartData.length > 0) {
-            this.userService.showTimer = true;
-        }
+       
     }
     @HostListener('document:click', ['$event'])
     onDocumentClick(event: MouseEvent) {
@@ -107,6 +104,10 @@ export class PremiumSigninComponent implements OnInit {
                     this.indexvalue = this.userDetails['atsignDetails'].length - 1;
                     // this.userService.selectHandle['atsignType'] = this.userDetails['atsignDetails'][this.indexvalue]['atsignType'];
                     // this.userService.selectHandle['atsignName'] = this.userDetails['atsignDetails'][this.indexvalue]['atsignName'];
+                    this.userService.showTimer = this.userService.showTimer ? this.userService.showTimer : false;
+                    if (this.userService.cartData.length > 0) {
+                        this.userService.showTimer = true;
+                    }
                     this.userService.selectHandle['atsignType'] = 'paid';
                     this.userService.selectHandle['atsignName'] = '';
                     if (this.userDetails.userStatus === "Invited") {
@@ -319,9 +320,7 @@ export class PremiumSigninComponent implements OnInit {
     }
 
     checkAtsignAvailability(form: NgForm, type) {
-        if(this.userService.atSignSearchHistory.length === this.utilityService.searchHistoryCount) {
-            this.userService.atSignSearchHistory.splice(0, 1);
-        }
+        
         if(!this.userService.selectHandle.atsignName)
         {
             return;
@@ -329,6 +328,9 @@ export class PremiumSigninComponent implements OnInit {
         this.userService.selectHandle.atsignName = this.userService.selectHandle.atsignName.replace(/\s/g, '');
         if (this.userService.atSignSearchHistory.indexOf(this.userService.selectHandle.atsignName) === -1) {
             this.userService.atSignSearchHistory.push(this.userService.selectHandle.atsignName);
+            if(this.userService.atSignSearchHistory.length > this.utilityService.searchHistoryCount) {
+                this.userService.atSignSearchHistory.splice(0, 1);
+            }
         }
         this.showInfo = false;
         // this.userService.cartData = [];
@@ -525,12 +527,13 @@ export class PremiumSigninComponent implements OnInit {
                         this.atsignNameError = false; 
                         this.atsignErrorMessage = '';
                         this.hybridMessage = '@sign successfully hybridized!';
-                        if(this.userService.atSignSearchHistory.length === this.utilityService.searchHistoryCount) {
-                            this.userService.atSignSearchHistory.splice(0, 1);
-                        }
+                        
                         this.userService.selectHandle.atsignName = this.userService.selectHandle.atsignName.replace(/\s/g, '');
                         if (this.userService.atSignSearchHistory.indexOf(this.userService.selectHandle.atsignName) === -1) {
                             this.userService.atSignSearchHistory.push(this.userService.selectHandle.atsignName);
+                            if(this.userService.atSignSearchHistory.length > this.utilityService.searchHistoryCount) {
+                                this.userService.atSignSearchHistory.splice(0, 1);
+                            }
                         }
                     } else {
                         this.noSimilarSign = true;

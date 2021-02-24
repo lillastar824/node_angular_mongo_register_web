@@ -20,13 +20,23 @@ const transferAtsignInitialization = async function (atsign, ownerId, newOwnerId
     if (error) {
         return { error: error }
     } else {
-        const ownerData = userPromise[0].value
+        let ownerData = userPromise[0].value
         const newOwnerData = userPromise[1].value
         if (!ownerData || !newOwnerData) {
             return { error: { type: 'info', message: 'Invalid user id' } }
         }
         if (newOwnerData.userRole.toLowerCase() !== 'user') {
             return { error: { type: 'info', message: "Oops, You can't transfer an @sign to this person" } }
+        }
+        if (ownerData.userRole.toLowerCase() == 'admin') {
+            const atsignOwner = await UserController.getUserByAtsign(atsign)
+            if(atsignOwner && atsignOwner._id){
+                ownerData = atsignOwner
+                ownerId = atsignOwner._id.toString()
+                if (ownerId == newOwnerId) return { error: { type: 'info', message: messages.SELF_TRANSFER_NOT_ALLOWED } }
+            }else{
+                return { error: { type: 'info', message: "Oops, You can't transfer an @sign to this person" } }
+            }
         }
         let ownerAtsignCount = 0, transferAtsignObj = null;
         ownerData.atsignDetails.forEach(atsignDetail => {
@@ -39,8 +49,9 @@ const transferAtsignInitialization = async function (atsign, ownerId, newOwnerId
         })
         if (ownerAtsignCount < CONSTANTS.MIN_NO_OF_ATSIGN_REQUIRED_TO_TRANSFER)
             return { error: { type: 'info', message: messages.MIN_ATSIGN_REQ_TO_TRANS } }
-        if (!transferAtsignObj)
+        if (!(transferAtsignObj && transferAtsignObj.atsignName && transferAtsignObj.atsignType && transferAtsignObj.atsignCreatedOn)){
             return { error: { type: 'info', message: 'Oops, this is not a valid @sign to transfer.' } }
+        }
 
         //Will allow in future
         const transferObjCompleteDetails = await AtsignDetailsController.getAtsignDetails(transferAtsignObj.atsignName)
@@ -208,7 +219,7 @@ const cancelTransferAtsign = async function (cancelledBy, atsignTransferId) {
         if (transferAtsignObj.error) return { error: transferAtsignObj.error }
 
         if (!transferAtsignObj.value || !cancelledBy) return { error: { type: 'info', message: 'Oops, this transfer request is expired.' } }
-        if ((transferAtsignObj.value.oldOwnerId && cancelledBy != transferAtsignObj.value.oldOwnerId.toString()) || (transferAtsignObj.value.transferredBy && cancelledBy != transferAtsignObj.value.transferredBy.toString())) {
+        if (!((transferAtsignObj.value.oldOwnerId && cancelledBy == transferAtsignObj.value.oldOwnerId.toString()) || (transferAtsignObj.value.transferredBy && cancelledBy == transferAtsignObj.value.transferredBy.toString()))) {
             return { error: { type: 'info', message: messages.UNAUTH } }
         }
         let cancelAtsignTransfer = await AtsignDetailsController.cancelAtsignTransfer(transferAtsignObj.value.atsign, atsignTransferId)
